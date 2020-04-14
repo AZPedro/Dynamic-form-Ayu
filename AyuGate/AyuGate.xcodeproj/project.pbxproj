@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		FAB2A6E22445FD0A00C49E06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E12445FD0A00C49E06 /* AppDelegate.swift */; };
-		FAB2A6E42445FD0A00C49E06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E32445FD0A00C49E06 /* SceneDelegate.swift */; };
 		FAB2A6E62445FD0A00C49E06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E52445FD0A00C49E06 /* ViewController.swift */; };
 		FAB2A6EB2445FD0E00C49E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB2A6EA2445FD0E00C49E06 /* Assets.xcassets */; };
 		FAB2A6EE2445FD0E00C49E06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB2A6EC2445FD0E00C49E06 /* LaunchScreen.storyboard */; };
+		FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */; };
+		FAB2A6F924460EAC00C49E06 /* AYUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */; };
+		FAB2A6FB2446100800C49E06 /* AYUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6FA2446100800C49E06 /* AYUButton.swift */; };
+		FAB2A6FE24462FD700C49E06 /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6FD24462FD700C49E06 /* UIColor+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FAB2A6DE2445FD0A00C49E06 /* AyuGate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AyuGate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB2A6E12445FD0A00C49E06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAB2A6E32445FD0A00C49E06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FAB2A6E52445FD0A00C49E06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAB2A6EA2445FD0E00C49E06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAB2A6ED2445FD0E00C49E06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAB2A6EF2445FD0E00C49E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUSpinnerView.swift; sourceTree = "<group>"; };
+		FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUTextField.swift; sourceTree = "<group>"; };
+		FAB2A6FA2446100800C49E06 /* AYUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUButton.swift; sourceTree = "<group>"; };
+		FAB2A6FD24462FD700C49E06 /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +61,32 @@
 			isa = PBXGroup;
 			children = (
 				FAB2A6E12445FD0A00C49E06 /* AppDelegate.swift */,
-				FAB2A6E32445FD0A00C49E06 /* SceneDelegate.swift */,
 				FAB2A6E52445FD0A00C49E06 /* ViewController.swift */,
+				FAB2A6FC24462FBF00C49E06 /* Extensions */,
+				FAB2A6F524460B6100C49E06 /* Components */,
 				FAB2A6EA2445FD0E00C49E06 /* Assets.xcassets */,
 				FAB2A6EC2445FD0E00C49E06 /* LaunchScreen.storyboard */,
 				FAB2A6EF2445FD0E00C49E06 /* Info.plist */,
 			);
 			path = AyuGate;
+			sourceTree = "<group>";
+		};
+		FAB2A6F524460B6100C49E06 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */,
+				FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */,
+				FAB2A6FA2446100800C49E06 /* AYUButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FAB2A6FC24462FBF00C49E06 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAB2A6FD24462FD700C49E06 /* UIColor+extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +160,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB2A6E62445FD0A00C49E06 /* ViewController.swift in Sources */,
+				FAB2A6F924460EAC00C49E06 /* AYUTextField.swift in Sources */,
+				FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */,
+				FAB2A6FB2446100800C49E06 /* AYUButton.swift in Sources */,
 				FAB2A6E22445FD0A00C49E06 /* AppDelegate.swift in Sources */,
-				FAB2A6E42445FD0A00C49E06 /* SceneDelegate.swift in Sources */,
+				FAB2A6FE24462FD700C49E06 /* UIColor+extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEP9UKL7GT;
 				INFOPLIST_FILE = AyuGate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -293,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEP9UKL7GT;
 				INFOPLIST_FILE = AyuGate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
