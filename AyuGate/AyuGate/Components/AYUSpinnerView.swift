@@ -48,7 +48,7 @@ public final class AYUSpinnerView: UIView {
         
         l.frame = self.bounds
         l.lineWidth = 2.0
-        l.strokeColor = UIColor.darkGray.cgColor
+        l.strokeColor = UIColor.yellowPrimary.cgColor
         l.fillColor = UIColor.clear.cgColor
         l.isOpaque = false
         l.strokeEnd = 0.7

@@ -10,11 +10,17 @@ import UIKit
 
 extension UIColor {
     
+    /// colors
     static var error = UIColor.hexStringToUIColor(hex: "#FF0000")
     static var black = UIColor.hexStringToUIColor(hex: "#000000")
     static var blackSecondary = UIColor.hexStringToUIColor(hex: "#000000").withAlphaComponent(0.5)
+    static var grayPrimary = UIColor.hexStringToUIColor(hex: "#7C7C7C")
+    static var graySecondary = UIColor.hexStringToUIColor(hex: "#B9B9B9")
     static var white = UIColor.hexStringToUIColor(hex: "#FFFFFF")
+    static var yellowPrimary = UIColor.hexStringToUIColor(hex: "#EFEC4E")
+    static var yellowSecondary = UIColor.hexStringToUIColor(hex: "#EAEA64")
     
+    /// functions
     static func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
