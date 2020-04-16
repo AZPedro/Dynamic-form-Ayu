@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         textField.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         textField.updateState(state: .notInputed)
         
+        // action button
         let actionButton = AYUButton(title: "Continuar", titleColor: .yellowPrimary)
         self.view.addSubview(actionButton)
         
@@ -47,6 +48,26 @@ class ViewController: UIViewController {
                 textField.updateState(state: .failed)
                 actionButton.updateState(state: .error)
             }
+        }
+        // logo label
+        let logoLabel = AYULogoLabel()
+        self.view.addSubview(logoLabel)
+        logoLabel.translatesAutoresizingMaskIntoConstraints = false
+        logoLabel.topAnchor.constraint(equalTo: actionButton.bottomAnchor, constant: 20).isActive = true
+        logoLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        
+        // barview
+        let barView = AYUInvoiceDiscountBar(model: InvoiceDiscountBarViewModel(model: InvoiceDiscountBarModel(discount: 130, input: 1000, netValue: 870)))
+        
+        self.view.addSubview(barView)
+        barView.translatesAutoresizingMaskIntoConstraints = false
+        barView.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 20).isActive = true
+        barView.heightAnchor.constraint(equalToConstant: 219).isActive = true
+        barView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            barView.animate()
         }
     }
     

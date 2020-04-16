@@ -15,6 +15,11 @@
 		FAB2A6F924460EAC00C49E06 /* AYUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */; };
 		FAB2A6FB2446100800C49E06 /* AYUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6FA2446100800C49E06 /* AYUButton.swift */; };
 		FAB2A6FE24462FD700C49E06 /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6FD24462FD700C49E06 /* UIColor+extensions.swift */; };
+		FAB2A7082447A2FE00C49E06 /* AYUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A7072447A2FE00C49E06 /* AYUViewController.swift */; };
+		FAB2A70A2447A33D00C49E06 /* AYULogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */; };
+		FAB2A70C2447A9AA00C49E06 /* AYUInvoiceDiscountBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A70B2447A9AA00C49E06 /* AYUInvoiceDiscountBar.swift */; };
+		FAB2A70F2447AD0400C49E06 /* InvoiceDiscountBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A70E2447AD0400C49E06 /* InvoiceDiscountBarModel.swift */; };
+		FAB2A7112447BF7200C49E06 /* AYUCustomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A7102447BF7200C49E06 /* AYUCustomBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUTextField.swift; sourceTree = "<group>"; };
 		FAB2A6FA2446100800C49E06 /* AYUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUButton.swift; sourceTree = "<group>"; };
 		FAB2A6FD24462FD700C49E06 /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
+		FAB2A7072447A2FE00C49E06 /* AYUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUViewController.swift; sourceTree = "<group>"; };
+		FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYULogoLabel.swift; sourceTree = "<group>"; };
+		FAB2A70B2447A9AA00C49E06 /* AYUInvoiceDiscountBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUInvoiceDiscountBar.swift; sourceTree = "<group>"; };
+		FAB2A70E2447AD0400C49E06 /* InvoiceDiscountBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDiscountBarModel.swift; sourceTree = "<group>"; };
+		FAB2A7102447BF7200C49E06 /* AYUCustomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUCustomBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +86,9 @@
 			children = (
 				FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */,
 				FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */,
+				FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */,
 				FAB2A6FA2446100800C49E06 /* AYUButton.swift */,
+				FAB2A70D2447ACDB00C49E06 /* InvoiceDiscountBar */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -85,8 +97,19 @@
 			isa = PBXGroup;
 			children = (
 				FAB2A6FD24462FD700C49E06 /* UIColor+extensions.swift */,
+				FAB2A7072447A2FE00C49E06 /* AYUViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAB2A70D2447ACDB00C49E06 /* InvoiceDiscountBar */ = {
+			isa = PBXGroup;
+			children = (
+				FAB2A70B2447A9AA00C49E06 /* AYUInvoiceDiscountBar.swift */,
+				FAB2A7102447BF7200C49E06 /* AYUCustomBarView.swift */,
+				FAB2A70E2447AD0400C49E06 /* InvoiceDiscountBarModel.swift */,
+			);
+			path = InvoiceDiscountBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,11 +183,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB2A6E62445FD0A00C49E06 /* ViewController.swift in Sources */,
+				FAB2A70C2447A9AA00C49E06 /* AYUInvoiceDiscountBar.swift in Sources */,
+				FAB2A7112447BF7200C49E06 /* AYUCustomBarView.swift in Sources */,
 				FAB2A6F924460EAC00C49E06 /* AYUTextField.swift in Sources */,
 				FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */,
+				FAB2A70F2447AD0400C49E06 /* InvoiceDiscountBarModel.swift in Sources */,
 				FAB2A6FB2446100800C49E06 /* AYUButton.swift in Sources */,
 				FAB2A6E22445FD0A00C49E06 /* AppDelegate.swift in Sources */,
+				FAB2A70A2447A33D00C49E06 /* AYULogoLabel.swift in Sources */,
 				FAB2A6FE24462FD700C49E06 /* UIColor+extensions.swift in Sources */,
+				FAB2A7082447A2FE00C49E06 /* AYUViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
