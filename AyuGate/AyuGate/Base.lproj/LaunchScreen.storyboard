@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +13,43 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoBlackPDF" translatesAutoresizingMaskIntoConstraints="NO" id="ddX-pG-KEm">
+                                <rect key="frame" x="143.5" y="222" width="127" height="127"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="127" id="9m1-JX-X0K"/>
+                                    <constraint firstAttribute="height" constant="127" id="Ack-3l-0LP"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="127" id="xs1-LT-x1q"/>
+                                    <constraint firstAttribute="width" constant="127" id="zHK-m4-JQW"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AYUTitleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="RRb-5A-c7R">
+                                <rect key="frame" x="89" y="352" width="236" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="rZh-ii-FFS"/>
+                                    <constraint firstAttribute="height" constant="100" id="wfp-2L-AUO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ddX-pG-KEm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="178" id="VnR-BS-qdO"/>
+                            <constraint firstItem="RRb-5A-c7R" firstAttribute="top" secondItem="ddX-pG-KEm" secondAttribute="bottom" constant="3" id="Z6j-6I-qDT"/>
+                            <constraint firstItem="RRb-5A-c7R" firstAttribute="centerX" secondItem="ddX-pG-KEm" secondAttribute="centerX" id="a0q-lS-XXS"/>
+                            <constraint firstItem="ddX-pG-KEm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wmC-li-jt7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="50.724637681159422" y="374.33035714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AYUTitleLogo" width="297" height="131"/>
+        <image name="LogoBlackPDF" width="1252" height="1252"/>
+    </resources>
 </document>
