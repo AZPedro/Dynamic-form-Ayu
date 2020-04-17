@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AyuGateAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -21,10 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func prepareMainViewController() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        
-        let mainViewController = ViewController()
 
-        window?.rootViewController = mainViewController
+        window?.rootViewController = AppFlow.shared.flow()
         window?.makeKeyAndVisible()
         
     }
