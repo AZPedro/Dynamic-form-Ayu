@@ -15,6 +15,10 @@ class AYUCPFFormView: AYUTextField {
         self.buildUI()
     }
     
+    var value: String? {
+        return textField.text?.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "-", with: "")
+    }
+    
     struct Constants {
         static let maxDigits = 13
         static let _points = [11]
@@ -32,6 +36,8 @@ class AYUCPFFormView: AYUTextField {
         errorLabel.text = "Não foi possível encontrar o CPF inserido"
         textField.delegate = self
     }
+    
+    var validationHandler: ((Bool) -> Void)?
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -53,15 +59,21 @@ class AYUCPFFormView: AYUTextField {
     }
     
     override func textDidChanged(_ sender: UITextField) {
+        validationHandler?(false)
         guard let textDigits = sender.text, textDigits.count == 14 else {
             return
         }
         
-        let cpfDigits = textDigits.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "-", with: "")
+        guard let cpfValue = value else {
+            updateState(state: .failed)
+            return
+        }
         
-        if !cpfDigits.isCPF {
+        if !cpfValue.isCPF {
+            validationHandler?(false)
             updateState(state: .failed)
         } else {
+            validationHandler?(true)
             updateState(state: .input)
         }
     }

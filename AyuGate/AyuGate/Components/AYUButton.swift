@@ -12,7 +12,7 @@ import UIKit
 class AYUButton: UIButton {
     
     struct Constants {
-        static let buttonHeight: CGFloat = 47
+        static let buttonHeight: CGFloat = 55
         static let widthPadding: CGFloat = 20
     }
     
@@ -34,17 +34,14 @@ class AYUButton: UIButton {
     func buildUI() {
         addSubview(spinnerView)
         
-        layer.cornerRadius = 5
-        clipsToBounds = true
-        
         setTitleColor(.grayPrimary, for: .disabled)
         titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        titleLabel?.isUserInteractionEnabled = false
 
         translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: Constants.buttonHeight),
-            widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - Constants.widthPadding),
             spinnerView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             spinnerView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
