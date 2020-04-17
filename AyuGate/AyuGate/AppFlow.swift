@@ -24,6 +24,8 @@ final class AppFlow: NSObject {
     
     func unloggedFlow() -> UIViewController {
         return RegisterFlowController()
+//        return DebugComponentsViewController()
+        
     }
     
     func loggedFLow() -> UIViewController {

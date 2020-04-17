@@ -42,13 +42,13 @@ class AYUTextField: UIView {
         t.tintColor = .black
         t.delegate = self
         t.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(textFieldDidtouched)))
+        t.addTarget(self, action: #selector(textDidChanged), for: .editingChanged)
         t.translatesAutoresizingMaskIntoConstraints = false
         return t
     }()
     
     var titleLabel: UILabel = {
         let t = UILabel()
-        t.text = "Cadastro com seu CPF"
         t.textAlignment = .left
         t.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         t.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +59,6 @@ class AYUTextField: UIView {
     var placeHolder: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "CPF"
         l.textColor = UIColor.blackSecondary
         l.font = UIFont.systemFont(ofSize: 11, weight: .regular)
         return l
@@ -72,11 +71,10 @@ class AYUTextField: UIView {
         return v
     }()
     
-    private var errorLabel: UILabel = {
+    var errorLabel: UILabel = {
         let l = UILabel()
         l.alpha = 0
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "Não foi possivel encontrar o CPF inserido"
         l.textColor = UIColor.error
         l.font = UIFont.systemFont(ofSize: 11, weight: .regular)
         return l
@@ -186,6 +184,10 @@ extension AYUTextField: UITextFieldDelegate {
         textField.resignFirstResponder()
         self.updateState(state: .notInputed)
         return true
+    }
+    
+    @objc func textDidChanged(_ sender: UITextField) {
+        
     }
     
 }

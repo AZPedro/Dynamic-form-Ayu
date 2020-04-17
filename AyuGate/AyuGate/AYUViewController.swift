@@ -22,6 +22,7 @@ class AYUViewController: UIViewController {
     
     private lazy var backArrow: UIImageView = {
         let i = UIImageView()
+        i.isUserInteractionEnabled = true
         i.translatesAutoresizingMaskIntoConstraints = false
         i.heightAnchor.constraint(equalToConstant: 28).isActive = true
         i.widthAnchor.constraint(equalToConstant: 15).isActive = true
@@ -45,6 +46,8 @@ class AYUViewController: UIViewController {
     }
     
     private func buildUI() {
+        view.isUserInteractionEnabled = true
+       
         view.backgroundColor = .white
         view.addSubview(headerLogoImage)
         view.addSubview(backArrow)

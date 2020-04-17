@@ -22,6 +22,8 @@
 		FAD51075244925D900B224AF /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD51074244925D900B224AF /* AppFlow.swift */; };
 		FAD510782449299600B224AF /* RegisterFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD510772449299600B224AF /* RegisterFlowController.swift */; };
 		FAD5107A24492CAB00B224AF /* AYUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5107924492CAB00B224AF /* AYUViewController.swift */; };
+		FAD5107C2449318200B224AF /* AYUCPFFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5107B2449318200B224AF /* AYUCPFFormView.swift */; };
+		FAD5107E24493B5900B224AF /* Strings+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5107D24493B5900B224AF /* Strings+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		FAD51074244925D900B224AF /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		FAD510772449299600B224AF /* RegisterFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFlowController.swift; sourceTree = "<group>"; };
 		FAD5107924492CAB00B224AF /* AYUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUViewController.swift; sourceTree = "<group>"; };
+		FAD5107B2449318200B224AF /* AYUCPFFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUCPFFormView.swift; sourceTree = "<group>"; };
+		FAD5107D24493B5900B224AF /* Strings+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB2A6FD24462FD700C49E06 /* UIColor+extensions.swift */,
+				FAD5107D24493B5900B224AF /* Strings+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD510772449299600B224AF /* RegisterFlowController.swift */,
+				FAD5107B2449318200B224AF /* AYUCPFFormView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -198,8 +204,10 @@
 			files = (
 				FAD510782449299600B224AF /* RegisterFlowController.swift in Sources */,
 				FAB2A6E62445FD0A00C49E06 /* DebugComponentsViewController.swift in Sources */,
+				FAD5107E24493B5900B224AF /* Strings+extensions.swift in Sources */,
 				FAD51075244925D900B224AF /* AppFlow.swift in Sources */,
 				FAB2A70C2447A9AA00C49E06 /* AYUInvoiceDiscountBar.swift in Sources */,
+				FAD5107C2449318200B224AF /* AYUCPFFormView.swift in Sources */,
 				FAB2A7112447BF7200C49E06 /* AYUCustomBarView.swift in Sources */,
 				FAB2A6F924460EAC00C49E06 /* AYUTextField.swift in Sources */,
 				FAD5107A24492CAB00B224AF /* AYUViewController.swift in Sources */,
