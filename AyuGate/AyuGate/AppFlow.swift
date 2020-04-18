@@ -14,21 +14,17 @@ final class AppFlow: NSObject {
     
     let isUserLoged: Bool = false
     
-    func flow() -> UIViewController {
-        guard isUserLoged else {
-            return unloggedFlow()
+    private lazy var nav = UINavigationController()
+    
+    func flow() -> UINavigationController {
+        nav.isNavigationBarHidden = true
+        
+        if isUserLoged {
+            nav.viewControllers = [UIViewController()]
+        } else {
+            nav.viewControllers = [RegisterFlowController()]
         }
         
-        return loggedFLow()
-    }
-    
-    func unloggedFlow() -> UIViewController {
-        return RegisterFlowController()
-//        return DebugComponentsViewController()
-        
-    }
-    
-    func loggedFLow() -> UIViewController {
-        return DebugComponentsViewController()
+        return nav
     }
 }

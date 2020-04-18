@@ -27,6 +27,7 @@
 		FAD51084244A603500B224AF /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD51083244A603500B224AF /* UIView+extensions.swift */; };
 		FAD51086244A610C00B224AF /* AYUFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD51085244A610C00B224AF /* AYUFormViewController.swift */; };
 		FAD51088244A6A3500B224AF /* RegisterFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD51087244A6A3500B224AF /* RegisterFlowController.swift */; };
+		FAD5108A244A6DCF00B224AF /* PasswordRegisterViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD51089244A6DCF00B224AF /* PasswordRegisterViewController .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		FAD51083244A603500B224AF /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		FAD51085244A610C00B224AF /* AYUFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUFormViewController.swift; sourceTree = "<group>"; };
 		FAD51087244A6A3500B224AF /* RegisterFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFlowController.swift; sourceTree = "<group>"; };
+		FAD51089244A6DCF00B224AF /* PasswordRegisterViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PasswordRegisterViewController .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,12 +135,21 @@
 		FAD510762449298200B224AF /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				FAD5108B244A6DDE00B224AF /* Views */,
 				FAD510772449299600B224AF /* CpfRegisterViewController.swift */,
-				FAD5107B2449318200B224AF /* AYUCPFFormView.swift */,
+				FAD51089244A6DCF00B224AF /* PasswordRegisterViewController .swift */,
 				FAD51087244A6A3500B224AF /* RegisterFlowController.swift */,
 				FAD51085244A610C00B224AF /* AYUFormViewController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		FAD5108B244A6DDE00B224AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAD5107B2449318200B224AF /* AYUCPFFormView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 				FAD51084244A603500B224AF /* UIView+extensions.swift in Sources */,
 				FAB2A7112447BF7200C49E06 /* AYUCustomBarView.swift in Sources */,
 				FAB2A6F924460EAC00C49E06 /* AYUTextField.swift in Sources */,
+				FAD5108A244A6DCF00B224AF /* PasswordRegisterViewController .swift in Sources */,
 				FAD5107A24492CAB00B224AF /* AYUViewController.swift in Sources */,
 				FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */,
 				FAB2A70F2447AD0400C49E06 /* InvoiceDiscountBarModel.swift in Sources */,

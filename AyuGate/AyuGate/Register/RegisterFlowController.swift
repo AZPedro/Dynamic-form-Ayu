@@ -12,6 +12,13 @@ class RegisterFlowController: UIViewController {
     
     private lazy var cpfRegisterViewController: CpfRegisterViewController = {
         let vc = CpfRegisterViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.delegate = self
+        return vc
+    }()
+    
+    private lazy var passwordRegisterViewController: PasswordRegisterViewController = {
+        let vc = PasswordRegisterViewController()
         return vc
     }()
     
@@ -20,9 +27,14 @@ class RegisterFlowController: UIViewController {
         
         installChild(cpfRegisterViewController)
     }
+    
+    private func showPasswordForm() {
+        self.navigationController?.pushViewController(passwordRegisterViewController, animated: true)
+    }
 }
 
 extension RegisterFlowController: CpfRegisterControllerDelegate {
     func cpfRegisterControllerDelegate(_ didFinished: CpfRegisterViewController?) {
+        showPasswordForm()
     }
 }

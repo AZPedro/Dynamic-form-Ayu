@@ -33,7 +33,10 @@ class CpfRegisterViewController: AYUActionButtonViewController {
         setupCPFFormView()
         
         actionHandler = { [weak self] in
-            self?.delegate?.cpfRegisterControllerDelegate(self)
+            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+                self?.actionButton.updateState(state: .success)
+                self?.delegate?.cpfRegisterControllerDelegate(self)
+            }
         }
         
         cpfFormView.validationHandler = { [weak self] isValid in
