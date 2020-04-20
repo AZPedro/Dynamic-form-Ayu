@@ -25,7 +25,7 @@ class AYUViewController: UIViewController {
         i.isUserInteractionEnabled = true
         i.translatesAutoresizingMaskIntoConstraints = false
         i.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        i.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        i.widthAnchor.constraint(equalToConstant: 28).isActive = true
         i.contentMode = .scaleAspectFit
         i.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(pop)))
         i.image = UIImage(named: "backArrow")

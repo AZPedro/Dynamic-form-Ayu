@@ -55,10 +55,10 @@ class AYUActionButtonViewController: AYUViewController {
 
     @objc func keyboardWillHide(notification: Notification) {
         view.setNeedsLayout()
+
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
             self.actionButtonBottomConstraint?.constant = 0
             self.view.layoutIfNeeded()
         }, completion: nil)
-        
     }
 }

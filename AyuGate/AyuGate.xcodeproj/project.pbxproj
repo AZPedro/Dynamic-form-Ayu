@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		FAB2A6E22445FD0A00C49E06 /* AyuGateAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */; };
 		FAB2A6E62445FD0A00C49E06 /* DebugComponentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */; };
-		FAB2A6EB2445FD0E00C49E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB2A6EA2445FD0E00C49E06 /* Assets.xcassets */; };
+		FAB2A6EB2445FD0E00C49E06 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB2A6EA2445FD0E00C49E06 /* images.xcassets */; };
 		FAB2A6EE2445FD0E00C49E06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB2A6EC2445FD0E00C49E06 /* LaunchScreen.storyboard */; };
 		FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */; };
 		FAB2A6F924460EAC00C49E06 /* AYUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */; };
@@ -34,7 +34,7 @@
 		FAB2A6DE2445FD0A00C49E06 /* AyuGate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AyuGate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyuGateAppDelegate.swift; sourceTree = "<group>"; };
 		FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugComponentsViewController.swift; sourceTree = "<group>"; };
-		FAB2A6EA2445FD0E00C49E06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAB2A6EA2445FD0E00C49E06 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		FAB2A6ED2445FD0E00C49E06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAB2A6EF2445FD0E00C49E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUSpinnerView.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				FAD51074244925D900B224AF /* AppFlow.swift */,
 				FAB2A6FC24462FBF00C49E06 /* Extensions */,
 				FAB2A6F524460B6100C49E06 /* Components */,
-				FAB2A6EA2445FD0E00C49E06 /* Assets.xcassets */,
+				FAB2A6EA2445FD0E00C49E06 /* images.xcassets */,
 				FAB2A6EC2445FD0E00C49E06 /* LaunchScreen.storyboard */,
 				FAB2A6EF2445FD0E00C49E06 /* Info.plist */,
 			);
@@ -211,7 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB2A6EE2445FD0E00C49E06 /* LaunchScreen.storyboard in Resources */,
-				FAB2A6EB2445FD0E00C49E06 /* Assets.xcassets in Resources */,
+				FAB2A6EB2445FD0E00C49E06 /* images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,6 +35,9 @@ class CpfRegisterViewController: AYUActionButtonViewController {
         actionHandler = { [weak self] in
             DispatchQueue.main.asyncAfter(deadline: .now()+2) {
                 self?.actionButton.updateState(state: .success)
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
                 self?.delegate?.cpfRegisterControllerDelegate(self)
             }
         }

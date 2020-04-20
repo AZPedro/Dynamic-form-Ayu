@@ -122,7 +122,9 @@ class AYUTextField: UIView {
         switch state {
         case .failed:
             animateError(shouldShow: true)
-            expandedAnimation(shouldExpand: true)
+            if errorLabel.text != nil {
+                expandedAnimation(shouldExpand: true)
+            }
         case .valid:
             backLine.backgroundColor = .black
         case .input:
@@ -156,7 +158,6 @@ class AYUTextField: UIView {
         UIView.animate(withDuration: 0.5) {
             self.errorLabel.alpha = shouldShow ? 1 : 0
             self.backLine.backgroundColor = shouldShow ? UIColor.error : UIColor.black
-            self.heightConstraint?.constant = Constants.viewExpandedHeight
             self.layoutIfNeeded()
         }
     }
@@ -184,6 +185,14 @@ extension AYUTextField: UITextFieldDelegate {
         textField.resignFirstResponder()
         self.updateState(state: .notInputed)
         return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.updateState(state: .notInputed)
     }
     
     @objc func textDidChanged(_ sender: UITextField) {
