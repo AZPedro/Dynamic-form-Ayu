@@ -20,8 +20,9 @@ class AYUViewController: UIViewController {
         return i
     }()
     
-    private lazy var backArrow: UIImageView = {
+     lazy var backArrow: UIImageView = {
         let i = UIImageView()
+        i.isHidden = true
         i.isUserInteractionEnabled = true
         i.translatesAutoresizingMaskIntoConstraints = false
         i.heightAnchor.constraint(equalToConstant: 28).isActive = true

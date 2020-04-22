@@ -82,8 +82,8 @@ class AYUInvoiceDiscountBar: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalToConstant: 7).isActive = true
 
-//        view.layer.cornerRadius = 3
-//        view.clipsToBounds = true
+        view.layer.cornerRadius = 3
+        view.clipsToBounds = true
         view.backgroundColor = .redSecondary
         return view
     }()

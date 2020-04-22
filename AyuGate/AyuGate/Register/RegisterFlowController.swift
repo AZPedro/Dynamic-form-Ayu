@@ -25,7 +25,7 @@ class RegisterFlowController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        installChild(passwordRegisterViewController)
+        installChild(cpfRegisterViewController)
     }
     
     private func showPasswordForm() {

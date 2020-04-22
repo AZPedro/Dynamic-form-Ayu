@@ -22,7 +22,9 @@ final class AppFlow: NSObject {
         if isUserLoged {
             nav.viewControllers = [UIViewController()]
         } else {
-            nav.viewControllers = [RegisterFlowController()]
+//            nav.viewControllers = [DebugComponentsViewController()]
+            nav.viewControllers = [HomeFlowController()]
+//            nav.viewControllers = [RegisterFlowController()]
         }
         
         return nav

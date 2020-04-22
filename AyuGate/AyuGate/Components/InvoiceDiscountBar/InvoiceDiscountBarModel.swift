@@ -34,13 +34,3 @@ struct InvoiceDiscountBarModel {
     let input: Double
     let netValue: Double
 }
-
-//func calculaReferente(input: Double, discount: Double, netValue: Double) -> Int {
-//    let total = input + discount + netValue
-//
-//    let percentOfInput = input / total * 100
-//    let percentOfDiscount = discount / total * 100
-//    let percentOfNetValue = netValue / total * 100
-//
-//
-//}
