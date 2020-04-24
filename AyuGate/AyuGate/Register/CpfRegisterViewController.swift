@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CpfRegisterControllerDelegate {
-    func cpfRegisterControllerDelegate(_ didFinished: CpfRegisterViewController?)
+    func cpfRegisterControllerDelegateVerify(didFinished model: CPFRegisterViewModel, controller: CpfRegisterViewController)
 }
 
 class CpfRegisterViewController: AYUActionButtonViewController {
@@ -19,6 +19,8 @@ class CpfRegisterViewController: AYUActionButtonViewController {
     }
     
     var delegate: CpfRegisterControllerDelegate?
+    
+    private let networkManager = NetworkManager.shared
     
     private lazy var cpfFormView: AYUCPFFormView  = {
         let view = AYUCPFFormView()
@@ -33,13 +35,7 @@ class CpfRegisterViewController: AYUActionButtonViewController {
         setupCPFFormView()
         
         actionHandler = { [weak self] in
-            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-                self?.actionButton.updateState(state: .success)
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
-                self?.delegate?.cpfRegisterControllerDelegate(self)
-            }
+            self?.verifyCPF()
         }
         
         cpfFormView.validationHandler = { [weak self] isValid in
@@ -56,7 +52,17 @@ class CpfRegisterViewController: AYUActionButtonViewController {
         cpfFormView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }
     
-    
+    private func verifyCPF() {
+        guard let cpfValue = cpfFormView.value else { return }
+        guard let url = URL(string: "https://demo2715069.mockable.io/verify") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        networkManager.makeRequest(request: request) { (result: Handler<Verify>) in
+            let model = CPFRegisterViewModel(model: result.response, cpf: cpfValue)
+            self.delegate?.cpfRegisterControllerDelegateVerify(didFinished: model, controller: self)
+        }
+    }
     
     @objc func dismissKeyboard() {
         self.cpfFormView.textField.resignFirstResponder()

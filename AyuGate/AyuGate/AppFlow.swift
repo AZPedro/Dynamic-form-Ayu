@@ -23,8 +23,8 @@ final class AppFlow: NSObject {
             nav.viewControllers = [UIViewController()]
         } else {
 //            nav.viewControllers = [DebugComponentsViewController()]
-            nav.viewControllers = [HomeFlowController()]
-//            nav.viewControllers = [RegisterFlowController()]
+//            nav.viewControllers = [HomeFlowController()]
+            nav.viewControllers = [RegisterFlowController()]
         }
         
         return nav

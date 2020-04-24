@@ -10,6 +10,10 @@ import UIKit
 
 class PasswordRegisterViewController: AYUActionButtonViewController {
     
+    public enum FormType {
+        case login, register
+    }
+    
     struct Constants {
         static let cpfHeaderLabelYConstant = UIScreen.main.bounds.height / 5
     }
@@ -19,6 +23,19 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
         buildUI()
     }
     
+    private let type: FormType
+    private let cpf: String
+    
+    init(type: FormType, cpf: String) {
+        self.type = type
+        self.cpf = cpf
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private var cpfHeaderLabelHeightConstraint: NSLayoutConstraint?
     
     private let passwordField: AYUTextField = {
@@ -26,7 +43,6 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
         textField.textField.isSecureTextEntry = true
         textField.textField.autocorrectionType = .no
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.titleLabel.text = "Criar uma senha"
         textField.placeHolder.text = "Senha"
         return textField
     }()
@@ -52,7 +68,6 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
     
     private let cpfHeaderLabel: UILabel = {
         let label = UILabel()
-        label.text = "180.049.067-45"
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -79,6 +94,10 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
         passwordConfirmationField.topAnchor.constraint(equalTo: passwordField.bottomAnchor).isActive = true
         passwordConfirmationField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         passwordConfirmationField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        cpfHeaderLabel.text = cpf
+        passwordField.titleLabel.text = self.type == .login ? "Senha" : "Criar uma senha"
+        passwordConfirmationField.isHidden = self.type == .login ? true : false
         
         actionHandler = {
             if self.isValidPasswordFields() {
