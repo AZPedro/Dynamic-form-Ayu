@@ -27,8 +27,35 @@ class HomeCardView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.text = model.month
-        label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         return label
+    }()
+    
+    private lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
+        label.textColor = .white
+        label.text = "R$ 1.800,00"
+        return label
+    }()
+    
+    private lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
+        label.textColor = UIColor.white.withAlphaComponent(0.38)
+        label.text = "Terça, 01/04, 2019"
+        return label
+    }()
+    
+    private lazy var iconImageView: UIImageView = {
+        let i = UIImageView()
+        i.translatesAutoresizingMaskIntoConstraints = false
+        i.heightAnchor.constraint(equalToConstant: 23).isActive = true
+        i.widthAnchor.constraint(equalToConstant: 33).isActive = true
+        i.image = UIImage(named: "invoiceListIcon")
+        return i
     }()
     
     private lazy var invoiceDiscountBar: AYUInvoiceDiscountBar = {
@@ -59,6 +86,18 @@ class HomeCardView: UIView {
         addSubview(monthTitle)
         monthTitle.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         monthTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        
+        addSubview(priceLabel)
+        priceLabel.leadingAnchor.constraint(equalTo: monthTitle.leadingAnchor).isActive = true
+        priceLabel.topAnchor.constraint(equalTo: monthTitle.bottomAnchor, constant: 6).isActive = true
+        
+        addSubview(dateLabel)
+        dateLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: priceLabel.leadingAnchor).isActive = true
+        
+        addSubview(iconImageView)
+        iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -10).isActive = true
+        iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10).isActive = true
         
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
             self.invoiceDiscountBar.animate()

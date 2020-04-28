@@ -10,7 +10,7 @@ import UIKit
 
 class AYUViewController: UIViewController {
     
-    private lazy var headerLogoImage: UIImageView = {
+    lazy var headerLogoImage: UIImageView = {
         let i = UIImageView()
         i.translatesAutoresizingMaskIntoConstraints = false
         i.heightAnchor.constraint(equalToConstant: 53).isActive = true

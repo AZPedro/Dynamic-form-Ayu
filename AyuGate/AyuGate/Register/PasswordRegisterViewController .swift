@@ -80,6 +80,8 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
         view.addSubview(checkMarkIconImageView)
         view.addSubview(cpfHeaderLabel)
         
+        backArrow.isHidden = false
+        
         cpfHeaderLabelHeightConstraint = cpfHeaderLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -Constants.cpfHeaderLabelYConstant)
         cpfHeaderLabelHeightConstraint?.isActive = true
         cpfHeaderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
