@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */; };
 		FA57619F24536D89009BB9CF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57619E24536D89009BB9CF /* NetworkManager.swift */; };
 		FA5761A124537A4B009BB9CF /* ParsableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5761A024537A4B009BB9CF /* ParsableModels.swift */; };
 		FA5761A52453802A009BB9CF /* CPFRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5761A42453802A009BB9CF /* CPFRegisterViewModel.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUInvoiceDetailsCell.swift; sourceTree = "<group>"; };
 		FA57619E24536D89009BB9CF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FA5761A024537A4B009BB9CF /* ParsableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableModels.swift; sourceTree = "<group>"; };
 		FA5761A42453802A009BB9CF /* CPFRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPFRegisterViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */,
 				FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */,
+				FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */,
 				FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */,
 				FAB2A6FA2446100800C49E06 /* AYUButton.swift */,
 				FAB2A70D2447ACDB00C49E06 /* InvoiceDiscountBar */,
@@ -289,6 +292,7 @@
 				FAB2A6F924460EAC00C49E06 /* AYUTextField.swift in Sources */,
 				FAD5108A244A6DCF00B224AF /* PasswordRegisterViewController .swift in Sources */,
 				FA5761A124537A4B009BB9CF /* ParsableModels.swift in Sources */,
+				FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift in Sources */,
 				FAD5107A24492CAB00B224AF /* AYUViewController.swift in Sources */,
 				FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */,
 				FAB2A70F2447AD0400C49E06 /* InvoiceDiscountBarModel.swift in Sources */,

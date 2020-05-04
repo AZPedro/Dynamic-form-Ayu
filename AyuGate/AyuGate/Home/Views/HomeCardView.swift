@@ -24,6 +24,7 @@ class HomeCardView: UIView {
     
     private lazy var monthTitle: UILabel = {
         let label = UILabel()
+        label.alpha = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.text = model.month
@@ -33,6 +34,7 @@ class HomeCardView: UIView {
     
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
+        label.alpha = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
         label.textColor = .white
@@ -42,6 +44,7 @@ class HomeCardView: UIView {
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
+        label.alpha = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
         label.textColor = UIColor.white.withAlphaComponent(0.38)
@@ -51,6 +54,7 @@ class HomeCardView: UIView {
     
     private lazy var iconImageView: UIImageView = {
         let i = UIImageView()
+        i.alpha = 0
         i.translatesAutoresizingMaskIntoConstraints = false
         i.heightAnchor.constraint(equalToConstant: 23).isActive = true
         i.widthAnchor.constraint(equalToConstant: 33).isActive = true
@@ -102,6 +106,17 @@ class HomeCardView: UIView {
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
             self.invoiceDiscountBar.animate()
         }
+        
+        animate()
+    }
+    
+    private func animate() {
+        UIView.animate(withDuration: 1.5, animations: {
+            self.monthTitle.alpha = 1
+            self.priceLabel.alpha = 1
+            self.dateLabel.alpha = 1
+            self.iconImageView.alpha = 1
+        }, completion: nil)
     }
 }
 

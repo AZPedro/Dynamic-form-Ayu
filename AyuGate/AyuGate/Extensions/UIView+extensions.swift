@@ -19,3 +19,12 @@ public extension UIViewController {
     }
 
 }
+
+extension CALayer {
+    func setupShadow(opacity: Float = 0.8) {
+        masksToBounds = false
+        shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        shadowOffset = CGSize(width: 5, height: 7)
+        shadowOpacity = opacity
+    }
+}
