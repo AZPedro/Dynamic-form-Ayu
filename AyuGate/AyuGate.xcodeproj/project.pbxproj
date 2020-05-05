@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		43056878ECFFCE57F5D31560 /* Pods_AyuGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24081DC05A1B02619B706F7 /* Pods_AyuGate.framework */; };
 		FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */; };
+		FA26393724617E4D00E282F6 /* AYUMonthsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */; };
 		FA57619F24536D89009BB9CF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57619E24536D89009BB9CF /* NetworkManager.swift */; };
 		FA5761A124537A4B009BB9CF /* ParsableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5761A024537A4B009BB9CF /* ParsableModels.swift */; };
 		FA5761A52453802A009BB9CF /* CPFRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5761A42453802A009BB9CF /* CPFRegisterViewModel.swift */; };
@@ -42,6 +43,7 @@
 		661B2DECDDF89C49465BBB84 /* Pods-AyuGate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AyuGate.debug.xcconfig"; path = "Target Support Files/Pods-AyuGate/Pods-AyuGate.debug.xcconfig"; sourceTree = "<group>"; };
 		F24081DC05A1B02619B706F7 /* Pods_AyuGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AyuGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUInvoiceDetailsCell.swift; sourceTree = "<group>"; };
+		FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUMonthsPickerView.swift; sourceTree = "<group>"; };
 		FA57619E24536D89009BB9CF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FA5761A024537A4B009BB9CF /* ParsableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableModels.swift; sourceTree = "<group>"; };
 		FA5761A42453802A009BB9CF /* CPFRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPFRegisterViewModel.swift; sourceTree = "<group>"; };
@@ -90,7 +92,6 @@
 				661B2DECDDF89C49465BBB84 /* Pods-AyuGate.debug.xcconfig */,
 				34ADB7801978CF0D698EF65A /* Pods-AyuGate.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -169,6 +170,7 @@
 				FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */,
 				FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */,
 				FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */,
+				FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */,
 				FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */,
 				FAB2A6FA2446100800C49E06 /* AYUButton.swift */,
 				FAB2A70D2447ACDB00C49E06 /* InvoiceDiscountBar */,
@@ -354,6 +356,7 @@
 				FAD51086244A610C00B224AF /* AYUFormViewController.swift in Sources */,
 				FABAB9FC244F8CB800170210 /* HomeCardView.swift in Sources */,
 				FAD51088244A6A3500B224AF /* RegisterFlowController.swift in Sources */,
+				FA26393724617E4D00E282F6 /* AYUMonthsPickerView.swift in Sources */,
 				FAB2A6FE24462FD700C49E06 /* UIColor+extensions.swift in Sources */,
 				FA5761A52453802A009BB9CF /* CPFRegisterViewModel.swift in Sources */,
 			);

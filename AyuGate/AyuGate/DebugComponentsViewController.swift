@@ -44,6 +44,15 @@ class DebugComponentsViewController: UIViewController {
         invoiceDetailsView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
         invoiceDetailsView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
         invoiceDetailsView.heightAnchor.constraint(equalToConstant: 37).isActive = true
+        
+        let pickerView = AYUMonthsPickerView()
+        self.view.addSubview(pickerView)
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        pickerView.topAnchor.constraint(equalTo: invoiceDetailsView.bottomAnchor, constant: 20).isActive = true
+        pickerView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        pickerView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        pickerView.heightAnchor.constraint(equalToConstant: 37).isActive = true
+        
     }
     
 }
