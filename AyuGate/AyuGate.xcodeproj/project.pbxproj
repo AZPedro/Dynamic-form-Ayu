@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43056878ECFFCE57F5D31560 /* Pods_AyuGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24081DC05A1B02619B706F7 /* Pods_AyuGate.framework */; };
 		FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */; };
 		FA57619F24536D89009BB9CF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57619E24536D89009BB9CF /* NetworkManager.swift */; };
 		FA5761A124537A4B009BB9CF /* ParsableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5761A024537A4B009BB9CF /* ParsableModels.swift */; };
@@ -37,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34ADB7801978CF0D698EF65A /* Pods-AyuGate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AyuGate.release.xcconfig"; path = "Target Support Files/Pods-AyuGate/Pods-AyuGate.release.xcconfig"; sourceTree = "<group>"; };
+		661B2DECDDF89C49465BBB84 /* Pods-AyuGate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AyuGate.debug.xcconfig"; path = "Target Support Files/Pods-AyuGate/Pods-AyuGate.debug.xcconfig"; sourceTree = "<group>"; };
+		F24081DC05A1B02619B706F7 /* Pods_AyuGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AyuGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUInvoiceDetailsCell.swift; sourceTree = "<group>"; };
 		FA57619E24536D89009BB9CF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FA5761A024537A4B009BB9CF /* ParsableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableModels.swift; sourceTree = "<group>"; };
@@ -73,12 +77,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43056878ECFFCE57F5D31560 /* Pods_AyuGate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A136A59A259DFE773ED2FA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				661B2DECDDF89C49465BBB84 /* Pods-AyuGate.debug.xcconfig */,
+				34ADB7801978CF0D698EF65A /* Pods-AyuGate.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D795F7B854EE2C8953C1631F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F24081DC05A1B02619B706F7 /* Pods_AyuGate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA57619D24536D75009BB9CF /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +131,8 @@
 			children = (
 				FAB2A6E02445FD0A00C49E06 /* AyuGate */,
 				FAB2A6DF2445FD0A00C49E06 /* Products */,
+				3A136A59A259DFE773ED2FA9 /* Pods */,
+				D795F7B854EE2C8953C1631F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,6 +242,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAB2A6F22445FD0E00C49E06 /* Build configuration list for PBXNativeTarget "AyuGate" */;
 			buildPhases = (
+				DBC3E85F7492BFFF602199D6 /* [CP] Check Pods Manifest.lock */,
 				FAB2A6DA2445FD0A00C49E06 /* Sources */,
 				FAB2A6DB2445FD0A00C49E06 /* Frameworks */,
 				FAB2A6DC2445FD0A00C49E06 /* Resources */,
@@ -274,6 +300,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DBC3E85F7492BFFF602199D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AyuGate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FAB2A6DA2445FD0A00C49E06 /* Sources */ = {
@@ -438,6 +489,7 @@
 		};
 		FAB2A6F32445FD0E00C49E06 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 661B2DECDDF89C49465BBB84 /* Pods-AyuGate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -457,6 +509,7 @@
 		};
 		FAB2A6F42445FD0E00C49E06 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34ADB7801978CF0D698EF65A /* Pods-AyuGate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
