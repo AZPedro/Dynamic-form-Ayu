@@ -35,7 +35,7 @@ class DebugComponentsViewController: UIViewController {
         
         //Invoice Details View
         let invoiceDetailsView = AYUInvoiceDetailsView()
-        invoiceDetailsView.model = AYUInvoiceDetailsModel(value: 1800, type: .directDiscount, description: "Salário")
+        invoiceDetailsView.model = AYUInvoiceDetailsViewModel(value: 1800, type: .directDiscount, description: "Salário")
         
         self.view.addSubview(invoiceDetailsView)
         invoiceDetailsView.translatesAutoresizingMaskIntoConstraints = false

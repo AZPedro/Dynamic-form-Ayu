@@ -47,7 +47,7 @@ class HomeCardView: UIView {
         label.alpha = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
-        label.textColor = UIColor.white.withAlphaComponent(0.38)
+        label.textColor = UIColor.whitePlaceholder
         label.text = "Terça, 01/04, 2019"
         return label
     }()

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		43056878ECFFCE57F5D31560 /* Pods_AyuGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24081DC05A1B02619B706F7 /* Pods_AyuGate.framework */; };
-		FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */; };
+		FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsView.swift */; };
 		FA26393724617E4D00E282F6 /* AYUMonthsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */; };
 		FA57619F24536D89009BB9CF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57619E24536D89009BB9CF /* NetworkManager.swift */; };
 		FA5761A124537A4B009BB9CF /* ParsableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5761A024537A4B009BB9CF /* ParsableModels.swift */; };
@@ -24,6 +24,10 @@
 		FAB2A70A2447A33D00C49E06 /* AYULogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */; };
 		FAB2A70F2447AD0400C49E06 /* InvoiceDiscountBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A70E2447AD0400C49E06 /* InvoiceDiscountBarModel.swift */; };
 		FAB2A7112447BF7200C49E06 /* AYUCustomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A7102447BF7200C49E06 /* AYUCustomBarView.swift */; };
+		FABAABB22462233D00A3A678 /* InvoiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAABB12462233D00A3A678 /* InvoiceDetailViewController.swift */; };
+		FABAABB5246347C400A3A678 /* ProfileInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAABB4246347C400A3A678 /* ProfileInfoCardView.swift */; };
+		FABAABB72463699100A3A678 /* InvoiceListDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAABB62463699100A3A678 /* InvoiceListDetailsViewController.swift */; };
+		FABAABB92463731100A3A678 /* InvoiceDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAABB82463731100A3A678 /* InvoiceDetailsTableViewCell.swift */; };
 		FABAB9F7244F8AEB00170210 /* HomeFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAB9F6244F8AEB00170210 /* HomeFlowController.swift */; };
 		FABAB9F9244F8B3700170210 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAB9F8244F8B3700170210 /* HomeViewController.swift */; };
 		FABAB9FC244F8CB800170210 /* HomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAB9FB244F8CB800170210 /* HomeCardView.swift */; };
@@ -42,7 +46,7 @@
 		34ADB7801978CF0D698EF65A /* Pods-AyuGate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AyuGate.release.xcconfig"; path = "Target Support Files/Pods-AyuGate/Pods-AyuGate.release.xcconfig"; sourceTree = "<group>"; };
 		661B2DECDDF89C49465BBB84 /* Pods-AyuGate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AyuGate.debug.xcconfig"; path = "Target Support Files/Pods-AyuGate/Pods-AyuGate.debug.xcconfig"; sourceTree = "<group>"; };
 		F24081DC05A1B02619B706F7 /* Pods_AyuGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AyuGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUInvoiceDetailsCell.swift; sourceTree = "<group>"; };
+		FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUInvoiceDetailsView.swift; sourceTree = "<group>"; };
 		FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUMonthsPickerView.swift; sourceTree = "<group>"; };
 		FA57619E24536D89009BB9CF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FA5761A024537A4B009BB9CF /* ParsableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableModels.swift; sourceTree = "<group>"; };
@@ -60,6 +64,10 @@
 		FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYULogoLabel.swift; sourceTree = "<group>"; };
 		FAB2A70E2447AD0400C49E06 /* InvoiceDiscountBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDiscountBarModel.swift; sourceTree = "<group>"; };
 		FAB2A7102447BF7200C49E06 /* AYUCustomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUCustomBarView.swift; sourceTree = "<group>"; };
+		FABAABB12462233D00A3A678 /* InvoiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewController.swift; sourceTree = "<group>"; };
+		FABAABB4246347C400A3A678 /* ProfileInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoCardView.swift; sourceTree = "<group>"; };
+		FABAABB62463699100A3A678 /* InvoiceListDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListDetailsViewController.swift; sourceTree = "<group>"; };
+		FABAABB82463731100A3A678 /* InvoiceDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		FABAB9F6244F8AEB00170210 /* HomeFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowController.swift; sourceTree = "<group>"; };
 		FABAB9F8244F8B3700170210 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FABAB9FB244F8CB800170210 /* HomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardView.swift; sourceTree = "<group>"; };
@@ -150,7 +158,7 @@
 			children = (
 				FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */,
 				FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */,
-				FAD5107924492CAB00B224AF /* AYUViewController.swift */,
+				FABAABB02462224600A3A678 /* Invoice */,
 				FA57619D24536D75009BB9CF /* Network */,
 				FABAB9F5244F8AD100170210 /* Home */,
 				FAD510762449298200B224AF /* Register */,
@@ -167,9 +175,10 @@
 		FAB2A6F524460B6100C49E06 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsView.swift */,
+				FAD5107924492CAB00B224AF /* AYUViewController.swift */,
 				FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */,
 				FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */,
-				FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift */,
 				FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */,
 				FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */,
 				FAB2A6FA2446100800C49E06 /* AYUButton.swift */,
@@ -195,6 +204,25 @@
 				FAB2A70E2447AD0400C49E06 /* InvoiceDiscountBarModel.swift */,
 			);
 			path = InvoiceDiscountBar;
+			sourceTree = "<group>";
+		};
+		FABAABB02462224600A3A678 /* Invoice */ = {
+			isa = PBXGroup;
+			children = (
+				FABAABB12462233D00A3A678 /* InvoiceDetailViewController.swift */,
+				FABAABB62463699100A3A678 /* InvoiceListDetailsViewController.swift */,
+				FABAABB32463478B00A3A678 /* Views */,
+			);
+			path = Invoice;
+			sourceTree = "<group>";
+		};
+		FABAABB32463478B00A3A678 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FABAABB4246347C400A3A678 /* ProfileInfoCardView.swift */,
+				FABAABB82463731100A3A678 /* InvoiceDetailsTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FABAB9F5244F8AD100170210 /* Home */ = {
@@ -339,19 +367,23 @@
 				FAD51075244925D900B224AF /* AppFlow.swift in Sources */,
 				FA57619F24536D89009BB9CF /* NetworkManager.swift in Sources */,
 				FABAB9F9244F8B3700170210 /* HomeViewController.swift in Sources */,
+				FABAABB5246347C400A3A678 /* ProfileInfoCardView.swift in Sources */,
 				FAD5107C2449318200B224AF /* AYUCPFFormView.swift in Sources */,
+				FABAABB72463699100A3A678 /* InvoiceListDetailsViewController.swift in Sources */,
+				FABAABB22462233D00A3A678 /* InvoiceDetailViewController.swift in Sources */,
 				FAD51084244A603500B224AF /* UIView+extensions.swift in Sources */,
 				FAB2A7112447BF7200C49E06 /* AYUCustomBarView.swift in Sources */,
 				FAB2A6F924460EAC00C49E06 /* AYUTextField.swift in Sources */,
 				FAD5108A244A6DCF00B224AF /* PasswordRegisterViewController .swift in Sources */,
 				FA5761A124537A4B009BB9CF /* ParsableModels.swift in Sources */,
-				FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsCell.swift in Sources */,
+				FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsView.swift in Sources */,
 				FAD5107A24492CAB00B224AF /* AYUViewController.swift in Sources */,
 				FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */,
 				FAB2A70F2447AD0400C49E06 /* InvoiceDiscountBarModel.swift in Sources */,
 				FAB2A6FB2446100800C49E06 /* AYUButton.swift in Sources */,
 				FAB2A6E22445FD0A00C49E06 /* AyuGateAppDelegate.swift in Sources */,
 				FABAB9F7244F8AEB00170210 /* HomeFlowController.swift in Sources */,
+				FABAABB92463731100A3A678 /* InvoiceDetailsTableViewCell.swift in Sources */,
 				FAB2A70A2447A33D00C49E06 /* AYULogoLabel.swift in Sources */,
 				FAD51086244A610C00B224AF /* AYUFormViewController.swift in Sources */,
 				FABAB9FC244F8CB800170210 /* HomeCardView.swift in Sources */,

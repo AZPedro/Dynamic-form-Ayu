@@ -1,5 +1,5 @@
 //
-//  AYUInvoiceDetailsCell.swift
+//  AYUInvoiceDetailsView.swift
 //  AyuGate
 //
 //  Created by Pedro Azevedo on 04/05/20.
@@ -10,7 +10,7 @@ import UIKit
 
 class AYUInvoiceDetailsView: UIView {
     
-    var model: AYUInvoiceDetailsModel? {
+    var model: AYUInvoiceDetailsViewModel? {
         didSet {
             updateUI()
         }
@@ -56,7 +56,7 @@ class AYUInvoiceDetailsView: UIView {
         addSubview(valueLabel)
         
         backgroundColor = .white
-        layer.setupShadow(opacity: 1)
+        layer.setupShadow(opacity: 0.5)
         layer.cornerRadius = 5
         
         verticalBarIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -91,7 +91,7 @@ class AYUInvoiceDetailsView: UIView {
     }
 }
 
-struct AYUInvoiceDetailsModel {
+struct AYUInvoiceDetailsViewModel {
     let value: Double
     let type: `Type`
     let description: String
