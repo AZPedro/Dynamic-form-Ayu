@@ -31,6 +31,8 @@
 		FABAB9F7244F8AEB00170210 /* HomeFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAB9F6244F8AEB00170210 /* HomeFlowController.swift */; };
 		FABAB9F9244F8B3700170210 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAB9F8244F8B3700170210 /* HomeViewController.swift */; };
 		FABAB9FC244F8CB800170210 /* HomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAB9FB244F8CB800170210 /* HomeCardView.swift */; };
+		FABDFFCC2464B936004B253A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDFFCB2464B936004B253A /* AccountViewController.swift */; };
+		FABDFFCE2464B97D004B253A /* AYUDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDFFCD2464B97D004B253A /* AYUDetailInfoView.swift */; };
 		FAD51075244925D900B224AF /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD51074244925D900B224AF /* AppFlow.swift */; };
 		FAD510782449299600B224AF /* CpfRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD510772449299600B224AF /* CpfRegisterViewController.swift */; };
 		FAD5107A24492CAB00B224AF /* AYUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5107924492CAB00B224AF /* AYUViewController.swift */; };
@@ -71,6 +73,8 @@
 		FABAB9F6244F8AEB00170210 /* HomeFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowController.swift; sourceTree = "<group>"; };
 		FABAB9F8244F8B3700170210 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FABAB9FB244F8CB800170210 /* HomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardView.swift; sourceTree = "<group>"; };
+		FABDFFCB2464B936004B253A /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		FABDFFCD2464B97D004B253A /* AYUDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUDetailInfoView.swift; sourceTree = "<group>"; };
 		FAD51074244925D900B224AF /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		FAD510772449299600B224AF /* CpfRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CpfRegisterViewController.swift; sourceTree = "<group>"; };
 		FAD5107924492CAB00B224AF /* AYUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			children = (
 				FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */,
 				FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */,
+				FABDFFCA2464B8F0004B253A /* Account */,
 				FABAABB02462224600A3A678 /* Invoice */,
 				FA57619D24536D75009BB9CF /* Network */,
 				FABAB9F5244F8AD100170210 /* Home */,
@@ -175,8 +180,8 @@
 		FAB2A6F524460B6100C49E06 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsView.swift */,
 				FAD5107924492CAB00B224AF /* AYUViewController.swift */,
+				FABDFFCD2464B97D004B253A /* AYUDetailInfoView.swift */,
 				FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */,
 				FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */,
 				FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */,
@@ -210,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				FABAABB12462233D00A3A678 /* InvoiceDetailViewController.swift */,
+				FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsView.swift */,
 				FABAABB62463699100A3A678 /* InvoiceListDetailsViewController.swift */,
 				FABAABB32463478B00A3A678 /* Views */,
 			);
@@ -241,6 +247,14 @@
 				FABAB9FB244F8CB800170210 /* HomeCardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FABDFFCA2464B8F0004B253A /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				FABDFFCB2464B936004B253A /* AccountViewController.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		FAD510762449298200B224AF /* Register */ = {
@@ -368,6 +382,7 @@
 				FA57619F24536D89009BB9CF /* NetworkManager.swift in Sources */,
 				FABAB9F9244F8B3700170210 /* HomeViewController.swift in Sources */,
 				FABAABB5246347C400A3A678 /* ProfileInfoCardView.swift in Sources */,
+				FABDFFCC2464B936004B253A /* AccountViewController.swift in Sources */,
 				FAD5107C2449318200B224AF /* AYUCPFFormView.swift in Sources */,
 				FABAABB72463699100A3A678 /* InvoiceListDetailsViewController.swift in Sources */,
 				FABAABB22462233D00A3A678 /* InvoiceDetailViewController.swift in Sources */,
@@ -387,6 +402,7 @@
 				FAB2A70A2447A33D00C49E06 /* AYULogoLabel.swift in Sources */,
 				FAD51086244A610C00B224AF /* AYUFormViewController.swift in Sources */,
 				FABAB9FC244F8CB800170210 /* HomeCardView.swift in Sources */,
+				FABDFFCE2464B97D004B253A /* AYUDetailInfoView.swift in Sources */,
 				FAD51088244A6A3500B224AF /* RegisterFlowController.swift in Sources */,
 				FA26393724617E4D00E282F6 /* AYUMonthsPickerView.swift in Sources */,
 				FAB2A6FE24462FD700C49E06 /* UIColor+extensions.swift in Sources */,

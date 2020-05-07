@@ -25,7 +25,9 @@ final class AppFlow: NSObject {
             nav.viewControllers = [DebugComponentsViewController()]
 //            nav.viewControllers = [HomeFlowController()]
 //            nav.viewControllers = [RegisterFlowController()]
-            nav.viewControllers = [InvoiceDetailViewController()]
+//            nav.viewControllers = [InvoiceDetailViewController()]
+            
+            nav.viewControllers = [AccountViewController()]
             
             
         }

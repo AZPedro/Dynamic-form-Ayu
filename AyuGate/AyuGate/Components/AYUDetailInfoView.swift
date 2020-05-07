@@ -1,22 +1,16 @@
 //
-//  AYUInvoiceDetailsView.swift
+//  AYUDetailInfoView.swift
 //  AyuGate
 //
-//  Created by Pedro Azevedo on 04/05/20.
+//  Created by Pedro Azevedo on 07/05/20.
 //  Copyright © 2020 AyuGate. All rights reserved.
 //
 
 import UIKit
 
-class AYUInvoiceDetailsView: UIView {
+class AYUDetailInfoView: UIView {
     
-    var model: AYUInvoiceDetailsViewModel? {
-        didSet {
-            updateUI()
-        }
-    }
-    
-    private lazy var verticalBarIndicator: UIView = {
+    internal lazy var verticalBarIndicator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 20).isActive = true
@@ -24,7 +18,7 @@ class AYUInvoiceDetailsView: UIView {
         return view
     }()
     
-    private lazy var titleLabel: UILabel = {
+    internal lazy var titleLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -33,7 +27,7 @@ class AYUInvoiceDetailsView: UIView {
         return l
     }()
     
-    private lazy var valueLabel: UILabel = {
+    internal lazy var valueLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -68,46 +62,11 @@ class AYUInvoiceDetailsView: UIView {
         
         valueLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6).isActive = true
         valueLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-    }
-    
-    private func updateUI() {
-        guard let model = model else { return }
         
-        switch model.type {
-        case .directDiscount:
-            verticalBarIndicator.backgroundColor = UIColor.redSecondary
-            valueLabel.textColor = UIColor.redSecondary
-            
-        case .discount:
-            verticalBarIndicator.backgroundColor = UIColor.yellowTerciary
-            valueLabel.textColor = UIColor.yellowTerciary
-        case .input:
-            verticalBarIndicator.backgroundColor = UIColor.greenPrimary
-            valueLabel.textColor = UIColor.greenPrimary
-        }
         
-        titleLabel.text = model.description
-        valueLabel.text = model.formattedValue
-    }
-}
-
-struct AYUInvoiceDetailsViewModel {
-    let value: Double
-    let type: `Type`
-    let description: String
-    
-    public enum `Type` {
-        case input, discount, directDiscount
     }
     
-    var formattedValue: String {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale.current
-        formatter.numberStyle = .currency
-        let formattedCurrency = formatter.string(from: NSNumber(value: value)) ?? "R$ 0,00"
-        if type == .directDiscount {
-            return "-\(formattedCurrency)"
-        }
-        return formattedCurrency
+    func updateUI() {
+        
     }
 }

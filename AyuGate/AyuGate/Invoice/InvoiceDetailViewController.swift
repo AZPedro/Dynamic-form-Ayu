@@ -128,6 +128,7 @@ class InvoiceDetailViewController: AYUViewController {
         monthsPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         monthsPickerView.topAnchor.constraint(equalTo: profileCardView.bottomAnchor, constant: 22).isActive = true
         monthsPickerView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        monthsPickerView.currentSelectedMonth = 5
         
         installChild(invoiceListDetailsViewController)
         invoiceListDetailsViewController.view.topAnchor.constraint(equalTo: monthsPickerView.bottomAnchor, constant: 5).isActive = true

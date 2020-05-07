@@ -12,7 +12,7 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     static let identifier = "InvoiceDetailsTableViewCellIdentifier"
     
     lazy var content: AYUInvoiceDetailsView = {
-        let view = AYUInvoiceDetailsView(frame: self.contentView.frame)
+        let view = AYUInvoiceDetailsView()
         return view
     }()
     
@@ -27,5 +27,11 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     
     private func buildUI() {
         contentView.addSubview(content)
+        selectionStyle = .none
+        content.translatesAutoresizingMaskIntoConstraints = false
+        content.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        content.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        content.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -6).isActive = true
+        content.heightAnchor.constraint(equalToConstant: 37).isActive = true
     }
 }

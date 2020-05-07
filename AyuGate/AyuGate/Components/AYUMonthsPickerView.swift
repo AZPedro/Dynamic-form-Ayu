@@ -41,7 +41,13 @@ class AYUMonthsPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource 
         return views
     }
     
-    func buildUI() {
+    var currentSelectedMonth: Int = 0 {
+        didSet {
+            picker.selectRow(currentSelectedMonth, inComponent: 0, animated: true)
+        }
+    }
+    
+    private func buildUI() {
         backgroundColor = UIColor.whiteSecondary
         picker.showsSelectionIndicator = true
         picker.transform = CGAffineTransform(rotationAngle: -90 * (.pi / 180))
@@ -53,7 +59,6 @@ class AYUMonthsPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource 
         picker.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         picker.delegate =  self
         picker.dataSource = self
-        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -65,7 +70,8 @@ class AYUMonthsPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource 
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        return monthPickViews[row]
+        let monthView = monthPickViews[row]
+        return monthView
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -83,6 +89,7 @@ class AYUMonthsPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource 
             picker.subviews[i].isHidden = true
         }
     }
+    
 }
 
 class MonthPickView: UIView {
