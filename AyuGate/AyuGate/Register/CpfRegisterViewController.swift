@@ -54,9 +54,9 @@ class CpfRegisterViewController: AYUActionButtonViewController {
     
     private func verifyCPF() {
         guard let cpfValue = cpfFormView.value else { return }
-        guard let url = URL(string: "https://demo2715069.mockable.io/verify") else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+//        guard let url = URL(string: "https://demo2715069.mockable.io/verify") else { return }
+        
+        let request = AYURoute(path: .auth).resquest
         
         networkManager.makeRequest(request: request) { (result: Handler<Verify>) in
             let model = CPFRegisterViewModel(model: result.response, cpf: cpfValue)

@@ -21,8 +21,8 @@ class NetworkManager: NSObject {
     
     static var shared = NetworkManager()
     
-    func makeRequest<T: ParsableProtocol>(request: URLRequest, completionHandler: @escaping ((Handler<T>) -> ())) {
-        session.dataTask(with: request) { (data, response, error) in
+    func makeRequest<T: ParsableProtocol>(request: AYURequest, completionHandler: @escaping ((Handler<T>) -> ())) {
+        session.dataTask(with: request.request) { (data, response, error) in
             guard let data = data else { return }
             
             do {

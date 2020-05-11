@@ -33,7 +33,7 @@ class AccountViewController: UIViewController {
         
         let logoutLabel = UILabel()
         v.addSubview(logoutLabel)
-        logoutLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        logoutLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         logoutLabel.translatesAutoresizingMaskIntoConstraints = false
         logoutLabel.text = "SAIR"
         logoutLabel.topAnchor.constraint(equalTo: v.topAnchor, constant: 41).isActive = true
@@ -49,7 +49,7 @@ class AccountViewController: UIViewController {
         backArrow.centerYAnchor.constraint(equalTo: logoutLabel.centerYAnchor, constant: 10).isActive = true
         backArrow.contentMode = .scaleAspectFit
         backArrow.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(pop)))
-        backArrow.image = UIImage(named: "backArrow")
+        backArrow.image = UIImage(named: "CloseButtonIcon")
 
         return v
     }()
@@ -63,6 +63,6 @@ class AccountViewController: UIViewController {
     }
     
     @objc private func pop() {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
 }
