@@ -8,21 +8,17 @@
 
 import UIKit
 
-protocol CpfRegisterControllerDelegate {
-    func cpfRegisterControllerDelegateVerify(didFinished model: CPFRegisterViewModel, controller: CpfRegisterViewController)
-}
-
 class CpfRegisterViewController: AYUActionButtonViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }
     
-    var delegate: CpfRegisterControllerDelegate?
+    var delegate: CpfRegisterFlowDelegate?
     
     private let networkManager = NetworkManager.shared
     
-    private lazy var cpfFormView: AYUCPFFormView  = {
+    lazy var cpfFormView: AYUCPFFormView  = {
         let view = AYUCPFFormView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -54,12 +50,15 @@ class CpfRegisterViewController: AYUActionButtonViewController {
     
     private func verifyCPF() {
         guard let cpfValue = cpfFormView.value else { return }
-//        guard let url = URL(string: "https://demo2715069.mockable.io/verify") else { return }
         
-        let request = AYURoute(path: .auth).resquest
+        let request = AYURoute(path: .verify(cpf: cpfValue)).resquest
         
-        networkManager.makeRequest(request: request) { (result: Handler<Verify>) in
-            let model = CPFRegisterViewModel(model: result.response, cpf: cpfValue)
+        networkManager.makeRequest(request: request) { (result: Handler<Verify>?, error) in
+            guard let result = result?.response else {
+                return
+            }
+            
+            let model = CPFVerifyViewModel(model: result, cpf: cpfValue)
             self.delegate?.cpfRegisterControllerDelegateVerify(didFinished: model, controller: self)
         }
     }

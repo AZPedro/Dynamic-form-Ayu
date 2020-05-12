@@ -21,15 +21,42 @@ class NetworkManager: NSObject {
     
     static var shared = NetworkManager()
     
-    func makeRequest<T: ParsableProtocol>(request: AYURequest, completionHandler: @escaping ((Handler<T>) -> ())) {
+    func makeRequest<T: ParsableProtocol>(request: AYURequest, completionHandler: @escaping ((Handler<T>?, Validation?) -> ())) {
         session.dataTask(with: request.request) { (data, response, error) in
-            guard let data = data else { return }
+            guard let data = data else {
+                completionHandler(nil, nil)
+                return
+            }
             
             do {
                 let decoded = try JSONDecoder().decode(Handler<T>.self, from: data)
-                completionHandler(decoded)
-            } catch let error {
-                print(error)
+                completionHandler(decoded, nil)
+            } catch {
+                guard let validation = try? JSONDecoder().decode(Validation.self, from: data) else {
+                    completionHandler(nil, Validation.genericError)
+                    return
+                }
+                completionHandler(nil, validation)
+            }
+        }.resume()
+    }
+    
+    func makeRequest<T: Decodable>(request: AYURequest, completionHandler: @escaping ((T?, Validation?) -> ())) {
+        session.dataTask(with: request.request) { (data, response, error) in
+            guard let data = data else {
+                completionHandler(nil, nil)
+                return
+            }
+            
+            do {
+                let decoded = try JSONDecoder().decode(T.self, from: data)
+                completionHandler(decoded, nil)
+            } catch {
+                guard let validation = try? JSONDecoder().decode(Validation.self, from: data) else {
+                    completionHandler(nil, Validation.genericError)
+                    return
+                }
+                completionHandler(nil, validation)
             }
         }.resume()
         

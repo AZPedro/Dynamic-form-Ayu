@@ -18,6 +18,8 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
         static let cpfHeaderLabelYConstant = UIScreen.main.bounds.height / 5
     }
     
+    var delegate: CpfRegisterFlowDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
@@ -25,6 +27,7 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
     
     private let type: FormType
     private let cpf: String
+    private var password: String = ""
     
     init(type: FormType, cpf: String) {
         self.type = type
@@ -52,7 +55,6 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
         textField.textField.isSecureTextEntry = true
         textField.textField.autocorrectionType = .no
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.errorLabel.text = "Senha e confirmação de senha devem ser iguais"
         textField.placeHolder.text = "Confirmar senha"
         return textField
     }()
@@ -102,25 +104,79 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
         passwordConfirmationField.isHidden = self.type == .login ? true : false
         
         actionHandler = {
+            self.actionButton.updateState(state: .loading)
             if self.isValidPasswordFields() {
-                self.actionButton.updateState(state: .success)
+                self.perform()
+            }
+        }
+    }
+    
+    private func perform() {
+        let cpf = self.cpf.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "-", with: "")
+        var request: AYURequest
+        
+        switch type {
+        case .login:
+            let path = AYURoute.AyuPath.login(cpf: cpf, password: password)
+            request = AYURoute.init(path: path).resquest
+        case .register:
+            let path = AYURoute.AyuPath.signUP(cpf: cpf, password: password)
+            request = AYURoute.init(path: path).resquest
+        }
+        
+        callRequest(request: request)
+    }
+    
+    private func callRequest(request: AYURequest) {
+        NetworkManager.shared.makeRequest(request: request) { (result: Handler<Login>?, validation) in
+            DispatchQueue.main.async {
+                if let validation = validation {
+                    let model = PasswordValidationViewModel(model: validation)
+                    self.passwordField.errorLabel.text = model.validationMessage
+                    self.actionButton.updateState(state: .error)
+                    self.passwordField.updateState(state: .failed)
+                } else if let result = result?.response  {
+                    let session = SessionModel(acessToke: result.accessToken, refreshToken: result.refreshToken)
+                    self.delegate?.cpfRegisterControllerDelegateLogin(didFinished: session, controller: self)
+                }
             }
         }
     }
     
     private func isValidPasswordFields() -> Bool {
-        guard let passwordText = self.passwordField.textField.text,
-            let passwordConfirmationText = self.passwordConfirmationField.textField.text,
-            passwordText == passwordConfirmationText,
-            !passwordText.isEmpty && !passwordConfirmationText.isEmpty else {
-                
-                self.actionButton.updateState(state: .error)
-                self.passwordConfirmationField.updateState(state: .failed)
-                self.passwordField.updateState(state: .failed)
+        switch type {
+        case .login:
+            guard let passwordText = self.passwordField.textField.text else {
                 return false
+            }
+            password = passwordText
+            return true
+            
+        case .register:
+            guard let passwordText = self.passwordField.textField.text,
+                let passwordConfirmationText = self.passwordConfirmationField.textField.text else { return false }
+            
+            if passwordText != passwordConfirmationText,
+                passwordText.isEmpty || passwordConfirmationText.isEmpty {
+                    
+                    passwordField.errorLabel.text = "Senha e confirmação de senha devem ser iguais"
+                    actionButton.updateState(state: .error)
+                    passwordConfirmationField.updateState(state: .failed)
+                    passwordField.updateState(state: .failed)
+                    return false
+            }
+            
+            if passwordText.count < 6 || passwordConfirmationText.count < 6 {
+                passwordField.errorLabel.text = "Senha deve ter mais que seis digitos"
+                passwordConfirmationField.updateState(state: .failed)
+                passwordField.updateState(state: .failed)
+                actionButton.updateState(state: .error)
+                return false
+            }
+            
+            password = passwordText
+            return true
         }
-        
-        return true
     }
     
     override func keyboardWillShow(notification: Notification) {

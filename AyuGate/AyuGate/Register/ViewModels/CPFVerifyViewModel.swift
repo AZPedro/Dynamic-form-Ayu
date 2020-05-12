@@ -6,7 +6,7 @@
 //  Copyright © 2020 AyuGate. All rights reserved.
 //
 
-class CPFRegisterViewModel {
+class CPFVerifyViewModel {
     private let model: Verify
     private let cpf: String
     

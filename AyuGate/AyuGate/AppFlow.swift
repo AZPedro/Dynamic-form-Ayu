@@ -12,24 +12,19 @@ final class AppFlow: NSObject {
     
     static var shared: AppFlow = AppFlow()
     
-    let isUserLoged: Bool = false
-    
     private lazy var nav = UINavigationController()
     
     func flow() -> UINavigationController {
         nav.isNavigationBarHidden = true
         
-        if isUserLoged {
-            nav.viewControllers = [UIViewController()]
+        if SessionManager.shared.isUserLoged {
+            nav.viewControllers = [HomeFlowController()]
         } else {
-            nav.viewControllers = [DebugComponentsViewController()]
+//            nav.viewControllers = [DebugComponentsViewController()]
 //            nav.viewControllers = [HomeFlowController()]
-//            nav.viewControllers = [RegisterFlowController()]
+            nav.viewControllers = [RegisterFlowController()]
 //            nav.viewControllers = [InvoiceDetailViewController()]
-            
-            nav.viewControllers = [AccountViewController()]
-            
-            
+//            nav.viewControllers = [AccountViewController()]
         }
         
         return nav

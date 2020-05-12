@@ -10,7 +10,7 @@ import Foundation
 
 class AYURoute {
     
-    static let mockBaseURL: String = "http://46beb64e.ngrok.io"
+    private let mockBaseURL: String = "http://46beb64e.ngrok.io/"
     
     private let path: AyuPath
     
@@ -19,7 +19,7 @@ class AYURoute {
     }
     
     var url: URL {
-        return URL(string: stringPath) ?? URL(fileURLWithPath: "")
+        return URL(string: "\(mockBaseURL)\(stringPath)") ?? URL(fileURLWithPath: "")
     }
     
     private var stringPath: String {
