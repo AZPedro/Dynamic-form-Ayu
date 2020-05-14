@@ -10,11 +10,14 @@ import UIKit
 
 class AYUInvoiceDiscountBar: UIView {
 
-    private var model: InvoiceDiscountBarViewModel
+    var model: InvoiceDiscountBarViewModel? {
+        didSet {
+            animate()
+        }
+    }
     
-    public init(model: InvoiceDiscountBarViewModel) {
-        self.model = model
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         buildUI()
     }
     
@@ -29,19 +32,22 @@ class AYUInvoiceDiscountBar: UIView {
     private var inputBarBottomContraint: NSLayoutConstraint?
     
     var inputHeightConstant: CGFloat {
-        return CGFloat(Constants.fullHeight * model.inputPercent / 100)
+        guard let model = model else { return 0 }
+        return CGFloat(Constants.fullHeight * model.liquidPercent)
     }
     
     private var netValueBottomConstraint: NSLayoutConstraint?
     
     var netValueHeightConstant: CGFloat {
-        return CGFloat(Constants.fullHeight * model.neValuePercent / 100)
+           guard let model = model else { return 0 }
+        return CGFloat(Constants.fullHeight * model.discountPercent)
     }
     
     private var discountBottomConstraint: NSLayoutConstraint?
     
     var discountHeightConstant: CGFloat {
-        return CGFloat(Constants.fullHeight * model.discountPercent / 100)
+        guard let model = model else { return 0 }
+        return CGFloat(Constants.fullHeight * model.fixedDiscountPercent)
     }
     
     private lazy var contentView: UIView = {

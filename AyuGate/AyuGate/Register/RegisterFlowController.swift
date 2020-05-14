@@ -36,9 +36,28 @@ class RegisterFlowController: UIViewController {
         }
     }
     
+    private func fetchProfile() {
+        guard let profileID = SessionManager.shared.profileId else {
+            return
+        }
+
+        let request = AYURoute(path: .profile(id: profileID)).resquest
+        
+        NetworkManager.shared.makeRequest(request: request) { (result: Handler<ProfileParsable>?, validation) in
+            guard let profile = result?.response else {
+                return
+            }
+            
+            SessionManager.shared.saveAccount(profile: profile)
+            self.showHome()
+        }
+    }
+    
     private func showHome() {
-        let homeFlow = HomeFlowController()
-        self.navigationController?.present(homeFlow, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let homeFlow = HomeFlowController()
+            self.navigationController?.present(homeFlow, animated: true, completion: nil)
+        }
     }
 }
 
@@ -63,6 +82,9 @@ extension RegisterFlowController: CpfRegisterFlowDelegate {
     }
     
     func cpfRegisterControllerDelegateLogin(didFinished model: SessionModel, controller: PasswordRegisterViewController) {
-        showHome()
+        SessionManager.shared.authToken = model.acessToken
+        SessionManager.shared.refreshToken = model.refreshToken
+        
+        fetchProfile()
     }
 }

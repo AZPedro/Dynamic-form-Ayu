@@ -14,11 +14,14 @@ class HomeCardView: UIView {
         static let cardHeight: CGFloat = 235
     }
     
-    let model: HomeCardViewModel
+    var model: HomeCardViewModel? {
+        didSet {
+            updateUI()
+        }
+    }
     
-    init(model: HomeCardViewModel) {
-        self.model = model
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         buildUI()
     }
     
@@ -27,7 +30,7 @@ class HomeCardView: UIView {
         label.alpha = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.text = model.month
+        label.text = model?.month
         label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         return label
     }()
@@ -63,7 +66,7 @@ class HomeCardView: UIView {
     }()
     
     private lazy var invoiceDiscountBar: AYUInvoiceDiscountBar = {
-        let v = AYUInvoiceDiscountBar(model: InvoiceDiscountBarViewModel(model: model.barModel))
+        let v = AYUInvoiceDiscountBar()
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
@@ -78,8 +81,6 @@ class HomeCardView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .black
         heightAnchor.constraint(equalToConstant: Constants.cardHeight).isActive = true
-        
-        addSubview(invoiceDiscountBar)
 
         addSubview(invoiceDiscountBar)
         invoiceDiscountBar.translatesAutoresizingMaskIntoConstraints = false
@@ -102,12 +103,6 @@ class HomeCardView: UIView {
         addSubview(iconImageView)
         iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -10).isActive = true
         iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10).isActive = true
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            self.invoiceDiscountBar.animate()
-        }
-        
-        animate()
     }
     
     private func animate() {
@@ -118,11 +113,32 @@ class HomeCardView: UIView {
             self.iconImageView.alpha = 1
         }, completion: nil)
     }
+    
+    func updateUI() {
+        guard let model = self.model else { return }
+        priceLabel.text = "\(model.price)"
+        monthTitle.text = model.month
+        invoiceDiscountBar.model = InvoiceDiscountBarViewModel(model: model.barModel)
+        
+//        animate()
+//        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+//            self.invoiceDiscountBar.animate()
+//        }
+    }
 }
 
 struct HomeCardViewModel {
     let month: String
     let price: Double
     let date: String
-    let barModel: InvoiceDiscountBarModel
+    let barModel: [InvoiceDiscountBarModel]
+}
+
+extension HomeCardViewModel {
+    init(from invoice: Invoice) {
+        self.barModel = invoice.percentage.compactMap({ InvoiceDiscountBarModel(type: $0.type, percentage: $0.percentage )})
+        self.price = invoice.payroll.first?.amount ?? 0
+        self.date = ""
+        self.month = ""
+    }
 }

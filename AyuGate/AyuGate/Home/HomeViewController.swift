@@ -12,7 +12,10 @@ class HomeViewController: AYUViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
+        fetch()
     }
+    
+    private let profile = SessionManager.shared.getAccount()
     
     private lazy var accountImageView: UIImageView = {
         let imageView = UIImageView()
@@ -31,7 +34,8 @@ class HomeViewController: AYUViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 38, weight: .light)
         label.textColor = .black
-        label.text = "Olá, Vanessa!"
+        let name = profile?.name ?? ""
+        label.text = "Olá, \(name)"
         return label
     }()
     
@@ -45,7 +49,7 @@ class HomeViewController: AYUViewController {
     }()
     
     private lazy var cardView: HomeCardView = {
-        let cardView = HomeCardView(model: HomeCardViewModel(month: "Abril", price: 1800, date: "Terça, 01/04, 2019", barModel: InvoiceDiscountBarModel(discount: 130, input: 1000, netValue: 870)))
+        let cardView = HomeCardView()
         return cardView
     }()
     
@@ -68,5 +72,15 @@ class HomeViewController: AYUViewController {
         
         footerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         footerLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -6).isActive = true
+    }
+    
+    private func fetch() {
+        let request = AYURoute.init(path: .payRoll).resquest
+        NetworkManager.shared.makeRequest(request: request) { (result: Handler<Invoice>?, validation) in
+            DispatchQueue.main.async {
+                guard let invoice = result?.response else { return }
+                self.cardView.model = HomeCardViewModel(from: invoice)
+            }
+        }
     }
 }

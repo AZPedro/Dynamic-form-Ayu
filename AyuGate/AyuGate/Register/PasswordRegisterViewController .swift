@@ -136,7 +136,7 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
                     self.actionButton.updateState(state: .error)
                     self.passwordField.updateState(state: .failed)
                 } else if let result = result?.response  {
-                    let session = SessionModel(acessToke: result.accessToken, refreshToken: result.refreshToken)
+                    let session = SessionModel(acessToken: result.accessToken, refreshToken: result.refreshToken)
                     self.delegate?.cpfRegisterControllerDelegateLogin(didFinished: session, controller: self)
                 }
             }

@@ -52,6 +52,7 @@ class NetworkManager: NSObject {
                 let decoded = try JSONDecoder().decode(T.self, from: data)
                 completionHandler(decoded, nil)
             } catch {
+                print(error)
                 guard let validation = try? JSONDecoder().decode(Validation.self, from: data) else {
                     completionHandler(nil, Validation.genericError)
                     return

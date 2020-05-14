@@ -10,7 +10,7 @@ import Foundation
 
 class AYURoute {
     
-    private let mockBaseURL: String = "http://46beb64e.ngrok.io/"
+    private let mockBaseURL: String = "http://28a25c4f.ngrok.io/"
     
     private let path: AyuPath
     
@@ -36,6 +36,8 @@ class AYURoute {
             return "auth"
         case .refresh:
             return "auth/refresh_token"
+        case .payRoll:
+            return "payroll/current"
         }
     }
     
@@ -58,6 +60,8 @@ class AYURoute {
         switch path {
         case .profile:
             return .get
+        case .payRoll:
+            return .get
         default:
             return .post
         }
@@ -72,6 +76,7 @@ extension AYURoute {
         case signUP(cpf: String, password: String)
         case auth
         case refresh(refreshToken: String)
+        case payRoll
     }
     
     var resquest: AYURequest {

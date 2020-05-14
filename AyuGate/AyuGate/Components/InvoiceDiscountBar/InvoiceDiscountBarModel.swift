@@ -9,28 +9,35 @@
 import Foundation
 
 struct InvoiceDiscountBarViewModel {
+
+    let model: [InvoiceDiscountBarModel]?
     
-    let model: InvoiceDiscountBarModel
-    
-    private var total: Double {
-        return model.discount + model.input + model.netValue
-    }
-    
-    var inputPercent: Double {
-        return model.input / total * 100
-    }
-    
-    var neValuePercent: Double {
-        return model.netValue / total * 100
+    var liquidPercent: Double {
+        return model?.filter({ $0.discountType == InvoiceDiscountBarModel.DiscountType.liquid  }).first?.percentage ?? 0
     }
     
     var discountPercent: Double {
-        return model.netValue * total / 100
+        return model?.filter({ $0.discountType == InvoiceDiscountBarModel.DiscountType.discount  }).first?.percentage ?? 0
     }
+    
+    var fixedDiscountPercent: Double {
+        return model?.filter({ $0.discountType == InvoiceDiscountBarModel.DiscountType.fixedDiscounts  }).first?.percentage ?? 0
+    }
+
 }
 
 struct InvoiceDiscountBarModel {
-    let discount: Double
-    let input: Double
-    let netValue: Double
+    let type: String
+    let percentage: Double
+    
+    var discountType: DiscountType? {
+        return DiscountType(rawValue: type)
+    }
+    
+    enum DiscountType: String {
+        case discount = "discount"
+        case fixedDiscounts = "fixedDiscounts"
+        case liquid = "liquid"
+    }
+
 }
