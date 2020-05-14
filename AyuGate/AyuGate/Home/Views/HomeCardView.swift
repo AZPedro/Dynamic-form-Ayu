@@ -20,6 +20,8 @@ class HomeCardView: UIView {
         }
     }
     
+    var actionHandler: (()-> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildUI()
@@ -103,6 +105,11 @@ class HomeCardView: UIView {
         addSubview(iconImageView)
         iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -10).isActive = true
         iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10).isActive = true
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapActionHandler)))
+    }
+    
+    @objc private func didTapActionHandler(){
+        actionHandler?()
     }
     
     private func animate() {

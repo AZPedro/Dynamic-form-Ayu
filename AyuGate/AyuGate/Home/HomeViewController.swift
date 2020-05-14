@@ -15,6 +15,7 @@ class HomeViewController: AYUViewController {
         fetch()
     }
     
+    var invoiceModel: Invoice?
     private let profile = SessionManager.shared.getAccount()
     
     private lazy var accountImageView: UIImageView = {
@@ -72,6 +73,13 @@ class HomeViewController: AYUViewController {
         
         footerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         footerLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -6).isActive = true
+        
+        cardView.actionHandler = { [weak self] in
+            guard let invoice = self?.invoiceModel, let profile = SessionManager.shared.getAccount() else { return }
+            let invoiceDetailsModel = InvoicedetailsViewModel(invoice: invoice, profile: profile)
+            let invoiceViewController = InvoiceDetailViewController(invoice: invoiceDetailsModel)
+            self?.present(invoiceViewController, animated: true, completion: nil)
+        }
     }
     
     private func fetch() {
@@ -79,6 +87,7 @@ class HomeViewController: AYUViewController {
         NetworkManager.shared.makeRequest(request: request) { (result: Handler<Invoice>?, validation) in
             DispatchQueue.main.async {
                 guard let invoice = result?.response else { return }
+                self.invoiceModel = invoice
                 self.cardView.model = HomeCardViewModel(from: invoice)
             }
         }

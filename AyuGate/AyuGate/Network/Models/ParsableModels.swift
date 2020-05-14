@@ -46,6 +46,16 @@ struct Invoice: ParsableProtocol {
         let type: String
         let description: String
         let amount: Double
+        
+        var discountType: DiscountType {
+            return DiscountType(rawValue: type) ??  DiscountType.liquid
+        }
+           
+        enum DiscountType: String {
+           case discount = "discount"
+           case fixedDiscounts = "fixedDiscounts"
+           case liquid = "liquid"
+        }
     }
 }
 

@@ -15,6 +15,17 @@ class InvoiceDetailViewController: AYUViewController {
         buildUI()
     }
     
+    var invoiceModel: InvoicedetailsViewModel
+    
+    init(invoice: InvoicedetailsViewModel) {
+        self.invoiceModel = invoice
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -37,7 +48,6 @@ class InvoiceDetailViewController: AYUViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 38, weight: .bold)
         label.textColor = .white
-        label.text = "R$ 1.800,00"
         return label
     }()
     
@@ -89,15 +99,7 @@ class InvoiceDetailViewController: AYUViewController {
         
         return controller
     }()
-    
-    struct Mock {
-       static let detailsModels = [
-            AYUInvoiceDetailsViewModel(value: 800, type: .directDiscount, description: "Desconto"),
-            AYUInvoiceDetailsViewModel(value: 1800, type: .input, description: "Salário"),
-            AYUInvoiceDetailsViewModel(value: 2800, type: .input, description: "Salário"),
-            AYUInvoiceDetailsViewModel(value: 1050, type: .discount, description: "Salário")
-        ]
-    }
+
     
     private func buildUI() {
         view.addSubview(headerContentView)
@@ -136,6 +138,12 @@ class InvoiceDetailViewController: AYUViewController {
         invoiceListDetailsViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         invoiceListDetailsViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        invoiceListDetailsViewController.model = InvoiceListDetailsViewModel(company: "AyuGate", details: Mock.detailsModels)
+        valueLabel.text = invoiceModel.formattedCurrentAmount
+        profileCardView.cpfLabel.text = invoiceModel.cpfValue
+        profileCardView.profileNameLabel.text = invoiceModel.customerName
+        profileCardView.officeLabel.text = invoiceModel.customerRole
+        
+        let details = invoiceModel.roll.compactMap({ AYUInvoiceDetailsViewModel(roll: $0) })
+        invoiceListDetailsViewController.model = InvoiceListDetailsViewModel(company: invoiceModel.companyName, details: details)
     }
 }

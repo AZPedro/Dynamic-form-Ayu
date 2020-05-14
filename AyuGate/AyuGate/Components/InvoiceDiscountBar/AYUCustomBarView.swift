@@ -33,21 +33,21 @@ class AYUInvoiceDiscountBar: UIView {
     
     var inputHeightConstant: CGFloat {
         guard let model = model else { return 0 }
-        return CGFloat(Constants.fullHeight * model.liquidPercent)
+        return CGFloat(Constants.fullHeight * model.liquidPercent / 100)
     }
     
     private var netValueBottomConstraint: NSLayoutConstraint?
     
     var netValueHeightConstant: CGFloat {
            guard let model = model else { return 0 }
-        return CGFloat(Constants.fullHeight * model.discountPercent)
+        return CGFloat(Constants.fullHeight * model.discountPercent / 100)
     }
     
     private var discountBottomConstraint: NSLayoutConstraint?
     
     var discountHeightConstant: CGFloat {
         guard let model = model else { return 0 }
-        return CGFloat(Constants.fullHeight * model.fixedDiscountPercent)
+        return CGFloat(Constants.fullHeight * model.fixedDiscountPercent / 100)
     }
     
     private lazy var contentView: UIView = {

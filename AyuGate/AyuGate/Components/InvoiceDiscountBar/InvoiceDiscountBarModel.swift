@@ -13,15 +13,15 @@ struct InvoiceDiscountBarViewModel {
     let model: [InvoiceDiscountBarModel]?
     
     var liquidPercent: Double {
-        return model?.filter({ $0.discountType == InvoiceDiscountBarModel.DiscountType.liquid  }).first?.percentage ?? 0
+        return model?.filter({ $0.discountType == InvoiceDiscountBarModel.DiscountType.liquid  }).first?.percentage ?? 0 * 10
     }
     
     var discountPercent: Double {
-        return model?.filter({ $0.discountType == InvoiceDiscountBarModel.DiscountType.discount  }).first?.percentage ?? 0
+        return model?.filter({ $0.discountType == InvoiceDiscountBarModel.DiscountType.discount  }).first?.percentage ?? 0 * 10
     }
     
     var fixedDiscountPercent: Double {
-        return model?.filter({ $0.discountType == InvoiceDiscountBarModel.DiscountType.fixedDiscounts  }).first?.percentage ?? 0
+        return model?.filter({ $0.discountType == InvoiceDiscountBarModel.DiscountType.fixedDiscounts  }).first?.percentage ?? 0 * 10
     }
 
 }

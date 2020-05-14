@@ -60,32 +60,29 @@ class ProfileInfoCardView: UIView {
         return view
     }()
     
-    private lazy var profileNameLabel: UILabel = {
+    lazy var profileNameLabel: UILabel = {
         let label =  UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.black
-        label.text = "Vanessa Costa"
 
         return label
     }()
     
-    private lazy var officeLabel: UILabel = {
+    lazy var officeLabel: UILabel = {
         let label =  UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.grayPrimary
-        label.text = "Engenheira"
 
         return label
     }()
     
-    private lazy var cpfLabel: UILabel = {
+    lazy var cpfLabel: UILabel = {
         let label =  UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.black
-        label.text = "180.459.067-45"
 
         return label
     }()

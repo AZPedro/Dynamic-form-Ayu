@@ -34,24 +34,24 @@ class DebugComponentsViewController: UIViewController {
         logoLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         //Invoice Details View
-        let invoiceDetailsView = AYUInvoiceDetailsView()
-        invoiceDetailsView.model = AYUInvoiceDetailsViewModel(value: 1800, type: .directDiscount, description: "Salário")
+//        let invoiceDetailsView = AYUInvoiceDetailsView()
+//        invoiceDetailsView.model = AYUInvoiceDetailsViewModel(value: 1800, type: .fixedDiscounts, description: "Salário")
+//
+//        self.view.addSubview(invoiceDetailsView)
+//        invoiceDetailsView.translatesAutoresizingMaskIntoConstraints = false
+//        invoiceDetailsView.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 20).isActive = true
+//        invoiceDetailsView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+//        invoiceDetailsView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
+//        invoiceDetailsView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
+//        invoiceDetailsView.heightAnchor.constraint(equalToConstant: 37).isActive = true
         
-        self.view.addSubview(invoiceDetailsView)
-        invoiceDetailsView.translatesAutoresizingMaskIntoConstraints = false
-        invoiceDetailsView.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 20).isActive = true
-        invoiceDetailsView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        invoiceDetailsView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
-        invoiceDetailsView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
-        invoiceDetailsView.heightAnchor.constraint(equalToConstant: 37).isActive = true
-        
-        let pickerView = AYUMonthsPickerView()
-        self.view.addSubview(pickerView)
-        pickerView.translatesAutoresizingMaskIntoConstraints = false
-        pickerView.topAnchor.constraint(equalTo: invoiceDetailsView.bottomAnchor, constant: 20).isActive = true
-        pickerView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        pickerView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        pickerView.heightAnchor.constraint(equalToConstant: 37).isActive = true
+//        let pickerView = AYUMonthsPickerView()
+//        self.view.addSubview(pickerView)
+//        pickerView.translatesAutoresizingMaskIntoConstraints = false
+//        pickerView.topAnchor.constraint(equalTo: invoiceDetailsView.bottomAnchor, constant: 20).isActive = true
+//        pickerView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+//        pickerView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+//        pickerView.heightAnchor.constraint(equalToConstant: 37).isActive = true
         
     }
     

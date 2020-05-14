@@ -20,14 +20,14 @@ class AYUInvoiceDetailsView: AYUDetailInfoView {
         guard let model = model else { return }
         
         switch model.type {
-        case .directDiscount:
+        case .fixedDiscounts:
             verticalBarIndicator.backgroundColor = UIColor.redSecondary
             valueLabel.textColor = UIColor.redSecondary
             
         case .discount:
             verticalBarIndicator.backgroundColor = UIColor.yellowTerciary
             valueLabel.textColor = UIColor.yellowTerciary
-        case .input:
+        case .liquid:
             verticalBarIndicator.backgroundColor = UIColor.greenPrimary
             valueLabel.textColor = UIColor.greenPrimary
         }
@@ -39,21 +39,24 @@ class AYUInvoiceDetailsView: AYUDetailInfoView {
 
 struct AYUInvoiceDetailsViewModel {
     let value: Double
-    let type: `Type`
+    let type: Invoice.PayRoll.DiscountType
     let description: String
-    
-    public enum `Type` {
-        case input, discount, directDiscount
-    }
     
     var formattedValue: String {
         let formatter = NumberFormatter()
         formatter.locale = Locale.current
         formatter.numberStyle = .currency
         let formattedCurrency = formatter.string(from: NSNumber(value: value)) ?? "R$ 0,00"
-        if type == .directDiscount {
+        if type == .fixedDiscounts {
             return "-\(formattedCurrency)"
         }
         return formattedCurrency
     }
+    
+    init(roll: Invoice.PayRoll) {
+        value = roll.amount
+        type = roll.discountType
+        description = roll.description
+    }
+    
 }
