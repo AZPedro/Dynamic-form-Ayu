@@ -77,9 +77,14 @@ class InvoiceDetailViewController: AYUViewController {
         closeView.image = UIImage(named: "CloseButtonIcon")
         closeView.topAnchor.constraint(equalTo: v.topAnchor, constant: 31).isActive = true
         closeView.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -5).isActive = true
+        closeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissController)))
         
         return v
     }()
+    
+    @objc private func dismissController() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     private lazy var profileCardView: ProfileInfoCardView = {
         let view = ProfileInfoCardView()

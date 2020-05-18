@@ -21,6 +21,7 @@ class AccountDetailsListViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(AccountDetailsTableViewCell.self, forCellReuseIdentifier: AccountDetailsTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .none
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         return tableView

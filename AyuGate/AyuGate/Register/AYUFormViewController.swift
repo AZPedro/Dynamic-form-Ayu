@@ -23,7 +23,7 @@ class AYUActionButtonViewController: AYUViewController {
         
         view.addSubview(actionButton)
         
-        actionButtonBottomConstraint = actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        actionButtonBottomConstraint = actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         actionButtonBottomConstraint?.isActive = true
         actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -36,7 +36,8 @@ class AYUActionButtonViewController: AYUViewController {
     }
 
     lazy var actionButton: AYUButton = {
-        let button = AYUButton(title: "Avançar", titleColor: UIColor.yellowPrimary)
+        let button = AYUButton(title: "", titleColor: UIColor.yellowPrimary)
+        button.customTitleLabel.text = "AVANÇAR"
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -48,6 +49,7 @@ class AYUActionButtonViewController: AYUViewController {
             view.setNeedsLayout()
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
                 self.actionButtonBottomConstraint?.constant = -keyboardSize.height
+                self.actionButton.actionButtonHeighConstraint?.constant = 55
                 self.view.layoutIfNeeded()
             }, completion: nil)
         }
@@ -58,6 +60,7 @@ class AYUActionButtonViewController: AYUViewController {
 
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
             self.actionButtonBottomConstraint?.constant = 0
+            self.actionButton.actionButtonHeighConstraint?.constant = AYUButton.Constants.buttonHeight
             self.view.layoutIfNeeded()
         }, completion: nil)
     }

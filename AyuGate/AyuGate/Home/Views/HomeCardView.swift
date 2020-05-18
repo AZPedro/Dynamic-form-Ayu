@@ -113,7 +113,7 @@ class HomeCardView: UIView {
     }
     
     private func animate() {
-        UIView.animate(withDuration: 1.5, animations: {
+        UIView.animate(withDuration: 1.0, animations: {
             self.monthTitle.alpha = 1
             self.priceLabel.alpha = 1
             self.dateLabel.alpha = 1
@@ -126,7 +126,7 @@ class HomeCardView: UIView {
         priceLabel.text = "\(model.price)"
         monthTitle.text = model.month
         invoiceDiscountBar.model = InvoiceDiscountBarViewModel(model: model.barModel)
-        
+        animate()
 //        animate()
 //        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
 //            self.invoiceDiscountBar.animate()

@@ -44,8 +44,11 @@ class AccountViewController: UIViewController {
         logoutLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         logoutLabel.translatesAutoresizingMaskIntoConstraints = false
         logoutLabel.text = "SAIR"
+        logoutLabel.isUserInteractionEnabled = true
+        logoutLabel.textColor = UIColor.black
         logoutLabel.topAnchor.constraint(equalTo: v.topAnchor, constant: 41).isActive = true
         logoutLabel.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -17).isActive = true
+        logoutLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(logout)))
         
         let backArrow = UIImageView()
         v.addSubview(backArrow)
@@ -158,6 +161,24 @@ class AccountViewController: UIViewController {
     }
     
     @objc private func pop() {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func logout() {
+        SessionManager.shared.logout()
+        
+        let loginFlow = RegisterFlowController()
+        let navigation = UINavigationController(rootViewController: loginFlow)
+        navigation.modalPresentationStyle = .fullScreen
+        
+        self.present(navigation, animated: true, completion: {
+            if let count = self.navigationController?.viewControllers.count {
+                let backViewControllerPosition = count - 2
+                guard backViewControllerPosition >= 0 else {
+                    return
+                }
+                self.navigationController?.viewControllers.remove(at: backViewControllerPosition)
+            }
+        })
     }
 }

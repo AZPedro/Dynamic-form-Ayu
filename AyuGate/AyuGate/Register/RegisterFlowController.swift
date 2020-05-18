@@ -24,7 +24,7 @@ class RegisterFlowController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.isNavigationBarHidden = true
         installChild(cpfRegisterViewController)
     }
     
@@ -56,6 +56,7 @@ class RegisterFlowController: UIViewController {
     private func showHome() {
         DispatchQueue.main.async {
             let homeFlow = HomeFlowController()
+            homeFlow.modalPresentationStyle = .fullScreen
             self.navigationController?.present(homeFlow, animated: true, completion: nil)
         }
     }

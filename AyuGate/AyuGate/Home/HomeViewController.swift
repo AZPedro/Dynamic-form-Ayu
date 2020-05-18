@@ -22,11 +22,13 @@ class HomeViewController: AYUViewController {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "MockedIconProfile")
         imageView.contentMode = .scaleAspectFill
+        imageView.isUserInteractionEnabled = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalToConstant: 37).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 37).isActive = true
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 37 / 2
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAccountProfile)))
         return imageView
     }()
 
@@ -91,5 +93,10 @@ class HomeViewController: AYUViewController {
                 self.cardView.model = HomeCardViewModel(from: invoice)
             }
         }
+    }
+    
+    @objc private func showAccountProfile() {
+        let accountController = AccountViewController()
+        self.present(accountController, animated: true, completion: nil)
     }
 }

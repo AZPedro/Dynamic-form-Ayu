@@ -120,6 +120,12 @@ class SessionManager: NSObject {
             os_log("Failed to delete access token from keychain: %{public}@", log: self.log, type: .error, String(describing: error))
         }
     }
+    
+    func logout() {
+        deleteAuthToken()
+        deleteProfileID()
+        deleteRefreshToken()
+    }
 
     
     var isUserLoged: Bool {

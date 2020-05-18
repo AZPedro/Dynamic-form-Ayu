@@ -12,7 +12,7 @@ import UIKit
 class AYUButton: UIButton {
     
     struct Constants {
-        static let buttonHeight: CGFloat = 55
+        static let buttonHeight: CGFloat = UIDevice().hasNotch ? 75 : 55
         static let widthPadding: CGFloat = 20
     }
     
@@ -29,20 +29,29 @@ class AYUButton: UIButton {
         return spinner
     }()
     
+    lazy var customTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.textColor = isEnabled ? .yellowPrimary : .grayPrimary
+        label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(action(_:))))
+        return label
+    }()
+    
     var handler: (() -> Void)?
+    var actionButtonHeighConstraint: NSLayoutConstraint?
     
     func buildUI() {
         addSubview(spinnerView)
-        
-        setTitleColor(.grayPrimary, for: .disabled)
-        titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        titleLabel?.isUserInteractionEnabled = false
-
+        addSubview(customTitleLabel)
+        customTitleLabel.centerYAnchor.constraint(equalTo: self.topAnchor, constant: 27.5).isActive = true
+        customTitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         translatesAutoresizingMaskIntoConstraints = false
         
+        actionButtonHeighConstraint = heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
+        actionButtonHeighConstraint?.isActive = true
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: Constants.buttonHeight),
-            spinnerView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            spinnerView.centerYAnchor.constraint(equalTo: self.customTitleLabel.centerYAnchor),
             spinnerView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
         
@@ -60,6 +69,7 @@ class AYUButton: UIButton {
     override var isEnabled: Bool {
         didSet {
             backgroundColor = isEnabled ? .black : .graySecondary
+            customTitleLabel.textColor = isEnabled ? .yellowPrimary : .grayPrimary
         }
     }
     
@@ -94,19 +104,19 @@ class AYUButton: UIButton {
             isUserInteractionEnabled = true
             spinnerView.isHidden = true
             spinnerView.state = .idle
-            titleLabel?.alpha = 1
+            customTitleLabel.alpha = 1
         case .loading:
             impactFeedback.impactOccurred()
             isUserInteractionEnabled = false
             spinnerView.isHidden = false
-            titleLabel?.alpha = 0
+            customTitleLabel.alpha = 0
             spinnerView.state = .spinning
         case .error:
             notificationFeedback.notificationOccurred(.error)
             isUserInteractionEnabled = true
             spinnerView.isHidden = true
             spinnerView.state = .idle
-            titleLabel?.alpha = 1
+            customTitleLabel.alpha = 1
         }
     }
 }
