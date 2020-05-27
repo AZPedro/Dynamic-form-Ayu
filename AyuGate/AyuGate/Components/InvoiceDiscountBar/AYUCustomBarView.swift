@@ -29,25 +29,25 @@ class AYUInvoiceDiscountBar: UIView {
         static let fullHeight: Double = 219
     }
     
-    private var inputBarBottomContraint: NSLayoutConstraint?
+    private var inputBarHeightContraint: NSLayoutConstraint?
     
     var inputHeightConstant: CGFloat {
         guard let model = model else { return 0 }
-        return CGFloat(Constants.fullHeight * model.liquidPercent / 100)
+        return CGFloat(Constants.fullHeight * model.liquidPercent + 4)
     }
     
     private var netValueBottomConstraint: NSLayoutConstraint?
     
     var netValueHeightConstant: CGFloat {
            guard let model = model else { return 0 }
-        return CGFloat(Constants.fullHeight * model.discountPercent / 100)
+        return CGFloat(Constants.fullHeight * model.discountPercent + 4)
     }
     
     private var discountBottomConstraint: NSLayoutConstraint?
     
     var discountHeightConstant: CGFloat {
         guard let model = model else { return 0 }
-        return CGFloat(Constants.fullHeight * model.fixedDiscountPercent / 100)
+        return CGFloat(Constants.fullHeight * model.fixedDiscountPercent + 4)
     }
     
     private lazy var contentView: UIView = {
@@ -99,60 +99,35 @@ class AYUInvoiceDiscountBar: UIView {
         contentView.addSubview(discountBarView)
         contentView.addSubview(netValueBarView)
         contentView.addSubview(inputBarView)
-
+        contentView.isHidden = true
         contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         contentView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 
-        discountBarView.heightAnchor.constraint(equalToConstant: discountHeightConstant).isActive = true
-        discountBarView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        discountBottomConstraint = discountBarView.bottomAnchor.constraint(equalTo: netValueBarView.bottomAnchor)
-        discountBottomConstraint?.isActive = true
-        discountBarView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        
-        netValueBarView.heightAnchor.constraint(equalToConstant: netValueHeightConstant).isActive = true
-        netValueBarView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        netValueBottomConstraint = netValueBarView.bottomAnchor.constraint(equalTo: inputBarView.bottomAnchor)
-        netValueBottomConstraint?.isActive = true
-        netValueBarView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        
-        inputBarView.heightAnchor.constraint(equalToConstant: inputHeightConstant).isActive = true
-        inputBarView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        inputBarBottomContraint = inputBarView.bottomAnchor.constraint(equalTo: contentView.topAnchor)
-        inputBarBottomContraint?.isActive = true
+        inputBarView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -4).isActive = true
         inputBarView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        inputBarHeightContraint = inputBarView.heightAnchor.constraint(equalToConstant: inputHeightConstant)
+        inputBarHeightContraint?.isActive = true
+        
+        netValueBarView.topAnchor.constraint(equalTo: inputBarView.bottomAnchor, constant: -4).isActive = true
+        netValueBarView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        netValueBottomConstraint = netValueBarView.heightAnchor.constraint(equalToConstant: netValueHeightConstant)
+        netValueBottomConstraint?.isActive = true
+        
+        discountBarView.topAnchor.constraint(equalTo: netValueBarView.bottomAnchor, constant: -4).isActive = true
+        discountBarView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        discountBottomConstraint = discountBarView.heightAnchor.constraint(equalToConstant: discountHeightConstant)
+        discountBottomConstraint?.isActive = true
     }
     
     func animate() {
-        firstAnimation()
-        secondAnimation()
-        thirdAnimation()
-    }
-    
-    private func firstAnimation() {
-        setNeedsLayout()
-        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
-            self.inputBarBottomContraint?.constant = self.inputHeightConstant
-            self.layoutIfNeeded()
-        }, completion: nil)
-    }
-    
-    private func secondAnimation() {
-        setNeedsLayout()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            UIView.animate(withDuration: 0.7, animations: {
-                self.netValueBottomConstraint?.constant = self.netValueHeightConstant
-                self.layoutIfNeeded()
-            }, completion: nil)
-        }
-    }
-    
-    private func thirdAnimation() {
-        setNeedsLayout()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            UIView.animate(withDuration: 10, animations: {
-                self.discountBottomConstraint?.constant = self.discountHeightConstant
-                self.layoutIfNeeded()
-            }, completion: nil)
+        inputBarHeightContraint?.constant = inputHeightConstant
+        netValueBottomConstraint?.constant = netValueHeightConstant
+        discountBottomConstraint?.constant = discountHeightConstant
+        
+        contentView.alpha = 0
+        UIView.animate(withDuration: 0.5) {
+            self.contentView.isHidden = false
+            self.contentView.alpha = 1
         }
     }
 }

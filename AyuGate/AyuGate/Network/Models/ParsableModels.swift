@@ -65,7 +65,7 @@ struct ProfileParsable: ParsableProtocol {
     let name: String
     
     enum CodingKeys: String, CodingKey {
-        case id = "_id"
+        case id = "id"
         case cpf = "cpf"
         case name = "name"
     }

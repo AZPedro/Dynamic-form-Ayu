@@ -125,9 +125,9 @@ class HomeCardView: UIView {
         guard let model = self.model else { return }
         priceLabel.text = "\(model.price)"
         monthTitle.text = model.month
-        invoiceDiscountBar.model = InvoiceDiscountBarViewModel(model: model.barModel)
         animate()
-//        animate()
+        invoiceDiscountBar.model = InvoiceDiscountBarViewModel(model: model.barModel)
+        
 //        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
 //            self.invoiceDiscountBar.animate()
 //        }

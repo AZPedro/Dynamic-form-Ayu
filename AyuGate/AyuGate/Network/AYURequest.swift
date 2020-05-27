@@ -11,8 +11,8 @@ import Foundation
 class AYURequest: NSObject {
  
     struct Header {
-        static let X_APP_ID = "9934138a-68a6-4323-af15-7a93e082de71"
-        static let X_APP_SECRETS = "9896a978-e0f0-4726-a79a-ac6e363ebc65"
+        static let X_APP_ID = "f10500e1-aad8-4a2d-8483-bf85e9796dfd"
+        static let X_APP_SECRETS = "815d41a4-0e25-4083-a9c7-399601f228aa"
     }
     
     enum RequestMethod: String {

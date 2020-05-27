@@ -10,7 +10,7 @@ import Foundation
 
 class AYURoute {
     
-    private let mockBaseURL: String = "http://1cca757d.ngrok.io/"
+    private let mockBaseURL: String = "http://ec2-54-211-42-129.compute-1.amazonaws.com/"
     
     private let path: AyuPath
     
@@ -26,8 +26,8 @@ class AYURoute {
         switch path {
         case .login:
             return "users/login"
-        case .profile(let id):
-            return "profile/\(id)"
+        case .profile:
+            return "profile/me"
         case .verify:
             return "users/verify"
         case .signUP:

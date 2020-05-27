@@ -157,7 +157,7 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
                 let passwordConfirmationText = self.passwordConfirmationField.textField.text else { return false }
             
             if passwordText != passwordConfirmationText,
-                passwordText.isEmpty || passwordConfirmationText.isEmpty {
+                passwordText.isEmpty || passwordConfirmationText.isEmpty || passwordText != passwordConfirmationText {
                     
                     passwordField.errorLabel.text = "Senha e confirmação de senha devem ser iguais"
                     actionButton.updateState(state: .error)
