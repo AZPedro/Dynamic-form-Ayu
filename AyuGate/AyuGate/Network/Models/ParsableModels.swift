@@ -27,6 +27,8 @@ struct Validation: Decodable {
 
 struct Invoice: ParsableProtocol {
     let id: String
+    let liquidAmount: Double
+    let month: String
     let percentage: [Percentage]
     let company: Role
     let role: Role

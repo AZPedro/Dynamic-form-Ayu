@@ -23,6 +23,9 @@
 		FA5761A124537A4B009BB9CF /* ParsableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5761A024537A4B009BB9CF /* ParsableModels.swift */; };
 		FA5761A52453802A009BB9CF /* CPFVerifyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5761A42453802A009BB9CF /* CPFVerifyViewModel.swift */; };
 		FA6B01752469CC6D00E004CA /* AYURoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B01742469CC6D00E004CA /* AYURoute.swift */; };
+		FA7C355F24D8DC8000F8F0CD /* FormStepFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */; };
+		FA7C356224D8DCB800F8F0CD /* StepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */; };
+		FAA9F90D24DF91B300B6AE20 /* BackgroundStepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */; };
 		FAB2A6E22445FD0A00C49E06 /* AyuGateAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */; };
 		FAB2A6E62445FD0A00C49E06 /* DebugComponentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */; };
 		FAB2A6EB2445FD0E00C49E06 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB2A6EA2445FD0E00C49E06 /* images.xcassets */; };
@@ -74,6 +77,9 @@
 		FA5761A024537A4B009BB9CF /* ParsableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableModels.swift; sourceTree = "<group>"; };
 		FA5761A42453802A009BB9CF /* CPFVerifyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPFVerifyViewModel.swift; sourceTree = "<group>"; };
 		FA6B01742469CC6D00E004CA /* AYURoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYURoute.swift; sourceTree = "<group>"; };
+		FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStepFlowController.swift; sourceTree = "<group>"; };
+		FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStepController.swift; sourceTree = "<group>"; };
 		FAB2A6DE2445FD0A00C49E06 /* AyuGate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AyuGate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyuGateAppDelegate.swift; sourceTree = "<group>"; };
 		FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugComponentsViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +195,32 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		FA7C355A24D8C9B200F8F0CD /* MEI Form */ = {
+			isa = PBXGroup;
+			children = (
+				FA7C356024D8DCA700F8F0CD /* Views */,
+				FA7C355D24D8CA0100F8F0CD /* Background */,
+				FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */,
+			);
+			path = "MEI Form";
+			sourceTree = "<group>";
+		};
+		FA7C355D24D8CA0100F8F0CD /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
+		FA7C356024D8DCA700F8F0CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FAB2A6D52445FD0A00C49E06 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +242,7 @@
 		FAB2A6E02445FD0A00C49E06 /* AyuGate */ = {
 			isa = PBXGroup;
 			children = (
+				FA7C355A24D8C9B200F8F0CD /* MEI Form */,
 				FA43787D246CB44D0099B905 /* AyuGate.entitlements */,
 				FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */,
 				FAD51074244925D900B224AF /* AppFlow.swift */,
@@ -455,6 +488,7 @@
 				FA1BEAB82469E20600D78940 /* AccountDetailsListViewController.swift in Sources */,
 				FAD51075244925D900B224AF /* AppFlow.swift in Sources */,
 				FA57619F24536D89009BB9CF /* NetworkManager.swift in Sources */,
+				FA7C356224D8DCB800F8F0CD /* StepCollectionViewCell.swift in Sources */,
 				FA1BEAB62469D8A100D78940 /* UIDevice+extensions.swift in Sources */,
 				FABAB9F9244F8B3700170210 /* HomeViewController.swift in Sources */,
 				FA1BEAC0246A046900D78940 /* PasswordValidationViewModel.swift in Sources */,
@@ -473,6 +507,7 @@
 				FAD5107A24492CAB00B224AF /* AYUViewController.swift in Sources */,
 				FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */,
 				FA0D4562246E06D10012FCCE /* InvoiceDetailsViewModel.swift in Sources */,
+				FAA9F90D24DF91B300B6AE20 /* BackgroundStepController.swift in Sources */,
 				FA375B472469A68200D190E8 /* AYURequest.swift in Sources */,
 				FAB2A70F2447AD0400C49E06 /* InvoiceDiscountBarModel.swift in Sources */,
 				FA43787C246CA5570099B905 /* Profile.swift in Sources */,
@@ -487,6 +522,7 @@
 				FAD51086244A610C00B224AF /* AYUFormViewController.swift in Sources */,
 				FABAB9FC244F8CB800170210 /* HomeCardView.swift in Sources */,
 				FABDFFCE2464B97D004B253A /* AYUDetailInfoView.swift in Sources */,
+				FA7C355F24D8DC8000F8F0CD /* FormStepFlowController.swift in Sources */,
 				FAD51088244A6A3500B224AF /* RegisterFlowController.swift in Sources */,
 				FA26393724617E4D00E282F6 /* AYUMonthsPickerView.swift in Sources */,
 				FAB2A6FE24462FD700C49E06 /* UIColor+extensions.swift in Sources */,
@@ -628,6 +664,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AyuGate/AyuGate.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEP9UKL7GT;
 				INFOPLIST_FILE = AyuGate/Info.plist;
@@ -636,8 +673,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.product.AyuGate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.ayugate.app.v2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -649,16 +687,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AyuGate/AyuGate.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WEP9UKL7GT;
+				DEVELOPMENT_TEAM = 56N7W5W933;
 				INFOPLIST_FILE = AyuGate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.product.AyuGate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.product.AyuGate.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

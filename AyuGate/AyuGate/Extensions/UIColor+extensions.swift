@@ -26,6 +26,11 @@ extension UIColor {
     static var redSecondary = UIColor.hexStringToUIColor(hex: "#A31A1A")
     static var greenPrimary = UIColor.hexStringToUIColor(hex: "#147914")
     
+    //FormColors
+    
+    static var formBackgroundColor = UIColor.hexStringToUIColor(hex: "#1D1F24")
+    
+    
     /// functions
     static func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

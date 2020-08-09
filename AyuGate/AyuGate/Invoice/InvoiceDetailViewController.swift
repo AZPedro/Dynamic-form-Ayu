@@ -78,6 +78,7 @@ class InvoiceDetailViewController: AYUViewController {
         closeView.topAnchor.constraint(equalTo: v.topAnchor, constant: 31).isActive = true
         closeView.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -5).isActive = true
         closeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissController)))
+        closeView.isUserInteractionEnabled = true
         
         return v
     }()

@@ -17,15 +17,16 @@ final class AppFlow: NSObject {
     func flow() -> UINavigationController {
         nav.isNavigationBarHidden = true
         
-        if SessionManager.shared.isUserLoged {
-            nav.viewControllers = [HomeFlowController()]
-        } else {
-//            nav.viewControllers = [DebugComponentsViewController()]
+        nav.viewControllers = [BackgroundStepController()]
+//        if SessionManager.shared.isUserLoged {
 //            nav.viewControllers = [HomeFlowController()]
-            nav.viewControllers = [RegisterFlowController()]
-//            nav.viewControllers = [InvoiceDetailViewController()]
-//            nav.viewControllers = [AccountViewController()]
-        }
+//        } else {
+////            nav.viewControllers = [DebugComponentsViewController()]
+////            nav.viewControllers = [HomeFlowController()]
+//            nav.viewControllers = [RegisterFlowController()]
+////            nav.viewControllers = [InvoiceDetailViewController()]
+////            nav.viewControllers = [AccountViewController()]
+//        }
         
         return nav
     }

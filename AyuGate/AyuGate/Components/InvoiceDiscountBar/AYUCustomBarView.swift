@@ -118,7 +118,7 @@ class AYUInvoiceDiscountBar: UIView {
         discountBottomConstraint = discountBarView.heightAnchor.constraint(equalToConstant: discountHeightConstant)
         discountBottomConstraint?.isActive = true
     }
-    
+        
     func animate() {
         inputBarHeightContraint?.constant = inputHeightConstant
         netValueBottomConstraint?.constant = netValueHeightConstant

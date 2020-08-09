@@ -43,7 +43,6 @@ class HomeCardView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
         label.textColor = .white
-        label.text = "R$ 1.800,00"
         return label
     }()
     
@@ -53,7 +52,6 @@ class HomeCardView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
         label.textColor = UIColor.whitePlaceholder
-        label.text = "Terça, 01/04, 2019"
         return label
     }()
     
@@ -123,11 +121,11 @@ class HomeCardView: UIView {
     
     func updateUI() {
         guard let model = self.model else { return }
-        priceLabel.text = "\(model.price)"
+        priceLabel.text = model.formattedCurrentAmount
         monthTitle.text = model.month
         animate()
         invoiceDiscountBar.model = InvoiceDiscountBarViewModel(model: model.barModel)
-        
+//
 //        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
 //            self.invoiceDiscountBar.animate()
 //        }
@@ -137,15 +135,21 @@ class HomeCardView: UIView {
 struct HomeCardViewModel {
     let month: String
     let price: Double
-    let date: String
     let barModel: [InvoiceDiscountBarModel]
+    
+    var formattedCurrentAmount: String {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .currency
+        let formattedCurrency = formatter.string(from: NSNumber(value: price)) ?? "R$ 0,00"
+        return formattedCurrency
+    }
 }
 
 extension HomeCardViewModel {
     init(from invoice: Invoice) {
         self.barModel = invoice.percentage.compactMap({ InvoiceDiscountBarModel(type: $0.type, percentage: $0.percentage )})
         self.price = invoice.payroll.first?.amount ?? 0
-        self.date = ""
-        self.month = ""
+        self.month = invoice.month
     }
 }
