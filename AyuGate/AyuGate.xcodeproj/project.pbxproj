@@ -26,6 +26,7 @@
 		FA7C355F24D8DC8000F8F0CD /* FormStepFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */; };
 		FA7C356224D8DCB800F8F0CD /* StepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */; };
 		FAA9F90D24DF91B300B6AE20 /* BackgroundStepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */; };
+		FAA9F91024E08F0C00B6AE20 /* FormStepCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F90F24E08F0C00B6AE20 /* FormStepCollectionController.swift */; };
 		FAB2A6E22445FD0A00C49E06 /* AyuGateAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */; };
 		FAB2A6E62445FD0A00C49E06 /* DebugComponentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */; };
 		FAB2A6EB2445FD0E00C49E06 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB2A6EA2445FD0E00C49E06 /* images.xcassets */; };
@@ -80,6 +81,7 @@
 		FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStepFlowController.swift; sourceTree = "<group>"; };
 		FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStepController.swift; sourceTree = "<group>"; };
+		FAA9F90F24E08F0C00B6AE20 /* FormStepCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStepCollectionController.swift; sourceTree = "<group>"; };
 		FAB2A6DE2445FD0A00C49E06 /* AyuGate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AyuGate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyuGateAppDelegate.swift; sourceTree = "<group>"; };
 		FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugComponentsViewController.swift; sourceTree = "<group>"; };
@@ -198,9 +200,10 @@
 		FA7C355A24D8C9B200F8F0CD /* MEI Form */ = {
 			isa = PBXGroup;
 			children = (
+				FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */,
 				FA7C356024D8DCA700F8F0CD /* Views */,
 				FA7C355D24D8CA0100F8F0CD /* Background */,
-				FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */,
+				FAA9F90E24E08C4800B6AE20 /* Step */,
 			);
 			path = "MEI Form";
 			sourceTree = "<group>";
@@ -219,6 +222,14 @@
 				FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FAA9F90E24E08C4800B6AE20 /* Step */ = {
+			isa = PBXGroup;
+			children = (
+				FAA9F90F24E08F0C00B6AE20 /* FormStepCollectionController.swift */,
+			);
+			path = Step;
 			sourceTree = "<group>";
 		};
 		FAB2A6D52445FD0A00C49E06 = {
@@ -519,6 +530,7 @@
 				FABAABB92463731100A3A678 /* InvoiceDetailsTableViewCell.swift in Sources */,
 				FAB2A70A2447A33D00C49E06 /* AYULogoLabel.swift in Sources */,
 				FA1BEABE2469E7F200D78940 /* SessionManager.swift in Sources */,
+				FAA9F91024E08F0C00B6AE20 /* FormStepCollectionController.swift in Sources */,
 				FAD51086244A610C00B224AF /* AYUFormViewController.swift in Sources */,
 				FABAB9FC244F8CB800170210 /* HomeCardView.swift in Sources */,
 				FABDFFCE2464B97D004B253A /* AYUDetailInfoView.swift in Sources */,

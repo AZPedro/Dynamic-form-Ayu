@@ -17,7 +17,7 @@ final class AppFlow: NSObject {
     func flow() -> UINavigationController {
         nav.isNavigationBarHidden = true
         
-        nav.viewControllers = [BackgroundStepController()]
+        nav.viewControllers = [FormStepFlowController()]
 //        if SessionManager.shared.isUserLoged {
 //            nav.viewControllers = [HomeFlowController()]
 //        } else {

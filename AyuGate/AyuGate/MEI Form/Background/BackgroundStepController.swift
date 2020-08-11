@@ -8,11 +8,17 @@
 
 import UIKit
 
-protocol BackgroundStepViewProtocol: UIViewController {
+protocol BackgroundStepViewProtocol: StepProtocol, UIViewController {
     var backgroundImagesView: [UIImageView] { get set }
-    var numberOfSteps: Int { get set }
-    var backgroundImageViewRightContant: CGFloat? { get set }
+    var contantByPosition: [CGFloat] { get set }
+    var backgroundImageViewRightContant: CGFloat { get set }
     var bacgroundImageviewCenterXAnchorConstraint: NSLayoutConstraint? { get set }
+}
+
+protocol StepProtocol {
+    var numberOfSteps: Int { get set }
+    var currentStep: Int { get set }
+    func moveToStep(at position: Int)
 }
 
 extension BackgroundStepViewProtocol {
@@ -25,6 +31,7 @@ extension BackgroundStepViewProtocol {
         view.backgroundColor = .formBackgroundColor
         
         prepareBackgroundImages()
+        prepareConstantsByPosition()
         setupImagesPositions()
     }
     
@@ -34,6 +41,17 @@ extension BackgroundStepViewProtocol {
         while i < numberOfSteps {
             i += 1
             backgroundImagesView.append(UIImageView())
+        }
+    }
+    
+    private func prepareConstantsByPosition() {
+        var i = 0
+        var constant: CGFloat = defaultConstant
+        
+        while i < numberOfSteps {
+            contantByPosition.append(constant)
+            i += 1
+            constant += 200
         }
     }
     
@@ -52,30 +70,42 @@ extension BackgroundStepViewProtocol {
         })
         
         backgroundImagesView.first?.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: UIScreen.main.bounds.height * -0.1).isActive = true
-        bacgroundImageviewCenterXAnchorConstraint = backgroundImagesView.first?.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: defaultConstant)
+        let initialConstantPosition = currentStep != 0 ? (-contantByPosition[currentStep]) : contantByPosition[currentStep]
+        bacgroundImageviewCenterXAnchorConstraint = backgroundImagesView.first?.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: initialConstantPosition)
         bacgroundImageviewCenterXAnchorConstraint?.isActive = true
     }
     
     func updateContant() {
         UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseOut, animations: {
-            self.bacgroundImageviewCenterXAnchorConstraint?.constant = self.backgroundImageViewRightContant ?? self.defaultConstant
+            self.bacgroundImageviewCenterXAnchorConstraint?.constant = self.backgroundImageViewRightContant
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
 }
 
 class BackgroundStepController: UIViewController, BackgroundStepViewProtocol {
-    
+    var contantByPosition: [CGFloat] = []
     var backgroundImagesView: [UIImageView] = []
     var bacgroundImageviewCenterXAnchorConstraint: NSLayoutConstraint?
    
-    var backgroundImageViewRightContant: CGFloat? {
+    var backgroundImageViewRightContant: CGFloat = 0 {
         didSet {
             updateContant()
         }
     }
     
-    var numberOfSteps: Int = 9
+    var numberOfSteps: Int
+    var currentStep: Int
+    
+    init(numberOfSteps: Int, currentStep: Int) {
+        self.numberOfSteps = numberOfSteps
+        self.currentStep = currentStep
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,5 +114,11 @@ class BackgroundStepController: UIViewController, BackgroundStepViewProtocol {
 
     private func buildUI() {
         setup()
+    }
+    
+    func moveToStep(at position: Int) {
+        let constant = position > currentStep ? (-contantByPosition[position]) : contantByPosition[position]
+        backgroundImageViewRightContant = constant
+        currentStep = position
     }
 }
