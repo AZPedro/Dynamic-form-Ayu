@@ -87,32 +87,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5463DA38-C5B9-4978-83F1-1192E47D61F5"
-            shouldBeEnabled = "Yes"
+            uuid = "97B0DB02-1D00-4C49-9D65-1056D946EF51"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AyuGate/MEI Form/Background/BackgroundStepController.swift"
+            filePath = "AyuGate/MEI Form/Views/StepCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "prepareConstantsByPosition()"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "buildUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F2B159EF-D10D-4ECC-A1BA-03344864E66B"
-            shouldBeEnabled = "Yes"
+            uuid = "06F8C7D8-398C-419F-A8F6-823A0845D44A"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AyuGate/MEI Form/Step/FormStepCollectionController.swift"
+            filePath = "AyuGate/MEI Form/Step/StepBottomSegmentController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "backAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

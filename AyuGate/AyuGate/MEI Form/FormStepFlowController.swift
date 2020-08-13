@@ -30,9 +30,37 @@ class FormStepFlowController: UIViewController {
         return formCollection
     }()
     
+    private lazy var stepBottomSegmentController: StepBottomSegmentController = {
+        let stepBottomSegmentController = StepBottomSegmentController(delegate: self)
+        return stepBottomSegmentController
+    }()
+    
     private func setup() {
         installChild(backgroundStepController)
         installChild(formStepCollectionController)
+        installBottonSegment()
+    }
+    
+    private func installBottonSegment() {
+        addChild(stepBottomSegmentController)
+        view.addSubview(stepBottomSegmentController.view)
+        stepBottomSegmentController.didMove(toParent: self)
+        
+        NSLayoutConstraint.activate([
+            stepBottomSegmentController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            stepBottomSegmentController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stepBottomSegmentController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
 }
 
+extension FormStepFlowController: StepBottomSegmentControllerDelegate {
+
+    func stepBottomSegmentControllerDelegate(didBack: StepBottomSegmentController) {
+        print("back")
+    }
+    
+    func stepBottomSegmentControllerDelegate(didNext: StepBottomSegmentController) {
+        print("nex")
+    }
+}

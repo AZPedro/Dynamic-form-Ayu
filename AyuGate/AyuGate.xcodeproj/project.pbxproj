@@ -25,6 +25,9 @@
 		FA6B01752469CC6D00E004CA /* AYURoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B01742469CC6D00E004CA /* AYURoute.swift */; };
 		FA7C355F24D8DC8000F8F0CD /* FormStepFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */; };
 		FA7C356224D8DCB800F8F0CD /* StepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */; };
+		FA94A37B24E4B12C004A17F4 /* StepCollectionViewCellContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94A37A24E4B12C004A17F4 /* StepCollectionViewCellContentController.swift */; };
+		FA94A37D24E4B1DA004A17F4 /* StepBottomSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94A37C24E4B1DA004A17F4 /* StepBottomSegmentController.swift */; };
+		FA94A37F24E4B349004A17F4 /* UILabel+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94A37E24E4B349004A17F4 /* UILabel+extensions.swift */; };
 		FAA9F90D24DF91B300B6AE20 /* BackgroundStepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */; };
 		FAA9F91024E08F0C00B6AE20 /* FormStepCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F90F24E08F0C00B6AE20 /* FormStepCollectionController.swift */; };
 		FAB2A6E22445FD0A00C49E06 /* AyuGateAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */; };
@@ -80,6 +83,9 @@
 		FA6B01742469CC6D00E004CA /* AYURoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYURoute.swift; sourceTree = "<group>"; };
 		FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStepFlowController.swift; sourceTree = "<group>"; };
 		FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA94A37A24E4B12C004A17F4 /* StepCollectionViewCellContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCellContentController.swift; sourceTree = "<group>"; };
+		FA94A37C24E4B1DA004A17F4 /* StepBottomSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBottomSegmentController.swift; sourceTree = "<group>"; };
+		FA94A37E24E4B349004A17F4 /* UILabel+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+extensions.swift"; sourceTree = "<group>"; };
 		FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStepController.swift; sourceTree = "<group>"; };
 		FAA9F90F24E08F0C00B6AE20 /* FormStepCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStepCollectionController.swift; sourceTree = "<group>"; };
 		FAB2A6DE2445FD0A00C49E06 /* AyuGate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AyuGate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				FAA9F90F24E08F0C00B6AE20 /* FormStepCollectionController.swift */,
+				FA94A37C24E4B1DA004A17F4 /* StepBottomSegmentController.swift */,
+				FA94A37A24E4B12C004A17F4 /* StepCollectionViewCellContentController.swift */,
 			);
 			path = Step;
 			sourceTree = "<group>";
@@ -294,6 +302,7 @@
 			children = (
 				FAB2A6FD24462FD700C49E06 /* UIColor+extensions.swift */,
 				FA1BEAB52469D8A100D78940 /* UIDevice+extensions.swift */,
+				FA94A37E24E4B349004A17F4 /* UILabel+extensions.swift */,
 				FAD51083244A603500B224AF /* UIView+extensions.swift */,
 				FAD5107D24493B5900B224AF /* Strings+extensions.swift */,
 			);
@@ -521,6 +530,8 @@
 				FAA9F90D24DF91B300B6AE20 /* BackgroundStepController.swift in Sources */,
 				FA375B472469A68200D190E8 /* AYURequest.swift in Sources */,
 				FAB2A70F2447AD0400C49E06 /* InvoiceDiscountBarModel.swift in Sources */,
+				FA94A37D24E4B1DA004A17F4 /* StepBottomSegmentController.swift in Sources */,
+				FA94A37B24E4B12C004A17F4 /* StepCollectionViewCellContentController.swift in Sources */,
 				FA43787C246CA5570099B905 /* Profile.swift in Sources */,
 				FAB2A6FB2446100800C49E06 /* AYUButton.swift in Sources */,
 				FAB2A6E22445FD0A00C49E06 /* AyuGateAppDelegate.swift in Sources */,
@@ -537,6 +548,7 @@
 				FA7C355F24D8DC8000F8F0CD /* FormStepFlowController.swift in Sources */,
 				FAD51088244A6A3500B224AF /* RegisterFlowController.swift in Sources */,
 				FA26393724617E4D00E282F6 /* AYUMonthsPickerView.swift in Sources */,
+				FA94A37F24E4B349004A17F4 /* UILabel+extensions.swift in Sources */,
 				FAB2A6FE24462FD700C49E06 /* UIColor+extensions.swift in Sources */,
 				FA5761A52453802A009BB9CF /* CPFVerifyViewModel.swift in Sources */,
 			);

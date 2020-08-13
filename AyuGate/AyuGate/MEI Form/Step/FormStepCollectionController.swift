@@ -44,8 +44,9 @@ class FormStepCollectionController: UIViewController, StepProtocol {
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = true
         collectionView.isPagingEnabled = true
-        collectionView.isUserInteractionEnabled = false
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: StepCollectionViewCell.identifier)
+        collectionView.isScrollEnabled = false
+        collectionView.isUserInteractionEnabled = true
+        collectionView.register(StepCollectionViewCell.self, forCellWithReuseIdentifier: StepCollectionViewCell.identifier)
     }
     
     private func buildUI() {
@@ -66,9 +67,9 @@ extension FormStepCollectionController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StepCollectionViewCell.identifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StepCollectionViewCell.identifier, for: indexPath) as? StepCollectionViewCell else { return UICollectionViewCell() }
         items.append(indexPath)
-        cell.backgroundColor = .clear
+//        cell.backgroundColor = .clear
         return cell
     }
     
