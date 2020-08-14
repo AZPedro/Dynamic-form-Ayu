@@ -8,11 +8,13 @@
 
 import UIKit
 
-class FormStepFlowController: UIViewController {
+class FormStepFlowController: UIViewController, StepProtocol {
     
-    struct Constants {
-        static let numberOfSteps = 5
-        static let currentStep = 0
+    var numberOfSteps: Int = 3
+    var currentStep: Int = 0 {
+        didSet {
+            moveToStep(at: currentStep)
+        }
     }
     
     override func viewDidLoad() {
@@ -21,11 +23,11 @@ class FormStepFlowController: UIViewController {
     }
     
     lazy var backgroundStepController: BackgroundStepController = {
-        return BackgroundStepController(numberOfSteps: Constants.numberOfSteps, currentStep: Constants.currentStep)
+        return BackgroundStepController(numberOfSteps: numberOfSteps, currentStep: currentStep)
     }()
     
     lazy var formStepCollectionController: FormStepCollectionController = {
-        let formCollection = FormStepCollectionController(numberOfSteps: Constants.numberOfSteps, currentStep: Constants.currentStep)
+        let formCollection = FormStepCollectionController(numberOfSteps: numberOfSteps, currentStep: currentStep)
         formCollection.delegate = backgroundStepController
         return formCollection
     }()
@@ -52,15 +54,22 @@ class FormStepFlowController: UIViewController {
             stepBottomSegmentController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
+    
+    func moveToStep(at position: Int) {
+        formStepCollectionController.moveToStep(at: position)
+        backgroundStepController.moveToStep(at: position)
+    }
 }
 
 extension FormStepFlowController: StepBottomSegmentControllerDelegate {
 
     func stepBottomSegmentControllerDelegate(didBack: StepBottomSegmentController) {
-        print("back")
+        guard currentStep > 0 else { return }
+        currentStep = currentStep-1
     }
     
     func stepBottomSegmentControllerDelegate(didNext: StepBottomSegmentController) {
-        print("nex")
+        guard currentStep < numberOfSteps else { return }
+        currentStep = currentStep+1
     }
 }

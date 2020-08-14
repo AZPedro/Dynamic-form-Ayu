@@ -70,8 +70,10 @@ class StepBottomSegmentController: UIViewController {
             view.heightAnchor.constraint(equalToConstant: Constants.viewHeight),
             backStepLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.defaultConstant),
             backStepLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.defaultConstant),
+            backStepLabel.heightAnchor.constraint(equalToConstant: 25),
             nextStepLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.defaultConstant),
-            nextStepLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.defaultConstant)
+            nextStepLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.defaultConstant),
+            nextStepLabel.heightAnchor.constraint(equalToConstant: 25)
         ])
         
         backStepLabel.isUserInteractionEnabled = true

@@ -9,6 +9,7 @@
 import UIKit
 
 class FormStepCollectionController: UIViewController, StepProtocol {
+    
     var currentStep: Int
     var numberOfSteps: Int
     var items: [IndexPath] = []
@@ -55,25 +56,44 @@ class FormStepCollectionController: UIViewController, StepProtocol {
     }
     
     func moveToStep(at position: Int) {
-        currentStep = position
-        delegate?.moveToStep(at: position)
+        let indexPath = IndexPath(row: position, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }
 
 extension FormStepCollectionController: UICollectionViewDelegate, UICollectionViewDataSource {
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfSteps
+        return numberOfSteps+1
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StepCollectionViewCell.identifier, for: indexPath) as? StepCollectionViewCell else { return UICollectionViewCell() }
         items.append(indexPath)
-//        cell.backgroundColor = .clear
         return cell
     }
     
     func didNext() {
         
+    }
+}
+
+extension UIColor {
+    static func random() -> UIColor {
+        return UIColor(
+           red:   .random(),
+           green: .random(),
+           blue:  .random(),
+           alpha: 1.0
+        )
+    }
+}
+extension CGFloat {
+    static func random() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
     }
 }
