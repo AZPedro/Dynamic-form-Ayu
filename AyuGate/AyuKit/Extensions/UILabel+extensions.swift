@@ -9,27 +9,27 @@
 import UIKit
 
 extension UILabel {
-    @discardableResult func lines(_ lineCount: Int=1) -> Self {
+    @discardableResult public func lines(_ lineCount: Int=1) -> Self {
         numberOfLines = lineCount
         return self
     }
 
-    @discardableResult func text(_ text: String) -> Self {
+    @discardableResult public func text(_ text: String) -> Self {
         self.text = text
         return self
     }
 
-    @discardableResult func textColour(_ colour: UIColor) -> Self {
+    @discardableResult public func textColour(_ colour: UIColor) -> Self {
         self.textColor = colour
         return self
     }
 
-    @discardableResult func font(_ font: UIFont) -> Self {
+    @discardableResult public func font(_ font: UIFont) -> Self {
         self.font = font
         return self
     }
     
-    @discardableResult func translatesAutoresizingMaskIntoConstraints(_ value: Bool) -> Self {
+    @discardableResult public func translatesAutoresizingMaskIntoConstraints(_ value: Bool) -> Self {
         translatesAutoresizingMaskIntoConstraints = value
         return self
     }

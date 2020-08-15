@@ -8,6 +8,7 @@
 
 import UIKit
 import CHIPageControl
+import AyuKit
 
 protocol BackgroundStepViewProtocol: StepProtocol, UIViewController {
     var backgroundImagesView: [UIImageView] { get set }

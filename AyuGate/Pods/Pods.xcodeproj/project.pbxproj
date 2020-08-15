@@ -7,86 +7,120 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B9B372422B09FA5658930E6D6B8769C /* CHILayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3443F737E82CFB146CB63D7953D47 /* CHILayer.swift */; };
-		0F8E22C1B9C63825425AED59CCD406A2 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432166780D493ADC54744D45781C8F90 /* JWTDecode.swift */; };
-		138647D32FFEBEC769F898917CA94D10 /* JWTDecode-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F2540F2ED7D43D58E938610712E8F83F /* JWTDecode-dummy.m */; };
+		047821F3A6CEA16D3185EF9C571D0CB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		0B9B372422B09FA5658930E6D6B8769C /* CHILayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98380DCB348B0C6C52C46D1F1D39F1 /* CHILayer.swift */; };
+		0F8E22C1B9C63825425AED59CCD406A2 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC65848E2CF22E65BF2E1506509790 /* JWTDecode.swift */; };
+		138647D32FFEBEC769F898917CA94D10 /* JWTDecode-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 008255B2220151EFC77A8BA70F6906EE /* JWTDecode-dummy.m */; };
+		1CAFE1EF2F9B50490DC9ADE9595B6E3A /* Pods-AyuGate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2909E873E39E2807E02AF257880521DA /* Pods-AyuGate-dummy.m */; };
+		2274E43A5E3C156DACAA12DBA98A43B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		3A95FCB7C093CD75475FFDCB02EB2FEB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		3E3A216BCD414D3E2D82E84454745210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		43EB2E4654D295AB298D77E72C26FBAF /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0294BC34B6582F45358506EBB28545 /* ValidationError.swift */; };
-		4EFAFAD7EBBA04B0FFEBE2EF2D4F82EA /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77D9F0A1ED638061EF3A3CF289FC2BA /* TokenValidators.swift */; };
-		6B2D3B47BD434941B63EEB1A7C1492E5 /* CHIBasePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC5EA25E3F5021C00F37CE92E1BFC05 /* CHIBasePageControl.swift */; };
-		7CA3CC6D90E04AF047F81EF8B338886C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CDBC8ABDD038C31A326935E98C7704 /* Errors.swift */; };
-		7DAAFA7BD77E484D76F6D7D211F3D110 /* Pods-AyuGate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 153BD0BC29A9BB2F5781EBF125561E26 /* Pods-AyuGate-dummy.m */; };
-		94182D2C4BE832C08E71436A946856E3 /* CHIPageControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BB4206C62C58AC3957D37D6A717D692 /* CHIPageControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		94C54F5761E57BD75D1568E6395A1231 /* JWTDecode-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D259B3E2795545C3F72BEF4D7E6A88B5 /* JWTDecode-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DF8B8A82B023E4D547C7CBB1E0586B4 /* ValidatorJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4746E546697E78E89E36611351BFED /* ValidatorJWT.swift */; };
-		A05E113508C07A5723E18D2D672A27A5 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94F9EC5994C15DD37BD5FD54F4B54D0 /* JWT.swift */; };
-		B7BFE1840D8392EDD143B25D7116BD7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		C5419C0108560F323B3E3CA8B454AEF8 /* CHIPageControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C4E38337B2E03F30917B61916B2148 /* CHIPageControl-dummy.m */; };
-		C9FDFCE4A51472BC46EDD34E99C74B5D /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E6AEA54738214435F560E15187BB3 /* A0JWT.swift */; };
-		DAB0BDF28E4A9507C1FC86F2D52CB43C /* CHIPageControlAleppo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1CD34E61D7318B46D3EBB00F97AE8 /* CHIPageControlAleppo.swift */; };
-		E4ECC2545A1C2B3132618DDB30B9FD06 /* Pods-AyuGate-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD42646D9F2C7C5E223F3A2F08902122 /* Pods-AyuGate-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FE31B718BEAF06604C92B536C3106F85 /* CHIPageControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D5DD7CEBA2C810333DCAFBD70C4E3 /* CHIPageControllable.swift */; };
+		43EB2E4654D295AB298D77E72C26FBAF /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2FD8015351D7CD129C4A09FA5B1342 /* ValidationError.swift */; };
+		4EFAFAD7EBBA04B0FFEBE2EF2D4F82EA /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3700F75D3B6C220146C82A09A14B4866 /* TokenValidators.swift */; };
+		6B2D3B47BD434941B63EEB1A7C1492E5 /* CHIBasePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E9A5C842DE5D73371A1D803E746D3E /* CHIBasePageControl.swift */; };
+		7109B38F610871110E093F93424609C7 /* Pods-AyuGate-FormKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6DFEB171B98878017BF2C11E5D0B /* Pods-AyuGate-FormKit-dummy.m */; };
+		7319CCC134EC846389A91641CBDDEB9A /* Pods-AyuGate-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD2BF18BE9A0B29FB3D08C980F852C6 /* Pods-AyuGate-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CA3CC6D90E04AF047F81EF8B338886C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6426721B3B3D3068D9A33309E2796B /* Errors.swift */; };
+		94182D2C4BE832C08E71436A946856E3 /* CHIPageControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 799F0A8ACD95C5D1478A9FF6AD88A37A /* CHIPageControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94C54F5761E57BD75D1568E6395A1231 /* JWTDecode-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EE244E71FCFACCECC913775315332B7 /* JWTDecode-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DF8B8A82B023E4D547C7CBB1E0586B4 /* ValidatorJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472043521D44B4B4FA4C8A0982A4AD95 /* ValidatorJWT.swift */; };
+		A05E113508C07A5723E18D2D672A27A5 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E895C8C5EABD8E7EEBBCD2A3A485CCC /* JWT.swift */; };
+		C5419C0108560F323B3E3CA8B454AEF8 /* CHIPageControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E922217C1C70371A14056652887C561 /* CHIPageControl-dummy.m */; };
+		C9FDFCE4A51472BC46EDD34E99C74B5D /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97044AFBD39CA913B539DA95E5B4E009 /* A0JWT.swift */; };
+		DAB0BDF28E4A9507C1FC86F2D52CB43C /* CHIPageControlAleppo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE080A91C96501F115D71B21E1F38D75 /* CHIPageControlAleppo.swift */; };
+		FC163AD0B75EA4F4644AB7A196CAD33C /* Pods-AyuGate-FormKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A804B83AAE371A9B4ED6CAF40223058 /* Pods-AyuGate-FormKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE31B718BEAF06604C92B536C3106F85 /* CHIPageControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D270B5583CD147FA6F7516E988936 /* CHIPageControllable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		264F940CBE8A3999E4947741F7193A30 /* PBXContainerItemProxy */ = {
+		6AAAA8FFDBCAF6C3E8882018A0928CE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 58A7AC722D45BA5EF49F00D98C86978B;
 			remoteInfo = CHIPageControl;
 		};
-		527EB68BCAAC20DF92074F5561DCEE79 /* PBXContainerItemProxy */ = {
+		805E83C01E46E6AA2E44812D95418718 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 22E1F0E7CBECE226FC294E79C21B0033;
 			remoteInfo = JWTDecode;
 		};
+		9D691EDE8F25A9B657D21B6BC65C590A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22E1F0E7CBECE226FC294E79C21B0033;
+			remoteInfo = JWTDecode;
+		};
+		BF48914B324CE07B06EF795DAE782F9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58A7AC722D45BA5EF49F00D98C86978B;
+			remoteInfo = CHIPageControl;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		153BD0BC29A9BB2F5781EBF125561E26 /* Pods-AyuGate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AyuGate-dummy.m"; sourceTree = "<group>"; };
-		304DE79E06D1AF6A288E9715944CC942 /* Pods-AyuGate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AyuGate.debug.xcconfig"; sourceTree = "<group>"; };
+		008255B2220151EFC77A8BA70F6906EE /* JWTDecode-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JWTDecode-dummy.m"; sourceTree = "<group>"; };
+		0BB08BB5998036DCE7953AD0A7BA1D57 /* Pods_AyuGate_FormKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AyuGate_FormKit.framework; path = "Pods-AyuGate-FormKit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F0939B80CCA4FB9FB5170FC3DC27BF /* Pods-AyuGate-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AyuGate-Info.plist"; sourceTree = "<group>"; };
+		182F8E65F87F7D8DDC39BD43DBCE313B /* Pods-AyuGate-FormKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AyuGate-FormKit-acknowledgements.markdown"; sourceTree = "<group>"; };
+		184C6DFEB171B98878017BF2C11E5D0B /* Pods-AyuGate-FormKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AyuGate-FormKit-dummy.m"; sourceTree = "<group>"; };
+		1FD2BF18BE9A0B29FB3D08C980F852C6 /* Pods-AyuGate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AyuGate-umbrella.h"; sourceTree = "<group>"; };
+		20F6C8A2C63AAA126BF1005AE376BFA6 /* CHIPageControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHIPageControl-prefix.pch"; sourceTree = "<group>"; };
+		2909E873E39E2807E02AF257880521DA /* Pods-AyuGate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AyuGate-dummy.m"; sourceTree = "<group>"; };
+		2D38FCE25219E20AF6766CABDFA168CA /* JWTDecode.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JWTDecode.modulemap; sourceTree = "<group>"; };
+		2F3E6ACE8601DA2337A6EA4140D0A827 /* Pods-AyuGate-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AyuGate-frameworks.sh"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		32E71180846C9D05F0D71D90C774B7EC /* Pods-AyuGate-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AyuGate-Info.plist"; sourceTree = "<group>"; };
-		432166780D493ADC54744D45781C8F90 /* JWTDecode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWTDecode.swift; path = JWTDecode/JWTDecode.swift; sourceTree = "<group>"; };
-		434E6AEA54738214435F560E15187BB3 /* A0JWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = A0JWT.swift; path = JWTDecode/A0JWT.swift; sourceTree = "<group>"; };
+		3389F1A350FF24A5D5762BCBE6076707 /* CHIPageControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CHIPageControl.modulemap; sourceTree = "<group>"; };
+		3700F75D3B6C220146C82A09A14B4866 /* TokenValidators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenValidators.swift; path = JWTDecode/TokenValidators.swift; sourceTree = "<group>"; };
+		3D8B82B609B5CC38EECFB9F4731A33F7 /* JWTDecode-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-prefix.pch"; sourceTree = "<group>"; };
+		3E98380DCB348B0C6C52C46D1F1D39F1 /* CHILayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHILayer.swift; path = CHIPageControl/Core/CHILayer.swift; sourceTree = "<group>"; };
+		472043521D44B4B4FA4C8A0982A4AD95 /* ValidatorJWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidatorJWT.swift; path = JWTDecode/ValidatorJWT.swift; sourceTree = "<group>"; };
+		490D270B5583CD147FA6F7516E988936 /* CHIPageControllable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIPageControllable.swift; path = CHIPageControl/Core/CHIPageControllable.swift; sourceTree = "<group>"; };
 		4A90E991BC0CB35AB6D91E18C9490643 /* CHIPageControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CHIPageControl.framework; path = CHIPageControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CC3C53544EB9CABD21BEF1C1FE4D664 /* Pods-AyuGate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AyuGate.release.xcconfig"; sourceTree = "<group>"; };
-		5BB4206C62C58AC3957D37D6A717D692 /* CHIPageControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHIPageControl-umbrella.h"; sourceTree = "<group>"; };
-		5DB1CD34E61D7318B46D3EBB00F97AE8 /* CHIPageControlAleppo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIPageControlAleppo.swift; path = CHIPageControl/CHIPageControlAleppo.swift; sourceTree = "<group>"; };
-		6186EDD20612A37A2471147F335A7951 /* Pods-AyuGate-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AyuGate-acknowledgements.markdown"; sourceTree = "<group>"; };
-		633A0043DAF6FA7E7EC8054EBF60D58E /* JWTDecode.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JWTDecode.xcconfig; sourceTree = "<group>"; };
-		71C4E38337B2E03F30917B61916B2148 /* CHIPageControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CHIPageControl-dummy.m"; sourceTree = "<group>"; };
-		77CDBC8ABDD038C31A326935E98C7704 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = JWTDecode/Errors.swift; sourceTree = "<group>"; };
+		4EE244E71FCFACCECC913775315332B7 /* JWTDecode-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-umbrella.h"; sourceTree = "<group>"; };
+		5E2FD8015351D7CD129C4A09FA5B1342 /* ValidationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidationError.swift; path = JWTDecode/ValidationError.swift; sourceTree = "<group>"; };
+		640C50FEC01748E1EDA696015F4ECBAC /* Pods-AyuGate-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AyuGate-acknowledgements.plist"; sourceTree = "<group>"; };
+		66C755DA493ADB737408F74B7BE3D2CA /* Pods-AyuGate-FormKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AyuGate-FormKit-Info.plist"; sourceTree = "<group>"; };
+		68566CED62FA72D28CD8B44356E05DF8 /* Pods-AyuGate-FormKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AyuGate-FormKit.modulemap"; sourceTree = "<group>"; };
+		7516B41499958C7B4364AFB766A8ED46 /* Pods-AyuGate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AyuGate.debug.xcconfig"; sourceTree = "<group>"; };
+		754F99778E1ABD69173BA288AC57327A /* JWTDecode.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JWTDecode.xcconfig; sourceTree = "<group>"; };
+		799F0A8ACD95C5D1478A9FF6AD88A37A /* CHIPageControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHIPageControl-umbrella.h"; sourceTree = "<group>"; };
 		7A8D4AC02B51FD03224739D06AEE207B /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JWTDecode.framework; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		816D5DD7CEBA2C810333DCAFBD70C4E3 /* CHIPageControllable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIPageControllable.swift; path = CHIPageControl/Core/CHIPageControllable.swift; sourceTree = "<group>"; };
-		901341DD68BA80F5E2A253781A028D82 /* Pods-AyuGate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AyuGate.modulemap"; sourceTree = "<group>"; };
-		93CF6FFA8B1FDEC0B9741A62207D49F5 /* CHIPageControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHIPageControl-prefix.pch"; sourceTree = "<group>"; };
+		7C6426721B3B3D3068D9A33309E2796B /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = JWTDecode/Errors.swift; sourceTree = "<group>"; };
+		7E049F1A37EF7D42D841A22DA0C11FF6 /* CHIPageControl-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CHIPageControl-Info.plist"; sourceTree = "<group>"; };
+		7E922217C1C70371A14056652887C561 /* CHIPageControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CHIPageControl-dummy.m"; sourceTree = "<group>"; };
+		8E895C8C5EABD8E7EEBBCD2A3A485CCC /* JWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWT.swift; path = JWTDecode/JWT.swift; sourceTree = "<group>"; };
+		97044AFBD39CA913B539DA95E5B4E009 /* A0JWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = A0JWT.swift; path = JWTDecode/A0JWT.swift; sourceTree = "<group>"; };
+		9A804B83AAE371A9B4ED6CAF40223058 /* Pods-AyuGate-FormKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AyuGate-FormKit-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A3116E69CA8BA0577350F1727C20773D /* JWTDecode-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-prefix.pch"; sourceTree = "<group>"; };
-		A51C8256B4F9A5DBAC147F27043BC308 /* CHIPageControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CHIPageControl.modulemap; sourceTree = "<group>"; };
+		A74BD9AF8B88CF58FF64C5EAB062E189 /* Pods-AyuGate-FormKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AyuGate-FormKit.debug.xcconfig"; sourceTree = "<group>"; };
 		AA2153030DF11C8A4EDEC677F9C494DE /* Pods_AyuGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AyuGate.framework; path = "Pods-AyuGate.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8A37375F2342A3EF6A3F20006785B9A /* JWTDecode.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JWTDecode.modulemap; sourceTree = "<group>"; };
-		BAEEE38360BB0742A751C0D4E97A768B /* Pods-AyuGate-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AyuGate-acknowledgements.plist"; sourceTree = "<group>"; };
-		BD4746E546697E78E89E36611351BFED /* ValidatorJWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidatorJWT.swift; path = JWTDecode/ValidatorJWT.swift; sourceTree = "<group>"; };
-		BF0294BC34B6582F45358506EBB28545 /* ValidationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidationError.swift; path = JWTDecode/ValidationError.swift; sourceTree = "<group>"; };
-		BFE000A70FE31F6DD405BADCB468CAD9 /* CHIPageControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CHIPageControl.xcconfig; sourceTree = "<group>"; };
-		C751045222A1F2FE8F12EAF79F59D075 /* Pods-AyuGate-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AyuGate-frameworks.sh"; sourceTree = "<group>"; };
-		C77D9F0A1ED638061EF3A3CF289FC2BA /* TokenValidators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenValidators.swift; path = JWTDecode/TokenValidators.swift; sourceTree = "<group>"; };
-		C94F9EC5994C15DD37BD5FD54F4B54D0 /* JWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWT.swift; path = JWTDecode/JWT.swift; sourceTree = "<group>"; };
-		D259B3E2795545C3F72BEF4D7E6A88B5 /* JWTDecode-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-umbrella.h"; sourceTree = "<group>"; };
-		D5C197528792EEA70807794B9F255A9A /* CHIPageControl-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CHIPageControl-Info.plist"; sourceTree = "<group>"; };
-		DCC5EA25E3F5021C00F37CE92E1BFC05 /* CHIBasePageControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIBasePageControl.swift; path = CHIPageControl/Core/CHIBasePageControl.swift; sourceTree = "<group>"; };
-		DD42646D9F2C7C5E223F3A2F08902122 /* Pods-AyuGate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AyuGate-umbrella.h"; sourceTree = "<group>"; };
-		E4E3443F737E82CFB146CB63D7953D47 /* CHILayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHILayer.swift; path = CHIPageControl/Core/CHILayer.swift; sourceTree = "<group>"; };
-		EC781C94E633794A776140B748EB785A /* JWTDecode-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JWTDecode-Info.plist"; sourceTree = "<group>"; };
-		F2540F2ED7D43D58E938610712E8F83F /* JWTDecode-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JWTDecode-dummy.m"; sourceTree = "<group>"; };
+		B829AD8C07B93EAD22E2414C2BA74C3E /* CHIPageControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CHIPageControl.xcconfig; sourceTree = "<group>"; };
+		B9E9A5C842DE5D73371A1D803E746D3E /* CHIBasePageControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIBasePageControl.swift; path = CHIPageControl/Core/CHIBasePageControl.swift; sourceTree = "<group>"; };
+		BDC33C8AF34547F109076AEFFDA32687 /* JWTDecode-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JWTDecode-Info.plist"; sourceTree = "<group>"; };
+		C1AC65848E2CF22E65BF2E1506509790 /* JWTDecode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWTDecode.swift; path = JWTDecode/JWTDecode.swift; sourceTree = "<group>"; };
+		CB20ABBFCD86F3601D422D62B88F01EB /* Pods-AyuGate-FormKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AyuGate-FormKit.release.xcconfig"; sourceTree = "<group>"; };
+		D19136D1535B717E8D174E0B4377AE09 /* Pods-AyuGate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AyuGate.release.xcconfig"; sourceTree = "<group>"; };
+		D218758A480031D10FE4266295FF882D /* Pods-AyuGate-FormKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AyuGate-FormKit-acknowledgements.plist"; sourceTree = "<group>"; };
+		DE080A91C96501F115D71B21E1F38D75 /* CHIPageControlAleppo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIPageControlAleppo.swift; path = CHIPageControl/CHIPageControlAleppo.swift; sourceTree = "<group>"; };
+		F4A2D3CB766174318312EC6B99BBAA5D /* Pods-AyuGate-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AyuGate-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FBCEC7665582D857F74D465059DADB91 /* Pods-AyuGate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AyuGate.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		14E20B1A586413164433D629233583E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2274E43A5E3C156DACAA12DBA98A43B8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BDC48153C095CB69436DF73D732D6B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,11 +129,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		745714B9AD7F9558541A81E4D59C6934 /* Frameworks */ = {
+		C99BADCB0EDB25BA0F816DC15D57EA3D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7BFE1840D8392EDD143B25D7116BD7A /* Foundation.framework in Frameworks */,
+				047821F3A6CEA16D3185EF9C571D0CB9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,89 +148,102 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		378FA3BC8F7A377C2306087190ADFC17 /* JWTDecode */ = {
+		02335CDBAE5233A8AE7A58A275ADB9B8 /* Pods-AyuGate-FormKit */ = {
 			isa = PBXGroup;
 			children = (
-				434E6AEA54738214435F560E15187BB3 /* A0JWT.swift */,
-				77CDBC8ABDD038C31A326935E98C7704 /* Errors.swift */,
-				C94F9EC5994C15DD37BD5FD54F4B54D0 /* JWT.swift */,
-				432166780D493ADC54744D45781C8F90 /* JWTDecode.swift */,
-				C77D9F0A1ED638061EF3A3CF289FC2BA /* TokenValidators.swift */,
-				BF0294BC34B6582F45358506EBB28545 /* ValidationError.swift */,
-				BD4746E546697E78E89E36611351BFED /* ValidatorJWT.swift */,
-				F24523C5EAECFC40BE011A8B1E5D9F9B /* Support Files */,
+				68566CED62FA72D28CD8B44356E05DF8 /* Pods-AyuGate-FormKit.modulemap */,
+				182F8E65F87F7D8DDC39BD43DBCE313B /* Pods-AyuGate-FormKit-acknowledgements.markdown */,
+				D218758A480031D10FE4266295FF882D /* Pods-AyuGate-FormKit-acknowledgements.plist */,
+				184C6DFEB171B98878017BF2C11E5D0B /* Pods-AyuGate-FormKit-dummy.m */,
+				66C755DA493ADB737408F74B7BE3D2CA /* Pods-AyuGate-FormKit-Info.plist */,
+				9A804B83AAE371A9B4ED6CAF40223058 /* Pods-AyuGate-FormKit-umbrella.h */,
+				A74BD9AF8B88CF58FF64C5EAB062E189 /* Pods-AyuGate-FormKit.debug.xcconfig */,
+				CB20ABBFCD86F3601D422D62B88F01EB /* Pods-AyuGate-FormKit.release.xcconfig */,
+			);
+			name = "Pods-AyuGate-FormKit";
+			path = "Target Support Files/Pods-AyuGate-FormKit";
+			sourceTree = "<group>";
+		};
+		101B4A0FD6D1FDD023A42692999B4370 /* Aleppo */ = {
+			isa = PBXGroup;
+			children = (
+				B9E9A5C842DE5D73371A1D803E746D3E /* CHIBasePageControl.swift */,
+				3E98380DCB348B0C6C52C46D1F1D39F1 /* CHILayer.swift */,
+				DE080A91C96501F115D71B21E1F38D75 /* CHIPageControlAleppo.swift */,
+				490D270B5583CD147FA6F7516E988936 /* CHIPageControllable.swift */,
+			);
+			name = Aleppo;
+			sourceTree = "<group>";
+		};
+		23B13F5729142D91DB164DBA1A718CA7 /* CHIPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				101B4A0FD6D1FDD023A42692999B4370 /* Aleppo */,
+				6D2B9B6846AB2DC012E317D446CDA835 /* Support Files */,
+			);
+			name = CHIPageControl;
+			path = CHIPageControl;
+			sourceTree = "<group>";
+		};
+		33BC37F3883964BD64084B66A58997F3 /* JWTDecode */ = {
+			isa = PBXGroup;
+			children = (
+				97044AFBD39CA913B539DA95E5B4E009 /* A0JWT.swift */,
+				7C6426721B3B3D3068D9A33309E2796B /* Errors.swift */,
+				8E895C8C5EABD8E7EEBBCD2A3A485CCC /* JWT.swift */,
+				C1AC65848E2CF22E65BF2E1506509790 /* JWTDecode.swift */,
+				3700F75D3B6C220146C82A09A14B4866 /* TokenValidators.swift */,
+				5E2FD8015351D7CD129C4A09FA5B1342 /* ValidationError.swift */,
+				472043521D44B4B4FA4C8A0982A4AD95 /* ValidatorJWT.swift */,
+				62E59CFA9FA1B8C5C89479EA439E3E2F /* Support Files */,
 			);
 			name = JWTDecode;
 			path = JWTDecode;
 			sourceTree = "<group>";
 		};
-		3F7E2DDA8A528C9FE83908C9E71591A7 /* Support Files */ = {
+		5A051C5B22D3BE31B27F66DCF6D00FAC /* Pods-AyuGate */ = {
 			isa = PBXGroup;
 			children = (
-				A51C8256B4F9A5DBAC147F27043BC308 /* CHIPageControl.modulemap */,
-				BFE000A70FE31F6DD405BADCB468CAD9 /* CHIPageControl.xcconfig */,
-				71C4E38337B2E03F30917B61916B2148 /* CHIPageControl-dummy.m */,
-				D5C197528792EEA70807794B9F255A9A /* CHIPageControl-Info.plist */,
-				93CF6FFA8B1FDEC0B9741A62207D49F5 /* CHIPageControl-prefix.pch */,
-				5BB4206C62C58AC3957D37D6A717D692 /* CHIPageControl-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/CHIPageControl";
-			sourceTree = "<group>";
-		};
-		53BFB357BF34F1BF08C73366919B2E50 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				BA9074B7A147B7E381E5D711ABAE02EA /* Pods-AyuGate */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		6D111B97DEB8A6B5137573A6E4FFB3B5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4A90E991BC0CB35AB6D91E18C9490643 /* CHIPageControl.framework */,
-				7A8D4AC02B51FD03224739D06AEE207B /* JWTDecode.framework */,
-				AA2153030DF11C8A4EDEC677F9C494DE /* Pods_AyuGate.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7DE79CFB10543C79B6D3367B41519828 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F18A0248EF2CEBBD8A917DAA0E650038 /* CHIPageControl */,
-				378FA3BC8F7A377C2306087190ADFC17 /* JWTDecode */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		BA9074B7A147B7E381E5D711ABAE02EA /* Pods-AyuGate */ = {
-			isa = PBXGroup;
-			children = (
-				901341DD68BA80F5E2A253781A028D82 /* Pods-AyuGate.modulemap */,
-				6186EDD20612A37A2471147F335A7951 /* Pods-AyuGate-acknowledgements.markdown */,
-				BAEEE38360BB0742A751C0D4E97A768B /* Pods-AyuGate-acknowledgements.plist */,
-				153BD0BC29A9BB2F5781EBF125561E26 /* Pods-AyuGate-dummy.m */,
-				C751045222A1F2FE8F12EAF79F59D075 /* Pods-AyuGate-frameworks.sh */,
-				32E71180846C9D05F0D71D90C774B7EC /* Pods-AyuGate-Info.plist */,
-				DD42646D9F2C7C5E223F3A2F08902122 /* Pods-AyuGate-umbrella.h */,
-				304DE79E06D1AF6A288E9715944CC942 /* Pods-AyuGate.debug.xcconfig */,
-				4CC3C53544EB9CABD21BEF1C1FE4D664 /* Pods-AyuGate.release.xcconfig */,
+				FBCEC7665582D857F74D465059DADB91 /* Pods-AyuGate.modulemap */,
+				F4A2D3CB766174318312EC6B99BBAA5D /* Pods-AyuGate-acknowledgements.markdown */,
+				640C50FEC01748E1EDA696015F4ECBAC /* Pods-AyuGate-acknowledgements.plist */,
+				2909E873E39E2807E02AF257880521DA /* Pods-AyuGate-dummy.m */,
+				2F3E6ACE8601DA2337A6EA4140D0A827 /* Pods-AyuGate-frameworks.sh */,
+				10F0939B80CCA4FB9FB5170FC3DC27BF /* Pods-AyuGate-Info.plist */,
+				1FD2BF18BE9A0B29FB3D08C980F852C6 /* Pods-AyuGate-umbrella.h */,
+				7516B41499958C7B4364AFB766A8ED46 /* Pods-AyuGate.debug.xcconfig */,
+				D19136D1535B717E8D174E0B4377AE09 /* Pods-AyuGate.release.xcconfig */,
 			);
 			name = "Pods-AyuGate";
 			path = "Target Support Files/Pods-AyuGate";
 			sourceTree = "<group>";
 		};
-		BAD7EFA1BE091F4BEBD402340D69FF4A /* Aleppo */ = {
+		62E59CFA9FA1B8C5C89479EA439E3E2F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				DCC5EA25E3F5021C00F37CE92E1BFC05 /* CHIBasePageControl.swift */,
-				E4E3443F737E82CFB146CB63D7953D47 /* CHILayer.swift */,
-				5DB1CD34E61D7318B46D3EBB00F97AE8 /* CHIPageControlAleppo.swift */,
-				816D5DD7CEBA2C810333DCAFBD70C4E3 /* CHIPageControllable.swift */,
+				2D38FCE25219E20AF6766CABDFA168CA /* JWTDecode.modulemap */,
+				754F99778E1ABD69173BA288AC57327A /* JWTDecode.xcconfig */,
+				008255B2220151EFC77A8BA70F6906EE /* JWTDecode-dummy.m */,
+				BDC33C8AF34547F109076AEFFDA32687 /* JWTDecode-Info.plist */,
+				3D8B82B609B5CC38EECFB9F4731A33F7 /* JWTDecode-prefix.pch */,
+				4EE244E71FCFACCECC913775315332B7 /* JWTDecode-umbrella.h */,
 			);
-			name = Aleppo;
+			name = "Support Files";
+			path = "../Target Support Files/JWTDecode";
+			sourceTree = "<group>";
+		};
+		6D2B9B6846AB2DC012E317D446CDA835 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3389F1A350FF24A5D5762BCBE6076707 /* CHIPageControl.modulemap */,
+				B829AD8C07B93EAD22E2414C2BA74C3E /* CHIPageControl.xcconfig */,
+				7E922217C1C70371A14056652887C561 /* CHIPageControl-dummy.m */,
+				7E049F1A37EF7D42D841A22DA0C11FF6 /* CHIPageControl-Info.plist */,
+				20F6C8A2C63AAA126BF1005AE376BFA6 /* CHIPageControl-prefix.pch */,
+				799F0A8ACD95C5D1478A9FF6AD88A37A /* CHIPageControl-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CHIPageControl";
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -212,9 +259,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				7DE79CFB10543C79B6D3367B41519828 /* Pods */,
-				6D111B97DEB8A6B5137573A6E4FFB3B5 /* Products */,
-				53BFB357BF34F1BF08C73366919B2E50 /* Targets Support Files */,
+				FCB828F49189EBAA36C8DF4757088F64 /* Pods */,
+				E411C259ABEACE3315C7E69DEF0BED1B /* Products */,
+				EC683FF9BA3ADB0D4ABCA67DC1A2DD24 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,33 +273,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F18A0248EF2CEBBD8A917DAA0E650038 /* CHIPageControl */ = {
+		E411C259ABEACE3315C7E69DEF0BED1B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BAD7EFA1BE091F4BEBD402340D69FF4A /* Aleppo */,
-				3F7E2DDA8A528C9FE83908C9E71591A7 /* Support Files */,
+				4A90E991BC0CB35AB6D91E18C9490643 /* CHIPageControl.framework */,
+				7A8D4AC02B51FD03224739D06AEE207B /* JWTDecode.framework */,
+				AA2153030DF11C8A4EDEC677F9C494DE /* Pods_AyuGate.framework */,
+				0BB08BB5998036DCE7953AD0A7BA1D57 /* Pods_AyuGate_FormKit.framework */,
 			);
-			name = CHIPageControl;
-			path = CHIPageControl;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		F24523C5EAECFC40BE011A8B1E5D9F9B /* Support Files */ = {
+		EC683FF9BA3ADB0D4ABCA67DC1A2DD24 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B8A37375F2342A3EF6A3F20006785B9A /* JWTDecode.modulemap */,
-				633A0043DAF6FA7E7EC8054EBF60D58E /* JWTDecode.xcconfig */,
-				F2540F2ED7D43D58E938610712E8F83F /* JWTDecode-dummy.m */,
-				EC781C94E633794A776140B748EB785A /* JWTDecode-Info.plist */,
-				A3116E69CA8BA0577350F1727C20773D /* JWTDecode-prefix.pch */,
-				D259B3E2795545C3F72BEF4D7E6A88B5 /* JWTDecode-umbrella.h */,
+				5A051C5B22D3BE31B27F66DCF6D00FAC /* Pods-AyuGate */,
+				02335CDBAE5233A8AE7A58A275ADB9B8 /* Pods-AyuGate-FormKit */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/JWTDecode";
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		FCB828F49189EBAA36C8DF4757088F64 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23B13F5729142D91DB164DBA1A718CA7 /* CHIPageControl */,
+				33BC37F3883964BD64084B66A58997F3 /* JWTDecode */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1A8EA88CD25F450E0F411889FB651469 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC163AD0B75EA4F4644AB7A196CAD33C /* Pods-AyuGate-FormKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6E748B94BA1F16392614B3073D81488D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,19 +321,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ADF06005D3D3BC6B7E3996DE3D31AED /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E4ECC2545A1C2B3132618DDB30B9FD06 /* Pods-AyuGate-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9ECAD41577CD6746098A5187989BA263 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				94C54F5761E57BD75D1568E6395A1231 /* JWTDecode-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBECCDF9D8F716E24DEC2D569B0576D5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7319CCC134EC846389A91641CBDDEB9A /* Pods-AyuGate-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,20 +376,40 @@
 			productReference = 4A90E991BC0CB35AB6D91E18C9490643 /* CHIPageControl.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		752ECE4FDD40B70C1AC13DE9AEDB9664 /* Pods-AyuGate */ = {
+		683039DCD05BB40EEA4E0F8277D93332 /* Pods-AyuGate-FormKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FDE0960B08F9C4155FD7C5A99B117B2 /* Build configuration list for PBXNativeTarget "Pods-AyuGate" */;
+			buildConfigurationList = CF2B90035FA2AE1193C33CD2FE2088D5 /* Build configuration list for PBXNativeTarget "Pods-AyuGate-FormKit" */;
 			buildPhases = (
-				7ADF06005D3D3BC6B7E3996DE3D31AED /* Headers */,
-				307F7595DCBCE69792FA342F294F1374 /* Sources */,
-				745714B9AD7F9558541A81E4D59C6934 /* Frameworks */,
-				F29DBDB2CFC863DB7888C4CC8BEEDD43 /* Resources */,
+				1A8EA88CD25F450E0F411889FB651469 /* Headers */,
+				12015B62EB7FF0F345B908402C3FB025 /* Sources */,
+				14E20B1A586413164433D629233583E0 /* Frameworks */,
+				4C32E06F58175EE9D351EB7A93C9785B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1EB5CE34802B9DC1656AFE806237612B /* PBXTargetDependency */,
-				49B18B17320E7EA0A6A78B82692EF323 /* PBXTargetDependency */,
+				233A653765DD0A490284322683163996 /* PBXTargetDependency */,
+				C0BB4159C82B071BCBF7279B0374B5D0 /* PBXTargetDependency */,
+			);
+			name = "Pods-AyuGate-FormKit";
+			productName = "Pods-AyuGate-FormKit";
+			productReference = 0BB08BB5998036DCE7953AD0A7BA1D57 /* Pods_AyuGate_FormKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		752ECE4FDD40B70C1AC13DE9AEDB9664 /* Pods-AyuGate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3861637946006DE3025125D01ACADBB6 /* Build configuration list for PBXNativeTarget "Pods-AyuGate" */;
+			buildPhases = (
+				DBECCDF9D8F716E24DEC2D569B0576D5 /* Headers */,
+				9AD2F47243D14A1BBEE97284109C86A0 /* Sources */,
+				C99BADCB0EDB25BA0F816DC15D57EA3D /* Frameworks */,
+				AD556B3EA69B8194BCD5D7B4FF6FF376 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DC2C44D03053892A116F320040809C2 /* PBXTargetDependency */,
+				7B0B21EAC59C2112A9A2074586BE0D55 /* PBXTargetDependency */,
 			);
 			name = "Pods-AyuGate";
 			productName = "Pods-AyuGate";
@@ -354,19 +434,34 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 6D111B97DEB8A6B5137573A6E4FFB3B5 /* Products */;
+			productRefGroup = E411C259ABEACE3315C7E69DEF0BED1B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				58A7AC722D45BA5EF49F00D98C86978B /* CHIPageControl */,
 				22E1F0E7CBECE226FC294E79C21B0033 /* JWTDecode */,
 				752ECE4FDD40B70C1AC13DE9AEDB9664 /* Pods-AyuGate */,
+				683039DCD05BB40EEA4E0F8277D93332 /* Pods-AyuGate-FormKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4C32E06F58175EE9D351EB7A93C9785B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96B793BC501727F26EFBE4C357672116 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD556B3EA69B8194BCD5D7B4FF6FF376 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -380,21 +475,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F29DBDB2CFC863DB7888C4CC8BEEDD43 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		307F7595DCBCE69792FA342F294F1374 /* Sources */ = {
+		12015B62EB7FF0F345B908402C3FB025 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DAAFA7BD77E484D76F6D7D211F3D110 /* Pods-AyuGate-dummy.m in Sources */,
+				7109B38F610871110E093F93424609C7 /* Pods-AyuGate-FormKit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AD2F47243D14A1BBEE97284109C86A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CAFE1EF2F9B50490DC9ADE9595B6E3A /* Pods-AyuGate-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,17 +524,29 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1EB5CE34802B9DC1656AFE806237612B /* PBXTargetDependency */ = {
+		233A653765DD0A490284322683163996 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CHIPageControl;
 			target = 58A7AC722D45BA5EF49F00D98C86978B /* CHIPageControl */;
-			targetProxy = 264F940CBE8A3999E4947741F7193A30 /* PBXContainerItemProxy */;
+			targetProxy = 6AAAA8FFDBCAF6C3E8882018A0928CE9 /* PBXContainerItemProxy */;
 		};
-		49B18B17320E7EA0A6A78B82692EF323 /* PBXTargetDependency */ = {
+		7B0B21EAC59C2112A9A2074586BE0D55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JWTDecode;
 			target = 22E1F0E7CBECE226FC294E79C21B0033 /* JWTDecode */;
-			targetProxy = 527EB68BCAAC20DF92074F5561DCEE79 /* PBXContainerItemProxy */;
+			targetProxy = 9D691EDE8F25A9B657D21B6BC65C590A /* PBXContainerItemProxy */;
+		};
+		9DC2C44D03053892A116F320040809C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CHIPageControl;
+			target = 58A7AC722D45BA5EF49F00D98C86978B /* CHIPageControl */;
+			targetProxy = BF48914B324CE07B06EF795DAE782F9B /* PBXContainerItemProxy */;
+		};
+		C0BB4159C82B071BCBF7279B0374B5D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JWTDecode;
+			target = 22E1F0E7CBECE226FC294E79C21B0033 /* JWTDecode */;
+			targetProxy = 805E83C01E46E6AA2E44812D95418718 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -503,10 +611,12 @@
 			};
 			name = Release;
 		};
-		8AF9475406BD40AABF6F157D5DC0D6F5 /* Debug */ = {
+		3EFC4C5AD183F247BAFB53B4E7846425 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFE000A70FE31F6DD405BADCB468CAD9 /* CHIPageControl.xcconfig */;
+			baseConfigurationReference = D19136D1535B717E8D174E0B4377AE09 /* Pods-AyuGate.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -516,57 +626,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CHIPageControl/CHIPageControl-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CHIPageControl/CHIPageControl-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/CHIPageControl/CHIPageControl.modulemap";
-				PRODUCT_MODULE_NAME = CHIPageControl;
-				PRODUCT_NAME = CHIPageControl;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		90182DAB787606B0F39ED58C27332C18 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 633A0043DAF6FA7E7EC8054EBF60D58E /* JWTDecode.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JWTDecode/JWTDecode-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JWTDecode/JWTDecode-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/JWTDecode/JWTDecode.modulemap";
-				PRODUCT_MODULE_NAME = JWTDecode;
-				PRODUCT_NAME = JWTDecode;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -574,10 +650,12 @@
 			};
 			name = Release;
 		};
-		B943A0E16C560C4F0D8769F6D0AF8AC5 /* Release */ = {
+		6D97974CE6650F34C4A5FC36A9D6696B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFE000A70FE31F6DD405BADCB468CAD9 /* CHIPageControl.xcconfig */;
+			baseConfigurationReference = A74BD9AF8B88CF58FF64C5EAB062E189 /* Pods-AyuGate-FormKit.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -587,67 +665,32 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CHIPageControl/CHIPageControl-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CHIPageControl/CHIPageControl-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/CHIPageControl/CHIPageControl.modulemap";
-				PRODUCT_MODULE_NAME = CHIPageControl;
-				PRODUCT_NAME = CHIPageControl;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		CDDF180706E5E8EF2097C1CF0B178D43 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 633A0043DAF6FA7E7EC8054EBF60D58E /* JWTDecode.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JWTDecode/JWTDecode-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JWTDecode/JWTDecode-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/JWTDecode/JWTDecode.modulemap";
-				PRODUCT_MODULE_NAME = JWTDecode;
-				PRODUCT_NAME = JWTDecode;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		CDEF20B2605CDC563D051DEA34E8C4E6 /* Debug */ = {
+		7B8258F3E1844405753932ACD51D4A9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 304DE79E06D1AF6A288E9715944CC942 /* Pods-AyuGate.debug.xcconfig */;
+			baseConfigurationReference = 7516B41499958C7B4364AFB766A8ED46 /* Pods-AyuGate.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -683,9 +726,151 @@
 			};
 			name = Debug;
 		};
-		D189C149AC9823F154391FDA4F85C118 /* Release */ = {
+		8AF9475406BD40AABF6F157D5DC0D6F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CC3C53544EB9CABD21BEF1C1FE4D664 /* Pods-AyuGate.release.xcconfig */;
+			baseConfigurationReference = B829AD8C07B93EAD22E2414C2BA74C3E /* CHIPageControl.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CHIPageControl/CHIPageControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CHIPageControl/CHIPageControl-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CHIPageControl/CHIPageControl.modulemap";
+				PRODUCT_MODULE_NAME = CHIPageControl;
+				PRODUCT_NAME = CHIPageControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		90182DAB787606B0F39ED58C27332C18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 754F99778E1ABD69173BA288AC57327A /* JWTDecode.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JWTDecode/JWTDecode-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JWTDecode/JWTDecode-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JWTDecode/JWTDecode.modulemap";
+				PRODUCT_MODULE_NAME = JWTDecode;
+				PRODUCT_NAME = JWTDecode;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B943A0E16C560C4F0D8769F6D0AF8AC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B829AD8C07B93EAD22E2414C2BA74C3E /* CHIPageControl.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CHIPageControl/CHIPageControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CHIPageControl/CHIPageControl-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CHIPageControl/CHIPageControl.modulemap";
+				PRODUCT_MODULE_NAME = CHIPageControl;
+				PRODUCT_NAME = CHIPageControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CDDF180706E5E8EF2097C1CF0B178D43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 754F99778E1ABD69173BA288AC57327A /* JWTDecode.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JWTDecode/JWTDecode-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JWTDecode/JWTDecode-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JWTDecode/JWTDecode.modulemap";
+				PRODUCT_MODULE_NAME = JWTDecode;
+				PRODUCT_NAME = JWTDecode;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D7B924ED7E2BDD4416B389215631F4D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB20ABBFCD86F3601D422D62B88F01EB /* Pods-AyuGate-FormKit.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -698,7 +883,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -707,7 +892,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -789,11 +974,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FDE0960B08F9C4155FD7C5A99B117B2 /* Build configuration list for PBXNativeTarget "Pods-AyuGate" */ = {
+		3861637946006DE3025125D01ACADBB6 /* Build configuration list for PBXNativeTarget "Pods-AyuGate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CDEF20B2605CDC563D051DEA34E8C4E6 /* Debug */,
-				D189C149AC9823F154391FDA4F85C118 /* Release */,
+				7B8258F3E1844405753932ACD51D4A9A /* Debug */,
+				3EFC4C5AD183F247BAFB53B4E7846425 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -821,6 +1006,15 @@
 			buildConfigurations = (
 				8AF9475406BD40AABF6F157D5DC0D6F5 /* Debug */,
 				B943A0E16C560C4F0D8769F6D0AF8AC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF2B90035FA2AE1193C33CD2FE2088D5 /* Build configuration list for PBXNativeTarget "Pods-AyuGate-FormKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D97974CE6650F34C4A5FC36A9D6696B /* Debug */,
+				D7B924ED7E2BDD4416B389215631F4D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FormStepFlowController: UIViewController, StepProtocol {
+public class FormStepFlowController: UIViewController, StepProtocol {
     
     var numberOfSteps: Int = 3
     var currentStep: Int = 0 {
@@ -17,7 +17,7 @@ class FormStepFlowController: UIViewController, StepProtocol {
         }
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }

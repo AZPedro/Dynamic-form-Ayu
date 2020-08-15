@@ -21,7 +21,7 @@ public extension UIViewController {
 }
 
 extension CALayer {
-    func setupShadow(opacity: Float = 0.8) {
+    public func setupShadow(opacity: Float = 0.8) {
         masksToBounds = false
         shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
         shadowOffset = CGSize(width: 5, height: 7)
@@ -30,13 +30,13 @@ extension CALayer {
 }
 
 extension UIView {
-    typealias Constraints = (left: NSLayoutConstraint?, top: NSLayoutConstraint?, right: NSLayoutConstraint?, bottom: NSLayoutConstraint?)
-    @discardableResult func add(view: UIView, margins: UIEdgeInsets = .zero, edges: UIRectEdge = .all, parentLayoutMargins: Bool = false) -> Constraints {
+    public typealias Constraints = (left: NSLayoutConstraint?, top: NSLayoutConstraint?, right: NSLayoutConstraint?, bottom: NSLayoutConstraint?)
+    @discardableResult public func add(view: UIView, margins: UIEdgeInsets = .zero, edges: UIRectEdge = .all, parentLayoutMargins: Bool = false) -> Constraints {
         self.addSubview(view)
         return view.constrainToParent(margins, edges: edges, parentLayoutMargins: parentLayoutMargins)
     }
 
-    @discardableResult func constrainToParent(_ margins: UIEdgeInsets = .zero, edges: UIRectEdge = .all, parentLayoutMargins: Bool = false) -> Constraints {
+    @discardableResult public func constrainToParent(_ margins: UIEdgeInsets = .zero, edges: UIRectEdge = .all, parentLayoutMargins: Bool = false) -> Constraints {
         guard let superview = superview else {
             print("View has not yet been added to superview. Cant add constraints")
             return (left: nil, top: nil, right: nil, bottom: nil)
@@ -68,7 +68,7 @@ extension UIView {
         return constraints
     }
 
-    @discardableResult func set(width: CGFloat?=nil, height: CGFloat?=nil) -> Self {
+    @discardableResult public func set(width: CGFloat?=nil, height: CGFloat?=nil) -> Self {
         if let width = width {
             let cW: NSLayoutConstraint = widthAnchor.constraint(equalToConstant: width)
             cW.isActive = true
@@ -81,13 +81,13 @@ extension UIView {
         return self
     }
 
-    @discardableResult func cornerRadius(_ radius: CGFloat) -> Self {
+    @discardableResult public func cornerRadius(_ radius: CGFloat) -> Self {
         layer.cornerRadius = radius
         layer.masksToBounds = true
         return self
     }
 
-    @discardableResult func layoutMargins(_ insets: UIEdgeInsets) -> Self {
+    @discardableResult public func layoutMargins(_ insets: UIEdgeInsets) -> Self {
         layoutMargins = insets
         return self
     }

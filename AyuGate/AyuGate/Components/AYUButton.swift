@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AyuKit
 
 class AYUButton: UIButton {
     
@@ -68,7 +69,7 @@ class AYUButton: UIButton {
     
     override var isEnabled: Bool {
         didSet {
-            backgroundColor = isEnabled ? .black : .graySecondary
+            backgroundColor = isEnabled ? .blackPrimary : .graySecondary
             customTitleLabel.textColor = isEnabled ? .yellowPrimary : .grayPrimary
         }
     }
@@ -89,7 +90,7 @@ class AYUButton: UIButton {
         setTitleColor(titleColor, for: .normal)
         setTitleColor(titleColor.withAlphaComponent(0.5), for: .highlighted)
         setTitle(title, for: .normal)
-        backgroundColor =  isEnabled ? .black : .graySecondary
+        backgroundColor =  isEnabled ? .blackPrimary : .graySecondary
     }
 
     @objc private func action(_ sender: Any) {

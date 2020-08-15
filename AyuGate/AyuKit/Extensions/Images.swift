@@ -8,6 +8,6 @@
 
 import UIKit
 
-final class Images {
-    static let ayuYbackground = UIImage(named: "ayuYbackground")!
+public final class Images {
+    public static let ayuYbackground = UIImage(named: "ayuYbackground")!
 }

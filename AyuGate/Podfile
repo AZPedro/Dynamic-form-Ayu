@@ -8,6 +8,9 @@ target 'AyuGate' do
   # Pods for AyuGate
 
 pod 'JWTDecode'
-pod 'CHIPageControl/Aleppo'
+
+target 'FormKit' do
+   pod 'CHIPageControl/Aleppo'
+end
 
 end
