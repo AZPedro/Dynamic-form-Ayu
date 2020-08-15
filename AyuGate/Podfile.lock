@@ -1,16 +1,20 @@
 PODS:
+  - CHIPageControl/Aleppo (0.2)
   - JWTDecode (2.4.1)
 
 DEPENDENCIES:
+  - CHIPageControl/Aleppo
   - JWTDecode
 
 SPEC REPOS:
   trunk:
+    - CHIPageControl
     - JWTDecode
 
 SPEC CHECKSUMS:
+  CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   JWTDecode: 4bd4da0cdf0f8154fd467fa48499f34ec057fb88
 
-PODFILE CHECKSUM: 468ef22151d14979c509622c7718e66804548a41
+PODFILE CHECKSUM: 7088a1d11852a7855d583c5219ef15309b08525a
 
 COCOAPODS: 1.8.4

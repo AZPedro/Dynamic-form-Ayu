@@ -37,10 +37,16 @@ class FormStepFlowController: UIViewController, StepProtocol {
         return stepBottomSegmentController
     }()
     
+    private lazy var pageControl: StepPageControlViewController = {
+        let pageControl = StepPageControlViewController(numberOfSteps: numberOfSteps)
+        return pageControl
+    }()
+
     private func setup() {
         installChild(backgroundStepController)
         installChild(formStepCollectionController)
         installBottonSegment()
+        installPageControl()
     }
     
     private func installBottonSegment() {
@@ -55,9 +61,21 @@ class FormStepFlowController: UIViewController, StepProtocol {
         ])
     }
     
+    private func installPageControl() {
+        addChild(pageControl)
+        view.addSubview(pageControl.view)
+        stepBottomSegmentController.didMove(toParent: self)
+        
+        NSLayoutConstraint.activate([
+            pageControl.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pageControl.view.bottomAnchor.constraint(equalTo: stepBottomSegmentController.view.topAnchor)
+        ])
+    }
+    
     func moveToStep(at position: Int) {
         formStepCollectionController.moveToStep(at: position)
         backgroundStepController.moveToStep(at: position)
+        pageControl.moveToStep(at: position)
     }
 }
 

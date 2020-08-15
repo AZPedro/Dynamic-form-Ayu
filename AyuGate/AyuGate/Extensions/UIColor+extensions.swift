@@ -29,6 +29,7 @@ extension UIColor {
     //FormColors
     
     static var formBackgroundColor = UIColor.hexStringToUIColor(hex: "#1D1F24")
+    static var formBackgroundSecondaryColor = UIColor.hexStringToUIColor(hex: "#333333")
     
     
     /// functions

@@ -20,6 +20,7 @@ class StepCollectionViewCellContentController: UIViewController {
     private func buildUI() {
         view.addSubview(redView)
         redView.backgroundColor = .red
+        redView.isHidden = true
         redView.translatesAutoresizingMaskIntoConstraints = false
         redView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         redView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

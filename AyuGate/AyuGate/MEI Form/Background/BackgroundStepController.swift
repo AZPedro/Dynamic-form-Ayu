@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CHIPageControl
 
 protocol BackgroundStepViewProtocol: StepProtocol, UIViewController {
     var backgroundImagesView: [UIImageView] { get set }
@@ -46,7 +47,7 @@ extension BackgroundStepViewProtocol {
     private func setupImagesPositions() {
         backgroundImagesView.enumerated().forEach({ (index, backgroundImageView) in
             view.addSubview(backgroundImageView)
-            backgroundImageView.image = UIImage(named: "ayuYbackground")
+            backgroundImageView.image = Images.ayuYbackground
             backgroundImageView.contentMode = .scaleAspectFill
             backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
             backgroundImageView.set(width: UIScreen.main.bounds.width * 1.2, height: UIScreen.main.bounds.height * 0.9)

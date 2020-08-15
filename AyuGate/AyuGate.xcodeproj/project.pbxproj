@@ -48,6 +48,8 @@
 		FABAB9F7244F8AEB00170210 /* HomeFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAB9F6244F8AEB00170210 /* HomeFlowController.swift */; };
 		FABAB9F9244F8B3700170210 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAB9F8244F8B3700170210 /* HomeViewController.swift */; };
 		FABAB9FC244F8CB800170210 /* HomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAB9FB244F8CB800170210 /* HomeCardView.swift */; };
+		FABC933524E855460019501B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC933424E855460019501B /* Images.swift */; };
+		FABC933724E856C20019501B /* StepPageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC933624E856C20019501B /* StepPageControlViewController.swift */; };
 		FABDFFCC2464B936004B253A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDFFCB2464B936004B253A /* AccountViewController.swift */; };
 		FABDFFCE2464B97D004B253A /* AYUDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDFFCD2464B97D004B253A /* AYUDetailInfoView.swift */; };
 		FAD51075244925D900B224AF /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD51074244925D900B224AF /* AppFlow.swift */; };
@@ -108,6 +110,8 @@
 		FABAB9F6244F8AEB00170210 /* HomeFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowController.swift; sourceTree = "<group>"; };
 		FABAB9F8244F8B3700170210 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FABAB9FB244F8CB800170210 /* HomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardView.swift; sourceTree = "<group>"; };
+		FABC933424E855460019501B /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		FABC933624E856C20019501B /* StepPageControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPageControlViewController.swift; sourceTree = "<group>"; };
 		FABDFFCB2464B936004B253A /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FABDFFCD2464B97D004B253A /* AYUDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUDetailInfoView.swift; sourceTree = "<group>"; };
 		FAD51074244925D900B224AF /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA9F90F24E08F0C00B6AE20 /* FormStepCollectionController.swift */,
+				FABC933624E856C20019501B /* StepPageControlViewController.swift */,
 				FA94A37C24E4B1DA004A17F4 /* StepBottomSegmentController.swift */,
 				FA94A37A24E4B12C004A17F4 /* StepCollectionViewCellContentController.swift */,
 			);
@@ -267,6 +272,7 @@
 				FAD51074244925D900B224AF /* AppFlow.swift */,
 				FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */,
 				FA4B7573246B4123000501DD /* Keychain.swift */,
+				FABC933424E855460019501B /* Images.swift */,
 				FA1BEABD2469E7F200D78940 /* SessionManager.swift */,
 				FABDFFCA2464B8F0004B253A /* Account */,
 				FABAABB02462224600A3A678 /* Invoice */,
@@ -526,6 +532,7 @@
 				FA6B01752469CC6D00E004CA /* AYURoute.swift in Sources */,
 				FAD5107A24492CAB00B224AF /* AYUViewController.swift in Sources */,
 				FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */,
+				FABC933724E856C20019501B /* StepPageControlViewController.swift in Sources */,
 				FA0D4562246E06D10012FCCE /* InvoiceDetailsViewModel.swift in Sources */,
 				FAA9F90D24DF91B300B6AE20 /* BackgroundStepController.swift in Sources */,
 				FA375B472469A68200D190E8 /* AYURequest.swift in Sources */,
@@ -549,6 +556,7 @@
 				FAD51088244A6A3500B224AF /* RegisterFlowController.swift in Sources */,
 				FA26393724617E4D00E282F6 /* AYUMonthsPickerView.swift in Sources */,
 				FA94A37F24E4B349004A17F4 /* UILabel+extensions.swift in Sources */,
+				FABC933524E855460019501B /* Images.swift in Sources */,
 				FAB2A6FE24462FD700C49E06 /* UIColor+extensions.swift in Sources */,
 				FA5761A52453802A009BB9CF /* CPFVerifyViewModel.swift in Sources */,
 			);

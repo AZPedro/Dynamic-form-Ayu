@@ -8,5 +8,6 @@ target 'AyuGate' do
   # Pods for AyuGate
 
 pod 'JWTDecode'
+pod 'CHIPageControl/Aleppo'
 
 end
