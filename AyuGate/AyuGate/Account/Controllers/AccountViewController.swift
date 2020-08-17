@@ -101,7 +101,7 @@ class AccountViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Vanessa Costa"
+        label.text = "Pedro Emanuel"
         return label
     }()
     
@@ -124,7 +124,17 @@ class AccountViewController: UIViewController {
     }()
     
     private lazy var accountDetailsListViewController: AccountDetailsListViewController = {
-        let v = AccountDetailsListViewController()
+        let v = AccountDetailsListViewController(model: [
+            .init(title: "Nome Completo", value: "Pedro Emanuel Santos Azevedo"),
+            .init(title: "PIS", value: "243.84783.11-3"),
+            .init(title: "E-mail", value: "pedro@ayugate.com"),
+            .init(title: "Telefone", value: "(21) 965444-987"),
+            .init(title: "Documento RG", value: "27.330.689-4"),
+            .init(title: "Nascimento", value: "22/01/1999"),
+            .init(title: "Estado civil", value: "Solteiro"),
+            .init(title: "Data contratação", value: "04/01/2016"),
+        ])
+        
         v.view.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
