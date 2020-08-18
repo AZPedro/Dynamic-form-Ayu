@@ -93,3 +93,34 @@ extension UIView {
     }
 
 }
+
+public extension UIStackView {
+    @discardableResult func horizontal(_ spacing: CGFloat = 0) -> Self {
+        axis = .horizontal
+        return space(spacing)
+    }
+    @discardableResult func vertical(_ spacing: CGFloat = 0) -> Self {
+        axis = .vertical
+        return space(spacing)
+    }
+    @discardableResult func space(_ spacing: CGFloat = 8) -> Self {
+        self.spacing = spacing
+        return self
+    }
+    
+    @discardableResult
+    func removeAllArrangedSubviews() -> [UIView] {
+        let removedSubviews = arrangedSubviews.reduce([]) { (removedSubviews, subview) -> [UIView] in
+            self.removeArrangedSubview(subview)
+            NSLayoutConstraint.deactivate(subview.constraints)
+            subview.removeFromSuperview()
+            return removedSubviews + [subview]
+        }
+        return removedSubviews
+    }
+
+    @discardableResult func add(_ arrangedSubviews: [UIView]) -> Self {
+        arrangedSubviews.forEach { addArrangedSubview($0) }
+        return self
+    }
+}

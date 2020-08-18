@@ -10,7 +10,7 @@ import UIKit
 
 class StepCollectionViewCellContentController: UIViewController {
     
-    let redView = UIView().set(width: 100, height: 50)
+    let textFieldTest = FormTextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +18,16 @@ class StepCollectionViewCellContentController: UIViewController {
     }
     
     private func buildUI() {
-        view.addSubview(redView)
-        redView.backgroundColor = .red
-        redView.isHidden = true
-        redView.translatesAutoresizingMaskIntoConstraints = false
-        redView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        redView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        view.addSubview(textFieldTest)
+    
+        textFieldTest.translatesAutoresizingMaskIntoConstraints = false
+        textFieldTest.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        textFieldTest.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        textFieldTest.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21).isActive = true
+        textFieldTest.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -21).isActive = true
+        
+        textFieldTest.model = .init(placeholder: "Cpf", title: "Insira seu CPF", validator: { isValid in
+            print("valid")
+        })
     }
 }
