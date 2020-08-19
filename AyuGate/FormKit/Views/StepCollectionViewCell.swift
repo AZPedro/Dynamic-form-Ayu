@@ -12,21 +12,8 @@ class StepCollectionViewCell: UICollectionViewCell {
     
     static var identifier = "StepCollectionViewCellIdentifier"
     
-    private lazy var stepCollectionViewCellContentController: StepCollectionViewCellContentController = {
-        let stepCollectionViewCellContentController = StepCollectionViewCellContentController()
-        return stepCollectionViewCellContentController
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        buildUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func buildUI() {
+    func setup(maskField: MaskField) {
+        let stepCollectionViewCellContentController = StepCollectionViewCellContentController(maskField: maskField)
         contentView.add(view: stepCollectionViewCellContentController.view)
     }
 }

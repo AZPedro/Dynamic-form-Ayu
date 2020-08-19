@@ -10,7 +10,20 @@ import UIKit
 
 class StepCollectionViewCellContentController: UIViewController {
     
-    let textFieldTest = FormTextField()
+    private var maskField: MaskField
+    
+    private lazy var textFieldTest: FormFieldContent = {
+        return FormFieldContent(maskField: maskField)
+    }()
+    
+    init(maskField: MaskField) {
+        self.maskField = maskField
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
