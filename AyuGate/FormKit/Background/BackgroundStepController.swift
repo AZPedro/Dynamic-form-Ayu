@@ -10,16 +10,21 @@ import UIKit
 import CHIPageControl
 import AyuKit
 
-protocol BackgroundStepViewProtocol: StepProtocol, UIViewController {
+protocol BackgroundStepViewProtocol: StepProtocolDelegate, UIViewController {
+    var stepDependence: StepProtocol { get set }
     var backgroundImagesView: [UIImageView] { get set }
     var backgroundImageViewRightContant: CGFloat { get set }
     var bacgroundImageviewCenterXAnchorConstraint: NSLayoutConstraint? { get set }
 }
 
-protocol StepProtocol {
+public protocol StepProtocolDelegate {
+    func moveToStep(at position: Int)
+}
+
+public protocol StepProtocol {
     var numberOfSteps: Int { get set }
     var currentStep: Int { get set }
-    func moveToStep(at position: Int)
+    var delegate: StepProtocolDelegate? { get set }
 }
 
 extension BackgroundStepViewProtocol {
@@ -39,7 +44,7 @@ extension BackgroundStepViewProtocol {
     private func prepareBackgroundImages() {
         var i = 0
         
-        while i < numberOfSteps {
+        while i < stepDependence.numberOfSteps {
             i += 1
             backgroundImagesView.append(UIImageView())
         }
@@ -72,7 +77,8 @@ extension BackgroundStepViewProtocol {
     }
 }
 
-class BackgroundStepController: UIViewController, BackgroundStepViewProtocol {
+public class BackgroundStepController: UIViewController, BackgroundStepViewProtocol {
+    
     var backgroundImagesView: [UIImageView] = []
     var bacgroundImageviewCenterXAnchorConstraint: NSLayoutConstraint?
    
@@ -82,12 +88,10 @@ class BackgroundStepController: UIViewController, BackgroundStepViewProtocol {
         }
     }
     
-    var numberOfSteps: Int
-    var currentStep: Int
+    internal var stepDependence: StepProtocol
     
-    init(numberOfSteps: Int, currentStep: Int) {
-        self.numberOfSteps = numberOfSteps
-        self.currentStep = currentStep
+    public init(stepDependence: StepProtocol) {
+        self.stepDependence = stepDependence
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -95,7 +99,7 @@ class BackgroundStepController: UIViewController, BackgroundStepViewProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }
@@ -104,11 +108,11 @@ class BackgroundStepController: UIViewController, BackgroundStepViewProtocol {
         setup()
     }
     
-    func moveToStep(at position: Int) {
+    public func moveToStep(at position: Int) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            let constant = position > self.currentStep ? self.backgroundImageViewRightContant-self.defaultConstant : self.backgroundImageViewRightContant+self.defaultConstant
+            let constant = position > self.stepDependence.currentStep ? self.backgroundImageViewRightContant-self.defaultConstant : self.backgroundImageViewRightContant+self.defaultConstant
             self.backgroundImageViewRightContant = constant
-            self.currentStep = position
+            self.stepDependence.currentStep = position
         }
     }
 }

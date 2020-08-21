@@ -39,7 +39,7 @@ class AYUTextField: UIView {
     
     lazy var textField: UITextField = {
         let t = UITextField()
-        t.tintColor = .black
+        t.tintColor = .white
         t.delegate = self
         t.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(textFieldDidtouched)))
         t.addTarget(self, action: #selector(textDidChanged), for: .editingChanged)
@@ -52,14 +52,14 @@ class AYUTextField: UIView {
         t.textAlignment = .left
         t.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         t.translatesAutoresizingMaskIntoConstraints = false
-        t.textColor = .black
+        t.textColor = .white
         return t
     }()
     
     var placeHolder: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.textColor = UIColor.blackSecondary
+        l.textColor = UIColor.whiteSecondary
         l.font = UIFont.systemFont(ofSize: 11, weight: .regular)
         return l
     }()
@@ -67,7 +67,7 @@ class AYUTextField: UIView {
     private var backLine: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = .black
+        v.backgroundColor = .white
         return v
     }()
     
@@ -115,7 +115,7 @@ class AYUTextField: UIView {
             errorLabel.trailingAnchor.constraint(equalTo: backLine.trailingAnchor)
         ])
         
-        textField.textColor = .black
+        textField.textColor = .white
     }
 
     func updateState(state: State) {

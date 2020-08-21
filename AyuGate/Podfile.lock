@@ -1,20 +1,24 @@
 PODS:
   - CHIPageControl/Aleppo (0.2)
+  - JMMaskTextField-Swift (0.1.3)
   - JWTDecode (2.4.1)
 
 DEPENDENCIES:
   - CHIPageControl/Aleppo
+  - JMMaskTextField-Swift
   - JWTDecode
 
 SPEC REPOS:
   trunk:
     - CHIPageControl
+    - JMMaskTextField-Swift
     - JWTDecode
 
 SPEC CHECKSUMS:
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
+  JMMaskTextField-Swift: 16aa552605b121285e6c2f0817ab31cea5f4704b
   JWTDecode: 4bd4da0cdf0f8154fd467fa48499f34ec057fb88
 
-PODFILE CHECKSUM: c86525565ef00773aea516fc19498b55c1d62626
+PODFILE CHECKSUM: 31fcac8f1cbce366ac520014187469ea04e6c52a
 
 COCOAPODS: 1.8.4

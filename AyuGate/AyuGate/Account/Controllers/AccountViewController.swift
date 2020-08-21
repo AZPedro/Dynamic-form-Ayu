@@ -167,18 +167,18 @@ class AccountViewController: UIViewController {
     @objc private func logout() {
         SessionManager.shared.logout()
         
-        let loginFlow = RegisterFlowController()
-        let navigation = UINavigationController(rootViewController: loginFlow)
-        navigation.modalPresentationStyle = .fullScreen
-        
-        self.present(navigation, animated: true, completion: {
-            if let count = self.navigationController?.viewControllers.count {
-                let backViewControllerPosition = count - 2
-                guard backViewControllerPosition >= 0 else {
-                    return
-                }
-                self.navigationController?.viewControllers.remove(at: backViewControllerPosition)
-            }
-        })
+//        let loginFlow = RegisterFlowController()
+//        let navigation = UINavigationController(rootViewController: loginFlow)
+//        navigation.modalPresentationStyle = .fullScreen
+//
+//        self.present(navigation, animated: true, completion: {
+//            if let count = self.navigationController?.viewControllers.count {
+//                let backViewControllerPosition = count - 2
+//                guard backViewControllerPosition >= 0 else {
+//                    return
+//                }
+//                self.navigationController?.viewControllers.remove(at: backViewControllerPosition)
+//            }
+//        })
     }
 }

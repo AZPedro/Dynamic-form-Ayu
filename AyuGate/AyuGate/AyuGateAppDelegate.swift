@@ -24,7 +24,6 @@ class AyuGateAppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = AppFlow.shared.flow()
         window?.makeKeyAndVisible()
-        
     }
 }
 

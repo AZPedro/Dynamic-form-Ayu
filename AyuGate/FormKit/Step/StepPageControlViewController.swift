@@ -9,19 +9,14 @@
 import UIKit
 import CHIPageControl
 
-class StepPageControlViewController: UIViewController, StepProtocol {
+class StepPageControlViewController: UIViewController, StepProtocolDelegate {
     let pageControl = CHIPageControlAleppo()
     let feedbackImpact = UIImpactFeedbackGenerator(style: .light)
     
-    var numberOfSteps: Int
-    var currentStep: Int = 0 {
-        didSet {
-            moveToStep(at: currentStep)
-        }
-    }
+    internal var stepDependence: StepProtocol
 
-    init(numberOfSteps: Int) {
-        self.numberOfSteps = numberOfSteps
+    init(stepDependence: StepProtocol) {
+        self.stepDependence = stepDependence
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -48,7 +43,7 @@ class StepPageControlViewController: UIViewController, StepProtocol {
             view.heightAnchor.constraint(equalTo: pageControl.heightAnchor)
         ])
         
-        pageControl.numberOfPages = numberOfSteps+1
+        pageControl.numberOfPages = stepDependence.numberOfSteps+1
         pageControl.radius = 4
         pageControl.tintColor = .formBackgroundSecondaryColor
         pageControl.currentPageTintColor = .white

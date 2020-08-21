@@ -8,10 +8,9 @@
 
 import UIKit
 
-class FormStepCollectionController: UIViewController, StepProtocol {
+class FormStepCollectionController: UIViewController, StepProtocolDelegate {
     
-    var currentStep: Int
-    var numberOfSteps: Int
+    internal var stepDependence: StepProtocol
     var items: [IndexPath] = []
 
     private var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
@@ -29,9 +28,8 @@ class FormStepCollectionController: UIViewController, StepProtocol {
         buildUI()
     }
     
-    init(numberOfSteps: Int, currentStep: Int) {
-        self.numberOfSteps = numberOfSteps
-        self.currentStep = currentStep
+    init(stepDependence: StepProtocol) {
+        self.stepDependence = stepDependence
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -64,7 +62,7 @@ class FormStepCollectionController: UIViewController, StepProtocol {
 extension FormStepCollectionController: UICollectionViewDelegate, UICollectionViewDataSource {
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfSteps+1
+        return stepDependence.numberOfSteps+1
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -74,6 +72,7 @@ extension FormStepCollectionController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StepCollectionViewCell.identifier, for: indexPath) as? StepCollectionViewCell else { return UICollectionViewCell() }
         items.append(indexPath)
+        
         return cell
     }
     

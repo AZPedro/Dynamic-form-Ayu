@@ -11,6 +11,7 @@ pod 'JWTDecode'
 
 target 'FormKit' do
    pod 'CHIPageControl/Aleppo'
+   pod "JMMaskTextField-Swift"	
 end
 
 end

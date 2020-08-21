@@ -8,14 +8,13 @@
 
 import UIKit
 
-public class FormStepFlowController: UIViewController, StepProtocol {
+public protocol FormDependencies {
+    var stepDependence: StepProtocol { get set }
+}
+
+public class FormStepFlowController: UIViewController, StepProtocolDelegate {
     
-    var numberOfSteps: Int = 3
-    var currentStep: Int = 0 {
-        didSet {
-            moveToStep(at: currentStep)
-        }
-    }
+    private var dependencies: FormDependencies
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +22,11 @@ public class FormStepFlowController: UIViewController, StepProtocol {
     }
     
     lazy var backgroundStepController: BackgroundStepController = {
-        return BackgroundStepController(numberOfSteps: numberOfSteps, currentStep: currentStep)
+        return BackgroundStepController(stepDependence: dependencies.stepDependence)
     }()
     
     lazy var formStepCollectionController: FormStepCollectionController = {
-        let formCollection = FormStepCollectionController(numberOfSteps: numberOfSteps, currentStep: currentStep)
+        let formCollection = FormStepCollectionController(stepDependence: dependencies.stepDependence)
         formCollection.delegate = backgroundStepController
         return formCollection
     }()
@@ -38,15 +37,26 @@ public class FormStepFlowController: UIViewController, StepProtocol {
     }()
     
     private lazy var pageControl: StepPageControlViewController = {
-        let pageControl = StepPageControlViewController(numberOfSteps: numberOfSteps)
+        let pageControl = StepPageControlViewController(stepDependence: dependencies.stepDependence)
         return pageControl
     }()
-
+    
+    public init(dependencies: FormDependencies) {
+        self.dependencies = dependencies
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setup() {
         installChild(backgroundStepController)
         installChild(formStepCollectionController)
         installBottonSegment()
         installPageControl()
+        
+        dependencies.stepDependence.delegate = self
     }
     
     private func installBottonSegment() {
@@ -72,7 +82,7 @@ public class FormStepFlowController: UIViewController, StepProtocol {
         ])
     }
     
-    func moveToStep(at position: Int) {
+    public func moveToStep(at position: Int) {
         formStepCollectionController.moveToStep(at: position)
         backgroundStepController.moveToStep(at: position)
         pageControl.moveToStep(at: position)
@@ -82,12 +92,12 @@ public class FormStepFlowController: UIViewController, StepProtocol {
 extension FormStepFlowController: StepBottomSegmentControllerDelegate {
 
     func stepBottomSegmentControllerDelegate(didBack: StepBottomSegmentController) {
-        guard currentStep > 0 else { return }
-        currentStep = currentStep-1
+        guard dependencies.stepDependence.currentStep > 0 else { return }
+        dependencies.stepDependence.currentStep = dependencies.stepDependence.currentStep-1
     }
     
     func stepBottomSegmentControllerDelegate(didNext: StepBottomSegmentController) {
-        guard currentStep < numberOfSteps else { return }
-        currentStep = currentStep+1
+        guard dependencies.stepDependence.currentStep < dependencies.stepDependence.numberOfSteps else { return }
+        dependencies.stepDependence.currentStep = dependencies.stepDependence.currentStep+1
     }
 }

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import JMMaskTextField_Swift
 
-class FormFieldContent: UIView {
+public class FormFieldContent: UIView {
 
     private var maskField: MaskField
     
@@ -23,23 +24,30 @@ class FormFieldContent: UIView {
     
     let textFieldContent = UIView()
     
-    private lazy var textField: FormTextField = {
-       return FormTextField(maskField: maskField)
+    private lazy var textField: JMMaskTextField = {
+        let textField = JMMaskTextField()
+       return textField
     }()
     
-    var model: Model? {
+    public var model: Model? {
         didSet {
             updateUI()
         }
     }
-    
-    struct Model {
+
+    public struct Model {
         let placeholder: String?
         let title: String
         let validator: ((Bool) -> Void)?
+        
+        public init(placeholder: String? = nil, title: String, validator: ((Bool) -> Void)? = nil) {
+            self.placeholder = placeholder
+            self.title = title
+            self.validator = validator
+        }
     }
     
-    init(maskField: MaskField) {
+    public init(maskField: MaskField) {
         self.maskField = maskField
         super.init(frame: .zero)
         buildUI()
@@ -68,11 +76,13 @@ class FormFieldContent: UIView {
         textFieldContent.layer.cornerRadius = 5
         textFieldContent.clipsToBounds = true
         
-        textField.delegate = self
         textField.backgroundColor = UIColor.white
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.heightAnchor.constraint(equalToConstant: 38).isActive = true
         
+        textField.delegate = self
+        textField.keyboardType = maskField.keyboardType
+        translatesAutoresizingMaskIntoConstraints = false
         textField.addSubview(textFieldPlaceholder)
         textFieldPlaceholder.translatesAutoresizingMaskIntoConstraints = false
         
@@ -90,23 +100,38 @@ class FormFieldContent: UIView {
 }
 
 extension FormFieldContent: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         textFieldPlaceholder.isHidden = true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+    public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         self.textFieldPlaceholder.isHidden = !(textField.text?.isEmpty ?? true)
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
+    }
+    
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard let textField = textField as? JMMaskTextField else { return false }
+        textField.maskString = maskField.mask
+        
+        if let textCount = textField.text?.count, textCount == maskField.mask.count-1 {
+            
+        }
+        return true
+    }
+    
+    private func executValidator() {
+        
     }
 }

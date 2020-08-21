@@ -8,34 +8,7 @@
 
 import UIKit
 
-protocol MaskField {
+public protocol MaskField {
     var mask: String { get set }
-    var limit: Int { get set }
-}
-
-protocol TextFieldMaskAble {
-    func mask(field: UITextField) -> String
-    func unMask(field: UITextField) -> String
-}
-
-public class FormTextField: UITextField, TextFieldMaskAble {
-    
-    var maskField: MaskField
-    
-    init(maskField: MaskField) {
-        self.maskField = maskField
-        super.init(frame: .zero)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func mask(field: UITextField) -> String {
-        return ""
-    }
-    
-    func unMask(field: UITextField) -> String {
-        return ""
-    }
+    var keyboardType: UIKeyboardType { get }
 }

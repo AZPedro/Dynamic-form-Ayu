@@ -7,117 +7,145 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		047821F3A6CEA16D3185EF9C571D0CB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		0B9B372422B09FA5658930E6D6B8769C /* CHILayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98380DCB348B0C6C52C46D1F1D39F1 /* CHILayer.swift */; };
-		0F8E22C1B9C63825425AED59CCD406A2 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC65848E2CF22E65BF2E1506509790 /* JWTDecode.swift */; };
-		138647D32FFEBEC769F898917CA94D10 /* JWTDecode-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 008255B2220151EFC77A8BA70F6906EE /* JWTDecode-dummy.m */; };
-		1CAFE1EF2F9B50490DC9ADE9595B6E3A /* Pods-AyuGate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2909E873E39E2807E02AF257880521DA /* Pods-AyuGate-dummy.m */; };
-		2274E43A5E3C156DACAA12DBA98A43B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		01A5CD6D8700A904621BB1886EB11574 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		0B9B372422B09FA5658930E6D6B8769C /* CHILayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCA2F46BC1A83FE1EB277FF02BCDE0 /* CHILayer.swift */; };
+		0F8E22C1B9C63825425AED59CCD406A2 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866822F2E547A8491B277C36C4019CE6 /* JWTDecode.swift */; };
+		138647D32FFEBEC769F898917CA94D10 /* JWTDecode-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB13EA3AB501DC7FB07BD70C7D28298 /* JWTDecode-dummy.m */; };
+		1461D796EAEEA2709AAC113314470158 /* JMMaskTextField-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE0D1F629352253B876B57079D41570 /* JMMaskTextField-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2BA4F17B529ADBE4CC08DF6341322B99 /* Pods-AyuGate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2909E873E39E2807E02AF257880521DA /* Pods-AyuGate-dummy.m */; };
 		3A95FCB7C093CD75475FFDCB02EB2FEB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		3E3A216BCD414D3E2D82E84454745210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		43EB2E4654D295AB298D77E72C26FBAF /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2FD8015351D7CD129C4A09FA5B1342 /* ValidationError.swift */; };
-		4EFAFAD7EBBA04B0FFEBE2EF2D4F82EA /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3700F75D3B6C220146C82A09A14B4866 /* TokenValidators.swift */; };
-		6B2D3B47BD434941B63EEB1A7C1492E5 /* CHIBasePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E9A5C842DE5D73371A1D803E746D3E /* CHIBasePageControl.swift */; };
-		7109B38F610871110E093F93424609C7 /* Pods-AyuGate-FormKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6DFEB171B98878017BF2C11E5D0B /* Pods-AyuGate-FormKit-dummy.m */; };
-		7319CCC134EC846389A91641CBDDEB9A /* Pods-AyuGate-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD2BF18BE9A0B29FB3D08C980F852C6 /* Pods-AyuGate-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7CA3CC6D90E04AF047F81EF8B338886C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6426721B3B3D3068D9A33309E2796B /* Errors.swift */; };
-		94182D2C4BE832C08E71436A946856E3 /* CHIPageControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 799F0A8ACD95C5D1478A9FF6AD88A37A /* CHIPageControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		94C54F5761E57BD75D1568E6395A1231 /* JWTDecode-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EE244E71FCFACCECC913775315332B7 /* JWTDecode-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DF8B8A82B023E4D547C7CBB1E0586B4 /* ValidatorJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472043521D44B4B4FA4C8A0982A4AD95 /* ValidatorJWT.swift */; };
-		A05E113508C07A5723E18D2D672A27A5 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E895C8C5EABD8E7EEBBCD2A3A485CCC /* JWT.swift */; };
-		C5419C0108560F323B3E3CA8B454AEF8 /* CHIPageControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E922217C1C70371A14056652887C561 /* CHIPageControl-dummy.m */; };
-		C9FDFCE4A51472BC46EDD34E99C74B5D /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97044AFBD39CA913B539DA95E5B4E009 /* A0JWT.swift */; };
-		DAB0BDF28E4A9507C1FC86F2D52CB43C /* CHIPageControlAleppo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE080A91C96501F115D71B21E1F38D75 /* CHIPageControlAleppo.swift */; };
-		FC163AD0B75EA4F4644AB7A196CAD33C /* Pods-AyuGate-FormKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A804B83AAE371A9B4ED6CAF40223058 /* Pods-AyuGate-FormKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FE31B718BEAF06604C92B536C3106F85 /* CHIPageControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D270B5583CD147FA6F7516E988936 /* CHIPageControllable.swift */; };
+		43EB2E4654D295AB298D77E72C26FBAF /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E568458590BCEB2FE4C9A685523BA /* ValidationError.swift */; };
+		4EFAFAD7EBBA04B0FFEBE2EF2D4F82EA /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5538B33D722EC636B388120A6F3F71A /* TokenValidators.swift */; };
+		5879A5A26C2C4D3CA34F0728DA144423 /* JMMaskTextField-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E73FAB54EED90E88BA20AFA93EE1A2 /* JMMaskTextField-Swift-dummy.m */; };
+		5F43D15D9423E8F46C2C2858243CDF31 /* JMStringMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DBF5D1C7BF56DF98C8ED597D97CE98 /* JMStringMask.swift */; };
+		6B2D3B47BD434941B63EEB1A7C1492E5 /* CHIBasePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5A0904DE827675EEB11991A272DD85 /* CHIBasePageControl.swift */; };
+		7CA3CC6D90E04AF047F81EF8B338886C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F58FE37EB776F21395B12696C71BDF /* Errors.swift */; };
+		94182D2C4BE832C08E71436A946856E3 /* CHIPageControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 729C64B050808C932C5DB38C5DD00F82 /* CHIPageControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94C54F5761E57BD75D1568E6395A1231 /* JWTDecode-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A430143122D93A1BD7F678562951E8D /* JWTDecode-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DF8B8A82B023E4D547C7CBB1E0586B4 /* ValidatorJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE82982DCA5379888C19673EED79EB2 /* ValidatorJWT.swift */; };
+		A02A5ED8A50AAC6B8C8436BC8BB26672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		A05E113508C07A5723E18D2D672A27A5 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7986557C327971D2DDC95CB0633B16A /* JWT.swift */; };
+		B035757058F539D991F47E0C5348039A /* Pods-AyuGate-FormKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6DFEB171B98878017BF2C11E5D0B /* Pods-AyuGate-FormKit-dummy.m */; };
+		B2B7714F562EDDD455E7F26E6523CC0E /* Pods-AyuGate-FormKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A804B83AAE371A9B4ED6CAF40223058 /* Pods-AyuGate-FormKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5419C0108560F323B3E3CA8B454AEF8 /* CHIPageControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 267776A235DB70039692A15091F811B8 /* CHIPageControl-dummy.m */; };
+		C9FDFCE4A51472BC46EDD34E99C74B5D /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CB8F5B08C962745EBE5D7BB53F4ACB /* A0JWT.swift */; };
+		DAB0BDF28E4A9507C1FC86F2D52CB43C /* CHIPageControlAleppo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D1812180792E7B05CB9C920932CF13 /* CHIPageControlAleppo.swift */; };
+		F0762560BFACF88C0AF861B607C93791 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		F335790D94A2AEB4EADBA7F119FC5335 /* JMMaskTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ACD0A63AF2BC158606E3C7971F941 /* JMMaskTextField.swift */; };
+		FE31B718BEAF06604C92B536C3106F85 /* CHIPageControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4F0A9A8EBBBB394FCE784025F78F3E /* CHIPageControllable.swift */; };
+		FE394E63C35988B9DC440844B9E7903D /* Pods-AyuGate-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD2BF18BE9A0B29FB3D08C980F852C6 /* Pods-AyuGate-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6AAAA8FFDBCAF6C3E8882018A0928CE9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 58A7AC722D45BA5EF49F00D98C86978B;
-			remoteInfo = CHIPageControl;
-		};
-		805E83C01E46E6AA2E44812D95418718 /* PBXContainerItemProxy */ = {
+		04C4DF9B1DF2628271DA2C43C3046F32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 22E1F0E7CBECE226FC294E79C21B0033;
 			remoteInfo = JWTDecode;
 		};
-		9D691EDE8F25A9B657D21B6BC65C590A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 22E1F0E7CBECE226FC294E79C21B0033;
-			remoteInfo = JWTDecode;
-		};
-		BF48914B324CE07B06EF795DAE782F9B /* PBXContainerItemProxy */ = {
+		24621F70E2BF522D4F64A80B25360D2A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 58A7AC722D45BA5EF49F00D98C86978B;
 			remoteInfo = CHIPageControl;
+		};
+		93A62ECA148DAACA33C44D53121B2E06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AD7F58830DF3D4D32A666527D4FDF8F;
+			remoteInfo = "JMMaskTextField-Swift";
+		};
+		B9F8827BDE7360B099A2B65BCC076843 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58A7AC722D45BA5EF49F00D98C86978B;
+			remoteInfo = CHIPageControl;
+		};
+		F6A47116F00B77096CE47EFF8691E073 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AD7F58830DF3D4D32A666527D4FDF8F;
+			remoteInfo = "JMMaskTextField-Swift";
+		};
+		F964077AC0F8D13847413E880FF3FDAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22E1F0E7CBECE226FC294E79C21B0033;
+			remoteInfo = JWTDecode;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008255B2220151EFC77A8BA70F6906EE /* JWTDecode-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JWTDecode-dummy.m"; sourceTree = "<group>"; };
+		02F58FE37EB776F21395B12696C71BDF /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = JWTDecode/Errors.swift; sourceTree = "<group>"; };
+		0A62C664E9E63D3F305925168785DCAD /* JMMaskTextField-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "JMMaskTextField-Swift.xcconfig"; sourceTree = "<group>"; };
 		0BB08BB5998036DCE7953AD0A7BA1D57 /* Pods_AyuGate_FormKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AyuGate_FormKit.framework; path = "Pods-AyuGate-FormKit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F0939B80CCA4FB9FB5170FC3DC27BF /* Pods-AyuGate-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AyuGate-Info.plist"; sourceTree = "<group>"; };
+		15B99894B8EBC7053F0E8F71F0BC96FC /* JMMaskTextField-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "JMMaskTextField-Swift.modulemap"; sourceTree = "<group>"; };
 		182F8E65F87F7D8DDC39BD43DBCE313B /* Pods-AyuGate-FormKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AyuGate-FormKit-acknowledgements.markdown"; sourceTree = "<group>"; };
 		184C6DFEB171B98878017BF2C11E5D0B /* Pods-AyuGate-FormKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AyuGate-FormKit-dummy.m"; sourceTree = "<group>"; };
+		1E9E568458590BCEB2FE4C9A685523BA /* ValidationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidationError.swift; path = JWTDecode/ValidationError.swift; sourceTree = "<group>"; };
 		1FD2BF18BE9A0B29FB3D08C980F852C6 /* Pods-AyuGate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AyuGate-umbrella.h"; sourceTree = "<group>"; };
-		20F6C8A2C63AAA126BF1005AE376BFA6 /* CHIPageControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHIPageControl-prefix.pch"; sourceTree = "<group>"; };
+		208645E41AEA6B1D8E20ED533751AD9A /* JMMaskTextField-Swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JMMaskTextField-Swift-Info.plist"; sourceTree = "<group>"; };
+		24CB8F5B08C962745EBE5D7BB53F4ACB /* A0JWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = A0JWT.swift; path = JWTDecode/A0JWT.swift; sourceTree = "<group>"; };
+		267776A235DB70039692A15091F811B8 /* CHIPageControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CHIPageControl-dummy.m"; sourceTree = "<group>"; };
 		2909E873E39E2807E02AF257880521DA /* Pods-AyuGate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AyuGate-dummy.m"; sourceTree = "<group>"; };
-		2D38FCE25219E20AF6766CABDFA168CA /* JWTDecode.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JWTDecode.modulemap; sourceTree = "<group>"; };
+		2EE82982DCA5379888C19673EED79EB2 /* ValidatorJWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidatorJWT.swift; path = JWTDecode/ValidatorJWT.swift; sourceTree = "<group>"; };
 		2F3E6ACE8601DA2337A6EA4140D0A827 /* Pods-AyuGate-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AyuGate-frameworks.sh"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3389F1A350FF24A5D5762BCBE6076707 /* CHIPageControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CHIPageControl.modulemap; sourceTree = "<group>"; };
-		3700F75D3B6C220146C82A09A14B4866 /* TokenValidators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenValidators.swift; path = JWTDecode/TokenValidators.swift; sourceTree = "<group>"; };
-		3D8B82B609B5CC38EECFB9F4731A33F7 /* JWTDecode-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-prefix.pch"; sourceTree = "<group>"; };
-		3E98380DCB348B0C6C52C46D1F1D39F1 /* CHILayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHILayer.swift; path = CHIPageControl/Core/CHILayer.swift; sourceTree = "<group>"; };
-		472043521D44B4B4FA4C8A0982A4AD95 /* ValidatorJWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidatorJWT.swift; path = JWTDecode/ValidatorJWT.swift; sourceTree = "<group>"; };
-		490D270B5583CD147FA6F7516E988936 /* CHIPageControllable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIPageControllable.swift; path = CHIPageControl/Core/CHIPageControllable.swift; sourceTree = "<group>"; };
+		35DBF5D1C7BF56DF98C8ED597D97CE98 /* JMStringMask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JMStringMask.swift; path = JMMaskTextField/Classes/JMStringMask.swift; sourceTree = "<group>"; };
+		3735638089C499C03D1271008A187300 /* CHIPageControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CHIPageControl.xcconfig; sourceTree = "<group>"; };
+		48C4AF30D2F3DE500987C6773200808E /* JWTDecode.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JWTDecode.xcconfig; sourceTree = "<group>"; };
 		4A90E991BC0CB35AB6D91E18C9490643 /* CHIPageControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CHIPageControl.framework; path = CHIPageControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4EE244E71FCFACCECC913775315332B7 /* JWTDecode-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-umbrella.h"; sourceTree = "<group>"; };
-		5E2FD8015351D7CD129C4A09FA5B1342 /* ValidationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidationError.swift; path = JWTDecode/ValidationError.swift; sourceTree = "<group>"; };
+		4AB13EA3AB501DC7FB07BD70C7D28298 /* JWTDecode-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JWTDecode-dummy.m"; sourceTree = "<group>"; };
+		51E73FAB54EED90E88BA20AFA93EE1A2 /* JMMaskTextField-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JMMaskTextField-Swift-dummy.m"; sourceTree = "<group>"; };
+		53DCA2F46BC1A83FE1EB277FF02BCDE0 /* CHILayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHILayer.swift; path = CHIPageControl/Core/CHILayer.swift; sourceTree = "<group>"; };
 		640C50FEC01748E1EDA696015F4ECBAC /* Pods-AyuGate-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AyuGate-acknowledgements.plist"; sourceTree = "<group>"; };
 		66C755DA493ADB737408F74B7BE3D2CA /* Pods-AyuGate-FormKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AyuGate-FormKit-Info.plist"; sourceTree = "<group>"; };
 		68566CED62FA72D28CD8B44356E05DF8 /* Pods-AyuGate-FormKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AyuGate-FormKit.modulemap"; sourceTree = "<group>"; };
+		720C030908CA5761857EE1B1A24B5EA8 /* CHIPageControl-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CHIPageControl-Info.plist"; sourceTree = "<group>"; };
+		729C64B050808C932C5DB38C5DD00F82 /* CHIPageControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHIPageControl-umbrella.h"; sourceTree = "<group>"; };
 		7516B41499958C7B4364AFB766A8ED46 /* Pods-AyuGate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AyuGate.debug.xcconfig"; sourceTree = "<group>"; };
-		754F99778E1ABD69173BA288AC57327A /* JWTDecode.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JWTDecode.xcconfig; sourceTree = "<group>"; };
-		799F0A8ACD95C5D1478A9FF6AD88A37A /* CHIPageControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHIPageControl-umbrella.h"; sourceTree = "<group>"; };
 		7A8D4AC02B51FD03224739D06AEE207B /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JWTDecode.framework; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C6426721B3B3D3068D9A33309E2796B /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = JWTDecode/Errors.swift; sourceTree = "<group>"; };
-		7E049F1A37EF7D42D841A22DA0C11FF6 /* CHIPageControl-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CHIPageControl-Info.plist"; sourceTree = "<group>"; };
-		7E922217C1C70371A14056652887C561 /* CHIPageControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CHIPageControl-dummy.m"; sourceTree = "<group>"; };
-		8E895C8C5EABD8E7EEBBCD2A3A485CCC /* JWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWT.swift; path = JWTDecode/JWT.swift; sourceTree = "<group>"; };
-		97044AFBD39CA913B539DA95E5B4E009 /* A0JWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = A0JWT.swift; path = JWTDecode/A0JWT.swift; sourceTree = "<group>"; };
+		7C60444956DFCA27001290146D8192AE /* JWTDecode-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JWTDecode-Info.plist"; sourceTree = "<group>"; };
+		866822F2E547A8491B277C36C4019CE6 /* JWTDecode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWTDecode.swift; path = JWTDecode/JWTDecode.swift; sourceTree = "<group>"; };
+		87ED32009B31DD7EF6ABB25A832ED2FF /* JMMaskTextField-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JMMaskTextField-Swift-prefix.pch"; sourceTree = "<group>"; };
+		8A430143122D93A1BD7F678562951E8D /* JWTDecode-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-umbrella.h"; sourceTree = "<group>"; };
+		8B4F0A9A8EBBBB394FCE784025F78F3E /* CHIPageControllable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIPageControllable.swift; path = CHIPageControl/Core/CHIPageControllable.swift; sourceTree = "<group>"; };
+		92D22D8A28E02A4545458DFDE32010CC /* CHIPageControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHIPageControl-prefix.pch"; sourceTree = "<group>"; };
 		9A804B83AAE371A9B4ED6CAF40223058 /* Pods-AyuGate-FormKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AyuGate-FormKit-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A05544ACF8AD543788B922F0CB91CDA3 /* JWTDecode.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JWTDecode.modulemap; sourceTree = "<group>"; };
 		A74BD9AF8B88CF58FF64C5EAB062E189 /* Pods-AyuGate-FormKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AyuGate-FormKit.debug.xcconfig"; sourceTree = "<group>"; };
 		AA2153030DF11C8A4EDEC677F9C494DE /* Pods_AyuGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AyuGate.framework; path = "Pods-AyuGate.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B829AD8C07B93EAD22E2414C2BA74C3E /* CHIPageControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CHIPageControl.xcconfig; sourceTree = "<group>"; };
-		B9E9A5C842DE5D73371A1D803E746D3E /* CHIBasePageControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIBasePageControl.swift; path = CHIPageControl/Core/CHIBasePageControl.swift; sourceTree = "<group>"; };
-		BDC33C8AF34547F109076AEFFDA32687 /* JWTDecode-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JWTDecode-Info.plist"; sourceTree = "<group>"; };
-		C1AC65848E2CF22E65BF2E1506509790 /* JWTDecode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWTDecode.swift; path = JWTDecode/JWTDecode.swift; sourceTree = "<group>"; };
+		AAE0D1F629352253B876B57079D41570 /* JMMaskTextField-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JMMaskTextField-Swift-umbrella.h"; sourceTree = "<group>"; };
+		B2D1812180792E7B05CB9C920932CF13 /* CHIPageControlAleppo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIPageControlAleppo.swift; path = CHIPageControl/CHIPageControlAleppo.swift; sourceTree = "<group>"; };
+		B38FF3B1D96B4076A4660D8B3F674D3F /* JMMaskTextField_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JMMaskTextField_Swift.framework; path = "JMMaskTextField-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB20ABBFCD86F3601D422D62B88F01EB /* Pods-AyuGate-FormKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AyuGate-FormKit.release.xcconfig"; sourceTree = "<group>"; };
+		CE3EA8F1FB657D2CE70398BB2A27F232 /* CHIPageControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CHIPageControl.modulemap; sourceTree = "<group>"; };
 		D19136D1535B717E8D174E0B4377AE09 /* Pods-AyuGate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AyuGate.release.xcconfig"; sourceTree = "<group>"; };
 		D218758A480031D10FE4266295FF882D /* Pods-AyuGate-FormKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AyuGate-FormKit-acknowledgements.plist"; sourceTree = "<group>"; };
-		DE080A91C96501F115D71B21E1F38D75 /* CHIPageControlAleppo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIPageControlAleppo.swift; path = CHIPageControl/CHIPageControlAleppo.swift; sourceTree = "<group>"; };
+		D72ACD0A63AF2BC158606E3C7971F941 /* JMMaskTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JMMaskTextField.swift; path = JMMaskTextField/Classes/JMMaskTextField.swift; sourceTree = "<group>"; };
+		D7986557C327971D2DDC95CB0633B16A /* JWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWT.swift; path = JWTDecode/JWT.swift; sourceTree = "<group>"; };
+		E5538B33D722EC636B388120A6F3F71A /* TokenValidators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenValidators.swift; path = JWTDecode/TokenValidators.swift; sourceTree = "<group>"; };
+		EC5A0904DE827675EEB11991A272DD85 /* CHIBasePageControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHIBasePageControl.swift; path = CHIPageControl/Core/CHIBasePageControl.swift; sourceTree = "<group>"; };
 		F4A2D3CB766174318312EC6B99BBAA5D /* Pods-AyuGate-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AyuGate-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F4DAE2F444E6290DE305363156DA320D /* JWTDecode-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-prefix.pch"; sourceTree = "<group>"; };
 		FBCEC7665582D857F74D465059DADB91 /* Pods-AyuGate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AyuGate.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		14E20B1A586413164433D629233583E0 /* Frameworks */ = {
+		27038F869426B4179C0EF3D2FC2A73C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2274E43A5E3C156DACAA12DBA98A43B8 /* Foundation.framework in Frameworks */,
+				01A5CD6D8700A904621BB1886EB11574 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,11 +157,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C99BADCB0EDB25BA0F816DC15D57EA3D /* Frameworks */ = {
+		7F1728C4C5BD5D8CCB6707A38E05FD88 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				047821F3A6CEA16D3185EF9C571D0CB9 /* Foundation.framework in Frameworks */,
+				F0762560BFACF88C0AF861B607C93791 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B862C5691FB52BAE62F38AE10ED19CFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A02A5ED8A50AAC6B8C8436BC8BB26672 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,41 +200,37 @@
 			path = "Target Support Files/Pods-AyuGate-FormKit";
 			sourceTree = "<group>";
 		};
-		101B4A0FD6D1FDD023A42692999B4370 /* Aleppo */ = {
+		0BA39DCAD5AF902DE0274C280124ABF0 /* Aleppo */ = {
 			isa = PBXGroup;
 			children = (
-				B9E9A5C842DE5D73371A1D803E746D3E /* CHIBasePageControl.swift */,
-				3E98380DCB348B0C6C52C46D1F1D39F1 /* CHILayer.swift */,
-				DE080A91C96501F115D71B21E1F38D75 /* CHIPageControlAleppo.swift */,
-				490D270B5583CD147FA6F7516E988936 /* CHIPageControllable.swift */,
+				EC5A0904DE827675EEB11991A272DD85 /* CHIBasePageControl.swift */,
+				53DCA2F46BC1A83FE1EB277FF02BCDE0 /* CHILayer.swift */,
+				B2D1812180792E7B05CB9C920932CF13 /* CHIPageControlAleppo.swift */,
+				8B4F0A9A8EBBBB394FCE784025F78F3E /* CHIPageControllable.swift */,
 			);
 			name = Aleppo;
 			sourceTree = "<group>";
 		};
-		23B13F5729142D91DB164DBA1A718CA7 /* CHIPageControl */ = {
+		2AAE1C84C0F2ADA17057715E300E9B9C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				101B4A0FD6D1FDD023A42692999B4370 /* Aleppo */,
-				6D2B9B6846AB2DC012E317D446CDA835 /* Support Files */,
+				4A90E991BC0CB35AB6D91E18C9490643 /* CHIPageControl.framework */,
+				B38FF3B1D96B4076A4660D8B3F674D3F /* JMMaskTextField_Swift.framework */,
+				7A8D4AC02B51FD03224739D06AEE207B /* JWTDecode.framework */,
+				AA2153030DF11C8A4EDEC677F9C494DE /* Pods_AyuGate.framework */,
+				0BB08BB5998036DCE7953AD0A7BA1D57 /* Pods_AyuGate_FormKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5295F0CE8BE85F6EBFCC6B8F6F4DE99D /* CHIPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				0BA39DCAD5AF902DE0274C280124ABF0 /* Aleppo */,
+				E4699AE4DB0F45DC88396919414B921C /* Support Files */,
 			);
 			name = CHIPageControl;
 			path = CHIPageControl;
-			sourceTree = "<group>";
-		};
-		33BC37F3883964BD64084B66A58997F3 /* JWTDecode */ = {
-			isa = PBXGroup;
-			children = (
-				97044AFBD39CA913B539DA95E5B4E009 /* A0JWT.swift */,
-				7C6426721B3B3D3068D9A33309E2796B /* Errors.swift */,
-				8E895C8C5EABD8E7EEBBCD2A3A485CCC /* JWT.swift */,
-				C1AC65848E2CF22E65BF2E1506509790 /* JWTDecode.swift */,
-				3700F75D3B6C220146C82A09A14B4866 /* TokenValidators.swift */,
-				5E2FD8015351D7CD129C4A09FA5B1342 /* ValidationError.swift */,
-				472043521D44B4B4FA4C8A0982A4AD95 /* ValidatorJWT.swift */,
-				62E59CFA9FA1B8C5C89479EA439E3E2F /* Support Files */,
-			);
-			name = JWTDecode;
-			path = JWTDecode;
 			sourceTree = "<group>";
 		};
 		5A051C5B22D3BE31B27F66DCF6D00FAC /* Pods-AyuGate */ = {
@@ -218,32 +250,41 @@
 			path = "Target Support Files/Pods-AyuGate";
 			sourceTree = "<group>";
 		};
-		62E59CFA9FA1B8C5C89479EA439E3E2F /* Support Files */ = {
+		7B7AF4C6C1F082E0222EECCB184E3842 /* JWTDecode */ = {
 			isa = PBXGroup;
 			children = (
-				2D38FCE25219E20AF6766CABDFA168CA /* JWTDecode.modulemap */,
-				754F99778E1ABD69173BA288AC57327A /* JWTDecode.xcconfig */,
-				008255B2220151EFC77A8BA70F6906EE /* JWTDecode-dummy.m */,
-				BDC33C8AF34547F109076AEFFDA32687 /* JWTDecode-Info.plist */,
-				3D8B82B609B5CC38EECFB9F4731A33F7 /* JWTDecode-prefix.pch */,
-				4EE244E71FCFACCECC913775315332B7 /* JWTDecode-umbrella.h */,
+				24CB8F5B08C962745EBE5D7BB53F4ACB /* A0JWT.swift */,
+				02F58FE37EB776F21395B12696C71BDF /* Errors.swift */,
+				D7986557C327971D2DDC95CB0633B16A /* JWT.swift */,
+				866822F2E547A8491B277C36C4019CE6 /* JWTDecode.swift */,
+				E5538B33D722EC636B388120A6F3F71A /* TokenValidators.swift */,
+				1E9E568458590BCEB2FE4C9A685523BA /* ValidationError.swift */,
+				2EE82982DCA5379888C19673EED79EB2 /* ValidatorJWT.swift */,
+				F4D2678DD939D4A0CF76574636BB17E0 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/JWTDecode";
+			name = JWTDecode;
+			path = JWTDecode;
 			sourceTree = "<group>";
 		};
-		6D2B9B6846AB2DC012E317D446CDA835 /* Support Files */ = {
+		84E3310EA936AF5238313A886E371E14 /* JMMaskTextField-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				3389F1A350FF24A5D5762BCBE6076707 /* CHIPageControl.modulemap */,
-				B829AD8C07B93EAD22E2414C2BA74C3E /* CHIPageControl.xcconfig */,
-				7E922217C1C70371A14056652887C561 /* CHIPageControl-dummy.m */,
-				7E049F1A37EF7D42D841A22DA0C11FF6 /* CHIPageControl-Info.plist */,
-				20F6C8A2C63AAA126BF1005AE376BFA6 /* CHIPageControl-prefix.pch */,
-				799F0A8ACD95C5D1478A9FF6AD88A37A /* CHIPageControl-umbrella.h */,
+				D72ACD0A63AF2BC158606E3C7971F941 /* JMMaskTextField.swift */,
+				35DBF5D1C7BF56DF98C8ED597D97CE98 /* JMStringMask.swift */,
+				E8AD2FD38407419F10C60A78A035CAB3 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/CHIPageControl";
+			name = "JMMaskTextField-Swift";
+			path = "JMMaskTextField-Swift";
+			sourceTree = "<group>";
+		};
+		B4F272F12295998554932B89FB1E012A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5295F0CE8BE85F6EBFCC6B8F6F4DE99D /* CHIPageControl */,
+				84E3310EA936AF5238313A886E371E14 /* JMMaskTextField-Swift */,
+				7B7AF4C6C1F082E0222EECCB184E3842 /* JWTDecode */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -259,8 +300,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				FCB828F49189EBAA36C8DF4757088F64 /* Pods */,
-				E411C259ABEACE3315C7E69DEF0BED1B /* Products */,
+				B4F272F12295998554932B89FB1E012A /* Pods */,
+				2AAE1C84C0F2ADA17057715E300E9B9C /* Products */,
 				EC683FF9BA3ADB0D4ABCA67DC1A2DD24 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -273,15 +314,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E411C259ABEACE3315C7E69DEF0BED1B /* Products */ = {
+		E4699AE4DB0F45DC88396919414B921C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4A90E991BC0CB35AB6D91E18C9490643 /* CHIPageControl.framework */,
-				7A8D4AC02B51FD03224739D06AEE207B /* JWTDecode.framework */,
-				AA2153030DF11C8A4EDEC677F9C494DE /* Pods_AyuGate.framework */,
-				0BB08BB5998036DCE7953AD0A7BA1D57 /* Pods_AyuGate_FormKit.framework */,
+				CE3EA8F1FB657D2CE70398BB2A27F232 /* CHIPageControl.modulemap */,
+				3735638089C499C03D1271008A187300 /* CHIPageControl.xcconfig */,
+				267776A235DB70039692A15091F811B8 /* CHIPageControl-dummy.m */,
+				720C030908CA5761857EE1B1A24B5EA8 /* CHIPageControl-Info.plist */,
+				92D22D8A28E02A4545458DFDE32010CC /* CHIPageControl-prefix.pch */,
+				729C64B050808C932C5DB38C5DD00F82 /* CHIPageControl-umbrella.h */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/CHIPageControl";
+			sourceTree = "<group>";
+		};
+		E8AD2FD38407419F10C60A78A035CAB3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				15B99894B8EBC7053F0E8F71F0BC96FC /* JMMaskTextField-Swift.modulemap */,
+				0A62C664E9E63D3F305925168785DCAD /* JMMaskTextField-Swift.xcconfig */,
+				51E73FAB54EED90E88BA20AFA93EE1A2 /* JMMaskTextField-Swift-dummy.m */,
+				208645E41AEA6B1D8E20ED533751AD9A /* JMMaskTextField-Swift-Info.plist */,
+				87ED32009B31DD7EF6ABB25A832ED2FF /* JMMaskTextField-Swift-prefix.pch */,
+				AAE0D1F629352253B876B57079D41570 /* JMMaskTextField-Swift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JMMaskTextField-Swift";
 			sourceTree = "<group>";
 		};
 		EC683FF9BA3ADB0D4ABCA67DC1A2DD24 /* Targets Support Files */ = {
@@ -293,23 +351,36 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		FCB828F49189EBAA36C8DF4757088F64 /* Pods */ = {
+		F4D2678DD939D4A0CF76574636BB17E0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				23B13F5729142D91DB164DBA1A718CA7 /* CHIPageControl */,
-				33BC37F3883964BD64084B66A58997F3 /* JWTDecode */,
+				A05544ACF8AD543788B922F0CB91CDA3 /* JWTDecode.modulemap */,
+				48C4AF30D2F3DE500987C6773200808E /* JWTDecode.xcconfig */,
+				4AB13EA3AB501DC7FB07BD70C7D28298 /* JWTDecode-dummy.m */,
+				7C60444956DFCA27001290146D8192AE /* JWTDecode-Info.plist */,
+				F4DAE2F444E6290DE305363156DA320D /* JWTDecode-prefix.pch */,
+				8A430143122D93A1BD7F678562951E8D /* JWTDecode-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/JWTDecode";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1A8EA88CD25F450E0F411889FB651469 /* Headers */ = {
+		508E027EAE33B3CC49372A599AAA50F7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC163AD0B75EA4F4644AB7A196CAD33C /* Pods-AyuGate-FormKit-umbrella.h in Headers */,
+				1461D796EAEEA2709AAC113314470158 /* JMMaskTextField-Swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B26AEF15DAD2C5E19F8F36755949EA1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2B7714F562EDDD455E7F26E6523CC0E /* Pods-AyuGate-FormKit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,19 +392,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9B5590CB9025578293E044C081A5DF20 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE394E63C35988B9DC440844B9E7903D /* Pods-AyuGate-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9ECAD41577CD6746098A5187989BA263 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				94C54F5761E57BD75D1568E6395A1231 /* JWTDecode-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DBECCDF9D8F716E24DEC2D569B0576D5 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7319CCC134EC846389A91641CBDDEB9A /* Pods-AyuGate-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,38 +449,58 @@
 		};
 		683039DCD05BB40EEA4E0F8277D93332 /* Pods-AyuGate-FormKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CF2B90035FA2AE1193C33CD2FE2088D5 /* Build configuration list for PBXNativeTarget "Pods-AyuGate-FormKit" */;
+			buildConfigurationList = 9D3020FE5D97A71DE47C9DC4EDAE2027 /* Build configuration list for PBXNativeTarget "Pods-AyuGate-FormKit" */;
 			buildPhases = (
-				1A8EA88CD25F450E0F411889FB651469 /* Headers */,
-				12015B62EB7FF0F345B908402C3FB025 /* Sources */,
-				14E20B1A586413164433D629233583E0 /* Frameworks */,
-				4C32E06F58175EE9D351EB7A93C9785B /* Resources */,
+				6B26AEF15DAD2C5E19F8F36755949EA1 /* Headers */,
+				A1A5231CDD8977DC268952B19E37D56A /* Sources */,
+				7F1728C4C5BD5D8CCB6707A38E05FD88 /* Frameworks */,
+				0AD6F1E9D99164B7F5EBBBC012AC28BB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				233A653765DD0A490284322683163996 /* PBXTargetDependency */,
-				C0BB4159C82B071BCBF7279B0374B5D0 /* PBXTargetDependency */,
+				E866407A532AE95B885D9B3B306EA912 /* PBXTargetDependency */,
+				23C39432F6F770995C5FD52DB51E1303 /* PBXTargetDependency */,
+				11564A56E6B74C660687B97DBD17C4E5 /* PBXTargetDependency */,
 			);
 			name = "Pods-AyuGate-FormKit";
 			productName = "Pods-AyuGate-FormKit";
 			productReference = 0BB08BB5998036DCE7953AD0A7BA1D57 /* Pods_AyuGate_FormKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		752ECE4FDD40B70C1AC13DE9AEDB9664 /* Pods-AyuGate */ = {
+		6AD7F58830DF3D4D32A666527D4FDF8F /* JMMaskTextField-Swift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3861637946006DE3025125D01ACADBB6 /* Build configuration list for PBXNativeTarget "Pods-AyuGate" */;
+			buildConfigurationList = E0C45B16D16B3143347F1C9F5CA6A9F8 /* Build configuration list for PBXNativeTarget "JMMaskTextField-Swift" */;
 			buildPhases = (
-				DBECCDF9D8F716E24DEC2D569B0576D5 /* Headers */,
-				9AD2F47243D14A1BBEE97284109C86A0 /* Sources */,
-				C99BADCB0EDB25BA0F816DC15D57EA3D /* Frameworks */,
-				AD556B3EA69B8194BCD5D7B4FF6FF376 /* Resources */,
+				508E027EAE33B3CC49372A599AAA50F7 /* Headers */,
+				C44870965C2AC8A3FD2BF9ADEDD5AF92 /* Sources */,
+				27038F869426B4179C0EF3D2FC2A73C8 /* Frameworks */,
+				CC1EC373B48BDD5A8121190F0DA916D6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9DC2C44D03053892A116F320040809C2 /* PBXTargetDependency */,
-				7B0B21EAC59C2112A9A2074586BE0D55 /* PBXTargetDependency */,
+			);
+			name = "JMMaskTextField-Swift";
+			productName = "JMMaskTextField-Swift";
+			productReference = B38FF3B1D96B4076A4660D8B3F674D3F /* JMMaskTextField_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		752ECE4FDD40B70C1AC13DE9AEDB9664 /* Pods-AyuGate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E23DAD03EEE327CFA748F476C261E16D /* Build configuration list for PBXNativeTarget "Pods-AyuGate" */;
+			buildPhases = (
+				9B5590CB9025578293E044C081A5DF20 /* Headers */,
+				0377852C1461F50E99B40809E2DB3ABB /* Sources */,
+				B862C5691FB52BAE62F38AE10ED19CFF /* Frameworks */,
+				74160D889EF4204B36F8594F9F3786F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E356B753AE01B0EBD64A4990F522C515 /* PBXTargetDependency */,
+				F9984B7F1B84CF82600FC9E4D4FE29CC /* PBXTargetDependency */,
+				1A8BB2F60D7B5FAA9BA21907C536A9DC /* PBXTargetDependency */,
 			);
 			name = "Pods-AyuGate";
 			productName = "Pods-AyuGate";
@@ -434,11 +525,12 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = E411C259ABEACE3315C7E69DEF0BED1B /* Products */;
+			productRefGroup = 2AAE1C84C0F2ADA17057715E300E9B9C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				58A7AC722D45BA5EF49F00D98C86978B /* CHIPageControl */,
+				6AD7F58830DF3D4D32A666527D4FDF8F /* JMMaskTextField-Swift */,
 				22E1F0E7CBECE226FC294E79C21B0033 /* JWTDecode */,
 				752ECE4FDD40B70C1AC13DE9AEDB9664 /* Pods-AyuGate */,
 				683039DCD05BB40EEA4E0F8277D93332 /* Pods-AyuGate-FormKit */,
@@ -447,7 +539,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4C32E06F58175EE9D351EB7A93C9785B /* Resources */ = {
+		0AD6F1E9D99164B7F5EBBBC012AC28BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74160D889EF4204B36F8594F9F3786F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -461,7 +560,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD556B3EA69B8194BCD5D7B4FF6FF376 /* Resources */ = {
+		CC1EC373B48BDD5A8121190F0DA916D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -478,19 +577,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		12015B62EB7FF0F345B908402C3FB025 /* Sources */ = {
+		0377852C1461F50E99B40809E2DB3ABB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7109B38F610871110E093F93424609C7 /* Pods-AyuGate-FormKit-dummy.m in Sources */,
+				2BA4F17B529ADBE4CC08DF6341322B99 /* Pods-AyuGate-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9AD2F47243D14A1BBEE97284109C86A0 /* Sources */ = {
+		A1A5231CDD8977DC268952B19E37D56A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CAFE1EF2F9B50490DC9ADE9595B6E3A /* Pods-AyuGate-dummy.m in Sources */,
+				B035757058F539D991F47E0C5348039A /* Pods-AyuGate-FormKit-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +602,16 @@
 				C5419C0108560F323B3E3CA8B454AEF8 /* CHIPageControl-dummy.m in Sources */,
 				DAB0BDF28E4A9507C1FC86F2D52CB43C /* CHIPageControlAleppo.swift in Sources */,
 				FE31B718BEAF06604C92B536C3106F85 /* CHIPageControllable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C44870965C2AC8A3FD2BF9ADEDD5AF92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5879A5A26C2C4D3CA34F0728DA144423 /* JMMaskTextField-Swift-dummy.m in Sources */,
+				F335790D94A2AEB4EADBA7F119FC5335 /* JMMaskTextField.swift in Sources */,
+				5F43D15D9423E8F46C2C2858243CDF31 /* JMStringMask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,390 +633,46 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		233A653765DD0A490284322683163996 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CHIPageControl;
-			target = 58A7AC722D45BA5EF49F00D98C86978B /* CHIPageControl */;
-			targetProxy = 6AAAA8FFDBCAF6C3E8882018A0928CE9 /* PBXContainerItemProxy */;
-		};
-		7B0B21EAC59C2112A9A2074586BE0D55 /* PBXTargetDependency */ = {
+		11564A56E6B74C660687B97DBD17C4E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JWTDecode;
 			target = 22E1F0E7CBECE226FC294E79C21B0033 /* JWTDecode */;
-			targetProxy = 9D691EDE8F25A9B657D21B6BC65C590A /* PBXContainerItemProxy */;
+			targetProxy = F964077AC0F8D13847413E880FF3FDAD /* PBXContainerItemProxy */;
 		};
-		9DC2C44D03053892A116F320040809C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CHIPageControl;
-			target = 58A7AC722D45BA5EF49F00D98C86978B /* CHIPageControl */;
-			targetProxy = BF48914B324CE07B06EF795DAE782F9B /* PBXContainerItemProxy */;
-		};
-		C0BB4159C82B071BCBF7279B0374B5D0 /* PBXTargetDependency */ = {
+		1A8BB2F60D7B5FAA9BA21907C536A9DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JWTDecode;
 			target = 22E1F0E7CBECE226FC294E79C21B0033 /* JWTDecode */;
-			targetProxy = 805E83C01E46E6AA2E44812D95418718 /* PBXContainerItemProxy */;
+			targetProxy = 04C4DF9B1DF2628271DA2C43C3046F32 /* PBXContainerItemProxy */;
+		};
+		23C39432F6F770995C5FD52DB51E1303 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "JMMaskTextField-Swift";
+			target = 6AD7F58830DF3D4D32A666527D4FDF8F /* JMMaskTextField-Swift */;
+			targetProxy = F6A47116F00B77096CE47EFF8691E073 /* PBXContainerItemProxy */;
+		};
+		E356B753AE01B0EBD64A4990F522C515 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CHIPageControl;
+			target = 58A7AC722D45BA5EF49F00D98C86978B /* CHIPageControl */;
+			targetProxy = 24621F70E2BF522D4F64A80B25360D2A /* PBXContainerItemProxy */;
+		};
+		E866407A532AE95B885D9B3B306EA912 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CHIPageControl;
+			target = 58A7AC722D45BA5EF49F00D98C86978B /* CHIPageControl */;
+			targetProxy = B9F8827BDE7360B099A2B65BCC076843 /* PBXContainerItemProxy */;
+		};
+		F9984B7F1B84CF82600FC9E4D4FE29CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "JMMaskTextField-Swift";
+			target = 6AD7F58830DF3D4D32A666527D4FDF8F /* JMMaskTextField-Swift */;
+			targetProxy = 93A62ECA148DAACA33C44D53121B2E06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		257497152829C177993B5EC99C1D227A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		3EFC4C5AD183F247BAFB53B4E7846425 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D19136D1535B717E8D174E0B4377AE09 /* Pods-AyuGate.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6D97974CE6650F34C4A5FC36A9D6696B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A74BD9AF8B88CF58FF64C5EAB062E189 /* Pods-AyuGate-FormKit.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7B8258F3E1844405753932ACD51D4A9A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7516B41499958C7B4364AFB766A8ED46 /* Pods-AyuGate.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8AF9475406BD40AABF6F157D5DC0D6F5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B829AD8C07B93EAD22E2414C2BA74C3E /* CHIPageControl.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CHIPageControl/CHIPageControl-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CHIPageControl/CHIPageControl-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CHIPageControl/CHIPageControl.modulemap";
-				PRODUCT_MODULE_NAME = CHIPageControl;
-				PRODUCT_NAME = CHIPageControl;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		90182DAB787606B0F39ED58C27332C18 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 754F99778E1ABD69173BA288AC57327A /* JWTDecode.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JWTDecode/JWTDecode-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JWTDecode/JWTDecode-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/JWTDecode/JWTDecode.modulemap";
-				PRODUCT_MODULE_NAME = JWTDecode;
-				PRODUCT_NAME = JWTDecode;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B943A0E16C560C4F0D8769F6D0AF8AC5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B829AD8C07B93EAD22E2414C2BA74C3E /* CHIPageControl.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CHIPageControl/CHIPageControl-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CHIPageControl/CHIPageControl-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CHIPageControl/CHIPageControl.modulemap";
-				PRODUCT_MODULE_NAME = CHIPageControl;
-				PRODUCT_NAME = CHIPageControl;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		CDDF180706E5E8EF2097C1CF0B178D43 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 754F99778E1ABD69173BA288AC57327A /* JWTDecode.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JWTDecode/JWTDecode-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JWTDecode/JWTDecode-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/JWTDecode/JWTDecode.modulemap";
-				PRODUCT_MODULE_NAME = JWTDecode;
-				PRODUCT_NAME = JWTDecode;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D7B924ED7E2BDD4416B389215631F4D7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB20ABBFCD86F3601D422D62B88F01EB /* Pods-AyuGate-FormKit.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		DD8F832993327D1DD8046C3CBCBD97CD /* Debug */ = {
+		131356BE54884448CA49C07BEDF4BB2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -958,7 +723,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -971,23 +736,450 @@
 			};
 			name = Debug;
 		};
+		3CAA1FE44C98C53243F346C98608B17A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A62C664E9E63D3F305925168785DCAD /* JMMaskTextField-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JMMaskTextField-Swift/JMMaskTextField-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JMMaskTextField-Swift/JMMaskTextField-Swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JMMaskTextField-Swift/JMMaskTextField-Swift.modulemap";
+				PRODUCT_MODULE_NAME = JMMaskTextField_Swift;
+				PRODUCT_NAME = JMMaskTextField_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		42B5D6A8641762A910D9E586491D5A84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A62C664E9E63D3F305925168785DCAD /* JMMaskTextField-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JMMaskTextField-Swift/JMMaskTextField-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JMMaskTextField-Swift/JMMaskTextField-Swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JMMaskTextField-Swift/JMMaskTextField-Swift.modulemap";
+				PRODUCT_MODULE_NAME = JMMaskTextField_Swift;
+				PRODUCT_NAME = JMMaskTextField_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		585FBE99E2B05FB7445BDD465D7F8917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D19136D1535B717E8D174E0B4377AE09 /* Pods-AyuGate.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		64D23A21FEBA00F2E220EBBD234A4E70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A74BD9AF8B88CF58FF64C5EAB062E189 /* Pods-AyuGate-FormKit.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		838CE0DC148E38BD845FFD8273D2F324 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB20ABBFCD86F3601D422D62B88F01EB /* Pods-AyuGate-FormKit.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate-FormKit/Pods-AyuGate-FormKit.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8AF9475406BD40AABF6F157D5DC0D6F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3735638089C499C03D1271008A187300 /* CHIPageControl.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CHIPageControl/CHIPageControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CHIPageControl/CHIPageControl-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CHIPageControl/CHIPageControl.modulemap";
+				PRODUCT_MODULE_NAME = CHIPageControl;
+				PRODUCT_NAME = CHIPageControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		90182DAB787606B0F39ED58C27332C18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48C4AF30D2F3DE500987C6773200808E /* JWTDecode.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JWTDecode/JWTDecode-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JWTDecode/JWTDecode-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JWTDecode/JWTDecode.modulemap";
+				PRODUCT_MODULE_NAME = JWTDecode;
+				PRODUCT_NAME = JWTDecode;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		93C797A40C3B5C1F859CE30E73E0BDAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7516B41499958C7B4364AFB766A8ED46 /* Pods-AyuGate.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AyuGate/Pods-AyuGate.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B943A0E16C560C4F0D8769F6D0AF8AC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3735638089C499C03D1271008A187300 /* CHIPageControl.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CHIPageControl/CHIPageControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CHIPageControl/CHIPageControl-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CHIPageControl/CHIPageControl.modulemap";
+				PRODUCT_MODULE_NAME = CHIPageControl;
+				PRODUCT_NAME = CHIPageControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CDDF180706E5E8EF2097C1CF0B178D43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48C4AF30D2F3DE500987C6773200808E /* JWTDecode.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JWTDecode/JWTDecode-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JWTDecode/JWTDecode-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JWTDecode/JWTDecode.modulemap";
+				PRODUCT_MODULE_NAME = JWTDecode;
+				PRODUCT_NAME = JWTDecode;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F090CD07A80273D5A73C8EA19224ADDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3861637946006DE3025125D01ACADBB6 /* Build configuration list for PBXNativeTarget "Pods-AyuGate" */ = {
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7B8258F3E1844405753932ACD51D4A9A /* Debug */,
-				3EFC4C5AD183F247BAFB53B4E7846425 /* Release */,
+				131356BE54884448CA49C07BEDF4BB2A /* Debug */,
+				F090CD07A80273D5A73C8EA19224ADDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+		9D3020FE5D97A71DE47C9DC4EDAE2027 /* Build configuration list for PBXNativeTarget "Pods-AyuGate-FormKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD8F832993327D1DD8046C3CBCBD97CD /* Debug */,
-				257497152829C177993B5EC99C1D227A /* Release */,
+				64D23A21FEBA00F2E220EBBD234A4E70 /* Debug */,
+				838CE0DC148E38BD845FFD8273D2F324 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1010,11 +1202,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CF2B90035FA2AE1193C33CD2FE2088D5 /* Build configuration list for PBXNativeTarget "Pods-AyuGate-FormKit" */ = {
+		E0C45B16D16B3143347F1C9F5CA6A9F8 /* Build configuration list for PBXNativeTarget "JMMaskTextField-Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6D97974CE6650F34C4A5FC36A9D6696B /* Debug */,
-				D7B924ED7E2BDD4416B389215631F4D7 /* Release */,
+				42B5D6A8641762A910D9E586491D5A84 /* Debug */,
+				3CAA1FE44C98C53243F346C98608B17A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E23DAD03EEE327CFA748F476C261E16D /* Build configuration list for PBXNativeTarget "Pods-AyuGate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C797A40C3B5C1F859CE30E73E0BDAB /* Debug */,
+				585FBE99E2B05FB7445BDD465D7F8917 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
