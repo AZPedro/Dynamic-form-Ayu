@@ -8,6 +8,7 @@
 
 import UIKit
 import FormKit
+import AyuKit
 
 final class AppFlow: NSObject {
     
@@ -15,12 +16,17 @@ final class AppFlow: NSObject {
     
     private lazy var nav = UINavigationController()
     
-    private lazy var formDependencies: FormDependence = {
-        return FormDependence(stepDependence: Step(numberOfSteps: 4, currentStep: 0))
-    }()
+    let cpfFormSections: [FormSection] = [
+        CPFSection(masks: [ CPFMask(), CPFMask(), CPFMask()]),
+        CPFSection(masks: [CPFMask() ])
+    ]
     
     private lazy var cpfFormDependencies: CPFFormDepencies = {
-        return CPFFormDepencies(stepDependence: Step(numberOfSteps: 1, currentStep: 0), maskDependence: CPFMask())
+        return CPFFormDepencies(formSectionDependence: cpfFormSections ,stepDependence: Step(numberOfSteps: cpfFormSections.count-1, currentStep: 0))
+    }()
+    
+    private lazy var cpfFormFlow: FormStepFlowController = {
+        return FormStepFlowController(dependencies: cpfFormDependencies)
     }()
 
     func flow() -> UINavigationController {
@@ -30,26 +36,38 @@ final class AppFlow: NSObject {
         if SessionManager.shared.isUserLoged {
             nav.viewControllers = [HomeFlowController()]
         } else {
-//            nav.viewControllers = [FormStepFlowController(dependencies: formDependencies)]
-            nav.viewControllers = [RegisterFlowController(dependencies: cpfFormDependencies)]
+            nav.viewControllers = [cpfFormFlow]
+//            nav.viewControllers = [RegisterFlowController(dependencies: cpfFormDependencies)]
         }
-        
+
         return nav
     }
 }
 
 struct FormDependence: FormDependencies {
+    var formSectionDependence: [FormSection]
     var stepDependence: StepProtocol
 }
 
 struct CPFFormDepencies: FormDependencies {
+    var formSectionDependence: [FormSection]
     var stepDependence: StepProtocol
-    var maskDependence: MaskField
+}
+
+struct CPFSection: FormSection {
+    var sectionImage: UIImage = Images.womanWithComputer
+    var masks: [MaskField]
 }
 
 struct CPFMask: MaskField {
+    var validatorQuery: String = """
+    var validate = function(value) {
+        return value.search(/^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$/)
+    }
+    """
     var keyboardType: UIKeyboardType = .numberPad
     var mask: String = "000.000.000-00"
+    var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Cpf", title: "Insira seu CPF")
 }
 
 struct Step: StepProtocol {

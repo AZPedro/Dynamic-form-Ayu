@@ -11,6 +11,7 @@ import UIKit
 class FormStepCollectionController: UIViewController, StepProtocolDelegate {
     
     internal var stepDependence: StepProtocol
+    internal var formSectionDependence: [FormSection]
     var items: [IndexPath] = []
 
     private var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
@@ -28,8 +29,9 @@ class FormStepCollectionController: UIViewController, StepProtocolDelegate {
         buildUI()
     }
     
-    init(stepDependence: StepProtocol) {
+    init(stepDependence: StepProtocol, formSectionDependence: [FormSection]) {
         self.stepDependence = stepDependence
+        self.formSectionDependence = formSectionDependence
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -72,7 +74,7 @@ extension FormStepCollectionController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StepCollectionViewCell.identifier, for: indexPath) as? StepCollectionViewCell else { return UICollectionViewCell() }
         items.append(indexPath)
-        
+        cell.setup(section: formSectionDependence[indexPath.row])
         return cell
     }
     

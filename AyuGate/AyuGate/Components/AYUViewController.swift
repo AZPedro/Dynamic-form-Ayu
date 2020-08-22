@@ -13,8 +13,8 @@ class AYUViewController: UIViewController {
     lazy var headerLogoImage: UIImageView = {
         let i = UIImageView()
         i.translatesAutoresizingMaskIntoConstraints = false
-        i.heightAnchor.constraint(equalToConstant: 53).isActive = true
-        i.widthAnchor.constraint(equalToConstant: 119).isActive = true
+        i.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        i.widthAnchor.constraint(equalToConstant: 120).isActive = true
         i.contentMode = .scaleAspectFit
         i.image = UIImage(named: "AYUTitleLogo")
         return i

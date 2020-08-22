@@ -10,6 +10,7 @@ import UIKit
 
 public protocol FormDependencies {
     var stepDependence: StepProtocol { get set }
+    var formSectionDependence: [FormSection] { get set }
 }
 
 public class FormStepFlowController: UIViewController, StepProtocolDelegate {
@@ -26,7 +27,7 @@ public class FormStepFlowController: UIViewController, StepProtocolDelegate {
     }()
     
     lazy var formStepCollectionController: FormStepCollectionController = {
-        let formCollection = FormStepCollectionController(stepDependence: dependencies.stepDependence)
+        let formCollection = FormStepCollectionController(stepDependence: dependencies.stepDependence, formSectionDependence: dependencies.formSectionDependence)
         formCollection.delegate = backgroundStepController
         return formCollection
     }()
@@ -91,12 +92,12 @@ public class FormStepFlowController: UIViewController, StepProtocolDelegate {
 
 extension FormStepFlowController: StepBottomSegmentControllerDelegate {
 
-    func stepBottomSegmentControllerDelegate(didBack: StepBottomSegmentController) {
+    public func stepBottomSegmentControllerDelegate(didBack: StepBottomSegmentController) {
         guard dependencies.stepDependence.currentStep > 0 else { return }
         dependencies.stepDependence.currentStep = dependencies.stepDependence.currentStep-1
     }
     
-    func stepBottomSegmentControllerDelegate(didNext: StepBottomSegmentController) {
+    public func stepBottomSegmentControllerDelegate(didNext: StepBottomSegmentController) {
         guard dependencies.stepDependence.currentStep < dependencies.stepDependence.numberOfSteps else { return }
         dependencies.stepDependence.currentStep = dependencies.stepDependence.currentStep+1
     }

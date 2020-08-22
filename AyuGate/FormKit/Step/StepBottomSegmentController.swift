@@ -8,22 +8,28 @@
 
 import UIKit
 
-protocol StepBottomSegmentControllerDelegate {
+public protocol StepBottomSegmentControllerDelegate {
     func stepBottomSegmentControllerDelegate(didNext: StepBottomSegmentController)
     func stepBottomSegmentControllerDelegate(didBack: StepBottomSegmentController)
 }
 
-class StepBottomSegmentController: UIViewController {
+public class StepBottomSegmentController: UIViewController {
     
     private var delegate: StepBottomSegmentControllerDelegate
     
-    var isValid: Bool = true {
+    public var isValid: Bool = true {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    public var hasBackOption: Bool = true {
         didSet {
             updateUI()
         }
     }
    
-    init(delegate: StepBottomSegmentControllerDelegate){
+    public init(delegate: StepBottomSegmentControllerDelegate){
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -49,7 +55,7 @@ class StepBottomSegmentController: UIViewController {
         .text("Voltar")
         .translatesAutoresizingMaskIntoConstraints(false)
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }
@@ -95,5 +101,7 @@ class StepBottomSegmentController: UIViewController {
     private func updateUI() {
         nextStepLabel.alpha = isValid ? 1 : 0.2
         nextStepLabel.isUserInteractionEnabled = isValid ? true : false
+        
+        backStepLabel.isHidden = !hasBackOption
     }
 }

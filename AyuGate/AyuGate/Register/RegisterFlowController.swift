@@ -17,7 +17,7 @@ protocol CpfRegisterFlowDelegate {
 class RegisterFlowController: UIViewController {
     
     private lazy var cpfRegisterViewController: CpfRegisterViewController = {
-        let vc = CpfRegisterViewController(maskDependence: dependencies.maskDependence)
+        let vc = CpfRegisterViewController(maskDependence: dependencies.formSectionDependence.first!.masks)
         vc.modalPresentationStyle = .fullScreen
         vc.delegate = self
         return vc
@@ -86,11 +86,9 @@ extension RegisterFlowController: CpfRegisterFlowDelegate {
         DispatchQueue.main.async {
             switch model.status {
             case .alreadyExists:
-//                controller.actionButton.updateState(state: .success)
                 self.perform(cpf: model.formattedCPF, for: .login)
                 break
             case .newUser:
-//                controller.actionButton.updateState(state: .success)
                 self.perform(cpf: model.formattedCPF, for: .register)
             case .notFound:
 //                controller.actionButton.updateState(state: .error)

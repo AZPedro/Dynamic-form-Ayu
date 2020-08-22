@@ -12,8 +12,8 @@ class StepCollectionViewCell: UICollectionViewCell {
     
     static var identifier = "StepCollectionViewCellIdentifier"
     
-    func setup(maskField: MaskField) {
-        let stepCollectionViewCellContentController = StepCollectionViewCellContentController(maskField: maskField)
+    func setup(section: FormSection) {
+        let stepCollectionViewCellContentController = StepCollectionViewCellContentController(section: section)
         contentView.add(view: stepCollectionViewCellContentController.view)
     }
 }

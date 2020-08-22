@@ -8,6 +8,7 @@
 
 import UIKit
 import JMMaskTextField_Swift
+import JavaScriptCore
 
 public class FormFieldContent: UIView {
 
@@ -24,10 +25,16 @@ public class FormFieldContent: UIView {
     
     let textFieldContent = UIView()
     
-    private lazy var textField: JMMaskTextField = {
+    public var validationHandler: ((Bool) -> Void)?
+    
+    @objc private lazy var textField: JMMaskTextField = {
         let textField = JMMaskTextField()
        return textField
     }()
+    
+    public var value: String? {
+        return textField.unmaskedText
+    }
     
     public var model: Model? {
         didSet {
@@ -38,12 +45,10 @@ public class FormFieldContent: UIView {
     public struct Model {
         let placeholder: String?
         let title: String
-        let validator: ((Bool) -> Void)?
         
         public init(placeholder: String? = nil, title: String, validator: ((Bool) -> Void)? = nil) {
             self.placeholder = placeholder
             self.title = title
-            self.validator = validator
         }
     }
     
@@ -70,6 +75,11 @@ public class FormFieldContent: UIView {
         setupTextField()
     }
     
+    func setCustonTitleSpace(_ spacing: CGFloat) -> Self {
+        contentStack.setCustomSpacing(spacing, after: title)
+        return self
+    }
+    
     private func setupTextField() {
         textFieldContent.add(view: textField, margins: .init(top: 0, left: 13, bottom: 0, right: 13))
         textFieldContent.backgroundColor = .white
@@ -90,6 +100,8 @@ public class FormFieldContent: UIView {
             textFieldPlaceholder.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
             textFieldPlaceholder.centerYAnchor.constraint(equalTo: textField.centerYAnchor)
         ])
+        
+//        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     private func updateUI() {
@@ -100,9 +112,6 @@ public class FormFieldContent: UIView {
 }
 
 extension FormFieldContent: UITextFieldDelegate {
-    public func textFieldDidEndEditing(_ textField: UITextField) {
-
-    }
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         textFieldPlaceholder.isHidden = true
@@ -111,27 +120,35 @@ extension FormFieldContent: UITextFieldDelegate {
     public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         self.textFieldPlaceholder.isHidden = !(textField.text?.isEmpty ?? true)
     }
-    
-    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
+       
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         guard let textField = textField as? JMMaskTextField else { return false }
         textField.maskString = maskField.mask
         
         if let textCount = textField.text?.count, textCount == maskField.mask.count-1 {
-            
+            var textFieldValue = textField.text
+            textFieldValue?.append(string)
+            guard let value = textFieldValue else { return false }
+            executValidator(for: value)
         }
+        
         return true
     }
     
-    private func executValidator() {
+    private func executValidator(for value: String) {
+        let context = JSContext()
+        context?.evaluateScript(maskField.validatorQuery)
+        
+        let validObject = context?.objectForKeyedSubscript("validate")
+        let result = validObject?.call(withArguments: [value])
+        
+        guard let resultDescription = result?.description else {
+            return
+        }
+        
+        let isValid = resultDescription == "0"
+        validationHandler?(isValid)
         
     }
 }

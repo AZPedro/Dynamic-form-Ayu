@@ -20,13 +20,20 @@ class CpfRegisterViewController: AYUViewController {
     private let networkManager = NetworkManager.shared
     
     lazy var cpfFormView: FormFieldContent = {
-        let view = FormFieldContent(maskField: maskDependence)
+        let view = FormFieldContent(maskField: maskDependence.first!)
         return view
     }()
     
-    var maskDependence: MaskField
+    lazy var stepBottomSegmentController: StepBottomSegmentController = {
+        let stepBottomSegmentController = StepBottomSegmentController(delegate: self)
+        stepBottomSegmentController.isValid = false
+        stepBottomSegmentController.hasBackOption = false
+        return stepBottomSegmentController
+    }()
     
-    init(maskDependence: MaskField) {
+    var maskDependence: [MaskField]
+    
+    init(maskDependence: [MaskField]) {
         self.maskDependence = maskDependence
         super.init()
     }
@@ -35,51 +42,66 @@ class CpfRegisterViewController: AYUViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func buildUI() {
         view.backgroundColor = .white
-//        actionButton.isEnabled = false
         
         setupCPFFormView()
-        
-//        actionHandler = { [weak self] in
-//            self?.verifyCPF()
-//        }
-        
-//        cpfFormView.validationHandler = { [weak self] isValid in
-//            self?.actionButton.isEnabled = isValid
-//        }
+        installBottonSegment()
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        
+    }
+    
+    private func installBottonSegment() {
+        addChild(stepBottomSegmentController)
+        view.addSubview(stepBottomSegmentController.view)
+        stepBottomSegmentController.didMove(toParent: self)
+        
+        NSLayoutConstraint.activate([
+            stepBottomSegmentController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            stepBottomSegmentController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stepBottomSegmentController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
     
     private func setupCPFFormView() {
         view.addSubview(cpfFormView)
-        cpfFormView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -UIScreen.main.bounds.height * 0.1).isActive = true
+        cpfFormView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
         cpfFormView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         cpfFormView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
-        cpfFormView.model = FormFieldContent.Model(placeholder: "CPF", title: "Insira seu CPF", validator: { finished in
-            print("field validado")
+        cpfFormView.model = FormFieldContent.Model(placeholder: "CPF", title: "Insira seu CPF", validator: { isValidCPFText in
+            self.stepBottomSegmentController.isValid = isValidCPFText
         })
     }
     
-    private func verifyCPF() {
-//        guard let cpfValue = cpfFormView.value else { return }
-//
-//        let request = AYURoute(path: .verify(cpf: cpfValue)).resquest
-//
-//        networkManager.makeRequest(request: request) { (result: Handler<Verify>?, error) in
-//            guard let result = result?.response else {
-//                return
-//            }
-//
-//            let model = CPFVerifyViewModel(model: result, cpf: cpfValue)
-//            self.delegate?.cpfRegisterControllerDelegateVerify(didFinished: model, controller: self)
-//        }
+    private func verifyCPF(text: String?) {
+        guard let cpfValue = text else { return }
+
+        let request = AYURoute(path: .verify(cpf: cpfValue)).resquest
+
+        networkManager.makeRequest(request: request) { (result: Handler<Verify>?, error) in
+            guard let result = result?.response else {
+                return
+            }
+
+            let model = CPFVerifyViewModel(model: result, cpf: cpfValue)
+            self.delegate?.cpfRegisterControllerDelegateVerify(didFinished: model, controller: self)
+        }
     }
     
     @objc func dismissKeyboard() {
 //        self.cpfFormView.textField.resignFirstResponder()
     }
 }
+
+extension CpfRegisterViewController: StepBottomSegmentControllerDelegate{
+    func stepBottomSegmentControllerDelegate(didNext: StepBottomSegmentController) {
+        verifyCPF(text: cpfFormView.value)
+    }
+    
+    func stepBottomSegmentControllerDelegate(didBack: StepBottomSegmentController) {
+        
+    }
+}
+
