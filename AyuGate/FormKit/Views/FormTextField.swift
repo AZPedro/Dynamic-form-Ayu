@@ -14,8 +14,9 @@ public protocol FormSection {
 }
 
 public protocol MaskField {
-    var mask: String { get set }
+    var mask: String? { get set }
     var keyboardType: UIKeyboardType { get }
-    var validatorQuery: String { get set }
+    var validatorQuery: String? { get set }
     var formModel: FormFieldContent.Model { get set }
+    var fieldType: FormFieldContent.FieldType { get set }
 }

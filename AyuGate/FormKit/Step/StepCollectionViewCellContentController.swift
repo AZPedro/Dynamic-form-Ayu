@@ -12,6 +12,13 @@ class StepCollectionViewCellContentController: UIViewController {
     
     private var section: FormSection
     
+    private lazy var scrollContentView: UIScrollView = {
+        let scrollContentView = UIScrollView()
+        scrollContentView.contentSize = .init(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*2)
+        scrollContentView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollContentView
+    }()
+    
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: section.sectionImage)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +27,8 @@ class StepCollectionViewCellContentController: UIViewController {
     
     private lazy var stackFieldsContent: UIStackView = {
         let stackView = UIStackView().vertical(20)
+
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -38,28 +47,30 @@ class StepCollectionViewCellContentController: UIViewController {
     }
     
     private func buildUI() {
-        view.addSubview(stackFieldsContent)
-        view.addSubview(imageView)
-        
-        stackFieldsContent.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollContentView)
+
+        scrollContentView.addSubview(imageView)
+        scrollContentView.addSubview(stackFieldsContent)
+    
     
         NSLayoutConstraint.activate([
-            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -UIScreen.main.bounds.height * 0.2),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            scrollContentView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollContentView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80),
+            scrollContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            imageView.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 50),
+            imageView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 10),
             imageView.widthAnchor.constraint(equalToConstant: 154),
             imageView.widthAnchor.constraint(equalToConstant: 233),
                     
-            stackFieldsContent.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackFieldsContent.topAnchor.constraint(equalTo: imageView.bottomAnchor,constant: 20),
-            stackFieldsContent.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21),
-            stackFieldsContent.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -21)
+            stackFieldsContent.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0),
+            stackFieldsContent.centerXAnchor.constraint(equalTo: scrollContentView.centerXAnchor),
+            stackFieldsContent.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width-44),
+            stackFieldsContent.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor)
         ])
         
         setupFields()
-        
-//        textFieldTest.model = .init(placeholder: "Cpf", title: "Insira seu CPF", validator: { isValid in
-//            print("valid")
-//        })
     }
     
     private func setupFields() {

@@ -12,8 +12,17 @@ class StepCollectionViewCell: UICollectionViewCell {
     
     static var identifier = "StepCollectionViewCellIdentifier"
     
+    var stepCollectionViewCellContentController: StepCollectionViewCellContentController?
+    
     func setup(section: FormSection) {
-        let stepCollectionViewCellContentController = StepCollectionViewCellContentController(section: section)
-        contentView.add(view: stepCollectionViewCellContentController.view)
+        stepCollectionViewCellContentController = StepCollectionViewCellContentController(section: section)
+        guard let contentController = stepCollectionViewCellContentController else { return }
+        
+        contentView.add(view: contentController.view)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stepCollectionViewCellContentController?.view.removeFromSuperview()
     }
 }

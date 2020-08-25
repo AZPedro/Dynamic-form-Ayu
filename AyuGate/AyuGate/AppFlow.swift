@@ -17,8 +17,10 @@ final class AppFlow: NSObject {
     private lazy var nav = UINavigationController()
     
     let cpfFormSections: [FormSection] = [
-        CPFSection(masks: [ CPFMask(), CPFMask(), CPFMask()]),
-        CPFSection(masks: [CPFMask() ])
+        CPFSection(masks: [Mock.CPFField()]),
+        CPFSection(masks: [Mock.PasswordField()]),
+        CPFSection(masks: [Mock.NameField()]),
+        CPFSection(masks: [Mock.EmailField()])
     ]
     
     private lazy var cpfFormDependencies: CPFFormDepencies = {
@@ -57,17 +59,6 @@ struct CPFFormDepencies: FormDependencies {
 struct CPFSection: FormSection {
     var sectionImage: UIImage = Images.womanWithComputer
     var masks: [MaskField]
-}
-
-struct CPFMask: MaskField {
-    var validatorQuery: String = """
-    var validate = function(value) {
-        return value.search(/^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$/)
-    }
-    """
-    var keyboardType: UIKeyboardType = .numberPad
-    var mask: String = "000.000.000-00"
-    var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Cpf", title: "Insira seu CPF")
 }
 
 struct Step: StepProtocol {

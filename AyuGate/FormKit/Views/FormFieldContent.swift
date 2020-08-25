@@ -45,11 +45,18 @@ public class FormFieldContent: UIView {
     public struct Model {
         let placeholder: String?
         let title: String
+        let value: String?
         
-        public init(placeholder: String? = nil, title: String, validator: ((Bool) -> Void)? = nil) {
+        public init(placeholder: String? = nil, title: String, validator: ((Bool) -> Void)? = nil, value: String? = nil) {
             self.placeholder = placeholder
             self.title = title
+            self.value = value
         }
+    }
+    
+    public enum FieldType {
+        case text
+        case security
     }
     
     public init(maskField: MaskField) {
@@ -80,6 +87,11 @@ public class FormFieldContent: UIView {
         return self
     }
     
+    func setCustonTitleSize(_ size: CGFloat) -> Self {
+        title.font = UIFont.systemFont(ofSize: size, weight: .bold)
+        return self
+    }
+    
     private func setupTextField() {
         textFieldContent.add(view: textField, margins: .init(top: 0, left: 13, bottom: 0, right: 13))
         textFieldContent.backgroundColor = .white
@@ -101,7 +113,7 @@ public class FormFieldContent: UIView {
             textFieldPlaceholder.centerYAnchor.constraint(equalTo: textField.centerYAnchor)
         ])
         
-//        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        textField.isSecureTextEntry = maskField.fieldType == .security
     }
     
     private func updateUI() {
@@ -122,14 +134,15 @@ extension FormFieldContent: UITextFieldDelegate {
     }
        
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+        guard let mask = maskField.mask else { return true }
         guard let textField = textField as? JMMaskTextField else { return false }
         textField.maskString = maskField.mask
         
-        if let textCount = textField.text?.count, textCount == maskField.mask.count-1 {
+        if let textCount = textField.text?.count, textCount == mask.count-1 {
+            guard maskField.validatorQuery != nil else { return true }
             var textFieldValue = textField.text
             textFieldValue?.append(string)
-            guard let value = textFieldValue else { return false }
+            guard let value = textFieldValue else { return true }
             executValidator(for: value)
         }
         
