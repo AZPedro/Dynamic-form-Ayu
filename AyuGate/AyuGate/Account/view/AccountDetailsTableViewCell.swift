@@ -14,8 +14,6 @@ class AccountDetailsTableViewCell: UITableViewCell {
     lazy var content: AYUDetailInfoView = {
         let view = AYUDetailInfoView()
         view.verticalBarIndicator.isHidden = true
-        view.titleLabel.text = "Test"
-        view.valueLabel.text = "Valor do text"
         view.titleLabel.textColor = .black
         view.valueLabel.textColor = .black
         view.valueLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)

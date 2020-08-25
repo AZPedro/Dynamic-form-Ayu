@@ -10,6 +10,22 @@ import UIKit
 
 class AccountDetailsListViewController: UIViewController {
     
+    struct Model {
+        let title: String
+        let value: String
+    }
+    
+    private var model: [Model]
+    
+    init(model: [Model]) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
@@ -35,19 +51,20 @@ class AccountDetailsListViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -14).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-    
 }
 
 
 extension AccountDetailsListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return model.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountDetailsTableViewCell.identifier, for: indexPath) as? AccountDetailsTableViewCell else { return AccountDetailsTableViewCell() }
-        
+        let cellModel = model[indexPath.row]
+        cell.content.titleLabel.text = cellModel.title
+        cell.content.valueLabel.text = cellModel.value
         return cell
     }
     

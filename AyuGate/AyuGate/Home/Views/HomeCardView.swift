@@ -121,8 +121,10 @@ class HomeCardView: UIView {
     
     func updateUI() {
         guard let model = self.model else { return }
-        priceLabel.text = model.formattedCurrentAmount
-        monthTitle.text = model.month
+        priceLabel.text = "R$ 11.180,00"
+//        priceLabel.text = model.formattedCurrentAmount
+        monthTitle.text = "07/2020"
+//        monthTitle.text = model.month
         animate()
         invoiceDiscountBar.model = InvoiceDiscountBarViewModel(model: model.barModel)
 //

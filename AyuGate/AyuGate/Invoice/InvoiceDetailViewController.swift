@@ -56,7 +56,7 @@ class InvoiceDetailViewController: AYUViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
         label.textColor = UIColor.whitePlaceholder
-        label.text = "Terça, 01/04, 2019"
+        label.text = "Terça, 01/07, 2020"
         return label
     }()
     
@@ -144,12 +144,21 @@ class InvoiceDetailViewController: AYUViewController {
         invoiceListDetailsViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         invoiceListDetailsViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        valueLabel.text = invoiceModel.formattedCurrentAmount
-        profileCardView.cpfLabel.text = invoiceModel.cpfValue
+        valueLabel.text = "R$ 11.180,00"
+//        valueLabel.text = invoiceModel.formattedCurrentAmount
+        profileCardView.cpfLabel.text = "180.049.067-45"
+//        profileCardView.cpfLabel.text = invoiceModel.cpfValue
         profileCardView.profileNameLabel.text = invoiceModel.customerName
-        profileCardView.officeLabel.text = invoiceModel.customerRole
         
-        let details = invoiceModel.roll.compactMap({ AYUInvoiceDetailsViewModel(roll: $0) })
-        invoiceListDetailsViewController.model = InvoiceListDetailsViewModel(company: invoiceModel.companyName, details: details)
+//        profileCardView.officeLabel.text = invoiceModel.customerRole
+        
+        let mockModel: [AYUInvoiceDetailsViewModel] = [
+            .init(roll: Invoice.PayRoll(type: "discount", description: "Bruto", amount: 13000.00)),
+            .init(roll: Invoice.PayRoll(type: "fixedDiscounts", description: "INSS 9,53%", amount: 1238)),
+            .init(roll: Invoice.PayRoll(type: "fixedDiscounts", description: "IRRF 15%", amount: 185.07)),
+            .init(roll: Invoice.PayRoll(type: "liquid", description: "Salário", amount: 11180.00))
+        ]
+        
+        invoiceListDetailsViewController.model = InvoiceListDetailsViewModel(company: invoiceModel.companyName, details: mockModel)
     }
 }
