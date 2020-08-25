@@ -70,7 +70,13 @@ class StepCollectionViewCellContentController: UIViewController {
             stackFieldsContent.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor)
         ])
         
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        
         setupFields()
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     private func setupFields() {

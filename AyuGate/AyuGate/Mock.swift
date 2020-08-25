@@ -10,7 +10,6 @@ import UIKit
 import FormKit
 
 public class Mock {
-    
     /// CPF Field
     struct CPFField: MaskField {
         var keyboardType: UIKeyboardType = .numberPad
@@ -44,6 +43,46 @@ public class Mock {
         var keyboardType: UIKeyboardType = .namePhonePad
         var mask: String? = nil
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "E-mail", title: "E-mail")
+        var fieldType: FormFieldContent.FieldType = .text
+        var validatorQuery: String?
+    }
+    
+    struct BirthDayDate: MaskField {
+        var keyboardType: UIKeyboardType = .namePhonePad
+        var mask: String? = "00 / 00 / 0000"
+        var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "dd / mm / aaaa", title: "Nascimento")
+        var fieldType: FormFieldContent.FieldType = .text
+        var validatorQuery: String?
+    }
+    
+    struct DocumentRG: MaskField {
+        var keyboardType: UIKeyboardType = .numberPad
+        var mask: String? = "00.000.000-0"
+        var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "RG", title: "Numero de RG", spacingAfterTitle: 5)
+        var fieldType: FormFieldContent.FieldType = .text
+        var validatorQuery: String?
+    }
+    
+    struct OrgaoEmissor: MaskField {
+        var keyboardType: UIKeyboardType = .namePhonePad
+        var mask: String?
+        var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Órgão", title: "Órgão Emissor", spacingAfterTitle: 5)
+        var fieldType: FormFieldContent.FieldType = .text
+        var validatorQuery: String?
+    }
+    
+    struct UF: MaskField {
+        var keyboardType: UIKeyboardType = .namePhonePad
+        var mask: String?
+        var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "UF", title: "UF", spacingAfterTitle: 5)
+        var fieldType: FormFieldContent.FieldType = .text
+        var validatorQuery: String?
+    }
+    
+    struct DocumentRGDate: MaskField {
+        var keyboardType: UIKeyboardType = .numberPad
+        var mask: String? = "00 / 00 / 0000"
+        var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "dd / mm / aaaa", title: "Data de emissão", spacingAfterTitle: 5)
         var fieldType: FormFieldContent.FieldType = .text
         var validatorQuery: String?
     }

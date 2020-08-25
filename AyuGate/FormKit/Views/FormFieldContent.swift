@@ -46,11 +46,13 @@ public class FormFieldContent: UIView {
         let placeholder: String?
         let title: String
         let value: String?
+        let spacingAfterTitle: CGFloat
         
-        public init(placeholder: String? = nil, title: String, validator: ((Bool) -> Void)? = nil, value: String? = nil) {
+        public init(placeholder: String? = nil, title: String, validator: ((Bool) -> Void)? = nil, value: String? = nil, spacingAfterTitle: CGFloat = 30) {
             self.placeholder = placeholder
             self.title = title
             self.value = value
+            self.spacingAfterTitle = spacingAfterTitle
         }
     }
     
@@ -79,6 +81,7 @@ public class FormFieldContent: UIView {
             textFieldContent
         ])
         
+        contentStack.setCustomSpacing(maskField.formModel.spacingAfterTitle, after: title)
         setupTextField()
     }
     

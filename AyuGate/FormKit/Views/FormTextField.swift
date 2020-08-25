@@ -10,7 +10,7 @@ import UIKit
 
 public protocol FormSection {
     var masks: [MaskField] { get set }
-    var sectionImage: UIImage { get set }
+    var sectionImage: UIImage? { get set }
 }
 
 public protocol MaskField {

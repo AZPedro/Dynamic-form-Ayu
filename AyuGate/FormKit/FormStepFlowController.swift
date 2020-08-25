@@ -13,9 +13,14 @@ public protocol FormDependencies {
     var formSectionDependence: [FormSection] { get set }
 }
 
+public protocol FormStepFlowControllerDelegate {
+    func formStepFlowControllerDelegateDidFinish()
+}
+
 public class FormStepFlowController: UIViewController, StepProtocolDelegate {
     
     private var dependencies: FormDependencies
+    public var delegate: FormStepFlowControllerDelegate?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +103,11 @@ extension FormStepFlowController: StepBottomSegmentControllerDelegate {
     }
     
     public func stepBottomSegmentControllerDelegate(didNext: StepBottomSegmentController) {
-        guard dependencies.stepDependence.currentStep < dependencies.stepDependence.numberOfSteps else { return }
+        guard dependencies.stepDependence.currentStep < dependencies.stepDependence.numberOfSteps else {
+            delegate?.formStepFlowControllerDelegateDidFinish()
+            return
+        }
+        
         dependencies.stepDependence.currentStep = dependencies.stepDependence.currentStep+1
     }
 }

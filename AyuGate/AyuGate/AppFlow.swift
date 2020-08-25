@@ -10,25 +10,44 @@ import UIKit
 import FormKit
 import AyuKit
 
-final class AppFlow: NSObject {
-    
+final class AppFlow: NSObject, FormStepFlowControllerDelegate {
+
     static var shared: AppFlow = AppFlow()
     
     private lazy var nav = UINavigationController()
     
-    let cpfFormSections: [FormSection] = [
-        CPFSection(masks: [Mock.CPFField()]),
-        CPFSection(masks: [Mock.PasswordField()]),
+    let meiFormFlowSections: [FormSection] = [
         CPFSection(masks: [Mock.NameField()]),
-        CPFSection(masks: [Mock.EmailField()])
+        CPFSection(masks: [Mock.EmailField()]),
+        CPFSection(masks: [Mock.BirthDayDate()]),
+        CPFSection(sectionImage: nil, masks: [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()])
     ]
     
-    private lazy var cpfFormDependencies: CPFFormDepencies = {
-        return CPFFormDepencies(formSectionDependence: cpfFormSections ,stepDependence: Step(numberOfSteps: cpfFormSections.count-1, currentStep: 0))
+    let meiFormFlowUncompletedSections: [FormSection] = [
+        CPFSection(masks: [Mock.BirthDayDate()]),
+        CPFSection(sectionImage: nil, masks: [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()])
+    ]
+    
+    private lazy var meiFormFlowDependencies: CPFFormDepencies = {
+        return CPFFormDepencies(formSectionDependence: meiFormFlowSections ,stepDependence: Step(numberOfSteps: meiFormFlowSections.count-1, currentStep: 0))
     }()
     
-    private lazy var cpfFormFlow: FormStepFlowController = {
-        return FormStepFlowController(dependencies: cpfFormDependencies)
+    private lazy var meiFormFlowUnCompletedDependencies: CPFFormDepencies = {
+        return CPFFormDepencies(formSectionDependence: meiFormFlowUncompletedSections ,stepDependence: Step(numberOfSteps: meiFormFlowUncompletedSections.count-1, currentStep: 0))
+    }()
+    
+    // Formulario para MEI vazio
+    private lazy var meiFormFlow: FormStepFlowController = {
+        let flow = FormStepFlowController(dependencies: meiFormFlowDependencies)
+        flow.delegate = self
+        return flow
+    }()
+    
+    // Formulário com campos que estão faltando
+    private lazy var meiFormUnCompletedFlow: FormStepFlowController = {
+        let flow = FormStepFlowController(dependencies: meiFormFlowUnCompletedDependencies)
+        flow.delegate = self
+        return flow
     }()
 
     func flow() -> UINavigationController {
@@ -38,11 +57,14 @@ final class AppFlow: NSObject {
         if SessionManager.shared.isUserLoged {
             nav.viewControllers = [HomeFlowController()]
         } else {
-            nav.viewControllers = [cpfFormFlow]
+            nav.viewControllers = [meiFormFlow]
 //            nav.viewControllers = [RegisterFlowController(dependencies: cpfFormDependencies)]
         }
-
         return nav
+    }
+
+    func formStepFlowControllerDelegateDidFinish() {
+        // show wallet home
     }
 }
 
@@ -57,7 +79,7 @@ struct CPFFormDepencies: FormDependencies {
 }
 
 struct CPFSection: FormSection {
-    var sectionImage: UIImage = Images.womanWithComputer
+    var sectionImage: UIImage? = Images.womanWithComputer
     var masks: [MaskField]
 }
 
