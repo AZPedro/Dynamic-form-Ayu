@@ -36,7 +36,7 @@ class AYUActionButtonViewController: AYUViewController {
     }
 
     lazy var actionButton: AYUButton = {
-        let button = AYUButton(title: "", titleColor: UIColor.yellowPrimary)
+        let button = AYUButton(title: "")
         button.customTitleLabel.text = "AVANÇAR"
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

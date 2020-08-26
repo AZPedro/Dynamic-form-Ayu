@@ -19,6 +19,11 @@ class AYUButton: UIButton {
     
     let impactFeedback = UIImpactFeedbackGenerator()
     let notificationFeedback = UINotificationFeedbackGenerator()
+    var buttonTheme: AyuButtomTheme = .default {
+        didSet {
+            updateUI()
+        }
+    }
     
     private lazy var spinnerView: AYUSpinnerView = {
         let spinner = AYUSpinnerView()
@@ -34,7 +39,6 @@ class AYUButton: UIButton {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        label.textColor = isEnabled ? .yellowPrimary : .grayPrimary
         label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(action(_:))))
         return label
     }()
@@ -69,28 +73,24 @@ class AYUButton: UIButton {
     
     override var isEnabled: Bool {
         didSet {
-            backgroundColor = isEnabled ? .blackPrimary : .graySecondary
-            customTitleLabel.textColor = isEnabled ? .yellowPrimary : .grayPrimary
+            updateUI()
         }
     }
     
     var title: String? {
         didSet {
-          updateUI()
+          setTitle(title, for: .normal)
         }
     }
-    
-    var titleColor: UIColor = .yellowPrimary {
-        didSet {
-            updateUI()
-        }
-    }
-    
+
     private func updateUI() {
+        setTitle(title, for: .normal)
+        let titleColor = isEnabled ? buttonTheme.tintColor : buttonTheme.disabledTintColor
         setTitleColor(titleColor, for: .normal)
         setTitleColor(titleColor.withAlphaComponent(0.5), for: .highlighted)
-        setTitle(title, for: .normal)
-        backgroundColor =  isEnabled ? .blackPrimary : .graySecondary
+        customTitleLabel.textColor = titleColor
+        backgroundColor = isEnabled ? buttonTheme.backgroundColor : buttonTheme.disabledBackgroundColor
+        spinnerView.spinnerLayer.strokeColor = titleColor.cgColor
     }
 
     @objc private func action(_ sender: Any) {
@@ -106,27 +106,40 @@ class AYUButton: UIButton {
             spinnerView.isHidden = true
             spinnerView.state = .idle
             customTitleLabel.alpha = 1
+            titleLabel?.alpha = 1
         case .loading:
             impactFeedback.impactOccurred()
             isUserInteractionEnabled = false
             spinnerView.isHidden = false
             customTitleLabel.alpha = 0
             spinnerView.state = .spinning
+            titleLabel?.alpha = 0
         case .error:
             notificationFeedback.notificationOccurred(.error)
             isUserInteractionEnabled = true
             spinnerView.isHidden = true
             spinnerView.state = .idle
             customTitleLabel.alpha = 1
+            titleLabel?.alpha = 1
         }
     }
 }
 
 extension AYUButton {
-    public convenience init(title: String, titleColor: UIColor) {
+    public convenience init(title: String) {
         self.init()
         self.title = title
-        self.titleColor = titleColor
         buildUI()
     }
+}
+
+struct AyuButtomTheme {
+    let backgroundColor: UIColor
+    let tintColor: UIColor
+    let disabledBackgroundColor: UIColor
+    let disabledTintColor: UIColor
+    
+    static let `default`: AyuButtomTheme = AyuButtomTheme(backgroundColor: .blackPrimary , tintColor: .yellowPrimary, disabledBackgroundColor: .graySecondary, disabledTintColor: .grayPrimary)
+    
+    static let formTheme: AyuButtomTheme = AyuButtomTheme(backgroundColor: UIColor.whiteSecondary , tintColor: UIColor.blackSecondary, disabledBackgroundColor: .red, disabledTintColor: .whiteSecondary)
 }

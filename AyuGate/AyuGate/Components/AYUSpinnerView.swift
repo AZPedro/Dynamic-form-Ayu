@@ -43,7 +43,7 @@ public final class AYUSpinnerView: UIView {
         return v
     }()
     
-    private lazy var spinnerLayer: CAShapeLayer = {
+    lazy var spinnerLayer: CAShapeLayer = {
         let l = CAShapeLayer()
         
         l.frame = self.bounds

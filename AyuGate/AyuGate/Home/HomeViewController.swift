@@ -38,7 +38,7 @@ class HomeViewController: AYUViewController {
         label.font = UIFont.systemFont(ofSize: 38, weight: .light)
         label.textColor = .black
         let name = profile?.name ?? ""
-        label.text = "Olá, \(name)"
+        label.text = "Olá, Pedro Emanuel"
         return label
     }()
     
@@ -77,9 +77,11 @@ class HomeViewController: AYUViewController {
         footerLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -6).isActive = true
         
         cardView.actionHandler = { [weak self] in
-            guard let invoice = self?.invoiceModel, let profile = SessionManager.shared.getAccount() else { return }
-            let invoiceDetailsModel = InvoicedetailsViewModel(invoice: invoice, profile: profile)
-            let invoiceViewController = InvoiceDetailViewController(invoice: invoiceDetailsModel)
+//            guard let invoice = self?.invoiceModel, let profile = SessionManager.shared.getAccount() else { return }
+//            let invoiceDetailsModel = InvoicedetailsViewModel(invoice: invoice, profile: profile)
+            let mockedInvoice = Invoice(id: "32", liquidAmount: 0, month: "2", percentage: [.init(type: "", percentage: 2)], company: .init(id: "", name: ""), role: .init(id: "", name: ""), payroll: [Invoice.PayRoll(type: "discount", description: "Bruto", amount: 13000.00)])
+            let invoiceViewController = InvoiceDetailViewController(invoice: .init(invoice: mockedInvoice, profile: .init(name: "", cpf: "")))
+            
             self?.present(invoiceViewController, animated: true, completion: nil)
         }
     }

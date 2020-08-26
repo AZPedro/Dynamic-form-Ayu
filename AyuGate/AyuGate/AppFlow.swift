@@ -49,6 +49,11 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
         flow.delegate = self
         return flow
     }()
+    
+    private lazy var mockedLoginScreen: MockLoginScreenController = {
+        let flow = MockLoginScreenController(dependence: meiFormFlowDependencies.stepDependence, validationService: CpfValidationService())
+        return flow
+    }()
 
     func flow() -> UINavigationController {
         nav.isNavigationBarHidden = true
@@ -57,8 +62,7 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
         if SessionManager.shared.isUserLoged {
             nav.viewControllers = [HomeFlowController()]
         } else {
-            nav.viewControllers = [meiFormFlow]
-//            nav.viewControllers = [RegisterFlowController(dependencies: cpfFormDependencies)]
+            nav.viewControllers = [mockedLoginScreen]
         }
         return nav
     }
