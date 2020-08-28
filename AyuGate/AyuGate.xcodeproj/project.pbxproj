@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3897CC75080DCB4529D3F562 /* Pods_AyuGate_FormKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EED5C24A30FCBD69E3B7A46C /* Pods_AyuGate_FormKit.framework */; };
 		43056878ECFFCE57F5D31560 /* Pods_AyuGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24081DC05A1B02619B706F7 /* Pods_AyuGate.framework */; };
+		FA028ECA24F864D600A7F962 /* AYUActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA028EC924F864D600A7F962 /* AYUActionButton.swift */; };
+		FA028ECC24F86D9700A7F962 /* Shakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA028ECB24F86D9700A7F962 /* Shakeable.swift */; };
+		FA028ECD24F870C000A7F962 /* AYUSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */; };
 		FA07026524ECAA5600E0336F /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07026424ECAA5600E0336F /* FormTextField.swift */; };
 		FA0D4562246E06D10012FCCE /* InvoiceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D4561246E06D10012FCCE /* InvoiceDetailsViewModel.swift */; };
 		FA1BEAB82469E20600D78940 /* AccountDetailsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BEAB72469E20600D78940 /* AccountDetailsListViewController.swift */; };
@@ -25,8 +28,7 @@
 		FA5761A52453802A009BB9CF /* CPFVerifyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5761A42453802A009BB9CF /* CPFVerifyViewModel.swift */; };
 		FA6B01752469CC6D00E004CA /* AYURoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B01742469CC6D00E004CA /* AYURoute.swift */; };
 		FA8F27CA24F4766300AB04F6 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F27C924F4766300AB04F6 /* Mock.swift */; };
-		FA8F27CC24F5EFEE00AB04F6 /* MockLoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F27CB24F5EFED00AB04F6 /* MockLoginScreenController.swift */; };
-		FA8F27CE24F5F8E600AB04F6 /* MockPasswordScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F27CD24F5F8E600AB04F6 /* MockPasswordScreenController.swift */; };
+		FA8F27CC24F5EFEE00AB04F6 /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F27CB24F5EFED00AB04F6 /* LoginScreenController.swift */; };
 		FA8F27D024F5FC0300AB04F6 /* MockMeiMessageUserStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F27CF24F5FC0300AB04F6 /* MockMeiMessageUserStatusController.swift */; };
 		FA9E989524E8A4220027FF5F /* FormKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9E989324E8A4220027FF5F /* FormKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA9E989E24E8A4620027FF5F /* FormStepFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */; };
@@ -52,7 +54,6 @@
 		FAB2A6E62445FD0A00C49E06 /* DebugComponentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */; };
 		FAB2A6EB2445FD0E00C49E06 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB2A6EA2445FD0E00C49E06 /* images.xcassets */; };
 		FAB2A6EE2445FD0E00C49E06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB2A6EC2445FD0E00C49E06 /* LaunchScreen.storyboard */; };
-		FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */; };
 		FAB2A6F924460EAC00C49E06 /* AYUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */; };
 		FAB2A6FB2446100800C49E06 /* AYUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6FA2446100800C49E06 /* AYUButton.swift */; };
 		FAB2A70A2447A33D00C49E06 /* AYULogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */; };
@@ -123,6 +124,8 @@
 		661B2DECDDF89C49465BBB84 /* Pods-AyuGate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AyuGate.debug.xcconfig"; path = "Target Support Files/Pods-AyuGate/Pods-AyuGate.debug.xcconfig"; sourceTree = "<group>"; };
 		EED5C24A30FCBD69E3B7A46C /* Pods_AyuGate_FormKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AyuGate_FormKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24081DC05A1B02619B706F7 /* Pods_AyuGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AyuGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA028EC924F864D600A7F962 /* AYUActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUActionButton.swift; sourceTree = "<group>"; };
+		FA028ECB24F86D9700A7F962 /* Shakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shakeable.swift; sourceTree = "<group>"; };
 		FA07026424ECAA5600E0336F /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		FA0D4561246E06D10012FCCE /* InvoiceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsViewModel.swift; sourceTree = "<group>"; };
 		FA1BEAB52469D8A100D78940 /* UIDevice+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+extensions.swift"; sourceTree = "<group>"; };
@@ -143,8 +146,7 @@
 		FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStepFlowController.swift; sourceTree = "<group>"; };
 		FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA8F27C924F4766300AB04F6 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
-		FA8F27CB24F5EFED00AB04F6 /* MockLoginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginScreenController.swift; sourceTree = "<group>"; };
-		FA8F27CD24F5F8E600AB04F6 /* MockPasswordScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPasswordScreenController.swift; sourceTree = "<group>"; };
+		FA8F27CB24F5EFED00AB04F6 /* LoginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenController.swift; sourceTree = "<group>"; };
 		FA8F27CF24F5FC0300AB04F6 /* MockMeiMessageUserStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMeiMessageUserStatusController.swift; sourceTree = "<group>"; };
 		FA94A37A24E4B12C004A17F4 /* StepCollectionViewCellContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCellContentController.swift; sourceTree = "<group>"; };
 		FA94A37C24E4B1DA004A17F4 /* StepBottomSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBottomSegmentController.swift; sourceTree = "<group>"; };
@@ -249,6 +251,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA028EC824F864BA00A7F962 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */,
+				FA028EC924F864D600A7F962 /* AYUActionButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		FA1BEABB2469E7B000D78940 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,9 +347,11 @@
 		FA9E98B224E8A9010027FF5F /* AyuKit */ = {
 			isa = PBXGroup;
 			children = (
+				FA028EC824F864BA00A7F962 /* Components */,
 				FA9E98BD24E8A9320027FF5F /* Extensions */,
 				FA9E98B324E8A9010027FF5F /* AyuKit.h */,
 				FA9E98B424E8A9010027FF5F /* Info.plist */,
+				FA028ECB24F86D9700A7F962 /* Shakeable.swift */,
 			);
 			path = AyuKit;
 			sourceTree = "<group>";
@@ -417,7 +430,6 @@
 			children = (
 				FAD5107924492CAB00B224AF /* AYUViewController.swift */,
 				FABDFFCD2464B97D004B253A /* AYUDetailInfoView.swift */,
-				FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */,
 				FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */,
 				FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */,
 				FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */,
@@ -498,9 +510,8 @@
 			children = (
 				FAD5108B244A6DDE00B224AF /* Views */,
 				FAD510772449299600B224AF /* CpfRegisterViewController.swift */,
-				FA8F27CB24F5EFED00AB04F6 /* MockLoginScreenController.swift */,
+				FA8F27CB24F5EFED00AB04F6 /* LoginScreenController.swift */,
 				FA8F27CF24F5FC0300AB04F6 /* MockMeiMessageUserStatusController.swift */,
-				FA8F27CD24F5F8E600AB04F6 /* MockPasswordScreenController.swift */,
 				FA5761A324538010009BB9CF /* ViewModels */,
 				FAD51089244A6DCF00B224AF /* PasswordRegisterViewController .swift */,
 				FAD51087244A6A3500B224AF /* RegisterFlowController.swift */,
@@ -751,11 +762,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA028ECD24F870C000A7F962 /* AYUSpinnerView.swift in Sources */,
 				FA9E98C324E8A9DD0027FF5F /* UIColor+extensions.swift in Sources */,
 				FA9E98C424E8A9DD0027FF5F /* UIDevice+extensions.swift in Sources */,
+				FA028ECC24F86D9700A7F962 /* Shakeable.swift in Sources */,
 				FA9E98C724E8AB520027FF5F /* Images.swift in Sources */,
 				FA9E98C624E8A9DD0027FF5F /* UIView+extensions.swift in Sources */,
 				FA9E98C524E8A9DD0027FF5F /* UILabel+extensions.swift in Sources */,
+				FA028ECA24F864D600A7F962 /* AYUActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,14 +797,12 @@
 				FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsView.swift in Sources */,
 				FA6B01752469CC6D00E004CA /* AYURoute.swift in Sources */,
 				FAD5107A24492CAB00B224AF /* AYUViewController.swift in Sources */,
-				FAB2A6F724460BE800C49E06 /* AYUSpinnerView.swift in Sources */,
 				FA0D4562246E06D10012FCCE /* InvoiceDetailsViewModel.swift in Sources */,
 				FA375B472469A68200D190E8 /* AYURequest.swift in Sources */,
 				FA8F27D024F5FC0300AB04F6 /* MockMeiMessageUserStatusController.swift in Sources */,
 				FAB2A70F2447AD0400C49E06 /* InvoiceDiscountBarModel.swift in Sources */,
 				FA43787C246CA5570099B905 /* Profile.swift in Sources */,
 				FAB2A6FB2446100800C49E06 /* AYUButton.swift in Sources */,
-				FA8F27CE24F5F8E600AB04F6 /* MockPasswordScreenController.swift in Sources */,
 				FAB2A6E22445FD0A00C49E06 /* AyuGateAppDelegate.swift in Sources */,
 				FA1BEABA2469E2A500D78940 /* AccountDetailsTableViewCell.swift in Sources */,
 				FABAB9F7244F8AEB00170210 /* HomeFlowController.swift in Sources */,
@@ -798,7 +810,7 @@
 				FABAABB92463731100A3A678 /* InvoiceDetailsTableViewCell.swift in Sources */,
 				FA8F27CA24F4766300AB04F6 /* Mock.swift in Sources */,
 				FAB2A70A2447A33D00C49E06 /* AYULogoLabel.swift in Sources */,
-				FA8F27CC24F5EFEE00AB04F6 /* MockLoginScreenController.swift in Sources */,
+				FA8F27CC24F5EFEE00AB04F6 /* LoginScreenController.swift in Sources */,
 				FA1BEABE2469E7F200D78940 /* SessionManager.swift in Sources */,
 				FAD51086244A610C00B224AF /* AYUFormViewController.swift in Sources */,
 				FABAB9FC244F8CB800170210 /* HomeCardView.swift in Sources */,
@@ -1092,7 +1104,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.product.AyuGate.app.v2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1117,7 +1129,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.product.AyuGate.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

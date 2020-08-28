@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AyuKit
 
 class AYUActionButtonViewController: AYUViewController {
     
@@ -25,9 +26,8 @@ class AYUActionButtonViewController: AYUViewController {
         
         actionButtonBottomConstraint = actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         actionButtonBottomConstraint?.isActive = true
-        actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        actionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         actionButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
@@ -35,10 +35,8 @@ class AYUActionButtonViewController: AYUViewController {
         actionHandler?()
     }
 
-    lazy var actionButton: AYUButton = {
-        let button = AYUButton(title: "")
-        button.customTitleLabel.text = "AVANÇAR"
-        button.translatesAutoresizingMaskIntoConstraints = false
+    lazy var actionButton: AYUActionButton = {
+        let button = AYUActionButton().setTitle("Avançar")
         return button
     }()
     
@@ -48,11 +46,12 @@ class AYUActionButtonViewController: AYUViewController {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             view.setNeedsLayout()
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
-                self.actionButtonBottomConstraint?.constant = -keyboardSize.height
-                self.actionButton.actionButtonHeighConstraint?.constant = 55
+                self.actionButtonBottomConstraint?.constant = -keyboardSize.height + AYUActionButton.Constants.buttonHeight-20
+                UIApplication.shared.keyWindow?.frame.origin.y -= AYUActionButton.Constants.buttonHeight
                 self.view.layoutIfNeeded()
             }, completion: nil)
         }
+        
     }
 
     @objc func keyboardWillHide(notification: Notification) {
@@ -60,7 +59,7 @@ class AYUActionButtonViewController: AYUViewController {
 
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
             self.actionButtonBottomConstraint?.constant = 0
-            self.actionButton.actionButtonHeighConstraint?.constant = AYUButton.Constants.buttonHeight
+            UIApplication.shared.keyWindow?.frame.origin.y = 0
             self.view.layoutIfNeeded()
         }, completion: nil)
     }

@@ -47,11 +47,11 @@ public final class AYUSpinnerView: UIView {
         let l = CAShapeLayer()
         
         l.frame = self.bounds
-        l.lineWidth = 2.0
-        l.strokeColor = UIColor.yellowPrimary.cgColor
+        l.lineWidth = 0.5
+        l.strokeColor = UIColor.white.cgColor
         l.fillColor = UIColor.clear.cgColor
         l.isOpaque = false
-        l.strokeEnd = 0.7
+        l.strokeEnd = 0.6
         
         return l
     }()

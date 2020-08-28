@@ -103,12 +103,12 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
         passwordField.titleLabel.text = self.type == .login ? "Senha" : "Criar uma senha"
         passwordConfirmationField.isHidden = self.type == .login ? true : false
         
-        actionHandler = {
-            self.actionButton.updateState(state: .loading)
-            if self.isValidPasswordFields() {
-                self.perform()
-            }
-        }
+//        actionHandler = {
+//            self.actionButton.updateState(state: .loading)
+//            if self.isValidPasswordFields() {
+//                self.perform()
+//            }
+//        }
     }
     
     private func perform() {
@@ -133,7 +133,7 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
                 if let validation = validation {
                     let model = PasswordValidationViewModel(model: validation)
                     self.passwordField.errorLabel.text = model.validationMessage
-                    self.actionButton.updateState(state: .error)
+//                    self.actionButton.updateState(state: .error)
                     self.passwordField.updateState(state: .failed)
                 } else if let result = result?.response  {
                     let session = SessionModel(acessToken: result.accessToken, refreshToken: result.refreshToken)
@@ -160,7 +160,7 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
                 passwordText.isEmpty || passwordConfirmationText.isEmpty || passwordText != passwordConfirmationText {
                     
                     passwordField.errorLabel.text = "Senha e confirmação de senha devem ser iguais"
-                    actionButton.updateState(state: .error)
+//                    actionButton.updateState(state: .error)
                     passwordConfirmationField.updateState(state: .failed)
                     passwordField.updateState(state: .failed)
                     return false
@@ -170,7 +170,7 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
                 passwordField.errorLabel.text = "Senha deve ter mais que seis digitos"
                 passwordConfirmationField.updateState(state: .failed)
                 passwordField.updateState(state: .failed)
-                actionButton.updateState(state: .error)
+//                actionButton.updateState(state: .error)
                 return false
             }
             

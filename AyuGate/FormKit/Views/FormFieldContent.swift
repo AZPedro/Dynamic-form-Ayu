@@ -107,6 +107,7 @@ public class FormFieldContent: UIView {
         
         textField.delegate = self
         textField.keyboardType = maskField.keyboardType
+        textField.textColor = UIColor.blackSecondary
         translatesAutoresizingMaskIntoConstraints = false
         textField.addSubview(textFieldPlaceholder)
         textFieldPlaceholder.translatesAutoresizingMaskIntoConstraints = false

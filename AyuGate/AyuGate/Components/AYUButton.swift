@@ -90,7 +90,7 @@ class AYUButton: UIButton {
         setTitleColor(titleColor.withAlphaComponent(0.5), for: .highlighted)
         customTitleLabel.textColor = titleColor
         backgroundColor = isEnabled ? buttonTheme.backgroundColor : buttonTheme.disabledBackgroundColor
-        spinnerView.spinnerLayer.strokeColor = titleColor.cgColor
+//        spinnerView.spinnerLayer.strokeColor = titleColor.cgColor
     }
 
     @objc private func action(_ sender: Any) {
