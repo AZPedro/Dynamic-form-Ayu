@@ -37,6 +37,7 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
         let stackView = UIStackView().vertical(-15)
         stackView.add([
             fieldContent,
+            passwordField,
             confirmPasswordField
         ])
         
@@ -45,6 +46,15 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
     
     lazy var fieldContent: FormFieldContent = {
         return FormFieldContent(maskField: Mock.CPFField())
+    }()
+    
+    lazy var passwordField: FormFieldContent = {
+        let passwordField = FormFieldContent(maskField: Mock.ConfirmPasswordField())
+        passwordField.model = Mock.PasswordField().formModel
+        passwordField.isHidden = true
+        passwordField.title.isHidden =  false
+        
+        return passwordField
     }()
     
     lazy var confirmPasswordField: FormFieldContent = {
@@ -65,7 +75,7 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
         case .cpf:
             return fieldContent.frame.height
         case .register:
-            return fieldStackContent.frame.height
+            return 130
         case .login:
             return fieldContent.frame.height
         }
@@ -128,6 +138,14 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
         fieldContent.validationHandler = { [weak self] isValid in
             self?.actionButton.status = isValid ? .enabled : .disabled
         }
+        
+        passwordField.textDidChange = { [weak self] text in
+            self?.actionButton.status = text == self?.confirmPasswordField.value ? .enabled : .disabled
+        }
+        
+        confirmPasswordField.textDidChange = { [weak self] text in
+            self?.actionButton.status = text == self?.passwordField.value ? .enabled : .disabled
+        }
     }
     
     @objc private func dismissKeyboard() {
@@ -149,12 +167,13 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
             self.controllerState = .register
             actionButton.status = .loaded
             confirmPasswordField.isHidden = false
+            passwordField.isHidden = false
+            fieldContent.isHidden = true
             actionButton.status = .loaded
             fieldContent.endEditing(true)
-            fieldContent.maskField = Mock.PasswordField()
-            fieldContent.model = passwordFieldModel(with: verifyModel.formattedCPF)
-            fieldContent.titleAccessoryView.image = Images.checkMarck
-            fieldContent.titleAccessoryView.isHidden = false
+            passwordField.model = passwordFieldModel(with: verifyModel.formattedCPF)
+            passwordField.titleAccessoryView.image = Images.checkMarck
+            passwordField.titleAccessoryView.isHidden = false
             
         case .notFound:
             actionButton.status = .loaded

@@ -36,6 +36,7 @@ public class FormFieldContent: UIView {
     let textFieldContent = UIView()
     
     public var validationHandler: ((Bool) -> Void)?
+    public var textDidChange: ((String) -> Void)?
     
     @objc private lazy var textField: JMMaskTextField = {
         let textField = JMMaskTextField()
@@ -120,6 +121,9 @@ public class FormFieldContent: UIView {
         contentStack.setCustomSpacing(maskField.formModel.spacingAfterTitle, after: title)
         contentStack.setCustomSpacing(10, after: textFieldContent)
         errorMessageLabel.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         setupTextField()
         updateUI()
     }
@@ -173,14 +177,29 @@ public class FormFieldContent: UIView {
         textField.keyboardType = maskField.keyboardType
         textField.isSecureTextEntry = maskField.fieldType == .security
     }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        shouldUpExtraSize = true
+    }
+    
+    private var shouldUpExtraSize: Bool = true
 }
 
 extension FormFieldContent: UITextFieldDelegate {
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
-        UIApplication.shared.keyWindow?.frame.origin.y = 0
         textFieldPlaceholder.isHidden = true
         fieldIsValid = true
+        
+        if textField.isSecureTextEntry, shouldUpExtraSize {
+            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.1) {
+                UIView.animate(withDuration: 0.3) {
+                    self.shouldUpExtraSize = false
+                    UIApplication.shared.keyWindow?.frame.origin.y -= 40
+                    // refatorar essa gambeta no futuro
+                }
+            }
+        }
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
@@ -191,14 +210,23 @@ extension FormFieldContent: UITextFieldDelegate {
         guard let textField = textField as? JMMaskTextField else { return false }
         textField.maskString = maskField.mask
         fieldIsValid = true
-        guard let mask = maskField.mask, textField.text?.count != mask.count else { return true }
-    
-        guard maskField.validatorQuery != nil else { return true }
+        
         var textFieldValue = textField.text
         textFieldValue?.append(string)
-        
         guard let value = textFieldValue else { return true }
+        
+        guard let mask = maskField.mask, textField.text?.count != mask.count else {
+            self.textDidChange?(value)
+            return true
+        }
+    
+        guard maskField.validatorQuery != nil else {
+            self.textDidChange?(value)
+            return true
+        }
+
         executValidator(for: value)
+        self.textDidChange?(value)
 
         return true
     }

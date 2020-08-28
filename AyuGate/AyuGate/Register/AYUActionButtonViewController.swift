@@ -50,6 +50,11 @@ class AYUActionButtonViewController: AYUViewController {
     @objc func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             view.setNeedsLayout()
+            
+            guard UIApplication.shared.keyWindow?.frame.origin.y == 0 else {
+                return
+            }
+
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
                 let upConstant = self.actionButtonViewControllerDelegate?.controllerUpConstant ?? 0
                 UIApplication.shared.keyWindow?.frame.origin.y -= upConstant
@@ -57,7 +62,6 @@ class AYUActionButtonViewController: AYUViewController {
                 self.view.layoutIfNeeded()
             }, completion: nil)
         }
-        
     }
 
     @objc func keyboardWillHide(notification: Notification) {
