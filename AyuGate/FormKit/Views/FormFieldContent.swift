@@ -21,7 +21,7 @@ public class FormFieldContent: UIView {
     let contentStack = UIStackView().vertical(30)
     let titleStack = UIStackView().horizontal(12)
     
-    let title = UILabel()
+    public let title = UILabel()
         .font(.systemFont(ofSize: 22, weight: .bold))
         .textColour(UIColor.white)
     
@@ -101,7 +101,6 @@ public class FormFieldContent: UIView {
     private func buildUI() {
         add(view: contentStack)
 
-        
         titleStack.alignment = .leading
         
         titleStack.add([
@@ -145,7 +144,6 @@ public class FormFieldContent: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         
         textField.delegate = self
-        textField.keyboardType = maskField.keyboardType
         textField.textColor = UIColor.blackSecondary
         translatesAutoresizingMaskIntoConstraints = false
         textField.addSubview(textFieldPlaceholder)
@@ -172,6 +170,7 @@ public class FormFieldContent: UIView {
         textField.maskString = maskField.mask
         errorMessageLabel.text = model.errorMessage
         textFieldPlaceholder.isHidden = model.value != nil
+        textField.keyboardType = maskField.keyboardType
         textField.isSecureTextEntry = maskField.fieldType == .security
     }
 }
@@ -179,12 +178,13 @@ public class FormFieldContent: UIView {
 extension FormFieldContent: UITextFieldDelegate {
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIApplication.shared.keyWindow?.frame.origin.y = 0
         textFieldPlaceholder.isHidden = true
         fieldIsValid = true
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        self.textFieldPlaceholder.isHidden = !(textField.text?.isEmpty ?? true)
+        
     }
 
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -220,5 +220,10 @@ extension FormFieldContent: UITextFieldDelegate {
         if value.count == maskField.mask?.count {
             fieldIsValid = isValid
         }
+    }
+    
+    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        self.textFieldPlaceholder.isHidden = !(textField.text?.isEmpty ?? true)
+        return true
     }
 }

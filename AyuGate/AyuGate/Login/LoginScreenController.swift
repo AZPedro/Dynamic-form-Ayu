@@ -13,10 +13,11 @@ import AyuKit
 protocol LoginScreenControllerDelegate {
     func loginScreenControllerDelegateVerifyCPF(field: FormFieldContent)
     func loginScreenControllerDelegateLogin(field: FormFieldContent)
+    func loginScreenControllerDelegateRegisterPassword(field: FormFieldContent)
 }
 
-class LoginScreenController: AYUActionButtonViewController {
-
+class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewControllerDelegate {
+    
     let backgroundStepDepence: StepProtocol = {
         return LoginBackgroundStep()
     }()
@@ -31,16 +32,49 @@ class LoginScreenController: AYUActionButtonViewController {
         return imageView
     }()
     
+    lazy var fieldStackContent: UIStackView = {
+        // coloquei -15 uma gambiarra pra corrigir um problema de espaço.(voltar e confirgurar stack corretamente)
+        let stackView = UIStackView().vertical(-15)
+        stackView.add([
+            fieldContent,
+            confirmPasswordField
+        ])
+        
+        return stackView
+    }()
+    
     lazy var fieldContent: FormFieldContent = {
         return FormFieldContent(maskField: Mock.CPFField())
+    }()
+    
+    lazy var confirmPasswordField: FormFieldContent = {
+        let confirmPasswordField = FormFieldContent(maskField: Mock.ConfirmPasswordField())
+        
+        confirmPasswordField.model = Mock.ConfirmPasswordField().formModel
+        confirmPasswordField.isHidden = true
+        confirmPasswordField.title.isHidden =  true
+        
+        return confirmPasswordField
     }()
     
     var delegate: LoginScreenControllerDelegate?
     private var controllerState: ControllerState = .cpf
     
+    var controllerUpConstant: CGFloat? {
+        switch controllerState {
+        case .cpf:
+            return fieldContent.frame.height
+        case .register:
+            return fieldStackContent.frame.height
+        case .login:
+            return fieldContent.frame.height
+        }
+    }
+    
     private enum ControllerState {
         case cpf
-        case password
+        case login
+        case register
     }
     
     var verifyViewModel: CPFVerifyViewModel? {
@@ -57,6 +91,8 @@ class LoginScreenController: AYUActionButtonViewController {
     private func build() {
         installBackground()
         setupComponents()
+        
+        actionButtonViewControllerDelegate = self
     }
     
     private func installBackground() {
@@ -64,17 +100,17 @@ class LoginScreenController: AYUActionButtonViewController {
     }
     
     private func setupComponents() {
-        fieldContent.translatesAutoresizingMaskIntoConstraints = false
+        fieldStackContent.translatesAutoresizingMaskIntoConstraints = false
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(fieldContent)
+        view.addSubview(fieldStackContent)
         view.addSubview(actionButton)
         view.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            fieldContent.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30),
-            fieldContent.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            fieldContent.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            fieldStackContent.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 40),
+            fieldStackContent.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            fieldStackContent.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AYUActionButton.Constants.defaulsConstants),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -AYUActionButton.Constants.defaulsConstants),
@@ -108,9 +144,18 @@ class LoginScreenController: AYUActionButtonViewController {
             fieldContent.model = passwordFieldModel(with: verifyModel.formattedCPF)
             fieldContent.titleAccessoryView.image = Images.checkMarck
             fieldContent.titleAccessoryView.isHidden = false
-            self.controllerState = .password
+            self.controllerState = .login
         case .newUser:
+            self.controllerState = .register
             actionButton.status = .loaded
+            confirmPasswordField.isHidden = false
+            actionButton.status = .loaded
+            fieldContent.endEditing(true)
+            fieldContent.maskField = Mock.PasswordField()
+            fieldContent.model = passwordFieldModel(with: verifyModel.formattedCPF)
+            fieldContent.titleAccessoryView.image = Images.checkMarck
+            fieldContent.titleAccessoryView.isHidden = false
+            
         case .notFound:
             actionButton.status = .loaded
             fieldContent.fieldIsValid = false
@@ -124,11 +169,13 @@ extension LoginScreenController: AYUActionButtonDelegate {
         switch controllerState {
         case .cpf:
             delegate?.loginScreenControllerDelegateVerifyCPF(field: fieldContent)
-        case .password:
+        case .login:
             delegate?.loginScreenControllerDelegateLogin(field: fieldContent)
+        case .register:
+            delegate?.loginScreenControllerDelegateRegisterPassword(field: fieldContent)
         }
     }
-    
+
     func passwordFieldModel(with title: String) -> FormFieldContent.Model {
         return FormFieldContent.Model(placeholder: "Senha", title: title, errorMessage: "Senha inválida")
     }

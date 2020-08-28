@@ -7,8 +7,8 @@
 //
 
 class CPFVerifyViewModel {
-    private let model: Verify
-    private let cpf: String
+    public let model: Verify
+    public let cpf: String
     
     enum Status: String {
         case newUser = "newUser"

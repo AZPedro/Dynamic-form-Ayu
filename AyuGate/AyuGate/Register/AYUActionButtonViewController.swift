@@ -1,5 +1,5 @@
 //
-//  AYUFormViewController.swift
+//  AYUActionButtonViewController.swift
 //  AyuGate
 //
 //  Created by Pedro Azevedo on 17/04/20.
@@ -9,6 +9,10 @@
 import UIKit
 import AyuKit
 
+protocol AYUActionButtonViewControllerDelegate: AYUActionButtonViewController {
+    var controllerUpConstant: CGFloat? { get }
+}
+
 class AYUActionButtonViewController: AYUViewController {
     
     override func viewDidLoad() {
@@ -17,6 +21,7 @@ class AYUActionButtonViewController: AYUViewController {
     }
     
     var actionHandler: (() -> Void)?
+    public var actionButtonViewControllerDelegate: AYUActionButtonViewControllerDelegate?
     
     private func buildUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -46,8 +51,9 @@ class AYUActionButtonViewController: AYUViewController {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             view.setNeedsLayout()
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
-                self.actionButtonBottomConstraint?.constant = -keyboardSize.height + AYUActionButton.Constants.buttonHeight-20
-                UIApplication.shared.keyWindow?.frame.origin.y -= AYUActionButton.Constants.buttonHeight
+                let upConstant = self.actionButtonViewControllerDelegate?.controllerUpConstant ?? 0
+                UIApplication.shared.keyWindow?.frame.origin.y -= upConstant
+                self.actionButtonBottomConstraint?.constant = -keyboardSize.height + upConstant - 15
                 self.view.layoutIfNeeded()
             }, completion: nil)
         }

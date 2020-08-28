@@ -79,7 +79,7 @@ extension AYURoute {
         case payRoll
     }
     
-    var resquest: AYURequest {
+    public var resquest: AYURequest {
         return AYURequest(route: self, method, body: boody)
     }
 }

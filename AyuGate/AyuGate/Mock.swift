@@ -31,6 +31,14 @@ public class Mock {
         var validatorQuery: String?
     }
     
+    struct ConfirmPasswordField: MaskField {
+        var keyboardType: UIKeyboardType = .default
+        var mask: String? = nil
+        var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Confirmar senha", title: "Insira sua senha!", errorMessage: "Senha incorreta")
+        var fieldType: FormFieldContent.FieldType = .security
+        var validatorQuery: String?
+    }
+    
     struct NameField: MaskField {
         var keyboardType: UIKeyboardType = .namePhonePad
         var mask: String? = nil

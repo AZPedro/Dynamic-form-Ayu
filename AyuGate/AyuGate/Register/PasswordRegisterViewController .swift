@@ -133,7 +133,6 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
                 if let validation = validation {
                     let model = PasswordValidationViewModel(model: validation)
                     self.passwordField.errorLabel.text = model.validationMessage
-//                    self.actionButton.updateState(state: .error)
                     self.passwordField.updateState(state: .failed)
                 } else if let result = result?.response  {
                     let session = SessionModel(acessToken: result.accessToken, refreshToken: result.refreshToken)
