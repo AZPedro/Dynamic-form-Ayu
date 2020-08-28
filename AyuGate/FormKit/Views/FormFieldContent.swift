@@ -12,9 +12,15 @@ import JavaScriptCore
 
 public class FormFieldContent: UIView {
 
-    private var maskField: MaskField
+    public var maskField: MaskField {
+        didSet {
+            model = maskField.formModel
+        }
+    }
     
     let contentStack = UIStackView().vertical(30)
+    let titleStack = UIStackView().horizontal(12)
+    
     let title = UILabel()
         .font(.systemFont(ofSize: 22, weight: .bold))
         .textColour(UIColor.white)
@@ -23,6 +29,10 @@ public class FormFieldContent: UIView {
         .font(.systemFont(ofSize: 13, weight: .medium))
         .textColour(UIColor.textPlaceholderColor)
     
+    let errorMessageLabel = UILabel()
+        .font(.systemFont(ofSize: 15, weight: .bold))
+        .textColour(UIColor.redSecondary)
+    
     let textFieldContent = UIView()
     
     public var validationHandler: ((Bool) -> Void)?
@@ -30,6 +40,15 @@ public class FormFieldContent: UIView {
     @objc private lazy var textField: JMMaskTextField = {
         let textField = JMMaskTextField()
        return textField
+    }()
+    
+    public lazy var titleAccessoryView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        imageView.isHidden = true
+        return imageView
     }()
     
     public var value: String? {
@@ -41,18 +60,26 @@ public class FormFieldContent: UIView {
             updateUI()
         }
     }
+    
+    public var fieldIsValid: Bool = true {
+        didSet {
+            self.errorMessageLabel.isHidden = self.fieldIsValid
+        }
+    }
 
     public struct Model {
         let placeholder: String?
         let title: String
         let value: String?
+        let errorMessage: String?
         let spacingAfterTitle: CGFloat
         
-        public init(placeholder: String? = nil, title: String, validator: ((Bool) -> Void)? = nil, value: String? = nil, spacingAfterTitle: CGFloat = 30) {
+        public init(placeholder: String? = nil, title: String, validator: ((Bool) -> Void)? = nil, value: String? = nil, spacingAfterTitle: CGFloat = 30, errorMessage: String? = nil) {
             self.placeholder = placeholder
             self.title = title
             self.value = value
             self.spacingAfterTitle = spacingAfterTitle
+            self.errorMessage = errorMessage
         }
     }
     
@@ -73,16 +100,29 @@ public class FormFieldContent: UIView {
     
     private func buildUI() {
         add(view: contentStack)
-        
-        title.textAlignment = .left
 
-        contentStack.add([
+        
+        titleStack.alignment = .leading
+        
+        titleStack.add([
             title,
-            textFieldContent
+            titleAccessoryView
+        ])
+
+        contentStack.alignment = .leading
+        contentStack.distribution = .fillProportionally
+        
+        contentStack.add([
+            titleStack,
+            textFieldContent,
+            errorMessageLabel
         ])
         
         contentStack.setCustomSpacing(maskField.formModel.spacingAfterTitle, after: title)
+        contentStack.setCustomSpacing(10, after: textFieldContent)
+        errorMessageLabel.isHidden = true
         setupTextField()
+        updateUI()
     }
     
     func setCustonTitleSpace(_ spacing: CGFloat) -> Self {
@@ -96,14 +136,13 @@ public class FormFieldContent: UIView {
     }
     
     private func setupTextField() {
-        textFieldContent.add(view: textField, margins: .init(top: 0, left: 13, bottom: 0, right: 13))
+        textFieldContent.addSubview(textField)
         textFieldContent.backgroundColor = .white
         textFieldContent.layer.cornerRadius = 5
         textFieldContent.clipsToBounds = true
         
         textField.backgroundColor = UIColor.white
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.heightAnchor.constraint(equalToConstant: 38).isActive = true
         
         textField.delegate = self
         textField.keyboardType = maskField.keyboardType
@@ -113,17 +152,27 @@ public class FormFieldContent: UIView {
         textFieldPlaceholder.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            textFieldContent.heightAnchor.constraint(equalToConstant: 38),
+            textFieldContent.widthAnchor.constraint(equalToConstant: 333),
+            textField.leadingAnchor.constraint(equalTo: textFieldContent.leadingAnchor, constant: 13),
+            textField.trailingAnchor.constraint(equalTo: textFieldContent.trailingAnchor, constant: -13),
+            textField.topAnchor.constraint(equalTo: textFieldContent.topAnchor),
+            textField.bottomAnchor.constraint(equalTo: textFieldContent.bottomAnchor),
+            
             textFieldPlaceholder.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
-            textFieldPlaceholder.centerYAnchor.constraint(equalTo: textField.centerYAnchor)
+            textFieldPlaceholder.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
         ])
-        
-        textField.isSecureTextEntry = maskField.fieldType == .security
     }
     
     private func updateUI() {
         guard let model = self.model else { return }
         textFieldPlaceholder.text = model.placeholder
         title.text = model.title
+        textField.text = model.value
+        textField.maskString = maskField.mask
+        errorMessageLabel.text = model.errorMessage
+        textFieldPlaceholder.isHidden = model.value != nil
+        textField.isSecureTextEntry = maskField.fieldType == .security
     }
 }
 
@@ -131,25 +180,26 @@ extension FormFieldContent: UITextFieldDelegate {
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         textFieldPlaceholder.isHidden = true
+        fieldIsValid = true
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         self.textFieldPlaceholder.isHidden = !(textField.text?.isEmpty ?? true)
     }
-       
+
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let mask = maskField.mask else { return true }
         guard let textField = textField as? JMMaskTextField else { return false }
         textField.maskString = maskField.mask
+        fieldIsValid = true
+        guard let mask = maskField.mask, textField.text?.count != mask.count else { return true }
+    
+        guard maskField.validatorQuery != nil else { return true }
+        var textFieldValue = textField.text
+        textFieldValue?.append(string)
         
-        if let textCount = textField.text?.count, textCount == mask.count-1 {
-            guard maskField.validatorQuery != nil else { return true }
-            var textFieldValue = textField.text
-            textFieldValue?.append(string)
-            guard let value = textFieldValue else { return true }
-            executValidator(for: value)
-        }
-        
+        guard let value = textFieldValue else { return true }
+        executValidator(for: value)
+
         return true
     }
     
@@ -167,5 +217,8 @@ extension FormFieldContent: UITextFieldDelegate {
         let isValid = resultDescription == "0"
         validationHandler?(isValid)
         
+        if value.count == maskField.mask?.count {
+            fieldIsValid = isValid
+        }
     }
 }

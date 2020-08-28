@@ -14,7 +14,7 @@ public class Mock {
     struct CPFField: MaskField {
         var keyboardType: UIKeyboardType = .numberPad
         var mask: String? = "000.000.000-00"
-        var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Cpf", title: "Insira seu CPF")
+        var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Cpf", title: "Insira seu CPF", errorMessage: "Cpf inserido é inválido")
         var fieldType: FormFieldContent.FieldType = .text
         var validatorQuery: String? = """
         var validate = function(value) {
@@ -26,7 +26,7 @@ public class Mock {
     struct PasswordField: MaskField {
         var keyboardType: UIKeyboardType = .default
         var mask: String? = nil
-        var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Senha", title: "Insira sua senha!")
+        var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Senha", title: "Insira sua senha!", errorMessage: "Senha incorreta")
         var fieldType: FormFieldContent.FieldType = .security
         var validatorQuery: String?
     }

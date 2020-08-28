@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol AYUActionButtonDelegate {
+public protocol AYUActionButtonDelegate {
     func actionButtonDelegateDidTouch(_ sender: Any)
     func actionButtonDelegateDisabledButtonDidTouch(_ sender: Any)
 }
 
 extension AYUActionButtonDelegate {
-    func actionButtonDelegateDisabledButtonDidTouch(_ sender: Any) { }
+    public func actionButtonDelegateDisabledButtonDidTouch(_ sender: Any) { }
 }
 
 public class AYUActionButton: UIButton {
@@ -24,7 +24,7 @@ public class AYUActionButton: UIButton {
         public static let buttonHeight: CGFloat = 45
     }
     
-    var delegate: AYUActionButtonDelegate?
+    public var delegate: AYUActionButtonDelegate?
     
     private lazy var spinnerView: AYUSpinnerView = {
         let spinner = AYUSpinnerView()
@@ -67,6 +67,7 @@ public class AYUActionButton: UIButton {
         clipsToBounds = true
         layer.cornerRadius = 5
         titleLabel?.textColor = .white
+        titleLabel?.isUserInteractionEnabled = false
 
         addSubview(spinnerView)
         
@@ -90,7 +91,7 @@ public class AYUActionButton: UIButton {
         case .disabled:
             alpha = 0.45
         case .enabled:
-            alpha = 0.45
+            alpha = 1
         case .loaded:
             titleLabel?.isHidden = false
             titleLabel?.alpha = 1

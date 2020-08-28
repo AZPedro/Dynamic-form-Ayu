@@ -50,8 +50,8 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
         return flow
     }()
     
-    private lazy var mockedLoginScreen: LoginScreenController = {
-        let flow = LoginScreenController(dependence: meiFormFlowDependencies.stepDependence)
+    private lazy var loginFlow: LoginFlowController = {
+        let flow = LoginFlowController()
         return flow
     }()
 
@@ -62,7 +62,7 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
 //        if SessionManager.shared.isUserLoged {
 //            nav.viewControllers = [HomeFlowController()]
 //        } else {  
-        nav.viewControllers = [mockedLoginScreen]
+        nav.viewControllers = [loginFlow]
 //        }
         return nav
     }

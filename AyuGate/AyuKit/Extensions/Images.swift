@@ -12,4 +12,6 @@ public final class Images {
     public static let ayuYbackground = UIImage(named: "ayuYbackground")!
     public static let womanWithComputer = UIImage(named: "WomanWithComputer")!
     public static let womanWithDocument = UIImage(named: "WomanWithDocument")!
+    public static let checkMarck = UIImage(named: "checkmark")!
+    
 }
