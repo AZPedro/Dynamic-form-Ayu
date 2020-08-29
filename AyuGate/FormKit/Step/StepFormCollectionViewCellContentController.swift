@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StepCollectionViewCellContentController: UIViewController {
+public class StepFormCollectionViewCellContentController: UIViewController {
     
     private var section: FormSection
     
@@ -32,7 +32,7 @@ class StepCollectionViewCellContentController: UIViewController {
         return stackView
     }()
     
-    init(section: FormSection) {
+    public init(section: FormSection) {
         self.section = section
         super.init(nibName: nil, bundle: nil)
     }
@@ -41,7 +41,7 @@ class StepCollectionViewCellContentController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }

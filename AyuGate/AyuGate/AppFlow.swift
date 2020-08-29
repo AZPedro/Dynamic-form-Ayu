@@ -37,21 +37,26 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
     }()
     
     // Formulario para MEI vazio
-    private lazy var meiFormFlow: FormStepFlowController = {
-        let flow = FormStepFlowController(dependencies: meiFormFlowDependencies)
+    private lazy var meiFormFlow: FormStepFlowController<FormStepCollectionViewCell> = {
+        let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: meiFormFlowDependencies)
         flow.delegate = self
         return flow
     }()
     
     // Formulário com campos que estão faltando
-    private lazy var meiFormUnCompletedFlow: FormStepFlowController = {
-        let flow = FormStepFlowController(dependencies: meiFormFlowUnCompletedDependencies)
+    private lazy var meiFormUnCompletedFlow: FormStepFlowController<FormStepCollectionViewCell> = {
+        let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: meiFormFlowUnCompletedDependencies)
         flow.delegate = self
         return flow
     }()
     
     private lazy var loginFlow: LoginFlowController = {
         let flow = LoginFlowController()
+        return flow
+    }()
+    
+    private lazy var onboardingFlow: OnboardingFlowController = {
+        let flow = OnboardingFlowController()
         return flow
     }()
 
@@ -62,7 +67,9 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
 //        if SessionManager.shared.isUserLoged {
 //            nav.viewControllers = [HomeFlowController()]
 //        } else {  
-        nav.viewControllers = [loginFlow]
+//        nav.viewControllers = [loginFlow]
+        nav.viewControllers = [onboardingFlow]
+        
 //        }
         return nav
     }

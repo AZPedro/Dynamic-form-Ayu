@@ -13,6 +13,26 @@ public protocol FormSection {
     var sectionImage: UIImage? { get set }
 }
 
+public protocol OnboardingFormSection: FormSection {
+    var messageText: String { get set }
+    var imagePosition: NSTextAlignment { get set }
+}
+
+public protocol LoginFormSectionProtocol: FormSection {
+
+}
+
+extension OnboardingFormSection {
+    public var masks: [MaskField] {
+        get {
+           return []
+        }
+        set {
+            
+        }
+    }
+}
+
 public protocol MaskField {
     var mask: String? { get set }
     var keyboardType: UIKeyboardType { get }

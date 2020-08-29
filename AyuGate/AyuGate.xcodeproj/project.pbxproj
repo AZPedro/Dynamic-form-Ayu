@@ -14,6 +14,9 @@
 		FA028ECD24F870C000A7F962 /* AYUSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */; };
 		FA028ED224F93C4000A7F962 /* LoginFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA028ED124F93C4000A7F962 /* LoginFlowController.swift */; };
 		FA028ED424F98D6600A7F962 /* RegisterScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA028ED324F98D6600A7F962 /* RegisterScreenController.swift */; };
+		FA028ED824F9E3DD00A7F962 /* OnboardingFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA028ED724F9E3DD00A7F962 /* OnboardingFlowController.swift */; };
+		FA028EDC24F9ED5800A7F962 /* OnboardingStepCollectionViewCellContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA028EDB24F9ED5800A7F962 /* OnboardingStepCollectionViewCellContentController.swift */; };
+		FA028EDE24F9F37300A7F962 /* OnboardingStepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA028ED924F9ECC600A7F962 /* OnboardingStepCollectionViewCell.swift */; };
 		FA07026524ECAA5600E0336F /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07026424ECAA5600E0336F /* FormTextField.swift */; };
 		FA0D4562246E06D10012FCCE /* InvoiceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D4561246E06D10012FCCE /* InvoiceDetailsViewModel.swift */; };
 		FA1BEAB82469E20600D78940 /* AccountDetailsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BEAB72469E20600D78940 /* AccountDetailsListViewController.swift */; };
@@ -38,8 +41,8 @@
 		FA9E98A024E8A49C0027FF5F /* FormStepCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F90F24E08F0C00B6AE20 /* FormStepCollectionController.swift */; };
 		FA9E98A124E8A4A00027FF5F /* StepPageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC933624E856C20019501B /* StepPageControlViewController.swift */; };
 		FA9E98A224E8A4A30027FF5F /* StepBottomSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94A37C24E4B1DA004A17F4 /* StepBottomSegmentController.swift */; };
-		FA9E98A324E8A4A60027FF5F /* StepCollectionViewCellContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94A37A24E4B12C004A17F4 /* StepCollectionViewCellContentController.swift */; };
-		FA9E98A424E8A4AA0027FF5F /* StepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */; };
+		FA9E98A324E8A4A60027FF5F /* StepFormCollectionViewCellContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94A37A24E4B12C004A17F4 /* StepFormCollectionViewCellContentController.swift */; };
+		FA9E98A424E8A4AA0027FF5F /* FormStepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C356124D8DCB800F8F0CD /* FormStepCollectionViewCell.swift */; };
 		FA9E98B524E8A9010027FF5F /* AyuKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9E98B324E8A9010027FF5F /* AyuKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA9E98BE24E8A9B60027FF5F /* AyuKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9E98B124E8A9010027FF5F /* AyuKit.framework */; };
 		FA9E98C324E8A9DD0027FF5F /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6FD24462FD700C49E06 /* UIColor+extensions.swift */; };
@@ -130,6 +133,9 @@
 		FA028ECB24F86D9700A7F962 /* Shakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shakeable.swift; sourceTree = "<group>"; };
 		FA028ED124F93C4000A7F962 /* LoginFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowController.swift; sourceTree = "<group>"; };
 		FA028ED324F98D6600A7F962 /* RegisterScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenController.swift; sourceTree = "<group>"; };
+		FA028ED724F9E3DD00A7F962 /* OnboardingFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowController.swift; sourceTree = "<group>"; };
+		FA028ED924F9ECC600A7F962 /* OnboardingStepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA028EDB24F9ED5800A7F962 /* OnboardingStepCollectionViewCellContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepCollectionViewCellContentController.swift; sourceTree = "<group>"; };
 		FA07026424ECAA5600E0336F /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		FA0D4561246E06D10012FCCE /* InvoiceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsViewModel.swift; sourceTree = "<group>"; };
 		FA1BEAB52469D8A100D78940 /* UIDevice+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+extensions.swift"; sourceTree = "<group>"; };
@@ -148,11 +154,11 @@
 		FA5761A42453802A009BB9CF /* CPFVerifyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPFVerifyViewModel.swift; sourceTree = "<group>"; };
 		FA6B01742469CC6D00E004CA /* AYURoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYURoute.swift; sourceTree = "<group>"; };
 		FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStepFlowController.swift; sourceTree = "<group>"; };
-		FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA7C356124D8DCB800F8F0CD /* FormStepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStepCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA8F27C924F4766300AB04F6 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		FA8F27CB24F5EFED00AB04F6 /* LoginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenController.swift; sourceTree = "<group>"; };
 		FA8F27CF24F5FC0300AB04F6 /* MockMeiMessageUserStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMeiMessageUserStatusController.swift; sourceTree = "<group>"; };
-		FA94A37A24E4B12C004A17F4 /* StepCollectionViewCellContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCellContentController.swift; sourceTree = "<group>"; };
+		FA94A37A24E4B12C004A17F4 /* StepFormCollectionViewCellContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepFormCollectionViewCellContentController.swift; sourceTree = "<group>"; };
 		FA94A37C24E4B1DA004A17F4 /* StepBottomSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBottomSegmentController.swift; sourceTree = "<group>"; };
 		FA94A37E24E4B349004A17F4 /* UILabel+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+extensions.swift"; sourceTree = "<group>"; };
 		FA9E989124E8A4220027FF5F /* FormKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FormKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +280,16 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		FA028ED624F9E3C000A7F962 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FA028ED724F9E3DD00A7F962 /* OnboardingFlowController.swift */,
+				FA028ED924F9ECC600A7F962 /* OnboardingStepCollectionViewCell.swift */,
+				FA028EDB24F9ED5800A7F962 /* OnboardingStepCollectionViewCellContentController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		FA1BEABB2469E7B000D78940 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,7 +354,7 @@
 		FA7C356024D8DCA700F8F0CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA7C356124D8DCB800F8F0CD /* StepCollectionViewCell.swift */,
+				FA7C356124D8DCB800F8F0CD /* FormStepCollectionViewCell.swift */,
 				FA07026424ECAA5600E0336F /* FormTextField.swift */,
 				FA9E991824EB4FD70027FF5F /* FormFieldContent.swift */,
 			);
@@ -388,7 +404,7 @@
 				FAA9F90F24E08F0C00B6AE20 /* FormStepCollectionController.swift */,
 				FABC933624E856C20019501B /* StepPageControlViewController.swift */,
 				FA94A37C24E4B1DA004A17F4 /* StepBottomSegmentController.swift */,
-				FA94A37A24E4B12C004A17F4 /* StepCollectionViewCellContentController.swift */,
+				FA94A37A24E4B12C004A17F4 /* StepFormCollectionViewCellContentController.swift */,
 			);
 			path = Step;
 			sourceTree = "<group>";
@@ -425,6 +441,7 @@
 				FA8F27C924F4766300AB04F6 /* Mock.swift */,
 				FA4B7573246B4123000501DD /* Keychain.swift */,
 				FA1BEABD2469E7F200D78940 /* SessionManager.swift */,
+				FA028ED624F9E3C000A7F962 /* Onboarding */,
 				FA028ED024F93C3000A7F962 /* Login */,
 				FABDFFCA2464B8F0004B253A /* Account */,
 				FABAABB02462224600A3A678 /* Invoice */,
@@ -760,9 +777,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA9E98A324E8A4A60027FF5F /* StepCollectionViewCellContentController.swift in Sources */,
+				FA9E98A324E8A4A60027FF5F /* StepFormCollectionViewCellContentController.swift in Sources */,
 				FA07026524ECAA5600E0336F /* FormTextField.swift in Sources */,
-				FA9E98A424E8A4AA0027FF5F /* StepCollectionViewCell.swift in Sources */,
+				FA9E98A424E8A4AA0027FF5F /* FormStepCollectionViewCell.swift in Sources */,
 				FA9E989E24E8A4620027FF5F /* FormStepFlowController.swift in Sources */,
 				FA9E991924EB4FD70027FF5F /* FormFieldContent.swift in Sources */,
 				FA9E98A024E8A49C0027FF5F /* FormStepCollectionController.swift in Sources */,
@@ -802,6 +819,7 @@
 				FABAABB5246347C400A3A678 /* ProfileInfoCardView.swift in Sources */,
 				FABDFFCC2464B936004B253A /* AccountViewController.swift in Sources */,
 				FAD5107C2449318200B224AF /* AYUCPFFormView.swift in Sources */,
+				FA028EDE24F9F37300A7F962 /* OnboardingStepCollectionViewCell.swift in Sources */,
 				FABAABB72463699100A3A678 /* InvoiceListDetailsViewController.swift in Sources */,
 				FABAABB22462233D00A3A678 /* InvoiceDetailViewController.swift in Sources */,
 				FAB2A7112447BF7200C49E06 /* AYUCustomBarView.swift in Sources */,
@@ -823,11 +841,13 @@
 				FABAB9F7244F8AEB00170210 /* HomeFlowController.swift in Sources */,
 				FA4B7574246B4123000501DD /* Keychain.swift in Sources */,
 				FABAABB92463731100A3A678 /* InvoiceDetailsTableViewCell.swift in Sources */,
+				FA028ED824F9E3DD00A7F962 /* OnboardingFlowController.swift in Sources */,
 				FA8F27CA24F4766300AB04F6 /* Mock.swift in Sources */,
 				FAB2A70A2447A33D00C49E06 /* AYULogoLabel.swift in Sources */,
 				FA028ED424F98D6600A7F962 /* RegisterScreenController.swift in Sources */,
 				FA8F27CC24F5EFEE00AB04F6 /* LoginScreenController.swift in Sources */,
 				FA1BEABE2469E7F200D78940 /* SessionManager.swift in Sources */,
+				FA028EDC24F9ED5800A7F962 /* OnboardingStepCollectionViewCellContentController.swift in Sources */,
 				FAD51086244A610C00B224AF /* AYUActionButtonViewController.swift in Sources */,
 				FABAB9FC244F8CB800170210 /* HomeCardView.swift in Sources */,
 				FABDFFCE2464B97D004B253A /* AYUDetailInfoView.swift in Sources */,

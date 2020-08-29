@@ -26,6 +26,7 @@ class LoginFlowController: UIViewController {
     
     private func setup() {
         installChild(loginController)
+        self.view.backgroundColor = .clear
     }
     
     private func verifyCPF(text: String?) {

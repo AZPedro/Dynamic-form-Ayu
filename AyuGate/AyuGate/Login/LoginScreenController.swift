@@ -22,9 +22,9 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
         return LoginBackgroundStep()
     }()
     
-    lazy var backgroundStepController: BackgroundStepController = {
-        return BackgroundStepController(stepDependence: backgroundStepDepence)
-    }()
+//    lazy var backgroundStepController: BackgroundStepController = {
+//        return BackgroundStepController(stepDependence: backgroundStepDepence)
+//    }()
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -106,13 +106,14 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
     }
     
     private func installBackground() {
-        installChild(backgroundStepController)
+//        installChild(backgroundStepController)
     }
     
     private func setupComponents() {
         fieldStackContent.translatesAutoresizingMaskIntoConstraints = false
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         
+        view.backgroundColor = .clear
         view.addSubview(fieldStackContent)
         view.addSubview(actionButton)
         view.addSubview(imageView)

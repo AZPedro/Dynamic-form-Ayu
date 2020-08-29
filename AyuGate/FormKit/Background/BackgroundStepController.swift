@@ -21,12 +21,6 @@ public protocol StepProtocolDelegate {
     func moveToStep(at position: Int)
 }
 
-public protocol StepProtocol {
-    var numberOfSteps: Int { get set }
-    var currentStep: Int { get set }
-    var delegate: StepProtocolDelegate? { get set }
-}
-
 extension BackgroundStepViewProtocol {
     
     var defaultConstant: CGFloat {

@@ -8,30 +8,45 @@
 
 import UIKit
 
-class FormStepCollectionController: UIViewController, StepProtocolDelegate {
+public protocol StepProtocol {
+    var numberOfSteps: Int { get set }
+    var currentStep: Int { get set }
+    var delegate: StepProtocolDelegate? { get set }
+}
+
+public protocol FormLayout {
+    var isScrollEnabled: Bool { get set }
+    var shouldShowStepBottom: Bool { get set }
+}
+
+class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController, StepProtocolDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     internal var stepDependence: StepProtocol
+    internal var formCollectionLayout: FormLayout
     internal var formSectionDependence: [FormSection]
     var items: [IndexPath] = []
 
-    private var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
-    private static var collectionViewFlowLayout: UICollectionViewFlowLayout = {
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
+    private var collectionViewFlowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = UIScreen.main.bounds.size
         flowLayout.scrollDirection = .horizontal
         return flowLayout
     }()
     
-    weak var delegate: BackgroundStepViewProtocol?
+    public var delegate: StepProtocolDelegate?
+    
+    private var shouldMoveToStep = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }
     
-    init(stepDependence: StepProtocol, formSectionDependence: [FormSection]) {
+    init(stepDependence: StepProtocol, formSectionDependence: [FormSection], formCollectionLayoutDependence: FormLayout) {
         self.stepDependence = stepDependence
         self.formSectionDependence = formSectionDependence
+        self.formCollectionLayout = formCollectionLayoutDependence
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,11 +58,11 @@ class FormStepCollectionController: UIViewController, StepProtocolDelegate {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
-        collectionView.showsHorizontalScrollIndicator = true
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
-        collectionView.isScrollEnabled = false
+        collectionView.isScrollEnabled = formCollectionLayout.isScrollEnabled
         collectionView.isUserInteractionEnabled = true
-        collectionView.register(StepCollectionViewCell.self, forCellWithReuseIdentifier: StepCollectionViewCell.identifier)
+        collectionView.register(T.self, forCellWithReuseIdentifier: T.identifier)
     }
     
     private func buildUI() {
@@ -56,13 +71,11 @@ class FormStepCollectionController: UIViewController, StepProtocolDelegate {
     }
     
     func moveToStep(at position: Int) {
+        guard !formCollectionLayout.isScrollEnabled else { return }
         let indexPath = IndexPath(row: position, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
-}
-
-extension FormStepCollectionController: UICollectionViewDelegate, UICollectionViewDataSource {
-   
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return stepDependence.numberOfSteps+1
     }
@@ -72,29 +85,27 @@ extension FormStepCollectionController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StepCollectionViewCell.identifier, for: indexPath) as? StepCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as? T else { return UICollectionViewCell() }
         items.append(indexPath)
         cell.setup(section: formSectionDependence[indexPath.row])
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard formCollectionLayout.isScrollEnabled else { return }
+        if shouldMoveToStep {
+            self.delegate?.moveToStep(at: indexPath.row)
+        } else {
+            shouldMoveToStep = true
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
     func didNext() {
         
-    }
-}
-
-extension UIColor {
-    static func random() -> UIColor {
-        return UIColor(
-           red:   .random(),
-           green: .random(),
-           blue:  .random(),
-           alpha: 1.0
-        )
-    }
-}
-extension CGFloat {
-    static func random() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
     }
 }

@@ -11,13 +11,25 @@ import UIKit
 public protocol FormDependencies {
     var stepDependence: StepProtocol { get set }
     var formSectionDependence: [FormSection] { get set }
+    var formLayoutDependence: FormLayout { get }
+}
+
+struct DefaultFormCollectionLayout: FormLayout {
+    var isScrollEnabled: Bool = true
+    var shouldShowStepBottom: Bool = true
+}
+
+extension FormDependencies {
+    public var formLayoutDependence: FormLayout {
+        return DefaultFormCollectionLayout()
+    }
 }
 
 public protocol FormStepFlowControllerDelegate {
     func formStepFlowControllerDelegateDidFinish()
 }
 
-public class FormStepFlowController: UIViewController, StepProtocolDelegate {
+public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController, StepProtocolDelegate {
     
     private var dependencies: FormDependencies
     public var delegate: FormStepFlowControllerDelegate?
@@ -31,9 +43,9 @@ public class FormStepFlowController: UIViewController, StepProtocolDelegate {
         return BackgroundStepController(stepDependence: dependencies.stepDependence)
     }()
     
-    lazy var formStepCollectionController: FormStepCollectionController = {
-        let formCollection = FormStepCollectionController(stepDependence: dependencies.stepDependence, formSectionDependence: dependencies.formSectionDependence)
-        formCollection.delegate = backgroundStepController
+    lazy var formStepCollectionController: FormStepCollectionController<T> = {
+        let formCollection = FormStepCollectionController<T>(stepDependence: dependencies.stepDependence, formSectionDependence: dependencies.formSectionDependence, formCollectionLayoutDependence: dependencies.formLayoutDependence)
+        formCollection.delegate = self
         return formCollection
     }()
     
@@ -59,7 +71,11 @@ public class FormStepFlowController: UIViewController, StepProtocolDelegate {
     private func setup() {
         installChild(backgroundStepController)
         installChild(formStepCollectionController)
-        installBottonSegment()
+        
+        if dependencies.formLayoutDependence.shouldShowStepBottom {
+            installBottonSegment()
+        }
+        
         installPageControl()
         
         dependencies.stepDependence.delegate = self
@@ -80,12 +96,15 @@ public class FormStepFlowController: UIViewController, StepProtocolDelegate {
     private func installPageControl() {
         addChild(pageControl)
         view.addSubview(pageControl.view)
-        stepBottomSegmentController.didMove(toParent: self)
+        pageControl.didMove(toParent: self)
         
-        NSLayoutConstraint.activate([
-            pageControl.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pageControl.view.bottomAnchor.constraint(equalTo: stepBottomSegmentController.view.topAnchor)
-        ])
+        pageControl.view.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        if dependencies.formLayoutDependence.shouldShowStepBottom {
+            pageControl.view.bottomAnchor.constraint(equalTo: stepBottomSegmentController.view.topAnchor).isActive = true
+        } else {
+            pageControl.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        }
     }
     
     public func moveToStep(at position: Int) {
