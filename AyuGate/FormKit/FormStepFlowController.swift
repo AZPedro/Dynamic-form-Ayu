@@ -14,10 +14,7 @@ public protocol FormDependencies {
     var formLayoutDependence: FormLayout { get }
 }
 
-struct DefaultFormCollectionLayout: FormLayout {
-    var isScrollEnabled: Bool = true
-    var shouldShowStepBottom: Bool = true
-}
+struct DefaultFormCollectionLayout: FormLayout { }
 
 extension FormDependencies {
     public var formLayoutDependence: FormLayout {
@@ -29,7 +26,7 @@ public protocol FormStepFlowControllerDelegate {
     func formStepFlowControllerDelegateDidFinish()
 }
 
-public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController, StepProtocolDelegate {
+public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController, StepProtocolDelegate, FormLayoutDelegate {
     
     private var dependencies: FormDependencies
     public var delegate: FormStepFlowControllerDelegate?
@@ -69,6 +66,13 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
     }
     
     private func setup() {
+        
+        dependencies.formSectionDependence = dependencies.formSectionDependence.map({ section -> FormSection in
+            var section = section
+            section.layout?.delegate = self
+            return section
+        })
+        
         installChild(backgroundStepController)
         installChild(formStepCollectionController)
         
@@ -91,6 +95,14 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
             stepBottomSegmentController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             stepBottomSegmentController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+    
+    public func updateLayout(for sectionLayout: FormLayout) {
+        pageControl.view.isHidden = !sectionLayout.shouldShowPageControl
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.formStepCollectionController.collectionView.isScrollEnabled = sectionLayout.isScrollEnabled
+        }
     }
     
     private func installPageControl() {

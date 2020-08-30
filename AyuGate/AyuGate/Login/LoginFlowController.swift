@@ -8,15 +8,20 @@
 
 import UIKit
 import FormKit
+import AyuKit
 
 class LoginFlowController: UIViewController {
     
     let network = NetworkManager()
     
     private lazy var loginController: LoginScreenController = {
-        let loginController = LoginScreenController()
+        let loginController = LoginScreenController(section: LoginSection())
         loginController.delegate = self
         return loginController
+    }()
+    
+    private lazy var messageSection: MessageSection = {
+        return MessageSection(buttonTitle: "Abrir MEI", messageText: "Verificamos que agora você já pode ser MEI", sectionImage: Images.womanReading)
     }()
     
     override func viewDidLoad() {
@@ -41,9 +46,9 @@ class LoginFlowController: UIViewController {
 
             let model = CPFVerifyViewModel(model: result, cpf: cpfValue)
             DispatchQueue.main.async {
-//                self.loginController.verifyViewModel = model
-                self.loginController.verifyViewModel = CPFVerifyViewModel(model: .init(status: "newUser"), cpf: "18004906745")
-                
+                self.loginController.verifyViewModel = model
+//                self.showPreForm()
+//                self.loginController.verifyViewModel = CPFVerifyViewModel(model: .init(status: "newUser"), cpf: "18004906745")
             }
         }
     }
@@ -73,13 +78,32 @@ class LoginFlowController: UIViewController {
         let request = AYURoute(path: .profile(id: profileID)).resquest
         
         NetworkManager.shared.makeRequest(request: request) { (result: Handler<ProfileParsable>?, validation) in
+            
+            DispatchQueue.main.async {
+                self.loginController.actionButton.status = .loaded
+            }
+            
             guard let profile = result?.response else {
                 return
             }
-            
+
             SessionManager.shared.saveAccount(profile: profile)
+            
             // show form or home if needed
-            self.showHome()
+            if true {
+                self.showPreForm()
+            } else {
+                self.showHome()
+            }
+        }
+    }
+    
+    private func showPreForm() {
+        DispatchQueue.main.async {
+            self.view.isHidden = true
+            let homeFlow = OnboardingMessageViewController(section: self.messageSection)
+            homeFlow.modalPresentationStyle = .fullScreen
+            self.present(homeFlow, animated: true, completion: nil)
         }
     }
     
@@ -119,4 +143,15 @@ extension LoginFlowController: LoginScreenControllerDelegate {
         verifyCPF(text: field.value)
     }
 }
- 
+
+struct MessageSection: OnboardingFormSection {
+    var buttonTitle: String
+    var imagePosition: NSTextAlignment = .right
+    var messageText: String
+    var sectionImage: UIImage?
+}
+
+struct LoginSection: FormSection {
+    var masks: [MaskField] = []
+    var sectionImage: UIImage? = Images.womanWithComputer
+}

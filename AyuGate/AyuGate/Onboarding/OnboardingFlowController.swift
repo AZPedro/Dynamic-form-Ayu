@@ -82,9 +82,17 @@ struct OnboardingCollectionLayout: FormLayout {
     var isScrollEnabled: Bool = true
 }
 
+struct LoginFormLayout: FormLayout {
+    var shouldShowStepBottom: Bool = false
+    var isScrollEnabled: Bool = false
+    var shouldShowPageControl: Bool = false
+    var delegate: FormLayoutDelegate?
+}
+
 // login section
 
 struct LoginFormSection: LoginFormSectionProtocol {
     var masks: [MaskField] = []
     var sectionImage: UIImage? = nil
+    var layout: FormLayout? = LoginFormLayout()
 }

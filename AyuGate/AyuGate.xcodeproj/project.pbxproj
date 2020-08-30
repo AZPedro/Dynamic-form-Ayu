@@ -23,6 +23,7 @@
 		FA1BEABA2469E2A500D78940 /* AccountDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BEAB92469E2A500D78940 /* AccountDetailsTableViewCell.swift */; };
 		FA1BEABE2469E7F200D78940 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BEABD2469E7F200D78940 /* SessionManager.swift */; };
 		FA1BEAC0246A046900D78940 /* PasswordValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BEABF246A046900D78940 /* PasswordValidationViewModel.swift */; };
+		FA1C62AE24FA919B0089E1C7 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C62AD24FA919B0089E1C7 /* Notifications.swift */; };
 		FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsView.swift */; };
 		FA26393724617E4D00E282F6 /* AYUMonthsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */; };
 		FA375B472469A68200D190E8 /* AYURequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA375B462469A68200D190E8 /* AYURequest.swift */; };
@@ -55,6 +56,8 @@
 		FA9E991624EB380C0027FF5F /* FormKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9E989124E8A4220027FF5F /* FormKit.framework */; };
 		FA9E991724EB380C0027FF5F /* FormKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA9E989124E8A4220027FF5F /* FormKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA9E991924EB4FD70027FF5F /* FormFieldContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E991824EB4FD70027FF5F /* FormFieldContent.swift */; };
+		FAA4DD5624FAA46D00525CA5 /* OnboardingMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4DD5524FAA46D00525CA5 /* OnboardingMessageViewController.swift */; };
+		FAA4DD5924FB3B9100525CA5 /* BackgroundAnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4DD5724FB307F00525CA5 /* BackgroundAnimatedImage.swift */; };
 		FAB2A6E22445FD0A00C49E06 /* AyuGateAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */; };
 		FAB2A6E62445FD0A00C49E06 /* DebugComponentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E52445FD0A00C49E06 /* DebugComponentsViewController.swift */; };
 		FAB2A6EB2445FD0E00C49E06 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB2A6EA2445FD0E00C49E06 /* images.xcassets */; };
@@ -143,6 +146,7 @@
 		FA1BEAB92469E2A500D78940 /* AccountDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		FA1BEABD2469E7F200D78940 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		FA1BEABF246A046900D78940 /* PasswordValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationViewModel.swift; sourceTree = "<group>"; };
+		FA1C62AD24FA919B0089E1C7 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUInvoiceDetailsView.swift; sourceTree = "<group>"; };
 		FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUMonthsPickerView.swift; sourceTree = "<group>"; };
 		FA375B462469A68200D190E8 /* AYURequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYURequest.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 		FA9E98B424E8A9010027FF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9E98CB24E8AFC60027FF5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA9E991824EB4FD70027FF5F /* FormFieldContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldContent.swift; sourceTree = "<group>"; };
+		FAA4DD5524FAA46D00525CA5 /* OnboardingMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMessageViewController.swift; sourceTree = "<group>"; };
+		FAA4DD5724FB307F00525CA5 /* BackgroundAnimatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundAnimatedImage.swift; sourceTree = "<group>"; };
 		FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStepController.swift; sourceTree = "<group>"; };
 		FAA9F90F24E08F0C00B6AE20 /* FormStepCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStepCollectionController.swift; sourceTree = "<group>"; };
 		FAB2A6DE2445FD0A00C49E06 /* AyuGate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AyuGate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,6 +292,7 @@
 				FA028ED724F9E3DD00A7F962 /* OnboardingFlowController.swift */,
 				FA028ED924F9ECC600A7F962 /* OnboardingStepCollectionViewCell.swift */,
 				FA028EDB24F9ED5800A7F962 /* OnboardingStepCollectionViewCellContentController.swift */,
+				FAA4DD5524FAA46D00525CA5 /* OnboardingMessageViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -365,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */,
+				FA1C62AD24FA919B0089E1C7 /* Notifications.swift */,
 				FA7C355D24D8CA0100F8F0CD /* Background */,
 				FAA9F90E24E08C4800B6AE20 /* Step */,
 				FA7C356024D8DCA700F8F0CD /* Views */,
@@ -382,6 +390,7 @@
 				FA9E98B324E8A9010027FF5F /* AyuKit.h */,
 				FA9E98B424E8A9010027FF5F /* Info.plist */,
 				FA028ECB24F86D9700A7F962 /* Shakeable.swift */,
+				FAA4DD5724FB307F00525CA5 /* BackgroundAnimatedImage.swift */,
 			);
 			path = AyuKit;
 			sourceTree = "<group>";
@@ -777,6 +786,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1C62AE24FA919B0089E1C7 /* Notifications.swift in Sources */,
 				FA9E98A324E8A4A60027FF5F /* StepFormCollectionViewCellContentController.swift in Sources */,
 				FA07026524ECAA5600E0336F /* FormTextField.swift in Sources */,
 				FA9E98A424E8A4AA0027FF5F /* FormStepCollectionViewCell.swift in Sources */,
@@ -786,6 +796,7 @@
 				FA9E98A224E8A4A30027FF5F /* StepBottomSegmentController.swift in Sources */,
 				FA9E989F24E8A4990027FF5F /* BackgroundStepController.swift in Sources */,
 				FA9E98A124E8A4A00027FF5F /* StepPageControlViewController.swift in Sources */,
+				FAA4DD5924FB3B9100525CA5 /* BackgroundAnimatedImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,6 +826,7 @@
 				FAD51075244925D900B224AF /* AppFlow.swift in Sources */,
 				FA57619F24536D89009BB9CF /* NetworkManager.swift in Sources */,
 				FABAB9F9244F8B3700170210 /* HomeViewController.swift in Sources */,
+				FAA4DD5624FAA46D00525CA5 /* OnboardingMessageViewController.swift in Sources */,
 				FA1BEAC0246A046900D78940 /* PasswordValidationViewModel.swift in Sources */,
 				FABAABB5246347C400A3A678 /* ProfileInfoCardView.swift in Sources */,
 				FABDFFCC2464B936004B253A /* AccountViewController.swift in Sources */,

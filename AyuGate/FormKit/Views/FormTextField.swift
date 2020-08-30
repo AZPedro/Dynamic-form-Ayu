@@ -11,16 +11,49 @@ import UIKit
 public protocol FormSection {
     var masks: [MaskField] { get set }
     var sectionImage: UIImage? { get set }
+    var layout: FormLayout? { get set }
+    var imagePosition: NSTextAlignment { get set }
+}
+
+extension FormSection {
+    public var layout: FormLayout? {
+        get {
+            return nil
+        }
+        
+        set {
+            
+        }
+    }
+    
+    public var imagePosition: NSTextAlignment {
+        get {
+            return .left
+        }
+        
+        set {
+            
+        }
+    }
 }
 
 public protocol OnboardingFormSection: FormSection {
     var messageText: String { get set }
-    var imagePosition: NSTextAlignment { get set }
+    var buttonTitle: String { get set }
 }
 
-public protocol LoginFormSectionProtocol: FormSection {
-
+extension OnboardingFormSection {
+    public var buttonTitle: String {
+        get {
+            return "Avançar"
+        }
+        set {
+            
+        }
+    }
 }
+
+public protocol LoginFormSectionProtocol: FormSection { }
 
 extension OnboardingFormSection {
     public var masks: [MaskField] {

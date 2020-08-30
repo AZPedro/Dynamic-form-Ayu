@@ -14,9 +14,59 @@ public protocol StepProtocol {
     var delegate: StepProtocolDelegate? { get set }
 }
 
+public protocol FormLayoutDelegate {
+    func updateLayout(for sectionLayout: FormLayout)
+}
+
 public protocol FormLayout {
     var isScrollEnabled: Bool { get set }
     var shouldShowStepBottom: Bool { get set }
+    var shouldShowPageControl: Bool { get set }
+    var delegate: FormLayoutDelegate? { get set }
+}
+
+extension FormLayout {
+    
+    public var delegate: FormLayoutDelegate? {
+        get {
+            return nil
+        }
+        
+        set {
+            
+        }
+    }
+    
+    public var shouldShowPageControl: Bool {
+        get {
+            return true
+        }
+        set {
+            
+        }
+    }
+    
+    public var shouldShowStepBottom: Bool {
+        get {
+            return true
+        }
+        
+        set {
+            
+        }
+    }
+    
+    public var isScrollEnabled: Bool {
+        get {
+            return true
+        }
+        
+        set {
+            
+        }
+    }
+    
+    
 }
 
 class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController, StepProtocolDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -26,7 +76,7 @@ class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController,
     internal var formSectionDependence: [FormSection]
     var items: [IndexPath] = []
 
-    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
+    public lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
     private var collectionViewFlowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = UIScreen.main.bounds.size
@@ -71,7 +121,7 @@ class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController,
     }
     
     func moveToStep(at position: Int) {
-        guard !formCollectionLayout.isScrollEnabled else { return }
+        guard formCollectionLayout.shouldShowStepBottom && !formCollectionLayout.isScrollEnabled else { return }
         let indexPath = IndexPath(row: position, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
@@ -87,15 +137,21 @@ class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as? T else { return UICollectionViewCell() }
         items.append(indexPath)
+        
         cell.setup(section: formSectionDependence[indexPath.row])
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
         guard formCollectionLayout.isScrollEnabled else { return }
         if shouldMoveToStep {
             self.delegate?.moveToStep(at: indexPath.row)
+            
+            guard let sectionLayout = formSectionDependence[indexPath.row].layout else { return }
+            sectionLayout.delegate?.updateLayout(for: sectionLayout)
+            
         } else {
             shouldMoveToStep = true
         }

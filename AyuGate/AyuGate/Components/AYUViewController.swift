@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AYUViewController: UIViewController {
+public class AYUViewController: UIViewController {
     
     lazy var headerLogoImage: UIImageView = {
         let i = UIImageView()
@@ -42,7 +42,7 @@ class AYUViewController: UIViewController {
         
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }
@@ -54,7 +54,7 @@ class AYUViewController: UIViewController {
     private func buildUI() {
         view.isUserInteractionEnabled = true
        
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         view.addSubview(headerLogoImage)
         view.addSubview(backArrow)
         

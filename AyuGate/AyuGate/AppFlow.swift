@@ -16,39 +16,39 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
     
     private lazy var nav = UINavigationController()
     
-    let meiFormFlowSections: [FormSection] = [
-        CPFSection(masks: [Mock.NameField()]),
-        CPFSection(masks: [Mock.EmailField()]),
-        CPFSection(masks: [Mock.BirthDayDate()]),
-        CPFSection(sectionImage: nil, masks: [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()])
-    ]
-    
-    let meiFormFlowUncompletedSections: [FormSection] = [
-        CPFSection(masks: [Mock.BirthDayDate()]),
-        CPFSection(sectionImage: nil, masks: [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()])
-    ]
-    
-    private lazy var meiFormFlowDependencies: CPFFormDepencies = {
-        return CPFFormDepencies(formSectionDependence: meiFormFlowSections ,stepDependence: Step(numberOfSteps: meiFormFlowSections.count-1, currentStep: 0))
-    }()
-    
-    private lazy var meiFormFlowUnCompletedDependencies: CPFFormDepencies = {
-        return CPFFormDepencies(formSectionDependence: meiFormFlowUncompletedSections ,stepDependence: Step(numberOfSteps: meiFormFlowUncompletedSections.count-1, currentStep: 0))
-    }()
+//    let meiFormFlowUncompletedSections: [FormSection] = [
+//        CPFSection(masks: [Mock.BirthDayDate()]),
+//        CPFSection(sectionImage: nil, masks: [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()])
+//    ]
+//
+//    private lazy var meiFormFlowUnCompletedDependencies: CPFFormDepencies = {
+//        return CPFFormDepencies(formSectionDependence: meiFormFlowUncompletedSections ,stepDependence: Step(numberOfSteps: meiFormFlowUncompletedSections.count-1, currentStep: 0))
+//    }()
+//
+//    let meiFormFlowSections: [FormSection] = [
+//        CPFSection(masks: [Mock.NameField()]),
+//        CPFSection(masks: [Mock.EmailField()]),
+//        CPFSection(masks: [Mock.BirthDayDate()]),
+//        CPFSection(sectionImage: nil, masks: [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()])
+//    ]
+//
+//    private lazy var meiFormFlowDependencies: CPFFormDepencies = {
+//        return CPFFormDepencies(formSectionDependence: meiFormFlowSections ,stepDependence: Step(numberOfSteps: meiFormFlowSections.count-1, currentStep: 0))
+//    }()
     
     // Formulario para MEI vazio
-    private lazy var meiFormFlow: FormStepFlowController<FormStepCollectionViewCell> = {
-        let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: meiFormFlowDependencies)
-        flow.delegate = self
-        return flow
-    }()
+//    private lazy var meiFormFlow: FormStepFlowController<FormStepCollectionViewCell> = {
+//        let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: meiFormFlowDependencies)
+//        flow.delegate = self
+//        return flow
+//    }()
     
     // Formulário com campos que estão faltando
-    private lazy var meiFormUnCompletedFlow: FormStepFlowController<FormStepCollectionViewCell> = {
-        let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: meiFormFlowUnCompletedDependencies)
-        flow.delegate = self
-        return flow
-    }()
+//    private lazy var meiFormUnCompletedFlow: FormStepFlowController<FormStepCollectionViewCell> = {
+//        let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: meiFormFlowUnCompletedDependencies)
+//        flow.delegate = self
+//        return flow
+//    }()
     
     private lazy var loginFlow: LoginFlowController = {
         let flow = LoginFlowController()
@@ -85,6 +85,7 @@ struct FormDependence: FormDependencies {
 }
 
 struct CPFFormDepencies: FormDependencies {
+    var formLayoutDependence: FormLayout
     var formSectionDependence: [FormSection]
     var stepDependence: StepProtocol
 }

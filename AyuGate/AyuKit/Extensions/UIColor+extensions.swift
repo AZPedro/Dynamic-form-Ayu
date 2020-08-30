@@ -17,7 +17,6 @@ extension UIColor {
     public static var blackTerciary = UIColor.hexStringToUIColor(hex: "#535353")
     public static var grayPrimary = UIColor.hexStringToUIColor(hex: "#7C7C7C")
     public static var graySecondary = UIColor.hexStringToUIColor(hex: "#B9B9B9")
-    public static var white = UIColor.hexStringToUIColor(hex: "#FFFFFF")
     public static var whitePlaceholder = UIColor.hexStringToUIColor(hex: "#FFFFFF").withAlphaComponent(0.38)
     public static var whiteSecondary = UIColor.hexStringToUIColor(hex: "#F8F8F8")
     public static var yellowPrimary = UIColor.hexStringToUIColor(hex: "#EFEC4E")

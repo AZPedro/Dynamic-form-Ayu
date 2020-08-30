@@ -8,12 +8,14 @@
 
 import UIKit
 import FormKit
+import AyuKit
 
-public class OnboardingStepCollectionViewCellContentController: UIViewController {
+public class OnboardingStepCollectionViewCellContentController: AYUActionButtonViewController, BackgroundAnimatedImage {
     
-    private var section: OnboardingFormSection
+    public var section: FormSection
+    public var initialImageFrame: CGRect = .zero
     
-    private lazy var imageView: UIImageView = {
+    public lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: section.sectionImage)
         imageView.image = section.sectionImage
 
@@ -24,8 +26,8 @@ public class OnboardingStepCollectionViewCellContentController: UIViewController
     private lazy var messageLabel: UILabel = {
         let messageLabel = UILabel().font(.systemFont(ofSize: 20, weight: .bold))
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        messageLabel.textColor = .white
-        messageLabel.text = section.messageText
+        messageLabel.textColor = UIColor.white
+        messageLabel.text = (section as? OnboardingFormSection)?.messageText ?? ""
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .left
         messageLabel.widthAnchor.constraint(equalToConstant: 263).isActive = true
@@ -35,7 +37,7 @@ public class OnboardingStepCollectionViewCellContentController: UIViewController
     
     public init(section: OnboardingFormSection) {
         self.section = section
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
@@ -62,5 +64,19 @@ public class OnboardingStepCollectionViewCellContentController: UIViewController
         default:
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         }
+        let buttonTitle: String = (self.section as? OnboardingFormSection)?.buttonTitle ?? ""
+        actionButton.setTitle(buttonTitle, for: .normal)
+        actionButton.isHidden = true
+        actionButton.status = .enabled
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.animateBackgroundImage()
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.prepare()
     }
 }

@@ -9,13 +9,13 @@
 import UIKit
 import AyuKit
 
-protocol AYUActionButtonViewControllerDelegate: AYUActionButtonViewController {
+public protocol AYUActionButtonViewControllerDelegate: AYUActionButtonViewController {
     var controllerUpConstant: CGFloat? { get }
 }
 
-class AYUActionButtonViewController: AYUViewController {
+public class AYUActionButtonViewController: AYUViewController {
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }
@@ -29,11 +29,12 @@ class AYUActionButtonViewController: AYUViewController {
         
         view.addSubview(actionButton)
         
-        actionButtonBottomConstraint = actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        actionButtonBottomConstraint = actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         actionButtonBottomConstraint?.isActive = true
         actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         actionButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        view.backgroundColor = .clear
     }
     
     @objc func buttonAction(_ sender: Any) {

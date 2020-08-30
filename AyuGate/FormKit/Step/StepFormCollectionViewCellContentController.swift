@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import AyuKit
 
 public class StepFormCollectionViewCellContentController: UIViewController {
     
-    private var section: FormSection
+    
+    public var section: FormSection
     
     private lazy var scrollContentView: UIScrollView = {
         let scrollContentView = UIScrollView()
@@ -19,7 +21,8 @@ public class StepFormCollectionViewCellContentController: UIViewController {
         return scrollContentView
     }()
     
-    private lazy var imageView: UIImageView = {
+    public var initialImageFrame: CGRect = .zero
+    public lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: section.sectionImage)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

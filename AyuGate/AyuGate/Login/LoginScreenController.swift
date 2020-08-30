@@ -18,15 +18,13 @@ protocol LoginScreenControllerDelegate {
 
 class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewControllerDelegate {
     
+    var section: FormSection
+    
     let backgroundStepDepence: StepProtocol = {
         return LoginBackgroundStep()
     }()
     
-//    lazy var backgroundStepController: BackgroundStepController = {
-//        return BackgroundStepController(stepDependence: backgroundStepDepence)
-//    }()
-    
-    private lazy var imageView: UIImageView = {
+    public lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -93,20 +91,24 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
         }
     }
     
+    public init(section: FormSection) {
+        self.section = section
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         build()
     }
     
     private func build() {
-        installBackground()
         setupComponents()
         
         actionButtonViewControllerDelegate = self
-    }
-    
-    private func installBackground() {
-//        installChild(backgroundStepController)
     }
     
     private func setupComponents() {
@@ -186,6 +188,7 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
 extension LoginScreenController: AYUActionButtonDelegate {
     func actionButtonDelegateDidTouch(_ sender: Any) {
         actionButton.status = .loading
+        self.view.endEditing(true)
         switch controllerState {
         case .cpf:
             delegate?.loginScreenControllerDelegateVerifyCPF(field: fieldContent)

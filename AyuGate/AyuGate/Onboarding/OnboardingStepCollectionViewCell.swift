@@ -19,6 +19,7 @@ public class OnboardingStepCollectionViewCell: UICollectionViewCell, StepCollect
         if let onboardingSection = section as? OnboardingFormSection {
             onboardingStepCollectionViewCellContentController = OnboardingStepCollectionViewCellContentController(section: onboardingSection)
             guard let contentController = onboardingStepCollectionViewCellContentController else { return }
+            
             contentView.add(view: contentController.view)
         } else if let _ = section as? LoginFormSection {
             contentView.add(view: loginFlowController.view)
