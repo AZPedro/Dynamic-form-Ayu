@@ -13,6 +13,7 @@ public protocol FormSection {
     var sectionImage: UIImage? { get set }
     var layout: FormLayout? { get set }
     var imagePosition: NSTextAlignment { get set }
+    var imageBorderSpace: CGFloat { get set }
 }
 
 extension FormSection {
@@ -29,6 +30,21 @@ extension FormSection {
     public var imagePosition: NSTextAlignment {
         get {
             return .left
+        }
+        
+        set {
+            
+        }
+    }
+    
+    public var imageBorderSpace: CGFloat {
+        get {
+            switch imagePosition {
+            case .right:
+                return -10
+            default:
+                return 10
+            }
         }
         
         set {

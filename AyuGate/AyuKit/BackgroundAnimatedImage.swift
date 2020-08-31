@@ -23,7 +23,7 @@ extension BackgroundAnimatedImage {
         imageView.frame = .init(x: initialXPosition, y: imageView.frame.origin.y, width: imageView.frame.width, height: imageView.frame.height)
     }
     
-    public func animateBackgroundImage(duration: Double = 0.3, withDelay: Double = 0.9) {
+    public func animateBackgroundImage(duration: Double = 0.3, withDelay: Double = 0.5) {
         if initialImageFrame == .zero {
             assertionFailure("prepare() function shoud be called on layoutSubviews")
         }

@@ -15,40 +15,7 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
     static var shared: AppFlow = AppFlow()
     
     private lazy var nav = UINavigationController()
-    
-//    let meiFormFlowUncompletedSections: [FormSection] = [
-//        CPFSection(masks: [Mock.BirthDayDate()]),
-//        CPFSection(sectionImage: nil, masks: [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()])
-//    ]
-//
-//    private lazy var meiFormFlowUnCompletedDependencies: CPFFormDepencies = {
-//        return CPFFormDepencies(formSectionDependence: meiFormFlowUncompletedSections ,stepDependence: Step(numberOfSteps: meiFormFlowUncompletedSections.count-1, currentStep: 0))
-//    }()
-//
-//    let meiFormFlowSections: [FormSection] = [
-//        CPFSection(masks: [Mock.NameField()]),
-//        CPFSection(masks: [Mock.EmailField()]),
-//        CPFSection(masks: [Mock.BirthDayDate()]),
-//        CPFSection(sectionImage: nil, masks: [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()])
-//    ]
-//
-//    private lazy var meiFormFlowDependencies: CPFFormDepencies = {
-//        return CPFFormDepencies(formSectionDependence: meiFormFlowSections ,stepDependence: Step(numberOfSteps: meiFormFlowSections.count-1, currentStep: 0))
-//    }()
-    
-    // Formulario para MEI vazio
-//    private lazy var meiFormFlow: FormStepFlowController<FormStepCollectionViewCell> = {
-//        let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: meiFormFlowDependencies)
-//        flow.delegate = self
-//        return flow
-//    }()
-    
-    // Formulário com campos que estão faltando
-//    private lazy var meiFormUnCompletedFlow: FormStepFlowController<FormStepCollectionViewCell> = {
-//        let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: meiFormFlowUnCompletedDependencies)
-//        flow.delegate = self
-//        return flow
-//    }()
+
     
     private lazy var loginFlow: LoginFlowController = {
         let flow = LoginFlowController()
@@ -59,6 +26,10 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
         let flow = OnboardingFlowController()
         return flow
     }()
+    
+    private lazy var messageSection: MessageSection = {
+        return MessageSection(buttonTitle: "Abrir MEI", messageText: "Verificamos que agora você já pode ser MEI", sectionImage: Images.womanReading)
+    }()
 
     func flow() -> UINavigationController {
         nav.isNavigationBarHidden = true
@@ -68,7 +39,9 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
 //            nav.viewControllers = [HomeFlowController()]
 //        } else {  
 //        nav.viewControllers = [loginFlow]
-        nav.viewControllers = [onboardingFlow]
+//        nav.viewControllers = [onboardingFlow]
+        nav.viewControllers = [OnboardingMessageViewController(section: messageSection)]
+        
         
 //        }
         return nav
@@ -90,7 +63,7 @@ struct CPFFormDepencies: FormDependencies {
     var stepDependence: StepProtocol
 }
 
-struct CPFSection: FormSection {
+struct Section: FormSection {
     var sectionImage: UIImage? = Images.womanWithComputer
     var masks: [MaskField]
 }

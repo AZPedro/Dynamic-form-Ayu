@@ -8,9 +8,10 @@
 
 import UIKit
 import FormKit
+import AyuKit
 
 class CpfRegisterViewController: AYUViewController {
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }

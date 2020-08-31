@@ -9,14 +9,15 @@
 import Foundation
 import AyuKit
 import FormKit
+import UIKit
 
 class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentController, AYUActionButtonDelegate, FormStepFlowControllerDelegate {
 
     let meiFormFlowSections: [FormSection] = [
-        CPFSection(masks: [Mock.NameField()]),
-        CPFSection(masks: [Mock.EmailField()]),
-        CPFSection(masks: [Mock.BirthDayDate()]),
-        CPFSection(sectionImage: nil, masks: [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()])
+        Section(masks: [Mock.NameField()]),
+        Section(masks: [Mock.EmailField()]),
+        Section(masks: [Mock.BirthDayDate()]),
+        RGSection()
     ]
     
     struct MeiFormLayout: FormLayout {
@@ -53,4 +54,10 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
     func formStepFlowControllerDelegateDidFinish() {
         
     }
+}
+
+struct RGSection: FormSection {
+    var masks: [MaskField] = [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()]
+    var sectionImage: UIImage? = Images.womanWithDocument
+    var imageBorderSpace: CGFloat = 0
 }

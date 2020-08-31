@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class AYUViewController: UIViewController {
+open class AYUViewController: UIViewController {
     
     lazy var headerLogoImage: UIImageView = {
         let i = UIImageView()
@@ -19,8 +19,8 @@ public class AYUViewController: UIViewController {
         i.image = UIImage(named: "AYUTitleLogo")
         return i
     }()
-    
-     lazy var backArrow: UIImageView = {
+     
+    public lazy var backArrow: UIImageView = {
         let i = UIImageView()
         i.isHidden = true
         i.isUserInteractionEnabled = true
@@ -37,17 +37,17 @@ public class AYUViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    init() {
+    public init() {
         super.init(nibName: nil, bundle: nil)
         
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AyuKit
 
 class InvoiceDetailViewController: AYUViewController {
     

@@ -9,9 +9,9 @@
 import UIKit
 import AyuKit
 
-public class StepFormCollectionViewCellContentController: UIViewController {
-    
-    
+public class StepFormCollectionViewCellContentController: AYUActionButtonViewController, AYUActionButtonViewControllerDelegate {
+    public var controllerUpConstant: CGFloat? = 100
+
     public var section: FormSection
     
     private lazy var scrollContentView: UIScrollView = {
@@ -22,8 +22,11 @@ public class StepFormCollectionViewCellContentController: UIViewController {
     }()
     
     public var initialImageFrame: CGRect = .zero
+    
     public lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: section.sectionImage)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -37,7 +40,7 @@ public class StepFormCollectionViewCellContentController: UIViewController {
     
     public init(section: FormSection) {
         self.section = section
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
@@ -63,17 +66,24 @@ public class StepFormCollectionViewCellContentController: UIViewController {
             scrollContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             imageView.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 50),
-            imageView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 10),
             imageView.widthAnchor.constraint(equalToConstant: 154),
-            imageView.widthAnchor.constraint(equalToConstant: 233),
+            imageView.heightAnchor.constraint(equalToConstant: 233),
                     
-            stackFieldsContent.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0),
-            stackFieldsContent.centerXAnchor.constraint(equalTo: scrollContentView.centerXAnchor),
+            stackFieldsContent.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 50),
+            stackFieldsContent.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackFieldsContent.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width-44),
-            stackFieldsContent.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor)
         ])
         
+        switch section.imagePosition {
+        case .right:
+            imageView.rightAnchor.constraint(equalTo: scrollContentView.rightAnchor, constant: section.imageBorderSpace).isActive = true
+        default:
+            imageView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: section.imageBorderSpace).isActive = true
+        }
+        
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        actionButton.isHidden = true
+        actionButtonViewControllerDelegate = self
         
         setupFields()
     }
@@ -83,10 +93,16 @@ public class StepFormCollectionViewCellContentController: UIViewController {
     }
     
     private func setupFields() {
-        let fields = section.masks.compactMap { mask -> FormFieldContent? in
+        var fields = section.masks.compactMap { mask -> FormFieldContent? in
             let formField = FormFieldContent(maskField: mask)
             formField.model = mask.formModel
             return formField
+        }
+        
+        if fields.count > 1 {
+            fields = fields.map({
+                $0.setCustonTitleSpace(10)
+            })
         }
         
         stackFieldsContent.add(fields)

@@ -129,7 +129,7 @@ public class FormFieldContent: UIView {
     }
     
     func setCustonTitleSpace(_ spacing: CGFloat) -> Self {
-        contentStack.setCustomSpacing(spacing, after: title)
+        contentStack.spacing = spacing
         return self
     }
     

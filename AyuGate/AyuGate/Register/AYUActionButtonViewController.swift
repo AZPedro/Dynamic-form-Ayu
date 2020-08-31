@@ -7,15 +7,15 @@
 //
 
 import UIKit
-import AyuKit
+//import AyuKit
 
 public protocol AYUActionButtonViewControllerDelegate: AYUActionButtonViewController {
     var controllerUpConstant: CGFloat? { get }
 }
 
-public class AYUActionButtonViewController: AYUViewController {
+open class AYUActionButtonViewController: AYUViewController {
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }
@@ -41,14 +41,14 @@ public class AYUActionButtonViewController: AYUViewController {
         actionHandler?()
     }
 
-    lazy var actionButton: AYUActionButton = {
+    public lazy var actionButton: AYUActionButton = {
         let button = AYUActionButton().setTitle("Avançar")
         return button
     }()
     
     var actionButtonBottomConstraint: NSLayoutConstraint?
     
-    @objc func keyboardWillShow(notification: Notification) {
+    @objc open func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             view.setNeedsLayout()
             
@@ -65,7 +65,7 @@ public class AYUActionButtonViewController: AYUViewController {
         }
     }
 
-    @objc func keyboardWillHide(notification: Notification) {
+    @objc open func keyboardWillHide(notification: Notification) {
         view.setNeedsLayout()
 
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {

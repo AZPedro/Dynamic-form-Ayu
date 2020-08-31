@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AyuKit
 
 class PasswordRegisterViewController: AYUActionButtonViewController {
     
@@ -178,7 +179,7 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
         }
     }
     
-    override func keyboardWillShow(notification: Notification) {
+   public override func keyboardWillShow(notification: Notification) {
         super.keyboardWillShow(notification: notification)
         view.setNeedsLayout()
 
@@ -188,7 +189,7 @@ class PasswordRegisterViewController: AYUActionButtonViewController {
         }, completion: nil)
     }
     
-    override func keyboardWillHide(notification: Notification) {
+   public override func keyboardWillHide(notification: Notification) {
         super.keyboardWillHide(notification: notification)
         view.setNeedsLayout()
 

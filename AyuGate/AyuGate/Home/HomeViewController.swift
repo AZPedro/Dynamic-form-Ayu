@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AyuKit
 
 class HomeViewController: AYUViewController {
     override func viewDidLoad() {
