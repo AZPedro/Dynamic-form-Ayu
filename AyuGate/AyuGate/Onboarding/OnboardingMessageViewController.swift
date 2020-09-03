@@ -21,6 +21,9 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
     ]
     
     struct MeiFormLayout: FormLayout {
+        var delegate: FormLayoutDelegate?
+
+        var shouldShowNextStepButton: Bool = false
         var isScrollEnabled: Bool = false
         var shouldShowStepBottom: Bool = true
     }
@@ -57,6 +60,7 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
 }
 
 struct RGSection: FormSection {
+    var layout: FormLayout? = DefaultFormCollectionLayout()
     var masks: [MaskField] = [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()]
     var sectionImage: UIImage? = Images.womanWithDocument
     var imageBorderSpace: CGFloat = 0

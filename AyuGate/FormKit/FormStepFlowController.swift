@@ -14,7 +14,15 @@ public protocol FormDependencies {
     var formLayoutDependence: FormLayout { get }
 }
 
-struct DefaultFormCollectionLayout: FormLayout { }
+public struct DefaultFormCollectionLayout: FormLayout {
+    public var delegate: FormLayoutDelegate?
+    public var shouldShowNextStepButton: Bool
+    
+    public init(shouldShowNextStepButton: Bool = false, delegate: FormLayoutDelegate? = nil){
+        self.shouldShowNextStepButton = shouldShowNextStepButton
+        self.delegate = delegate
+    }
+}
 
 extension FormDependencies {
     public var formLayoutDependence: FormLayout {

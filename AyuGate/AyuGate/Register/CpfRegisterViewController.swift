@@ -71,9 +71,13 @@ class CpfRegisterViewController: AYUViewController {
         cpfFormView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         cpfFormView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
-        cpfFormView.model = FormFieldContent.Model(placeholder: "CPF", title: "Insira seu CPF", validator: { isValidCPFText in
+
+        cpfFormView.model = FormFieldContent.Model(placeholder: "CPF", title: "Insira seu CPF", value: nil)
+        
+        cpfFormView.validationHandler = { isValidCPFText in
             self.stepBottomSegmentController.isValid = isValidCPFText
-        })
+        }
+        
     }
     
     private func verifyCPF(text: String?) {

@@ -59,7 +59,7 @@ public class OnboardingStepCollectionViewCellContentController: AYUActionButtonV
         ])
         
         switch section.imagePosition {
-        case .right:
+        case .trailing:
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35).isActive = true
         default:
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true

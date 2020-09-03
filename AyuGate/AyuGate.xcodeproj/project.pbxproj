@@ -84,6 +84,8 @@
 		FAD5108A244A6DCF00B224AF /* PasswordRegisterViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD51089244A6DCF00B224AF /* PasswordRegisterViewController .swift */; };
 		FADA8D6124FD8F2700ECB891 /* AYUActionButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD51085244A610C00B224AF /* AYUActionButtonViewController.swift */; };
 		FADA8D6224FD8F3100ECB891 /* AYUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5107924492CAB00B224AF /* AYUViewController.swift */; };
+		FADA8D702501335200ECB891 /* FormModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA8D6F2501335200ECB891 /* FormModels.swift */; };
+		FADA8D7225018F9900ECB891 /* SectionImageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA8D7125018F9900ECB891 /* SectionImageContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +214,8 @@
 		FAD51085244A610C00B224AF /* AYUActionButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUActionButtonViewController.swift; sourceTree = "<group>"; };
 		FAD51087244A6A3500B224AF /* RegisterFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFlowController.swift; sourceTree = "<group>"; };
 		FAD51089244A6DCF00B224AF /* PasswordRegisterViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PasswordRegisterViewController .swift"; sourceTree = "<group>"; };
+		FADA8D6F2501335200ECB891 /* FormModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModels.swift; sourceTree = "<group>"; };
+		FADA8D7125018F9900ECB891 /* SectionImageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionImageContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				FA5761A024537A4B009BB9CF /* ParsableModels.swift */,
+				FADA8D6E2501332600ECB891 /* Form */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				FA7C356124D8DCB800F8F0CD /* FormStepCollectionViewCell.swift */,
+				FADA8D7125018F9900ECB891 /* SectionImageContentView.swift */,
 				FA07026424ECAA5600E0336F /* FormTextField.swift */,
 				FA9E991824EB4FD70027FF5F /* FormFieldContent.swift */,
 			);
@@ -373,6 +379,7 @@
 			children = (
 				FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */,
 				FA1C62AD24FA919B0089E1C7 /* Notifications.swift */,
+				FADA8D6D25012FE500ECB891 /* Codables */,
 				FA7C355D24D8CA0100F8F0CD /* Background */,
 				FAA9F90E24E08C4800B6AE20 /* Step */,
 				FA7C356024D8DCA700F8F0CD /* Views */,
@@ -566,6 +573,21 @@
 				FAD5107B2449318200B224AF /* AYUCPFFormView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FADA8D6D25012FE500ECB891 /* Codables */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Codables;
+			sourceTree = "<group>";
+		};
+		FADA8D6E2501332600ECB891 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				FADA8D6F2501335200ECB891 /* FormModels.swift */,
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -796,6 +818,7 @@
 				FA9E98A224E8A4A30027FF5F /* StepBottomSegmentController.swift in Sources */,
 				FA9E989F24E8A4990027FF5F /* BackgroundStepController.swift in Sources */,
 				FA9E98A124E8A4A00027FF5F /* StepPageControlViewController.swift in Sources */,
+				FADA8D7225018F9900ECB891 /* SectionImageContentView.swift in Sources */,
 				FAA4DD5924FB3B9100525CA5 /* BackgroundAnimatedImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -846,6 +869,7 @@
 				FA375B472469A68200D190E8 /* AYURequest.swift in Sources */,
 				FA8F27D024F5FC0300AB04F6 /* MockMeiMessageUserStatusController.swift in Sources */,
 				FA028ED224F93C4000A7F962 /* LoginFlowController.swift in Sources */,
+				FADA8D702501335200ECB891 /* FormModels.swift in Sources */,
 				FAB2A70F2447AD0400C49E06 /* InvoiceDiscountBarModel.swift in Sources */,
 				FA43787C246CA5570099B905 /* Profile.swift in Sources */,
 				FAB2A6FB2446100800C49E06 /* AYUButton.swift in Sources */,

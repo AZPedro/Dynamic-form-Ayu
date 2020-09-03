@@ -36,6 +36,15 @@ class AYURequest: NSObject {
         setupRequest()
     }
     
+    public init(stringURL: String) {
+        self.url = URL(string: stringURL)!
+        self.request = URLRequest(url: self.url)
+        self.method = .get
+        self.body = nil
+        
+        super.init()
+    }
+    
     private func setupRequest() {
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = [

@@ -103,6 +103,6 @@ extension RegisterScreenController: AYUActionButtonDelegate {
     }
     
     func passwordFieldModel(with title: String) -> FormFieldContent.Model {
-        return FormFieldContent.Model(placeholder: "Senha", title: title, errorMessage: "Senha inválida")
+        return FormFieldContent.Model(placeholder: "Senha", title: title)
     }
 }

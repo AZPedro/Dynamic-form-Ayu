@@ -69,4 +69,5 @@ class NetworkManager: NSObject {
  https://demo2715069.mockable.io/user/signup
  https://demo2715069.mockable.io/user/login
  https://demo2715069.mockable.io/auth/refresh_token
+ // Form mock: https://run.mocky.io/v3/a3c092f8-be92-4777-a8ce-56278fd27f2f
  */

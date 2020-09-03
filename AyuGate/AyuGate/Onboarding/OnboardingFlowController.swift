@@ -66,23 +66,29 @@ struct OnboardingStepProtocol: StepProtocol {
 }
 
 struct OnboardingFirstSection: OnboardingFormSection {
+    var layout: FormLayout? = DefaultFormCollectionLayout()
+
     var imagePosition: NSTextAlignment = .left
     var messageText: String
     var sectionImage: UIImage?
 }
 
 struct OnboardingSecondFormSection: OnboardingFormSection {
+    var layout: FormLayout? = DefaultFormCollectionLayout()
     var imagePosition: NSTextAlignment = .right
     var messageText: String
     var sectionImage: UIImage?
 }
 
 struct OnboardingCollectionLayout: FormLayout {
+    var delegate: FormLayoutDelegate?
+    var shouldShowNextStepButton: Bool = false
     var shouldShowStepBottom: Bool = false
     var isScrollEnabled: Bool = true
 }
 
 struct LoginFormLayout: FormLayout {
+    var shouldShowNextStepButton: Bool = false
     var shouldShowStepBottom: Bool = false
     var isScrollEnabled: Bool = false
     var shouldShowPageControl: Bool = false

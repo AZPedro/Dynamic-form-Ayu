@@ -70,6 +70,12 @@ class LoginFlowController: UIViewController {
         }
     }
     
+//    private func fetchForm() {
+//        NetworkManager.shared.makeRequest(request: .init(stringURL: "https://run.mocky.io/v3/a3c092f8-be92-4777-a8ce-56278fd27f2f")) { (result: Handler<Login>?, valid) in
+//            print(result)
+//        }
+//    }
+    
     private func fetchProfile() {
         guard let profileID = SessionManager.shared.profileId else {
             return
@@ -90,6 +96,7 @@ class LoginFlowController: UIViewController {
             SessionManager.shared.saveAccount(profile: profile)
             
             // show form or home if needed
+            
             if true {
                 self.showPreForm()
             } else {
@@ -145,13 +152,15 @@ extension LoginFlowController: LoginScreenControllerDelegate {
 }
 
 struct MessageSection: OnboardingFormSection {
+    var layout: FormLayout? = DefaultFormCollectionLayout()
     var buttonTitle: String
-    var imagePosition: NSTextAlignment = .right
+    var imagePosition: UIStackView.Alignment = .trailing
     var messageText: String
     var sectionImage: UIImage?
 }
 
 struct LoginSection: FormSection {
+    var layout: FormLayout? = DefaultFormCollectionLayout()
     var masks: [MaskField] = []
     var sectionImage: UIImage? = Images.womanWithComputer
 }

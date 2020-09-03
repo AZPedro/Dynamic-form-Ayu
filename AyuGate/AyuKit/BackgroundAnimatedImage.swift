@@ -19,7 +19,7 @@ extension BackgroundAnimatedImage {
     public func prepare() {
         imageView.alpha = 0
         initialImageFrame = imageView.frame
-        let initialXPosition = section.imagePosition == .left ? -(imageView.frame.width-10) : +(imageView.frame.width+10)
+        let initialXPosition = section.imagePosition == .leading ? -(imageView.frame.width-10) : +(imageView.frame.width+10)
         imageView.frame = .init(x: initialXPosition, y: imageView.frame.origin.y, width: imageView.frame.width, height: imageView.frame.height)
     }
     

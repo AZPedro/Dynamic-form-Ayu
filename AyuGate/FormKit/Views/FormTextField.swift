@@ -12,24 +12,24 @@ public protocol FormSection {
     var masks: [MaskField] { get set }
     var sectionImage: UIImage? { get set }
     var layout: FormLayout? { get set }
-    var imagePosition: NSTextAlignment { get set }
+    var imagePosition: UIStackView.Alignment { get set }
     var imageBorderSpace: CGFloat { get set }
 }
 
 extension FormSection {
-    public var layout: FormLayout? {
-        get {
-            return nil
-        }
-        
-        set {
-            
-        }
-    }
+//    public var layout: FormLayout? {
+//        get {
+//            return nil
+//        }
+//        
+//        set {
+//            
+//        }
+//    }
     
-    public var imagePosition: NSTextAlignment {
+    public var imagePosition: UIStackView.Alignment {
         get {
-            return .left
+            return .leading
         }
         
         set {
@@ -40,7 +40,7 @@ extension FormSection {
     public var imageBorderSpace: CGFloat {
         get {
             switch imagePosition {
-            case .right:
+            case .trailing:
                 return -10
             default:
                 return 10
@@ -84,8 +84,40 @@ extension OnboardingFormSection {
 
 public protocol MaskField {
     var mask: String? { get set }
-    var keyboardType: UIKeyboardType { get }
+    var keyboardType: FormFieldContent.Keyboard { get }
     var validatorQuery: String? { get set }
     var formModel: FormFieldContent.Model { get set }
     var fieldType: FormFieldContent.FieldType { get set }
+    var isSecurity: Bool { get set }
+}
+
+extension MaskField {
+    public var isSecurity: Bool {
+        get {
+            return false
+        }
+        set {
+            
+        }
+    }
+    
+    public var fieldType: FormFieldContent.FieldType {
+        get {
+            return .text
+        }
+        
+        set {
+            
+        }
+    }
+    
+    public var keyboardType: FormFieldContent.Keyboard {
+        get {
+            return .default
+        }
+        
+        set {
+            
+        }
+    }
 }

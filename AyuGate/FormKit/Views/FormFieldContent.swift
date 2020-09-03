@@ -72,21 +72,24 @@ public class FormFieldContent: UIView {
         let placeholder: String?
         let title: String
         let value: String?
-        let errorMessage: String?
         let spacingAfterTitle: CGFloat
         
-        public init(placeholder: String? = nil, title: String, validator: ((Bool) -> Void)? = nil, value: String? = nil, spacingAfterTitle: CGFloat = 30, errorMessage: String? = nil) {
+        public init(placeholder: String? = nil, title: String, value: String? = nil, spacingAfterTitle: CGFloat = 30) {
             self.placeholder = placeholder
             self.title = title
             self.value = value
             self.spacingAfterTitle = spacingAfterTitle
-            self.errorMessage = errorMessage
         }
     }
     
-    public enum FieldType {
+    public enum FieldType: String {
         case text
-        case security
+        case upload
+    }
+    
+    public enum Keyboard: String {
+        case number
+        case `default`
     }
     
     public init(maskField: MaskField) {
@@ -172,10 +175,16 @@ public class FormFieldContent: UIView {
         title.text = model.title
         textField.text = model.value
         textField.maskString = maskField.mask
-        errorMessageLabel.text = model.errorMessage
-        textFieldPlaceholder.isHidden = model.value != nil
-        textField.keyboardType = maskField.keyboardType
-        textField.isSecureTextEntry = maskField.fieldType == .security
+        textFieldPlaceholder.isHidden = model.value != nil && !(model.value?.isEmpty ?? true)
+       
+        switch maskField.keyboardType {
+        case .default:
+            textField.keyboardType = .default
+        case .number:
+            textField.keyboardType = .numberPad
+        }
+        
+        textField.isSecureTextEntry = maskField.isSecurity
     }
     
     @objc func keyboardWillHide(notification: Notification) {
@@ -219,39 +228,41 @@ extension FormFieldContent: UITextFieldDelegate {
             self.textDidChange?(value)
             return true
         }
-    
-        guard maskField.validatorQuery != nil else {
-            self.textDidChange?(value)
-            return true
-        }
-
-        executValidator(for: value)
+        
         self.textDidChange?(value)
-
+        
         return true
     }
     
     private func executValidator(for value: String) {
+        guard maskField.validatorQuery != nil else { return }
         let context = JSContext()
         context?.evaluateScript(maskField.validatorQuery)
         
         let validObject = context?.objectForKeyedSubscript("validate")
         let result = validObject?.call(withArguments: [value])
         
-        guard let resultDescription = result?.description else {
-            return
-        }
-        
-        let isValid = resultDescription == "0"
-        validationHandler?(isValid)
-        
-        if value.count == maskField.mask?.count {
-            fieldIsValid = isValid
+        do {
+            guard let resultDictionary = result?.toDictionary() else { return }
+            let data = try JSONSerialization.data(withJSONObject: resultDictionary, options: .fragmentsAllowed)
+            let validation = try JSONDecoder().decode(Validation.self, from: data)
+            
+            errorMessageLabel.text = validation.message
+            fieldIsValid = validation.isValid
+            
+        } catch {
+            validationHandler?(false)
         }
     }
     
     public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         self.textFieldPlaceholder.isHidden = !(textField.text?.isEmpty ?? true)
+        executValidator(for: textField.text ?? "")
         return true
     }
+}
+
+struct Validation: Decodable {
+    let isValid: Bool
+    let message: String?
 }

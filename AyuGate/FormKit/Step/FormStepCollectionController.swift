@@ -22,20 +22,11 @@ public protocol FormLayout {
     var isScrollEnabled: Bool { get set }
     var shouldShowStepBottom: Bool { get set }
     var shouldShowPageControl: Bool { get set }
+    var shouldShowNextStepButton: Bool { get set }
     var delegate: FormLayoutDelegate? { get set }
 }
 
 extension FormLayout {
-    
-    public var delegate: FormLayoutDelegate? {
-        get {
-            return nil
-        }
-        
-        set {
-            
-        }
-    }
     
     public var shouldShowPageControl: Bool {
         get {
@@ -58,15 +49,13 @@ extension FormLayout {
     
     public var isScrollEnabled: Bool {
         get {
-            return true
+            return false
         }
         
         set {
             
         }
     }
-    
-    
 }
 
 class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController, StepProtocolDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

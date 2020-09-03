@@ -10,13 +10,13 @@ import UIKit
 import AyuKit
 
 public class StepFormCollectionViewCellContentController: AYUActionButtonViewController, AYUActionButtonViewControllerDelegate {
-    public var controllerUpConstant: CGFloat? = 100
-
+    
     public var section: FormSection
+    
+    public var controllerUpConstant: CGFloat? = 100
     
     private lazy var scrollContentView: UIScrollView = {
         let scrollContentView = UIScrollView()
-        scrollContentView.contentSize = .init(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*2)
         scrollContentView.translatesAutoresizingMaskIntoConstraints = false
         return scrollContentView
     }()
@@ -31,10 +31,24 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
         return imageView
     }()
     
+    private lazy var mainStackContent: UIStackView = {
+        let stackView = UIStackView().vertical(50)
+        switch section.imagePosition {
+        
+        case .trailing:
+            stackView.alignment = .trailing
+        default:
+            stackView.alignment = .leading
+        }
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     private lazy var stackFieldsContent: UIStackView = {
         let stackView = UIStackView().vertical(20)
-
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .leading
+        stackView.distribution = .fillProportionally
         return stackView
     }()
     
@@ -55,37 +69,31 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
     private func buildUI() {
         view.addSubview(scrollContentView)
 
-        scrollContentView.addSubview(imageView)
-        scrollContentView.addSubview(stackFieldsContent)
-    
+        scrollContentView.addSubview(mainStackContent)
+        
+        mainStackContent.add([
+            imageView,
+            stackFieldsContent
+        ])
     
         NSLayoutConstraint.activate([
             scrollContentView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollContentView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80),
             scrollContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            imageView.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 50),
-            imageView.widthAnchor.constraint(equalToConstant: 154),
-            imageView.heightAnchor.constraint(equalToConstant: 233),
-                    
-            stackFieldsContent.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 50),
-            stackFieldsContent.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackFieldsContent.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width-44),
+       
+            mainStackContent.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 50),
+            mainStackContent.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainStackContent.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width-44),
+            mainStackContent.bottomAnchor.constraint(lessThanOrEqualTo: scrollContentView.bottomAnchor, constant: -30)
         ])
-        
-        switch section.imagePosition {
-        case .right:
-            imageView.rightAnchor.constraint(equalTo: scrollContentView.rightAnchor, constant: section.imageBorderSpace).isActive = true
-        default:
-            imageView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: section.imageBorderSpace).isActive = true
-        }
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         actionButton.isHidden = true
         actionButtonViewControllerDelegate = self
         
         setupFields()
+
     }
     
     @objc private func dismissKeyboard() {
@@ -106,5 +114,24 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
         }
         
         stackFieldsContent.add(fields)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.section.layout?.shouldShowNextStepButton = true
+            self.section.layout?.delegate?.updateLayout(for: self.section.layout!)
+        }
+    }
+    
+    public override func keyboardWillHide(notification: Notification) {
+        super.keyboardWillHide(notification: notification)
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollContentView.contentSize.height -= keyboardSize.height / 2
+        }
+    }
+    
+    public override func keyboardWillShow(notification: Notification) {
+        super.keyboardWillShow(notification: notification)
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollContentView.contentSize.height += keyboardSize.height / 2
+        }
     }
 }
