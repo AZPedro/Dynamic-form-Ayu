@@ -60,6 +60,7 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
 }
 
 struct RGSection: FormSection {
+    var sectionImageURL: String? = nil
     var layout: FormLayout? = DefaultFormCollectionLayout()
     var masks: [MaskField] = [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()]
     var sectionImage: UIImage? = Images.womanWithDocument

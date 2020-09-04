@@ -9,10 +9,10 @@
 import UIKit
 import AyuKit
 
-public class StepFormCollectionViewCellUploadContentController: UIViewController {
+public class StepFormCollectionViewCellUploadContentController: UIViewController, SectionController {
     public var section: FormSection
     public lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: section.sectionImage)
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +58,7 @@ public class StepFormCollectionViewCellUploadContentController: UIViewController
           uploadImageView.widthAnchor.constraint(equalToConstant: 26)
         ])
         
+        parseImage(urlString: section.sectionImageURL, completion: nil)
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selecImageAction)))
     }
     

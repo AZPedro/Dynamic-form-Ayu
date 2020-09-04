@@ -11,6 +11,7 @@ import UIKit
 public protocol FormSection {
     var masks: [MaskField] { get set }
     var sectionImage: UIImage? { get set }
+    var sectionImageURL: String? { get set }
     var layout: FormLayout? { get set }
     var imagePosition: UIStackView.Alignment { get set }
     var imageBorderSpace: CGFloat { get set }

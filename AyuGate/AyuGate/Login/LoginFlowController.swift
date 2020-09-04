@@ -152,6 +152,7 @@ extension LoginFlowController: LoginScreenControllerDelegate {
 }
 
 struct MessageSection: OnboardingFormSection {
+    var sectionImageURL: String? = nil
     var layout: FormLayout? = DefaultFormCollectionLayout()
     var buttonTitle: String
     var imagePosition: UIStackView.Alignment = .trailing
@@ -160,6 +161,7 @@ struct MessageSection: OnboardingFormSection {
 }
 
 struct LoginSection: FormSection {
+    var sectionImageURL: String? = nil
     var layout: FormLayout? = DefaultFormCollectionLayout()
     var masks: [MaskField] = []
     var sectionImage: UIImage? = Images.womanWithComputer

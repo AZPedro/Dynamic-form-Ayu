@@ -9,7 +9,32 @@
 import UIKit
 import AyuKit
 
-public class StepFormCollectionViewCellContentController: AYUActionButtonViewController, AYUActionButtonViewControllerDelegate {
+protocol SectionController: UIViewController {
+    var imageView: UIImageView { get set }
+    func parseImage(urlString: String?, completion: ((UIImage?) -> ())?)
+}
+
+extension SectionController {
+    func parseImage(urlString: String?, completion: ((UIImage?) -> ())?) {
+        let urlSession = URLSession.shared
+        guard let urlString = urlString, let url = URL(string: urlString) else { return }
+        
+        urlSession.dataTask(with: url) { (data, response, error) in
+            guard let data = data, let image = UIImage(data: data) else {
+                completion?(nil)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
+            
+            completion?(image)
+        }.resume()
+    }
+}
+
+public class StepFormCollectionViewCellContentController: AYUActionButtonViewController, AYUActionButtonViewControllerDelegate, SectionController {
     
     public var section: FormSection
     
@@ -24,7 +49,7 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
     public var initialImageFrame: CGRect = .zero
     
     public lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: section.sectionImage)
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -93,7 +118,8 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
         actionButtonViewControllerDelegate = self
         
         setupFields()
-
+        
+        parseImage(urlString: section.sectionImageURL, completion: nil)
     }
     
     @objc private func dismissKeyboard() {

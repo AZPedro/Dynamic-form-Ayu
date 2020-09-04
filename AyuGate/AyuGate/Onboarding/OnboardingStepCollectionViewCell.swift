@@ -31,4 +31,5 @@ public class OnboardingStepCollectionViewCell: UICollectionViewCell, StepCollect
         onboardingStepCollectionViewCellContentController?.view.removeFromSuperview()
         loginFlowController.view.removeFromSuperview()
     }
+    
 }

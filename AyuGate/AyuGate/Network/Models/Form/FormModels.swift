@@ -16,7 +16,13 @@ struct Form: ParsableProtocol {
         let id: String
         let title: String
         let description: String
+        let imageSection: ImageSection?
         let fields: [Field]
+    }
+    
+    struct ImageSection: Decodable {
+        let url: String
+        let orientation: String
     }
     
     struct Field: Decodable {

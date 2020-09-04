@@ -57,7 +57,7 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
                     Mask(field: field)
                 }
                 
-                let section = Section(layout: DefaultFormCollectionLayout(), sectionImage: Images.womanWithComputer, masks: maskFields)
+                let section = Section(sectionImageURL: section.imageSection?.url, layout: DefaultFormCollectionLayout(), masks: maskFields)
                 return section
             })
             
@@ -90,8 +90,9 @@ struct CPFFormDepencies: FormDependencies {
 }
 
 struct Section: FormSection {
+    var sectionImageURL: String?
     var layout: FormLayout? = DefaultFormCollectionLayout()
-    var sectionImage: UIImage? = Images.womanWithComputer
+    var sectionImage: UIImage? = nil
     var masks: [MaskField]
 }
 

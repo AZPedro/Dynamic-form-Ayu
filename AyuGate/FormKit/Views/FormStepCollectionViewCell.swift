@@ -16,7 +16,7 @@ public protocol StepCollectionViewCell: UICollectionViewCell {
 public class FormStepCollectionViewCell: UICollectionViewCell, StepCollectionViewCell {
     public static var identifier: String = "StepCollectionViewCellIdentifier"
     
-    var stepCollectionViewCellContentController: UIViewController?
+    var stepCollectionViewCellContentController: SectionController?
 
     public func setup(section: FormSection) {
         let isUpload = !section.masks.filter({ $0.fieldType == .upload }).isEmpty
@@ -32,5 +32,18 @@ public class FormStepCollectionViewCell: UICollectionViewCell, StepCollectionVie
     public override func prepareForReuse() {
         super.prepareForReuse()
         stepCollectionViewCellContentController?.view.removeFromSuperview()
+    }
+    
+    public func parseImage(urlString: String, completion: @escaping ((UIImage?) -> ())) {
+        let session: URLSession = URLSession.shared
+        
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        
+        session.dataTask(with: url) { (data, response, error) in
+            
+        }
     }
 }

@@ -66,6 +66,8 @@ struct OnboardingStepProtocol: StepProtocol {
 }
 
 struct OnboardingFirstSection: OnboardingFormSection {
+    var sectionImageURL: String? = nil
+    
     var layout: FormLayout? = DefaultFormCollectionLayout()
 
     var imagePosition: NSTextAlignment = .left
@@ -74,6 +76,8 @@ struct OnboardingFirstSection: OnboardingFormSection {
 }
 
 struct OnboardingSecondFormSection: OnboardingFormSection {
+    var sectionImageURL: String? = nil
+    
     var layout: FormLayout? = DefaultFormCollectionLayout()
     var imagePosition: NSTextAlignment = .right
     var messageText: String
@@ -98,6 +102,7 @@ struct LoginFormLayout: FormLayout {
 // login section
 
 struct LoginFormSection: LoginFormSectionProtocol {
+    var sectionImageURL: String? = nil
     var masks: [MaskField] = []
     var sectionImage: UIImage? = nil
     var layout: FormLayout? = LoginFormLayout()
