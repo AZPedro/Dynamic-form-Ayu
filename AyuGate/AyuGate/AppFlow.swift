@@ -48,7 +48,7 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
     }
     
     private func fetchForm() {
-        NetworkManager.shared.makeRequest(request: .init(stringURL: "https://run.mocky.io/v3/707f065e-ecf1-47af-840c-c84240fa1824")) { (result: Handler<Form>?, valid) in
+        NetworkManager.shared.makeRequest(request: .init(stringURL: "https://run.mocky.io/v3/44091ba3-fb27-486b-834c-80b5b794e677")) { (result: Handler<Form>?, valid) in
             
             guard let form = result?.response else { return }
             
@@ -62,9 +62,8 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
             })
             
             let step = Step(numberOfSteps: form.sections.count-1, currentStep: 0)
-            
             let formDependencies = FormDependence(formSectionDependence: formSections, stepDependence: step)
-            
+
             DispatchQueue.main.async {
                 let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: formDependencies)
                 flow.modalPresentationStyle = .fullScreen

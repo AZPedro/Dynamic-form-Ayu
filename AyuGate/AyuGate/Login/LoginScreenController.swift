@@ -138,7 +138,7 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
 
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         
-        fieldContent.validationHandler = { [weak self] isValid in
+        fieldContent.validationSectionHandler = { [weak self] isValid in
             self?.actionButton.status = isValid ? .enabled : .disabled
         }
         

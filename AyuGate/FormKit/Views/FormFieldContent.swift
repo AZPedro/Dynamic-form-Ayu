@@ -35,7 +35,7 @@ public class FormFieldContent: UIView {
     
     let textFieldContent = UIView()
     
-    public var validationHandler: ((Bool) -> Void)?
+    public var validationSectionHandler: ((Bool) -> Void)?
     public var textDidChange: ((String) -> Void)?
     
     @objc private lazy var textField: JMMaskTextField = {
@@ -176,7 +176,8 @@ public class FormFieldContent: UIView {
         textField.text = model.value
         textField.maskString = maskField.mask
         textFieldPlaceholder.isHidden = model.value != nil && !(model.value?.isEmpty ?? true)
-       
+        fieldIsValid = maskField.validatorQuery == nil
+        
         switch maskField.keyboardType {
         case .default:
             textField.keyboardType = .default
@@ -249,9 +250,10 @@ extension FormFieldContent: UITextFieldDelegate {
             
             errorMessageLabel.text = validation.message
             fieldIsValid = validation.isValid
+            validationSectionHandler?(fieldIsValid)
             
         } catch {
-            validationHandler?(false)
+            validationSectionHandler?(false)
         }
     }
     

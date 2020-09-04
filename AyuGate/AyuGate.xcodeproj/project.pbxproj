@@ -57,6 +57,8 @@
 		FA9E991724EB380C0027FF5F /* FormKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA9E989124E8A4220027FF5F /* FormKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA9E991924EB4FD70027FF5F /* FormFieldContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E991824EB4FD70027FF5F /* FormFieldContent.swift */; };
 		FAA4881225029730009E6B1F /* StepFormCollectionViewCellUploadContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4881125029730009E6B1F /* StepFormCollectionViewCellUploadContentController.swift */; };
+		FAA488142502C360009E6B1F /* AyuActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA488132502C360009E6B1F /* AyuActivityView.swift */; };
+		FAA488172502E2DF009E6B1F /* UploadProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA488162502E2DE009E6B1F /* UploadProvider.swift */; };
 		FAA4DD5624FAA46D00525CA5 /* OnboardingMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4DD5524FAA46D00525CA5 /* OnboardingMessageViewController.swift */; };
 		FAA4DD5924FB3B9100525CA5 /* BackgroundAnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4DD5724FB307F00525CA5 /* BackgroundAnimatedImage.swift */; };
 		FAB2A6E22445FD0A00C49E06 /* AyuGateAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */; };
@@ -179,6 +181,8 @@
 		FA9E98CB24E8AFC60027FF5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA9E991824EB4FD70027FF5F /* FormFieldContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldContent.swift; sourceTree = "<group>"; };
 		FAA4881125029730009E6B1F /* StepFormCollectionViewCellUploadContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepFormCollectionViewCellUploadContentController.swift; sourceTree = "<group>"; };
+		FAA488132502C360009E6B1F /* AyuActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyuActivityView.swift; sourceTree = "<group>"; };
+		FAA488162502E2DE009E6B1F /* UploadProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadProvider.swift; sourceTree = "<group>"; };
 		FAA4DD5524FAA46D00525CA5 /* OnboardingMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMessageViewController.swift; sourceTree = "<group>"; };
 		FAA4DD5724FB307F00525CA5 /* BackgroundAnimatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundAnimatedImage.swift; sourceTree = "<group>"; };
 		FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStepController.swift; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB2A6F624460BE800C49E06 /* AYUSpinnerView.swift */,
+				FAA488132502C360009E6B1F /* AyuActivityView.swift */,
 				FA028EC924F864D600A7F962 /* AYUActionButton.swift */,
 			);
 			path = Components;
@@ -381,6 +386,7 @@
 			children = (
 				FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */,
 				FA1C62AD24FA919B0089E1C7 /* Notifications.swift */,
+				FAA488152502E2BF009E6B1F /* Providers */,
 				FADA8D6D25012FE500ECB891 /* Codables */,
 				FA7C355D24D8CA0100F8F0CD /* Background */,
 				FAA9F90E24E08C4800B6AE20 /* Step */,
@@ -414,6 +420,14 @@
 				FAD51083244A603500B224AF /* UIView+extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAA488152502E2BF009E6B1F /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				FAA488162502E2DE009E6B1F /* UploadProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		FAA9F90E24E08C4800B6AE20 /* Step */ = {
@@ -812,6 +826,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1C62AE24FA919B0089E1C7 /* Notifications.swift in Sources */,
+				FAA488172502E2DF009E6B1F /* UploadProvider.swift in Sources */,
 				FA9E98A324E8A4A60027FF5F /* StepFormCollectionViewCellContentController.swift in Sources */,
 				FA07026524ECAA5600E0336F /* FormTextField.swift in Sources */,
 				FA9E98A424E8A4AA0027FF5F /* FormStepCollectionViewCell.swift in Sources */,
@@ -833,6 +848,7 @@
 			files = (
 				FADA8D6124FD8F2700ECB891 /* AYUActionButtonViewController.swift in Sources */,
 				FA028ECD24F870C000A7F962 /* AYUSpinnerView.swift in Sources */,
+				FAA488142502C360009E6B1F /* AyuActivityView.swift in Sources */,
 				FA9E98C324E8A9DD0027FF5F /* UIColor+extensions.swift in Sources */,
 				FA9E98C424E8A9DD0027FF5F /* UIDevice+extensions.swift in Sources */,
 				FADA8D6224FD8F3100ECB891 /* AYUViewController.swift in Sources */,

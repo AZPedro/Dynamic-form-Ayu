@@ -51,7 +51,6 @@ extension FormLayout {
         get {
             return false
         }
-        
         set {
             
         }
@@ -128,6 +127,10 @@ class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController,
         items.append(indexPath)
         
         cell.setup(section: formSectionDependence[indexPath.row])
+        
+        cell.sectionValidationHandler = { sectionLayout in
+            sectionLayout.delegate?.updateLayout(for: sectionLayout)
+        }
         
         return cell
     }

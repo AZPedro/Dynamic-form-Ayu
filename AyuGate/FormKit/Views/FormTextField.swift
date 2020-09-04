@@ -17,17 +17,7 @@ public protocol FormSection {
     var imageBorderSpace: CGFloat { get set }
 }
 
-extension FormSection {
-//    public var layout: FormLayout? {
-//        get {
-//            return nil
-//        }
-//        
-//        set {
-//            
-//        }
-//    }
-    
+extension FormSection {    
     public var imagePosition: UIStackView.Alignment {
         get {
             return .leading

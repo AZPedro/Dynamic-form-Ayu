@@ -11,45 +11,27 @@ import AyuKit
 
 protocol SectionController: UIViewController {
     var imageView: UIImageView { get set }
-    func parseImage(urlString: String?, completion: ((UIImage?) -> ())?)
-}
-
-extension SectionController {
-    func parseImage(urlString: String?, completion: ((UIImage?) -> ())?) {
-        let urlSession = URLSession.shared
-        guard let urlString = urlString, let url = URL(string: urlString) else { return }
-        
-        urlSession.dataTask(with: url) { (data, response, error) in
-            guard let data = data, let image = UIImage(data: data) else {
-                completion?(nil)
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.imageView.image = image
-            }
-            
-            completion?(image)
-        }.resume()
-    }
+    var delegate: StepCollectionViewCell? { get set }
 }
 
 public class StepFormCollectionViewCellContentController: AYUActionButtonViewController, AYUActionButtonViewControllerDelegate, SectionController {
     
     public var section: FormSection
-    
+    var delegate: StepCollectionViewCell?
     public var controllerUpConstant: CGFloat? = 100
+    private var formFieldsContents: [FormFieldContent] = []
     
     private lazy var scrollContentView: UIScrollView = {
         let scrollContentView = UIScrollView()
         scrollContentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollContentView.showsVerticalScrollIndicator = false
         return scrollContentView
     }()
     
     public var initialImageFrame: CGRect = .zero
     
     public lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
+        let imageView = UIImageView(image: section.sectionImage)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +55,6 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
     private lazy var stackFieldsContent: UIStackView = {
         let stackView = UIStackView().vertical(20)
         stackView.alignment = .leading
-        stackView.distribution = .fillProportionally
         return stackView
     }()
     
@@ -118,8 +99,6 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
         actionButtonViewControllerDelegate = self
         
         setupFields()
-        
-        parseImage(urlString: section.sectionImageURL, completion: nil)
     }
     
     @objc private func dismissKeyboard() {
@@ -130,6 +109,11 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
         var fields = section.masks.compactMap { mask -> FormFieldContent? in
             let formField = FormFieldContent(maskField: mask)
             formField.model = mask.formModel
+            
+            formField.validationSectionHandler = { _ in
+                self.checkAllFieldsValidation()
+            }
+            
             return formField
         }
         
@@ -138,26 +122,34 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
                 $0.setCustonTitleSpace(10)
             })
         }
-        
+        formFieldsContents = fields
         stackFieldsContent.add(fields)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.section.layout?.shouldShowNextStepButton = true
+//            self.section.layout?.shouldShowNextStepButton = true
             self.section.layout?.delegate?.updateLayout(for: self.section.layout!)
         }
     }
     
+    private func checkAllFieldsValidation() {
+        let isAllFieldsValid = self.formFieldsContents.filter({ !$0.fieldIsValid }).isEmpty
+        section.layout?.shouldShowNextStepButton = isAllFieldsValid
+        guard let layout = self.section.layout else { return }
+        self.delegate?.sectionValidationHandler?(layout)
+    }
+    
+    var keyboardingIShowing =  false
     public override func keyboardWillHide(notification: Notification) {
-        super.keyboardWillHide(notification: notification)
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            scrollContentView.contentSize.height -= keyboardSize.height / 2
+        if keyboardingIShowing {
+            scrollContentView.contentSize.height = imageView.frame.height + stackFieldsContent.frame.height + 100
+            keyboardingIShowing = false
         }
     }
     
     public override func keyboardWillShow(notification: Notification) {
-        super.keyboardWillShow(notification: notification)
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            scrollContentView.contentSize.height += keyboardSize.height / 2
+        if !keyboardingIShowing {
+            scrollContentView.contentSize.height += 180
+            keyboardingIShowing = true
         }
     }
 }

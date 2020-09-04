@@ -9,16 +9,29 @@
 import UIKit
 import AyuKit
 
-public class StepFormCollectionViewCellUploadContentController: UIViewController, SectionController {
+public class StepFormCollectionViewCellUploadContentController: UIViewController, SectionController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
     public var section: FormSection
+    var delegate: StepCollectionViewCell?
+    
+    private var selectedImage: UIImage? = nil {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    private lazy var provider: UploadProviderProtocol = {
+        let provider = UploadProvider(section: section, delegate: self)
+        return provider
+    }()
+    
     public lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
+        let imageView = UIImageView(image: section.sectionImage)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
     
         return imageView
-  
     }()
     
     public lazy var uploadImageView: UIImageView = {
@@ -29,7 +42,7 @@ public class StepFormCollectionViewCellUploadContentController: UIViewController
         return imageView
     }()
     
-    public init(section: FormSection) {
+    init(section: FormSection) {
         self.section = section
         super.init(nibName: nil, bundle: nil)
     }
@@ -57,12 +70,46 @@ public class StepFormCollectionViewCellUploadContentController: UIViewController
           uploadImageView.heightAnchor.constraint(equalToConstant: 16),
           uploadImageView.widthAnchor.constraint(equalToConstant: 26)
         ])
-        
-        parseImage(urlString: section.sectionImageURL, completion: nil)
+
+        imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selecImageAction)))
     }
     
-    @objc private func selecImageAction() {
+    private func updateUI() {
+        applySelectedView()
+        uploadImageView.isHidden = selectedImage != nil
+    }
+    
+    private func applySelectedView() {
+        imageView.alpha = 0.5
+        let view = UIView(frame: imageView.frame)
+        view.alpha = 1
+        view.backgroundColor = .clear
         
+        let checkMark = UIImageView(image: Images.checkMarck)
+        checkMark.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(checkMark)
+        
+        NSLayoutConstraint.activate([
+            checkMark.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            checkMark.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            checkMark.heightAnchor.constraint(equalToConstant: 55),
+            checkMark.widthAnchor.constraint(equalToConstant: 55)
+        ])
+        
+        self.view.addSubview(view)
+    }
+    
+    @objc private func selecImageAction() {
+        self.provider.openSelector()
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        selectedImage = image
     }
 }

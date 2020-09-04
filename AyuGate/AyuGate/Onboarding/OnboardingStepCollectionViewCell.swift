@@ -10,6 +10,7 @@ import UIKit
 import FormKit
 
 public class OnboardingStepCollectionViewCell: UICollectionViewCell, StepCollectionViewCell {
+
     public static var identifier: String = "OnboardingStepCollectionViewCellIdentifier"
     
     var onboardingStepCollectionViewCellContentController: OnboardingStepCollectionViewCellContentController?

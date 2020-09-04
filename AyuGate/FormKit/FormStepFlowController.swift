@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AyuKit
 
 public protocol FormDependencies {
     var stepDependence: StepProtocol { get set }
@@ -38,10 +39,11 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
     
     private var dependencies: FormDependencies
     public var delegate: FormStepFlowControllerDelegate?
+    private var acitivity = AyuActivityView()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setupDependences()
     }
     
     lazy var backgroundStepController: BackgroundStepController = {
@@ -56,6 +58,7 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
     
     private lazy var stepBottomSegmentController: StepBottomSegmentController = {
         let stepBottomSegmentController = StepBottomSegmentController(delegate: self)
+        stepBottomSegmentController.isValid = dependencies.formLayoutDependence.shouldShowNextStepButton
         return stepBottomSegmentController
     }()
     
@@ -73,7 +76,11 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
+    private func setupDependences() {
+        installChild(backgroundStepController)
+        
+        view.add(view: acitivity)
+        acitivity.state = .start
         
         dependencies.formSectionDependence = dependencies.formSectionDependence.map({ section -> FormSection in
             var section = section
@@ -81,7 +88,23 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
             return section
         })
         
-        installChild(backgroundStepController)
+        var count = 1
+        dependencies.formSectionDependence.enumerated().forEach({ index, element in
+            parseImage(urlString: element.sectionImageURL) { image in
+                count += 1
+                self.dependencies.formSectionDependence[index].sectionImage = image
+        
+                if count == self.dependencies.formSectionDependence.count {
+                    DispatchQueue.main.async {
+                        self.acitivity.state = .stop
+                        self.show()
+                    }
+                }
+            }
+        })
+    }
+    
+    private func show() {
         installChild(formStepCollectionController)
         
         if dependencies.formLayoutDependence.shouldShowStepBottom {
@@ -105,8 +128,25 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
         ])
     }
     
+    func parseImage(urlString: String?, completion: ((UIImage?) -> ())?) {
+        let urlSession = URLSession.shared
+        guard let urlString = urlString, let url = URL(string: urlString) else {
+            completion?(nil)
+            return
+        }
+        
+        urlSession.dataTask(with: url) { (data, response, error) in
+            guard let data = data, let image = UIImage(data: data) else {
+                completion?(nil)
+                return
+            }
+            completion?(image)
+        }.resume()
+    }
+    
     public func updateLayout(for sectionLayout: FormLayout) {
         pageControl.view.isHidden = !sectionLayout.shouldShowPageControl
+        stepBottomSegmentController.isValid = sectionLayout.shouldShowNextStepButton
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             self.formStepCollectionController.collectionView.isScrollEnabled = sectionLayout.isScrollEnabled
