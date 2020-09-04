@@ -15,5 +15,5 @@ public final class Images {
     public static let manWalkingWithCellPhone = UIImage(named: "ManWalkingWithCellPhone")!
     public static let womanReading = UIImage(named: "WomanReading")!
     public static let checkMarck = UIImage(named: "checkmark")!
-    
+    public static let uploadIcon = UIImage(named: "uploadIcon")!
 }

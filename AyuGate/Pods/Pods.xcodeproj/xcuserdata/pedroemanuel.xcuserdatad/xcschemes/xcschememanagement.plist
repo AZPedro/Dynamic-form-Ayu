@@ -32,6 +32,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>Pods-AyuGate-NetworkKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods-AyuGate.xcscheme</key>
 		<dict>
 			<key>isShown</key>

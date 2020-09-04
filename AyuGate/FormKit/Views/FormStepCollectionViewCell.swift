@@ -16,12 +16,16 @@ public protocol StepCollectionViewCell: UICollectionViewCell {
 public class FormStepCollectionViewCell: UICollectionViewCell, StepCollectionViewCell {
     public static var identifier: String = "StepCollectionViewCellIdentifier"
     
-    var stepCollectionViewCellContentController: StepFormCollectionViewCellContentController?
+    var stepCollectionViewCellContentController: UIViewController?
 
     public func setup(section: FormSection) {
-        stepCollectionViewCellContentController = StepFormCollectionViewCellContentController(section: section)
+        let isUpload = !section.masks.filter({ $0.fieldType == .upload }).isEmpty
+        if isUpload {
+          stepCollectionViewCellContentController = StepFormCollectionViewCellUploadContentController(section: section)
+        } else {
+          stepCollectionViewCellContentController = StepFormCollectionViewCellContentController(section: section)
+        }
         guard let contentController = stepCollectionViewCellContentController else { return }
-
         contentView.add(view: contentController.view)
     }
     

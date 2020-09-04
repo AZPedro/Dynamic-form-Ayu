@@ -56,6 +56,7 @@
 		FA9E991624EB380C0027FF5F /* FormKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9E989124E8A4220027FF5F /* FormKit.framework */; };
 		FA9E991724EB380C0027FF5F /* FormKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA9E989124E8A4220027FF5F /* FormKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA9E991924EB4FD70027FF5F /* FormFieldContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E991824EB4FD70027FF5F /* FormFieldContent.swift */; };
+		FAA4881225029730009E6B1F /* StepFormCollectionViewCellUploadContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4881125029730009E6B1F /* StepFormCollectionViewCellUploadContentController.swift */; };
 		FAA4DD5624FAA46D00525CA5 /* OnboardingMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4DD5524FAA46D00525CA5 /* OnboardingMessageViewController.swift */; };
 		FAA4DD5924FB3B9100525CA5 /* BackgroundAnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4DD5724FB307F00525CA5 /* BackgroundAnimatedImage.swift */; };
 		FAB2A6E22445FD0A00C49E06 /* AyuGateAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2A6E12445FD0A00C49E06 /* AyuGateAppDelegate.swift */; };
@@ -177,6 +178,7 @@
 		FA9E98B424E8A9010027FF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9E98CB24E8AFC60027FF5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA9E991824EB4FD70027FF5F /* FormFieldContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldContent.swift; sourceTree = "<group>"; };
+		FAA4881125029730009E6B1F /* StepFormCollectionViewCellUploadContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepFormCollectionViewCellUploadContentController.swift; sourceTree = "<group>"; };
 		FAA4DD5524FAA46D00525CA5 /* OnboardingMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMessageViewController.swift; sourceTree = "<group>"; };
 		FAA4DD5724FB307F00525CA5 /* BackgroundAnimatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundAnimatedImage.swift; sourceTree = "<group>"; };
 		FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStepController.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				FABC933624E856C20019501B /* StepPageControlViewController.swift */,
 				FA94A37C24E4B1DA004A17F4 /* StepBottomSegmentController.swift */,
 				FA94A37A24E4B12C004A17F4 /* StepFormCollectionViewCellContentController.swift */,
+				FAA4881125029730009E6B1F /* StepFormCollectionViewCellUploadContentController.swift */,
 			);
 			path = Step;
 			sourceTree = "<group>";
@@ -815,6 +818,7 @@
 				FA9E989E24E8A4620027FF5F /* FormStepFlowController.swift in Sources */,
 				FA9E991924EB4FD70027FF5F /* FormFieldContent.swift in Sources */,
 				FA9E98A024E8A49C0027FF5F /* FormStepCollectionController.swift in Sources */,
+				FAA4881225029730009E6B1F /* StepFormCollectionViewCellUploadContentController.swift in Sources */,
 				FA9E98A224E8A4A30027FF5F /* StepBottomSegmentController.swift in Sources */,
 				FA9E989F24E8A4990027FF5F /* BackgroundStepController.swift in Sources */,
 				FA9E98A124E8A4A00027FF5F /* StepPageControlViewController.swift in Sources */,

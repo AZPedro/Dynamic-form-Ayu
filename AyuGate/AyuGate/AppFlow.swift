@@ -48,7 +48,7 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
     }
     
     private func fetchForm() {
-        NetworkManager.shared.makeRequest(request: .init(stringURL: "https://run.mocky.io/v3/47bc7640-4cd5-4c23-9679-182875b1372c")) { (result: Handler<Form>?, valid) in
+        NetworkManager.shared.makeRequest(request: .init(stringURL: "https://run.mocky.io/v3/707f065e-ecf1-47af-840c-c84240fa1824")) { (result: Handler<Form>?, valid) in
             
             guard let form = result?.response else { return }
             
