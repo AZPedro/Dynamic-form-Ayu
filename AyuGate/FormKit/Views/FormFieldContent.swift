@@ -71,7 +71,7 @@ public class FormFieldContent: UIView {
     public struct Model {
         let placeholder: String?
         let title: String
-        let value: String?
+        var value: String?
         let spacingAfterTitle: CGFloat
         
         public init(placeholder: String? = nil, title: String, value: String? = nil, spacingAfterTitle: CGFloat = 30) {

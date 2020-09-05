@@ -146,11 +146,21 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
     
     public func updateLayout(for sectionLayout: FormLayout) {
         pageControl.view.isHidden = !sectionLayout.shouldShowPageControl
-        stepBottomSegmentController.isValid = sectionLayout.shouldShowNextStepButton
+//        stepBottomSegmentController.isValid = sectionLayout.shouldShowNextStepButton
+        stepBottomSegmentController.isValid = true
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             self.formStepCollectionController.collectionView.isScrollEnabled = sectionLayout.isScrollEnabled
         }
+    }
+    
+    public func updateSectionModel(with section: FormSection, for index: Int) {
+        dependencies.formSectionDependence[index] = section
+        formStepCollectionController.formSectionDependence[index] = section
+    }
+    
+    public func updateSection(at index: Int, section: FormSection) {
+        dependencies.formSectionDependence[index] = section
     }
     
     private func installPageControl() {

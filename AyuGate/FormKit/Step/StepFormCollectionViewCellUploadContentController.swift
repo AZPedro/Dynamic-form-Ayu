@@ -16,6 +16,7 @@ public class StepFormCollectionViewCellUploadContentController: UIViewController
     
     private var selectedImage: UIImage? = nil {
         didSet {
+            updateSection()
             updateUI()
         }
     }
@@ -73,31 +74,44 @@ public class StepFormCollectionViewCellUploadContentController: UIViewController
 
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selecImageAction)))
+        updateUI()
     }
     
     private func updateUI() {
+        guard !(section.masks[0].formModel.value?.isEmpty ?? false) else { return }
         applySelectedView()
         uploadImageView.isHidden = selectedImage != nil
     }
     
+    private func updateSection() {
+        section.masks[0].formModel.value = selectedImage?.toBase64()
+        delegate?.sectionValidationHandler?(section)
+    }
+    
     private func applySelectedView() {
         imageView.alpha = 0.5
-        let view = UIView(frame: imageView.frame)
-        view.alpha = 1
-        view.backgroundColor = .clear
+        let maskView = UIView()
+        maskView.alpha = 1
+        maskView.translatesAutoresizingMaskIntoConstraints = false
+        maskView.backgroundColor = .clear
         
         let checkMark = UIImageView(image: Images.checkMarck)
         checkMark.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(checkMark)
+        maskView.addSubview(checkMark)
+        
+        self.view.addSubview(maskView)
         
         NSLayoutConstraint.activate([
+            maskView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            maskView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+            maskView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            maskView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            
             checkMark.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             checkMark.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             checkMark.heightAnchor.constraint(equalToConstant: 55),
             checkMark.widthAnchor.constraint(equalToConstant: 55)
         ])
-        
-        self.view.addSubview(view)
     }
     
     @objc private func selecImageAction() {

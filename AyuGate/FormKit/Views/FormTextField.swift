@@ -22,7 +22,6 @@ extension FormSection {
         get {
             return .leading
         }
-        
         set {
             
         }
@@ -37,7 +36,6 @@ extension FormSection {
                 return 10
             }
         }
-        
         set {
             
         }

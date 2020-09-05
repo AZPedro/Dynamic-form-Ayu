@@ -17,3 +17,10 @@ public final class Images {
     public static let checkMarck = UIImage(named: "checkmark")!
     public static let uploadIcon = UIImage(named: "uploadIcon")!
 }
+
+public extension UIImage {
+    func toBase64() -> String? {
+        guard let imageData = self.pngData() else { return nil }
+        return imageData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
+    }
+}

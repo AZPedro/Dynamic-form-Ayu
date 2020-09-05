@@ -16,6 +16,7 @@ public protocol StepProtocol {
 
 public protocol FormLayoutDelegate {
     func updateLayout(for sectionLayout: FormLayout)
+    func updateSectionModel(with section: FormSection, for index: Int)
 }
 
 public protocol FormLayout {
@@ -23,12 +24,22 @@ public protocol FormLayout {
     var shouldShowStepBottom: Bool { get set }
     var shouldShowPageControl: Bool { get set }
     var shouldShowNextStepButton: Bool { get set }
+    var shouldShowBackStepButton: Bool { get set }
     var delegate: FormLayoutDelegate? { get set }
 }
 
 extension FormLayout {
     
     public var shouldShowPageControl: Bool {
+        get {
+            return true
+        }
+        set {
+            
+        }
+    }
+    
+    public var shouldShowBackStepButton: Bool {
         get {
             return true
         }
@@ -52,7 +63,7 @@ extension FormLayout {
             return false
         }
         set {
-            
+
         }
     }
 }
@@ -62,7 +73,6 @@ class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController,
     internal var stepDependence: StepProtocol
     internal var formCollectionLayout: FormLayout
     internal var formSectionDependence: [FormSection]
-    var items: [IndexPath] = []
 
     public lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
     private var collectionViewFlowLayout: UICollectionViewFlowLayout = {
@@ -124,12 +134,12 @@ class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as? T else { return UICollectionViewCell() }
-        items.append(indexPath)
-        
         cell.setup(section: formSectionDependence[indexPath.row])
         
-        cell.sectionValidationHandler = { sectionLayout in
+        cell.sectionValidationHandler = { section in
+            guard let sectionLayout = section.layout else { return }
             sectionLayout.delegate?.updateLayout(for: sectionLayout)
+            sectionLayout.delegate?.updateSectionModel(with: section, for: indexPath.row)
         }
         
         return cell
@@ -143,7 +153,7 @@ class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController,
             
             guard let sectionLayout = formSectionDependence[indexPath.row].layout else { return }
             sectionLayout.delegate?.updateLayout(for: sectionLayout)
-            
+
         } else {
             shouldMoveToStep = true
         }

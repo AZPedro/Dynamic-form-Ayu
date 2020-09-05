@@ -106,11 +106,12 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
     }
     
     private func setupFields() {
-        var fields = section.masks.compactMap { mask -> FormFieldContent? in
+        var fields = section.masks.enumerated().compactMap { index, mask -> FormFieldContent? in
             let formField = FormFieldContent(maskField: mask)
             formField.model = mask.formModel
             
             formField.validationSectionHandler = { _ in
+                self.section.masks[index].formModel.value = formField.value
                 self.checkAllFieldsValidation()
             }
             
@@ -134,8 +135,7 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
     private func checkAllFieldsValidation() {
         let isAllFieldsValid = self.formFieldsContents.filter({ !$0.fieldIsValid }).isEmpty
         section.layout?.shouldShowNextStepButton = isAllFieldsValid
-        guard let layout = self.section.layout else { return }
-        self.delegate?.sectionValidationHandler?(layout)
+        self.delegate?.sectionValidationHandler?(section)
     }
     
     var keyboardingIShowing =  false
