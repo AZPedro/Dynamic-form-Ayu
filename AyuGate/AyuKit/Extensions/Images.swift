@@ -16,6 +16,9 @@ public final class Images {
     public static let womanReading = UIImage(named: "WomanReading")!
     public static let checkMarck = UIImage(named: "checkmark")!
     public static let uploadIcon = UIImage(named: "uploadIcon")!
+    public static let formStatusCheck = UIImage(named: "formStatusCheck")!
+    public static let validatingIcon = UIImage(named: "validatingIcon")!
+    public static let warningIcon = UIImage(named: "warningIcon")!
 }
 
 public extension UIImage {

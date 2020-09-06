@@ -17,6 +17,7 @@ extension UIColor {
     public static var blackTerciary = UIColor.hexStringToUIColor(hex: "#535353")
     public static var grayPrimary = UIColor.hexStringToUIColor(hex: "#7C7C7C")
     public static var graySecondary = UIColor.hexStringToUIColor(hex: "#B9B9B9")
+    public static var grayTerciary = UIColor.hexStringToUIColor(hex: "#B2B2B2")
     public static var whitePlaceholder = UIColor.hexStringToUIColor(hex: "#FFFFFF").withAlphaComponent(0.38)
     public static var whiteSecondary = UIColor.hexStringToUIColor(hex: "#F8F8F8")
     public static var yellowPrimary = UIColor.hexStringToUIColor(hex: "#EFEC4E")
@@ -24,6 +25,8 @@ extension UIColor {
     public static var yellowTerciary = UIColor.hexStringToUIColor(hex: "#C98300")
     public static var redSecondary = UIColor.hexStringToUIColor(hex: "#A31A1A")
     public static var greenPrimary = UIColor.hexStringToUIColor(hex: "#147914")
+    public static var whiteDescription = UIColor.hexStringToUIColor(hex: "#BEBEBE")
+    public static var successGreen = UIColor.hexStringToUIColor(hex: "#26C63F")
     
     //FormColors
     

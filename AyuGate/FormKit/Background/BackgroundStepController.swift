@@ -110,3 +110,9 @@ public class BackgroundStepController: UIViewController, BackgroundStepViewProto
         }
     }
 }
+
+struct BackgroundDefaultDependence: StepProtocol {
+    var numberOfSteps: Int = 1
+    var currentStep: Int = 0
+    var delegate: StepProtocolDelegate? = nil
+}

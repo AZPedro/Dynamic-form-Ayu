@@ -23,10 +23,13 @@
 		FA1BEABA2469E2A500D78940 /* AccountDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BEAB92469E2A500D78940 /* AccountDetailsTableViewCell.swift */; };
 		FA1BEABE2469E7F200D78940 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BEABD2469E7F200D78940 /* SessionManager.swift */; };
 		FA1BEAC0246A046900D78940 /* PasswordValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BEABF246A046900D78940 /* PasswordValidationViewModel.swift */; };
-		FA1C62AE24FA919B0089E1C7 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C62AD24FA919B0089E1C7 /* Notifications.swift */; };
 		FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsView.swift */; };
 		FA26393724617E4D00E282F6 /* AYUMonthsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */; };
 		FA375B472469A68200D190E8 /* AYURequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA375B462469A68200D190E8 /* AYURequest.swift */; };
+		FA3C76AE25042BE400FDFC55 /* FormStatusFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C76AD25042BE400FDFC55 /* FormStatusFlowController.swift */; };
+		FA3C76B025042C9500FDFC55 /* StatusStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C76AF25042C9500FDFC55 /* StatusStep.swift */; };
+		FA3C76B2250468FD00FDFC55 /* FormStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C76B1250468FD00FDFC55 /* FormStatusController.swift */; };
+		FA3C76B5250469AF00FDFC55 /* FormStatusTitleMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C76B4250469AF00FDFC55 /* FormStatusTitleMessageView.swift */; };
 		FA43787C246CA5570099B905 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43787B246CA5570099B905 /* Profile.swift */; };
 		FA4B7574246B4123000501DD /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B7573246B4123000501DD /* Keychain.swift */; };
 		FA57619F24536D89009BB9CF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57619E24536D89009BB9CF /* NetworkManager.swift */; };
@@ -151,10 +154,13 @@
 		FA1BEAB92469E2A500D78940 /* AccountDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		FA1BEABD2469E7F200D78940 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		FA1BEABF246A046900D78940 /* PasswordValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationViewModel.swift; sourceTree = "<group>"; };
-		FA1C62AD24FA919B0089E1C7 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUInvoiceDetailsView.swift; sourceTree = "<group>"; };
 		FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUMonthsPickerView.swift; sourceTree = "<group>"; };
 		FA375B462469A68200D190E8 /* AYURequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYURequest.swift; sourceTree = "<group>"; };
+		FA3C76AD25042BE400FDFC55 /* FormStatusFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStatusFlowController.swift; sourceTree = "<group>"; };
+		FA3C76AF25042C9500FDFC55 /* StatusStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusStep.swift; sourceTree = "<group>"; };
+		FA3C76B1250468FD00FDFC55 /* FormStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStatusController.swift; sourceTree = "<group>"; };
+		FA3C76B4250469AF00FDFC55 /* FormStatusTitleMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStatusTitleMessageView.swift; sourceTree = "<group>"; };
 		FA43787B246CA5570099B905 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		FA43787D246CB44D0099B905 /* AyuGate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AyuGate.entitlements; sourceTree = "<group>"; };
 		FA4B7573246B4123000501DD /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -325,6 +331,25 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		FA3C76AC25042BC900FDFC55 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				FA3C76AD25042BE400FDFC55 /* FormStatusFlowController.swift */,
+				FA3C76B32504697000FDFC55 /* Views */,
+				FA3C76B1250468FD00FDFC55 /* FormStatusController.swift */,
+				FA3C76AF25042C9500FDFC55 /* StatusStep.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		FA3C76B32504697000FDFC55 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA3C76B4250469AF00FDFC55 /* FormStatusTitleMessageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FA43787A246CA4070099B905 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,9 +410,8 @@
 			isa = PBXGroup;
 			children = (
 				FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */,
-				FA1C62AD24FA919B0089E1C7 /* Notifications.swift */,
+				FA3C76AC25042BC900FDFC55 /* Status */,
 				FAA488152502E2BF009E6B1F /* Providers */,
-				FADA8D6D25012FE500ECB891 /* Codables */,
 				FA7C355D24D8CA0100F8F0CD /* Background */,
 				FAA9F90E24E08C4800B6AE20 /* Step */,
 				FA7C356024D8DCA700F8F0CD /* Views */,
@@ -590,13 +614,6 @@
 				FAD5107B2449318200B224AF /* AYUCPFFormView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		FADA8D6D25012FE500ECB891 /* Codables */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Codables;
 			sourceTree = "<group>";
 		};
 		FADA8D6E2501332600ECB891 /* Form */ = {
@@ -825,12 +842,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1C62AE24FA919B0089E1C7 /* Notifications.swift in Sources */,
 				FAA488172502E2DF009E6B1F /* UploadProvider.swift in Sources */,
+				FA3C76B2250468FD00FDFC55 /* FormStatusController.swift in Sources */,
 				FA9E98A324E8A4A60027FF5F /* StepFormCollectionViewCellContentController.swift in Sources */,
+				FA3C76B025042C9500FDFC55 /* StatusStep.swift in Sources */,
+				FA3C76B5250469AF00FDFC55 /* FormStatusTitleMessageView.swift in Sources */,
 				FA07026524ECAA5600E0336F /* FormTextField.swift in Sources */,
 				FA9E98A424E8A4AA0027FF5F /* FormStepCollectionViewCell.swift in Sources */,
 				FA9E989E24E8A4620027FF5F /* FormStepFlowController.swift in Sources */,
+				FA3C76AE25042BE400FDFC55 /* FormStatusFlowController.swift in Sources */,
 				FA9E991924EB4FD70027FF5F /* FormFieldContent.swift in Sources */,
 				FA9E98A024E8A49C0027FF5F /* FormStepCollectionController.swift in Sources */,
 				FAA4881225029730009E6B1F /* StepFormCollectionViewCellUploadContentController.swift in Sources */,
