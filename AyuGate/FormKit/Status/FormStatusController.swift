@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AyuKit
 
 class StatusFormController: UIViewController {
     
@@ -26,6 +27,12 @@ class StatusFormController: UIViewController {
         return stack
     }()
     
+    private let actionButton: AYUActionButton = {
+        let button = AYUActionButton()
+        button.status = .enabled
+        return button.setTitle("Button Title")
+    }()
+    
     private let statusHeader = FormStatusTitleMessageView(model: .init(size: .init(width: 58, height: 58), status: .header(UIImage(named: "MockedIconProfile")), title: "MEI Status", message: "Aqui você pode acompanhar o andamento da sua solicitação para ser MEI"))
     private let step1 = FormStatusTitleMessageView(model: .init(size: .init(width: 40, height: 40), status: .valid, title: "Validação", message: "Aqui você pode acompanhar o andamento Da sua solicitação para ser MEI"))
     private let step2 = FormStatusTitleMessageView(model: .init(size: .init(width: 40, height: 40), status: .validating, title: "Validação", message: "Aqui você pode acompanhar o andamento Da sua solicitação para ser MEI"))
@@ -37,11 +44,16 @@ class StatusFormController: UIViewController {
     
     private func buildUI() {
         view.addSubview(mainsStack)
+        view.addSubview(actionButton)
         
         NSLayoutConstraint.activate([
             mainsStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
             mainsStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 26),
-            mainsStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -26)
+            mainsStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -26),
+            
+            actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -21),
+            actionButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
+            actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -21)
         ])
     }
 }

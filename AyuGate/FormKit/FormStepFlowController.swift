@@ -18,9 +18,11 @@ public protocol FormDependencies {
 public struct DefaultFormCollectionLayout: FormLayout {
     public var delegate: FormLayoutDelegate?
     public var shouldShowNextStepButton: Bool
+    public var isScrollEnabled: Bool
     
-    public init(shouldShowNextStepButton: Bool = false, delegate: FormLayoutDelegate? = nil){
+    public init(shouldShowNextStepButton: Bool = false, delegate: FormLayoutDelegate? = nil, isScrollEnabled: Bool = false){
         self.shouldShowNextStepButton = shouldShowNextStepButton
+        self.isScrollEnabled = isScrollEnabled
         self.delegate = delegate
     }
 }

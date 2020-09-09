@@ -15,7 +15,7 @@ class LoginFlowController: UIViewController {
     let network = NetworkManager()
     
     private lazy var loginController: LoginScreenController = {
-        let loginController = LoginScreenController(section: LoginSection())
+        let loginController = LoginScreenController(section: LoginFormSection())
         loginController.delegate = self
         return loginController
     }()
@@ -97,7 +97,7 @@ class LoginFlowController: UIViewController {
             
             // show form or home if needed
             
-            if true {
+            if false {
                 self.showPreForm()
             } else {
                 self.showHome()
@@ -117,8 +117,12 @@ class LoginFlowController: UIViewController {
     private func showHome() {
         DispatchQueue.main.async {
             let homeFlow = HomeFlowController()
-            homeFlow.modalPresentationStyle = .fullScreen
-            self.navigationController?.present(homeFlow, animated: true, completion: nil)
+            
+            let navigationController = UINavigationController(rootViewController: HomeFlowController())
+            navigationController.modalPresentationStyle = .fullScreen
+            navigationController.isNavigationBarHidden = true
+            
+            self.present(navigationController, animated: true, completion: nil)
         }
     }
 }
@@ -160,9 +164,10 @@ struct MessageSection: OnboardingFormSection {
     var sectionImage: UIImage?
 }
 
-struct LoginSection: FormSection {
-    var sectionImageURL: String? = nil
-    var layout: FormLayout? = DefaultFormCollectionLayout()
-    var masks: [MaskField] = []
-    var sectionImage: UIImage? = Images.womanWithComputer
-}
+//struct LoginSection: FormSection {
+//    var sectionImageURL: String? = nil
+//    var layout: FormLayout? = DefaultFormCollectionLayout()
+//    var masks: [MaskField] = []
+//    var sectionImage: UIImage? = Images.womanWithComputer
+//}
+

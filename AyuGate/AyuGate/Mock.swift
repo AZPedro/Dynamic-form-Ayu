@@ -16,11 +16,12 @@ public class Mock {
         var mask: String? = "000.000.000-00"
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Cpf", title: "Insira seu CPF")
         var fieldType: FormFieldContent.FieldType = .text
-        var validatorQuery: String? = """
-        var validate = function(value) {
-            return value.search(/^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$/)
-        }
-        """
+        var validatorQuery: String?
+//        var validatorQuery: String? = """
+//        var validate = function(value) {
+//            return value.search(/^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$/)
+//        }
+//        """
     }
     
     struct PasswordField: MaskField {
@@ -29,6 +30,7 @@ public class Mock {
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Senha", title: "Insira sua senha!")
         var fieldType: FormFieldContent.FieldType = .text
         var validatorQuery: String?
+        var isSecurity: Bool = true
     }
     
     struct ConfirmPasswordField: MaskField {
@@ -37,6 +39,7 @@ public class Mock {
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Confirmar senha", title: "Insira sua senha!")
         var fieldType: FormFieldContent.FieldType = .text
         var validatorQuery: String?
+        var isSecurity: Bool = true
     }
     
     struct NameField: MaskField {

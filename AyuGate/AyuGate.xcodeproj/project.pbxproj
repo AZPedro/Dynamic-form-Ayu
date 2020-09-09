@@ -39,6 +39,7 @@
 		FA8F27CA24F4766300AB04F6 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F27C924F4766300AB04F6 /* Mock.swift */; };
 		FA8F27CC24F5EFEE00AB04F6 /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F27CB24F5EFED00AB04F6 /* LoginScreenController.swift */; };
 		FA8F27D024F5FC0300AB04F6 /* MockMeiMessageUserStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F27CF24F5FC0300AB04F6 /* MockMeiMessageUserStatusController.swift */; };
+		FA9A3D262508474D0033D0A4 /* AYUWeekPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A3D252508474D0033D0A4 /* AYUWeekPickerView.swift */; };
 		FA9E989524E8A4220027FF5F /* FormKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9E989324E8A4220027FF5F /* FormKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA9E989E24E8A4620027FF5F /* FormStepFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C355E24D8DC8000F8F0CD /* FormStepFlowController.swift */; };
 		FA9E989F24E8A4990027FF5F /* BackgroundStepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9F90C24DF91B300B6AE20 /* BackgroundStepController.swift */; };
@@ -176,6 +177,7 @@
 		FA94A37A24E4B12C004A17F4 /* StepFormCollectionViewCellContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepFormCollectionViewCellContentController.swift; sourceTree = "<group>"; };
 		FA94A37C24E4B1DA004A17F4 /* StepBottomSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBottomSegmentController.swift; sourceTree = "<group>"; };
 		FA94A37E24E4B349004A17F4 /* UILabel+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+extensions.swift"; sourceTree = "<group>"; };
+		FA9A3D252508474D0033D0A4 /* AYUWeekPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYUWeekPickerView.swift; sourceTree = "<group>"; };
 		FA9E989124E8A4220027FF5F /* FormKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FormKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9E989324E8A4220027FF5F /* FormKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormKit.h; sourceTree = "<group>"; };
 		FA9E989424E8A4220027FF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 				FABDFFCD2464B97D004B253A /* AYUDetailInfoView.swift */,
 				FAB2A6F824460EAC00C49E06 /* AYUTextField.swift */,
 				FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */,
+				FA9A3D252508474D0033D0A4 /* AYUWeekPickerView.swift */,
 				FAB2A7092447A33D00C49E06 /* AYULogoLabel.swift */,
 				FAB2A6FA2446100800C49E06 /* AYUButton.swift */,
 				FAB2A70D2447ACDB00C49E06 /* InvoiceDiscountBar */,
@@ -907,6 +910,7 @@
 				FA6B01752469CC6D00E004CA /* AYURoute.swift in Sources */,
 				FA0D4562246E06D10012FCCE /* InvoiceDetailsViewModel.swift in Sources */,
 				FA375B472469A68200D190E8 /* AYURequest.swift in Sources */,
+				FA9A3D262508474D0033D0A4 /* AYUWeekPickerView.swift in Sources */,
 				FA8F27D024F5FC0300AB04F6 /* MockMeiMessageUserStatusController.swift in Sources */,
 				FA028ED224F93C4000A7F962 /* LoginFlowController.swift in Sources */,
 				FADA8D702501335200ECB891 /* FormModels.swift in Sources */,

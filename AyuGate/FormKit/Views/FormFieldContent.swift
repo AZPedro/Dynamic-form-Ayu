@@ -236,7 +236,12 @@ extension FormFieldContent: UITextFieldDelegate {
     }
     
     private func executValidator(for value: String) {
-        guard maskField.validatorQuery != nil else { return }
+        guard maskField.validatorQuery != nil else {
+            fieldIsValid = true
+            validationSectionHandler?(fieldIsValid)
+            return
+        }
+        
         let context = JSContext()
         context?.evaluateScript(maskField.validatorQuery)
         

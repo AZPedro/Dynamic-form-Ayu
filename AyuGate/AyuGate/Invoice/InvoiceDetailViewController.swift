@@ -100,6 +100,12 @@ class InvoiceDetailViewController: AYUViewController {
         return view
     }()
     
+    private lazy var weekPickerView: AYUWeekPickerView = {
+        let view = AYUWeekPickerView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     private lazy var invoiceListDetailsViewController: InvoiceListDetailsViewController = {
         let controller = InvoiceListDetailsViewController()
         controller.view.translatesAutoresizingMaskIntoConstraints = false
@@ -109,6 +115,7 @@ class InvoiceDetailViewController: AYUViewController {
 
     
     private func buildUI() {
+        view.backgroundColor = .white
         view.addSubview(headerContentView)
         headerContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         headerContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -139,27 +146,25 @@ class InvoiceDetailViewController: AYUViewController {
         monthsPickerView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         monthsPickerView.currentSelectedMonth = 5
         
+        view.addSubview(weekPickerView)
+        weekPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        weekPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        weekPickerView.topAnchor.constraint(equalTo: monthsPickerView.bottomAnchor, constant: 10).isActive = true
+        weekPickerView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        weekPickerView.currentSelectedMonth = 5
+        
         installChild(invoiceListDetailsViewController)
-        invoiceListDetailsViewController.view.topAnchor.constraint(equalTo: monthsPickerView.bottomAnchor, constant: 5).isActive = true
+        invoiceListDetailsViewController.view.topAnchor.constraint(equalTo: weekPickerView.bottomAnchor, constant: 5).isActive = true
         invoiceListDetailsViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         invoiceListDetailsViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         invoiceListDetailsViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        valueLabel.text = "R$ 11.180,00"
-//        valueLabel.text = invoiceModel.formattedCurrentAmount
-        profileCardView.cpfLabel.text = "180.049.067-45"
-//        profileCardView.cpfLabel.text = invoiceModel.cpfValue
+        valueLabel.text = invoiceModel.formattedCurrentAmount
+        profileCardView.cpfLabel.text = invoiceModel.cpfValue
         profileCardView.profileNameLabel.text = invoiceModel.customerName
+        profileCardView.officeLabel.text = invoiceModel.customerRole
         
-//        profileCardView.officeLabel.text = invoiceModel.customerRole
-        
-        let mockModel: [AYUInvoiceDetailsViewModel] = [
-            .init(roll: Invoice.PayRoll(type: "discount", description: "Bruto", amount: 13000.00)),
-            .init(roll: Invoice.PayRoll(type: "fixedDiscounts", description: "INSS 9,53%", amount: 1238)),
-            .init(roll: Invoice.PayRoll(type: "fixedDiscounts", description: "IRRF 15%", amount: 185.07)),
-            .init(roll: Invoice.PayRoll(type: "liquid", description: "Salário", amount: 11180.00))
-        ]
-        
-        invoiceListDetailsViewController.model = InvoiceListDetailsViewModel(company: invoiceModel.companyName, details: mockModel)
+        let details = invoiceModel.roll.compactMap({ AYUInvoiceDetailsViewModel(roll: $0) })
+        invoiceListDetailsViewController.model = InvoiceListDetailsViewModel(company: invoiceModel.companyName, details: details)
     }
 }

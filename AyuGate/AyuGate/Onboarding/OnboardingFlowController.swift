@@ -68,7 +68,7 @@ struct OnboardingStepProtocol: StepProtocol {
 struct OnboardingFirstSection: OnboardingFormSection {
     var sectionImageURL: String? = nil
     
-    var layout: FormLayout? = DefaultFormCollectionLayout()
+    var layout: FormLayout? = DefaultFormCollectionLayout(isScrollEnabled: true)
 
     var imagePosition: NSTextAlignment = .left
     var messageText: String
@@ -78,7 +78,7 @@ struct OnboardingFirstSection: OnboardingFormSection {
 struct OnboardingSecondFormSection: OnboardingFormSection {
     var sectionImageURL: String? = nil
     
-    var layout: FormLayout? = DefaultFormCollectionLayout()
+    var layout: FormLayout? = DefaultFormCollectionLayout(isScrollEnabled: true)
     var imagePosition: NSTextAlignment = .right
     var messageText: String
     var sectionImage: UIImage?
@@ -94,13 +94,12 @@ struct OnboardingCollectionLayout: FormLayout {
 struct LoginFormLayout: FormLayout {
     var shouldShowNextStepButton: Bool = false
     var shouldShowStepBottom: Bool = false
-    var isScrollEnabled: Bool = false
+    var isScrollEnabled: Bool = true
     var shouldShowPageControl: Bool = false
     var delegate: FormLayoutDelegate?
 }
 
 // login section
-
 struct LoginFormSection: LoginFormSectionProtocol {
     var sectionImageURL: String? = nil
     var masks: [MaskField] = []
