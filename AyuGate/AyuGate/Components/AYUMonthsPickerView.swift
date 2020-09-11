@@ -7,6 +7,9 @@
 //
 
 import UIKit
+protocol AYUMonthsPickerViewDelegate {
+    func didSelectMonth(pickedView: AYUPickView)
+}
 
 class AYUMonthsPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -26,13 +29,13 @@ class AYUMonthsPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource 
     }()
     
     let picker = UIPickerView()
-    
-    var monthPickViews: [MonthPickView] {
+    var delegate: AYUMonthsPickerViewDelegate?
+    var monthPickViews: [AYUPickView] {
         let months = Calendar.current.shortMonthSymbols
-        var views = [MonthPickView]()
+        var views = [AYUPickView]()
         
         months.forEach { month in
-            let monthView = MonthPickView()
+            let monthView = AYUPickView()
             monthView.transform = CGAffineTransform(rotationAngle: 90 * (.pi / 180))
             monthView.titleLabel.text = month
             views.append(monthView)
@@ -79,8 +82,11 @@ class AYUMonthsPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource 
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        guard let view = pickerView.view(forRow: row, forComponent: component) as? MonthPickView else { return }
+        guard let view = pickerView.view(forRow: row, forComponent: component) as? AYUPickView else { return }
         view.isSelected = true
+        view.selectedValue = row+1
+        
+        delegate?.didSelectMonth(pickedView: view)
     }
 
     override func layoutSubviews() {
@@ -91,7 +97,7 @@ class AYUMonthsPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource 
     }
 }
 
-class MonthPickView: UIView {
+class AYUPickView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildUI()
@@ -109,6 +115,7 @@ class MonthPickView: UIView {
         return l
     }()
     
+    var selectedValue: Int = 0
     var contentView = UIView()
     
     private func buildUI() {

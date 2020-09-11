@@ -29,7 +29,7 @@ public class FormFieldContent: UIView {
         .font(.systemFont(ofSize: 13, weight: .medium))
         .textColour(UIColor.textPlaceholderColor)
     
-    let errorMessageLabel = UILabel()
+    public let errorMessageLabel = UILabel()
         .font(.systemFont(ofSize: 15, weight: .bold))
         .textColour(UIColor.redSecondary)
     

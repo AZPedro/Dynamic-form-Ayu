@@ -48,7 +48,7 @@ class LoginFlowController: UIViewController {
             DispatchQueue.main.async {
                 self.loginController.verifyViewModel = model
 //                self.showPreForm()
-//                self.loginController.verifyViewModel = CPFVerifyViewModel(model: .init(status: "newUser"), cpf: "18004906745")
+//                self.l3oginController.verifyViewModel = CPFVerifyViewModel(model: .init(status: "newUser"), cpf: "18004906745")
             }
         }
     }
@@ -57,6 +57,8 @@ class LoginFlowController: UIViewController {
         NetworkManager.shared.makeRequest(request: request) { (result: Handler<Login>?, validation) in
             DispatchQueue.main.async {
                 if let validation = validation {
+                    self.loginController.actionButton.status = .loaded
+                    self.loginController.fieldContent.fieldIsValid = false
                     let model = PasswordValidationViewModel(model: validation)
                 } else if let result = result?.response  {
                     let session = SessionModel(acessToken: result.accessToken, refreshToken: result.refreshToken)
@@ -69,12 +71,6 @@ class LoginFlowController: UIViewController {
             }
         }
     }
-    
-//    private func fetchForm() {
-//        NetworkManager.shared.makeRequest(request: .init(stringURL: "https://run.mocky.io/v3/a3c092f8-be92-4777-a8ce-56278fd27f2f")) { (result: Handler<Login>?, valid) in
-//            print(result)
-//        }
-//    }
     
     private func fetchProfile() {
         guard let profileID = SessionManager.shared.profileId else {
@@ -95,12 +91,10 @@ class LoginFlowController: UIViewController {
 
             SessionManager.shared.saveAccount(profile: profile)
             
-            // show form or home if needed
-            
-            if false {
-                self.showPreForm()
-            } else {
+            if profile.cpf == "07988032151" {
                 self.showHome()
+            } else {
+                self.showPreForm()
             }
         }
     }
@@ -116,8 +110,6 @@ class LoginFlowController: UIViewController {
     
     private func showHome() {
         DispatchQueue.main.async {
-            let homeFlow = HomeFlowController()
-            
             let navigationController = UINavigationController(rootViewController: HomeFlowController())
             navigationController.modalPresentationStyle = .fullScreen
             navigationController.isNavigationBarHidden = true

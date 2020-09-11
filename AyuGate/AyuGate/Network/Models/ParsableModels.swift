@@ -15,6 +15,7 @@ struct Verify: ParsableProtocol {
 struct Login: ParsableProtocol {
     let accessToken: String
     let refreshToken: String
+//    let canBeMei: Bool
 }
 
 struct Validation: Decodable {
@@ -25,23 +26,33 @@ struct Validation: Decodable {
     static var genericError = Validation(status: 0, code: "", message: "")
 }
 
+struct Invoices: Decodable {
+    let response: [Invoice]
+}
+
 struct Invoice: ParsableProtocol {
     let id: String
     let liquidAmount: Double
     let month: String
     let percentage: [Percentage]
-    let company: Role
-    let role: Role
-    let payroll: [PayRoll]
+    let company: Company
+    let employee: Employee
+    let description: String
+    let events: [PayRoll]
     
     struct Percentage: Decodable {
         let type: String
-        let percentage: Double
+        let amount: Double
     }
     
-    struct Role: Decodable {
-        let id: String
+    struct Employee: Decodable {
         let name: String
+        let role: String
+    }
+    
+    struct Company: Decodable {
+        let name: String
+        let cnpj: String
     }
 
     struct PayRoll: Decodable {
@@ -64,11 +75,14 @@ struct Invoice: ParsableProtocol {
 struct ProfileParsable: ParsableProtocol {
     let id: String
     let cpf: String
+    let avatarUrl: String?
     let name: String
+    let role: String?
+    let pis: String?
     
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case cpf = "cpf"
-        case name = "name"
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case id = "id"
+//        case cpf = "cpf"
+//        case name = "name"
+//    }
 }

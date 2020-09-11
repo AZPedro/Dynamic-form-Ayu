@@ -13,7 +13,7 @@ class StatusFormController: UIViewController {
     
     private lazy var mainsStack: UIStackView = {
         let stack = UIStackView().vertical()
-        
+
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.add([
             statusHeader,
@@ -27,15 +27,18 @@ class StatusFormController: UIViewController {
         return stack
     }()
     
+    public var actionButtonHandler: (() -> ())?
+    
     private let actionButton: AYUActionButton = {
         let button = AYUActionButton()
         button.status = .enabled
-        return button.setTitle("Button Title")
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        return button.setTitle("Continuar")
     }()
     
-    private let statusHeader = FormStatusTitleMessageView(model: .init(size: .init(width: 58, height: 58), status: .header(UIImage(named: "MockedIconProfile")), title: "MEI Status", message: "Aqui você pode acompanhar o andamento da sua solicitação para ser MEI"))
-    private let step1 = FormStatusTitleMessageView(model: .init(size: .init(width: 40, height: 40), status: .valid, title: "Validação", message: "Aqui você pode acompanhar o andamento Da sua solicitação para ser MEI"))
-    private let step2 = FormStatusTitleMessageView(model: .init(size: .init(width: 40, height: 40), status: .validating, title: "Validação", message: "Aqui você pode acompanhar o andamento Da sua solicitação para ser MEI"))
+    private let statusHeader = FormStatusTitleMessageView(model: .init(size: .init(width: 58, height: 58), status: .header(""), title: "Status de solicitação", message: "Aqui você pode acompanhar o andamento da sua solicitação para ser MEI"))
+    private let step1 = FormStatusTitleMessageView(model: .init(size: .init(width: 40, height: 40), status: .valid, title: "Envio de informações", message: "Todos os dados enviados foram recebidos corretamente"))
+    private let step2 = FormStatusTitleMessageView(model: .init(size: .init(width: 40, height: 40), status: .validating, title: "Validação", message: "Seus dados estão sendo validados e em breve você será notificado."))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,5 +58,9 @@ class StatusFormController: UIViewController {
             actionButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
             actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -21)
         ])
+    }
+    
+    @objc private func buttonAction() {
+        actionButtonHandler?()
     }
 }

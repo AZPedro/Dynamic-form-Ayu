@@ -19,6 +19,8 @@ class AccountViewController: UIViewController {
         return true
     }
     
+    private var model = SessionManager.shared.getAccount()
+    
     struct Constants {
         static let headerHeight = UIScreen.main.bounds.height / 2.8
         static var imageSpacing: CGFloat {
@@ -68,7 +70,7 @@ class AccountViewController: UIViewController {
     private lazy var imageview: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "MockedIconProfile")
+        imageView.image = UIImage(named: "MEIMockedIconProfile")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.heightAnchor.constraint(equalToConstant: 88).isActive = true
@@ -101,7 +103,6 @@ class AccountViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Pedro Emanuel"
         return label
     }()
     
@@ -110,7 +111,6 @@ class AccountViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Engenharia"
         return label
     }()
     
@@ -119,22 +119,35 @@ class AccountViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "CPF: 180.049.067-45"
         return label
     }()
     
-    private lazy var accountDetailsListViewController: AccountDetailsListViewController = {
-        let v = AccountDetailsListViewController(model: [
-            .init(title: "Nome Completo", value: "Pedro Emanuel Santos Azevedo"),
-            .init(title: "PIS", value: "243.84783.11-3"),
-            .init(title: "E-mail", value: "pedro@ayugate.com"),
-            .init(title: "Telefone", value: "(21) 965444-987"),
-            .init(title: "Documento RG", value: "27.330.689-4"),
-            .init(title: "Nascimento", value: "22/01/1999"),
-            .init(title: "Estado civil", value: "Solteiro"),
-            .init(title: "Data contratação", value: "04/01/2016"),
-        ])
+    private func updateUI() {
+        guard let model = self.model else { return }
+        cpfLabel.text = "CPF: \(model.formattedCPF)"
+        userNameLabel.text = model.name.components(separatedBy: " ").prefix(2).joined(separator: " ")
+        officePositionLabel.text = model.role
         
+        self.accountDetailsListViewController.model = [
+            .init(title: "Nome Completo", value: model.name),
+            .init(title: "PIS", value: "")
+        ]
+        
+//        model: [
+//            .init(title: "Nome Completo", value: "Pedro Emanuel Santos Azevedo"),
+//            .init(title: "PIS", value: "243.84783.11-3"),
+//            .init(title: "E-mail", value: "pedro@ayugate.com"),
+//            .init(title: "Telefone", value: "(21) 965444-987"),
+//            .init(title: "Documento RG", value: "27.330.689-4"),
+//            .init(title: "Nascimento", value: "22/01/1999"),
+//            .init(title: "Estado civil", value: "Solteiro"),
+//            .init(title: "Data contratação", value: "04/01/2016"),
+//        ]
+    }
+    
+    private lazy var accountDetailsListViewController: AccountDetailsListViewController = {
+        let v = AccountDetailsListViewController()
+
         v.view.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
@@ -168,6 +181,13 @@ class AccountViewController: UIViewController {
         accountDetailsListViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         accountDetailsListViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         accountDetailsListViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        updateUI()
+        
+        model?.avatarURL.parseImage(urlString: model?.avatarURL, completion: { image in
+            DispatchQueue.main.async {
+                self.imageview.image = image
+            }
+        })
     }
     
     @objc private func pop() {
@@ -177,18 +197,18 @@ class AccountViewController: UIViewController {
     @objc private func logout() {
         SessionManager.shared.logout()
         
-//        let loginFlow = RegisterFlowController()
-//        let navigation = UINavigationController(rootViewController: loginFlow)
-//        navigation.modalPresentationStyle = .fullScreen
-//
-//        self.present(navigation, animated: true, completion: {
-//            if let count = self.navigationController?.viewControllers.count {
-//                let backViewControllerPosition = count - 2
-//                guard backViewControllerPosition >= 0 else {
-//                    return
-//                }
-//                self.navigationController?.viewControllers.remove(at: backViewControllerPosition)
-//            }
-//        })
+        let onboarding = OnboardingFlowController()
+        let navigation = UINavigationController(rootViewController: onboarding)
+        navigation.modalPresentationStyle = .fullScreen
+
+        self.present(navigation, animated: true, completion: {
+            if let count = self.navigationController?.viewControllers.count {
+                let backViewControllerPosition = count - 2
+                guard backViewControllerPosition >= 0 else {
+                    return
+                }
+                self.navigationController?.viewControllers.remove(at: backViewControllerPosition)
+            }
+        })
     }
 }

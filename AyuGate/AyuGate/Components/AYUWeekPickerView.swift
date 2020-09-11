@@ -8,9 +8,18 @@
 
 import UIKit
 
+protocol AYUWeekPickerViewDelegate {
+    func didSelectWeek(pickedView: AYUPickView)
+}
+
 class AYUWeekPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let weeks = ["Semana 1", "Semana 2", "Semana 3", "Semana 4", "Semana 5"]
+    var weeks: [String] = [] {
+        didSet {
+            self.picker.reloadAllComponents()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildUI()
@@ -27,12 +36,13 @@ class AYUWeekPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }()
     
     let picker = UIPickerView()
+    var delegate: AYUWeekPickerViewDelegate?
     
-    var weekPickViews: [MonthPickView] {
-        var views = [MonthPickView]()
+    var weekPickViews: [AYUPickView] {
+        var views = [AYUPickView]()
         
         weeks.forEach { weak in
-            let monthView = MonthPickView()
+            let monthView = AYUPickView()
             monthView.transform = CGAffineTransform(rotationAngle: 90 * (.pi / 180))
             monthView.titleLabel.text = weak
             views.append(monthView)
@@ -78,8 +88,10 @@ class AYUWeekPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        guard let view = pickerView.view(forRow: row, forComponent: component) as? MonthPickView else { return }
+        guard let view = pickerView.view(forRow: row, forComponent: component) as? AYUPickView else { return }
         view.isSelected = true
+        view.selectedValue = row
+        delegate?.didSelectWeek(pickedView: view)
     }
 
     override func layoutSubviews() {

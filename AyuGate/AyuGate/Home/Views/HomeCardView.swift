@@ -121,16 +121,13 @@ class HomeCardView: UIView {
     
     func updateUI() {
         guard let model = self.model else { return }
-        priceLabel.text = "R$ 11.180,00"
-//        priceLabel.text = model.formattedCurrentAmount
-        monthTitle.text = "07/2020"
-//        monthTitle.text = model.month
+        priceLabel.text = model.formattedCurrentAmount
+        monthTitle.text = model.month
         animate()
         invoiceDiscountBar.model = InvoiceDiscountBarViewModel(model: model.barModel)
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-//            self.invoiceDiscountBar.animate()
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            self.invoiceDiscountBar.animate()
+        }
     }
 }
 
@@ -150,8 +147,8 @@ struct HomeCardViewModel {
 
 extension HomeCardViewModel {
     init(from invoice: Invoice) {
-        self.barModel = invoice.percentage.compactMap({ InvoiceDiscountBarModel(type: $0.type, percentage: $0.percentage )})
-        self.price = invoice.payroll.first?.amount ?? 0
+        self.barModel = invoice.percentage.compactMap({ InvoiceDiscountBarModel(type: $0.type, percentage: $0.amount )})
+        self.price = invoice.events.first?.amount ?? 0
         self.month = invoice.month
     }
 }

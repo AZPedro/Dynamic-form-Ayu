@@ -25,6 +25,7 @@ public class AYUActionButton: UIButton {
     }
     
     public var delegate: AYUActionButtonDelegate?
+    public var actionHandler: (() -> ())?
     
     private lazy var spinnerView: AYUSpinnerView = {
         let spinner = AYUSpinnerView()
@@ -87,22 +88,24 @@ public class AYUActionButton: UIButton {
     }
     
     private func updateUI() {
-        switch status {
-        case .disabled:
-            alpha = 0.45
-        case .enabled:
-            alpha = 1
-        case .loaded:
-            titleLabel?.isHidden = false
-            titleLabel?.alpha = 1
-            spinnerView.isHidden = true
-            spinnerView.state = .idle
-            isEnabled = true
-        case .loading:
-            titleLabel?.alpha = 0
-            isEnabled = false
-            spinnerView.isHidden = false
-            spinnerView.state = .spinning
+        DispatchQueue.main.async {
+            switch self.status {
+            case .disabled:
+                self.alpha = 0.45
+            case .enabled:
+                self.alpha = 1
+            case .loaded:
+                self.titleLabel?.isHidden = false
+                self.titleLabel?.alpha = 1
+                self.spinnerView.isHidden = true
+                self.spinnerView.state = .idle
+                self.isEnabled = true
+            case .loading:
+                self.titleLabel?.alpha = 0
+                self.isEnabled = false
+                self.spinnerView.isHidden = false
+                self.spinnerView.state = .spinning
+            }
         }
     }
     
@@ -112,6 +115,7 @@ public class AYUActionButton: UIButton {
             shake(with: 0.4)
             delegate?.actionButtonDelegateDisabledButtonDidTouch(self)
         } else {
+            actionHandler?()
             delegate?.actionButtonDelegateDidTouch(self)
         }
     }

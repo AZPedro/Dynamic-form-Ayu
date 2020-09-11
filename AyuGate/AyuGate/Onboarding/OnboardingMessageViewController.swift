@@ -11,51 +11,111 @@ import AyuKit
 import FormKit
 import UIKit
 
-class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentController, AYUActionButtonDelegate, FormStepFlowControllerDelegate {
+class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentController, FormStepFlowControllerDelegate, AYUActionButtonDelegate {
 
-    let meiFormFlowSections: [FormSection] = [
-        Section(masks: [Mock.NameField()]),
-        Section(masks: [Mock.EmailField()]),
-        Section(masks: [Mock.BirthDayDate()]),
-        RGSection()
-    ]
-    
-    struct MeiFormLayout: FormLayout {
-        var delegate: FormLayoutDelegate?
-
-        var shouldShowNextStepButton: Bool = false
-        var isScrollEnabled: Bool = false
-        var shouldShowStepBottom: Bool = true
-    }
-    
-    private lazy var meiFormFlowDependencies: CPFFormDepencies = {
-        return CPFFormDepencies(formLayoutDependence: MeiFormLayout(), formSectionDependence: meiFormFlowSections ,stepDependence: Step(numberOfSteps: meiFormFlowSections.count-1, currentStep: 0))
-    }()
-    
-    // Formulario para MEI vazio
-    private lazy var meiFormFlow: FormStepFlowController<FormStepCollectionViewCell> = {
-        let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: meiFormFlowDependencies)
-        flow.modalPresentationStyle = .fullScreen
-        flow.delegate = self
-        return flow
-    }()
+    private let navigation = UINavigationController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
     
+    public lazy var alreadyMei: AYUActionButton = {
+        let button = AYUActionButton().setTitle("Já tenho MEI")
+        button.status = .enabled
+        return button
+    }()
+    
     private func setup() {
+        
+        view.addSubview(alreadyMei)
+        
+        alreadyMei.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        alreadyMei.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        alreadyMei.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -10).isActive = true
+        
         actionButton.isHidden = false
         actionButton.delegate = self
+        
+        actionButton.actionHandler = {
+            self.fetchForm()
+        }
+        
+        alreadyMei.actionHandler = {
+            self.fetchAlreadyMeiForm()
+        }
     }
     
     func actionButtonDelegateDidTouch(_ sender: Any) {
-        present(meiFormFlow, animated: true, completion: nil)
+        
     }
     
-    func formStepFlowControllerDelegateDidFinish() {
-        
+    func formStepFlowControllerDelegateDidFinish(controller: UIViewController) {
+        let homeFlow = HomeFlowController()
+        homeFlow.modalPresentationStyle = .fullScreen
+        controller.present(homeFlow, animated: true, completion: nil)
+    }
+    
+    private func fetchForm() {
+        actionButton.status = .loading
+        NetworkManager.shared.makeRequest(request: .init(stringURL: "https://run.mocky.io/v3/44091ba3-fb27-486b-834c-80b5b794e677")) { (result: Handler<Form>?, valid) in
+            self.actionButton.status = .loaded
+            guard let form = result?.response else { return }
+            
+            let formSections = form.sections.compactMap({ section -> Section in
+                let maskFields = section.fields.map { field -> MaskField in
+                    Mask(field: field)
+                }
+                
+                let section = Section(sectionImageURL: section.imageSection?.url, layout: DefaultFormCollectionLayout(), masks: maskFields)
+                return section
+            })
+            
+            DispatchQueue.main.async {
+                let step = Step(numberOfSteps: form.sections.count-1, currentStep: 0)
+                let formDependencies = FormDependence(formSectionDependence: formSections, stepDependence: step)
+                
+                let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: formDependencies)
+                flow.delegate = self
+                
+                self.navigation.modalPresentationStyle = .fullScreen
+                self.navigation.isNavigationBarHidden = true
+                self.navigation.viewControllers = [flow]
+                
+                self.present(self.navigation, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    private func fetchAlreadyMeiForm() {
+        alreadyMei.status = .loading
+        NetworkManager.shared.makeRequest(request: .init(stringURL: "https://run.mocky.io/v3/ba9bd343-5059-42ba-8b82-599a79007e3f")) { (result: Handler<Form>?, valid) in
+            self.alreadyMei.status = .loaded
+            guard let form = result?.response else { return }
+            
+            let formSections = form.sections.compactMap({ section -> Section in
+                let maskFields = section.fields.map { field -> MaskField in
+                    Mask(field: field)
+                }
+                
+                let section = Section(sectionImageURL: section.imageSection?.url, layout: DefaultFormCollectionLayout(), masks: maskFields)
+                return section
+            })
+            
+            DispatchQueue.main.async {
+                let step = Step(numberOfSteps: form.sections.count-1, currentStep: 0)
+                let formDependencies = FormDependence(formSectionDependence: formSections, stepDependence: step)
+                
+                let flow = FormStepFlowController<FormStepCollectionViewCell>(dependencies: formDependencies)
+                flow.delegate = self
+                
+                self.navigation.modalPresentationStyle = .fullScreen
+                self.navigation.isNavigationBarHidden = true
+                self.navigation.viewControllers = [flow]
+                
+                self.present(self.navigation, animated: true, completion: nil)
+            }
+        }
     }
 }
 

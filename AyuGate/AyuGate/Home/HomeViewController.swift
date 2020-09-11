@@ -21,7 +21,6 @@ class HomeViewController: AYUViewController {
     
     private lazy var accountImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "MockedIconProfile")
         imageView.contentMode = .scaleAspectFill
         imageView.isUserInteractionEnabled = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +38,11 @@ class HomeViewController: AYUViewController {
         label.font = UIFont.systemFont(ofSize: 38, weight: .light)
         label.textColor = .black
         let name = profile?.name ?? ""
-        label.text = "Olá, Pedro Emanuel"
+        
+        if let profileName = profile?.name.components(separatedBy: " ").prefix(2).joined(separator: " ") {
+            label.text = "Olá, \(profileName)"
+        }
+        
         return label
     }()
     
@@ -78,18 +81,20 @@ class HomeViewController: AYUViewController {
         footerLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -6).isActive = true
         
         cardView.actionHandler = { [weak self] in
-//            guard let invoice = self?.invoiceModel, let profile = SessionManager.shared.getAccount() else { return }
-//            let invoiceDetailsModel = InvoicedetailsViewModel(invoice: invoice, profile: profile)
-            let mockedInvoice = Invoice(id: "32", liquidAmount: 0, month: "2", percentage: [.init(type: "", percentage: 2)], company: .init(id: "", name: ""), role: .init(id: "", name: ""), payroll: [Invoice.PayRoll(type: "discount", description: "Bruto", amount: 13000.00)])
-            let invoiceViewController = InvoiceDetailViewController(invoice: .init(invoice: mockedInvoice, profile: .init(name: "", cpf: "")))
-            
+            let invoiceViewController = InvoiceDetailViewController()
             self?.present(invoiceViewController, animated: true, completion: nil)
         }
+        
+        self.profile?.avatarURL.parseImage(urlString: profile?.avatarURL , completion: { image in
+            DispatchQueue.main.async {
+                self.accountImageView.image = image
+            }
+        })
     }
     
     private func fetch() {
-        let request = AYURoute.init(path: .payRoll).resquest
-        NetworkManager.shared.makeRequest(request: request) { (result: Handler<Invoice>?, validation) in
+        let request = AYURoute.init(path: .currentPayrol).resquest
+        NetworkManager.shared.makeRequest(request: request) { (result: Handler<Invoice>?, validation: Validation?) in
             DispatchQueue.main.async {
                 guard let invoice = result?.response else { return }
                 self.invoiceModel = invoice

@@ -36,7 +36,9 @@ class AYURoute {
             return "auth"
         case .refresh:
             return "auth/refresh_token"
-        case .payRoll:
+        case .payRoll(let month):
+            return "payroll?month=\(month)"
+        case .currentPayrol:
             return "payroll/current"
         }
     }
@@ -62,6 +64,8 @@ class AYURoute {
             return .get
         case .payRoll:
             return .get
+        case .currentPayrol:
+            return .get
         default:
             return .post
         }
@@ -76,7 +80,8 @@ extension AYURoute {
         case signUP(cpf: String, password: String)
         case auth
         case refresh(refreshToken: String)
-        case payRoll
+        case payRoll(month: String)
+        case currentPayrol
     }
     
     public var resquest: AYURequest {

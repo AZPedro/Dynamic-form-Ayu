@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     
@@ -47,6 +48,23 @@ extension String {
                                     with: "",
                                     options: .regularExpression,
                                     range: startIndex..<endIndex)
+    }
+    
+    
+    func parseImage(urlString: String?, completion: ((UIImage?) -> ())?) {
+        let urlSession = URLSession.shared
+        guard let urlString = urlString, let url = URL(string: urlString) else {
+            completion?(nil)
+            return
+        }
+        
+        urlSession.dataTask(with: url) { (data, response, error) in
+            guard let data = data, let image = UIImage(data: data) else {
+                completion?(nil)
+                return
+            }
+            completion?(image)
+        }.resume()
     }
 
 }

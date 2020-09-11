@@ -45,6 +45,7 @@ class InvoiceListDetailsViewController: UIViewController {
         tableView.register(InvoiceDetailsTableViewCell.self, forCellReuseIdentifier: InvoiceDetailsTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         return tableView
     }()

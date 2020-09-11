@@ -37,12 +37,13 @@ class OnboardingFlowController: UIViewController {
     }
     
     private func setupUI() {
+        self.navigationController?.isNavigationBarHidden = true
         installChild(onboardingStepFlow)
     }
 }
 
 extension OnboardingFlowController: FormStepFlowControllerDelegate {
-    func formStepFlowControllerDelegateDidFinish() {
+    func formStepFlowControllerDelegateDidFinish(controller: UIViewController) {
     
     }
 }
@@ -66,7 +67,7 @@ struct OnboardingStepProtocol: StepProtocol {
 }
 
 struct OnboardingFirstSection: OnboardingFormSection {
-    var sectionImageURL: String? = nil
+    var sectionImageURL: String? = "https://firebasestorage.googleapis.com/v0/b/ios-project-1e1ca.appspot.com/o/womanReading.png?alt=media&token=248b86f0-c79f-4436-8a09-539151a519d6"
     
     var layout: FormLayout? = DefaultFormCollectionLayout(isScrollEnabled: true)
 
@@ -76,7 +77,7 @@ struct OnboardingFirstSection: OnboardingFormSection {
 }
 
 struct OnboardingSecondFormSection: OnboardingFormSection {
-    var sectionImageURL: String? = nil
+    var sectionImageURL: String? = "https://firebasestorage.googleapis.com/v0/b/ios-project-1e1ca.appspot.com/o/womanReading.png?alt=media&token=248b86f0-c79f-4436-8a09-539151a519d6"
     
     var layout: FormLayout? = DefaultFormCollectionLayout(isScrollEnabled: true)
     var imagePosition: NSTextAlignment = .right

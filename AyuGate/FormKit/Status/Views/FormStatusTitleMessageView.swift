@@ -19,7 +19,7 @@ class FormStatusTitleMessageView: UIView {
     }
     
     enum Status {
-        case header(UIImage?)
+        case header(String?)
         case valid
         case invalid
         case validating
@@ -31,10 +31,12 @@ class FormStatusTitleMessageView: UIView {
     private lazy var mainStack: UIStackView = {
         let stack = UIStackView().horizontal(17)
     
-        stack.alignment = .top
+        stack.alignment = .leading
+        stack.distribution = .fillProportionally
     
         stack.add([
             imageLineStack,
+//            UIView(),
             labelStack
         ])
         
@@ -145,8 +147,14 @@ class FormStatusTitleMessageView: UIView {
         add(view: mainStack)
         
         switch model.status {
-        case .header(let image):
-            imageview.image = image
+        case .header(let imageURL):
+            
+            imageURL?.parseImage(urlString: imageURL, completion: { image in
+                DispatchQueue.main.async {
+                    self.imageview.image = image
+                }
+            })
+            
             lineHeightContraint?.constant = 70
         case .invalid:
             imageview.image = Images.warningIcon
@@ -159,14 +167,18 @@ class FormStatusTitleMessageView: UIView {
             lineHeightContraint?.constant = 40
             mainStack.setCustomSpacing(0, after: imageLineStack)
             mainStack.isLayoutMarginsRelativeArrangement = true
-            mainStack.layoutMargins(.init(top: 0, left: 6, bottom: 0, right: 0))
+            // gambiarra pra arrumar layout
+            mainStack.insertArrangedSubview(UIView(), at: 1)
+            mainStack.layoutMargins(.init(top: 0, left: 12, bottom: 0, right: 0))
         case .validating:
             imageview.image = Images.validatingIcon
-            lineHeightContraint?.constant = 40
+            lineHeightContraint?.constant = 25
             lineView.backgroundColor = UIColor.grayTerciary
+            // gambiarra pra arrumar layout
+            mainStack.insertArrangedSubview(UIView(), at: 1)
             mainStack.setCustomSpacing(0, after: imageLineStack)
             mainStack.isLayoutMarginsRelativeArrangement = true
-            mainStack.layoutMargins(.init(top: 0, left: 6, bottom: 0, right: 0))
+            mainStack.layoutMargins(.init(top: 0, left: 12, bottom: 0, right: 0))
         }
         
         title.text = model.title

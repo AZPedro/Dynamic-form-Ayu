@@ -28,6 +28,7 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     private func buildUI() {
         contentView.addSubview(content)
         selectionStyle = .none
+        backgroundColor = .white
         content.translatesAutoresizingMaskIntoConstraints = false
         content.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         content.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true

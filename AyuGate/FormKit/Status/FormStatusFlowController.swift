@@ -10,6 +10,8 @@ import UIKit
 
 public class FormStatusFLowController: UIViewController {
     
+    var actionButtonHandler: ((UIViewController) -> ())?
+    
     private let statusController = StatusFormController()
     private let backgroundController = BackgroundStepController(stepDependence: BackgroundDefaultDependence())
     
@@ -21,5 +23,10 @@ public class FormStatusFLowController: UIViewController {
     private func buildUI() {
         installChild(backgroundController)
         installChild(statusController)
+        
+        statusController.actionButtonHandler = { [weak self] in
+            guard let strongSelf = self else { return }
+            self?.actionButtonHandler?(strongSelf)
+        }
     }
 }

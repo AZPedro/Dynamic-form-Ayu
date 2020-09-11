@@ -38,13 +38,15 @@ public final class AyuActivityView: UIView {
     }
 
     private func update() {
-        switch state {
-        case .start:
-            isHidden = false
-            activity.startAnimating()
-        case .stop:
-            activity.stopAnimating()
-            isHidden = true
+        DispatchQueue.main.async {
+            switch self.state {
+            case .start:
+                self.isHidden = false
+                self.activity.startAnimating()
+            case .stop:
+                self.activity.stopAnimating()
+                self.isHidden = true
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ class ProfileInfoCardView: UIView {
     private lazy var imageview: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "MockedIconProfile")
+        imageView.image = UIImage(named: "MEIMockedIconProfile")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.heightAnchor.constraint(equalToConstant: Constants.imageViewHeight).isActive = true

@@ -43,7 +43,9 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
     }()
     
     lazy var fieldContent: FormFieldContent = {
-        return FormFieldContent(maskField: Mock.CPFField())
+        let field = FormFieldContent(maskField: Mock.CPFField())
+        field.errorMessageLabel.text = "Senha inválida"
+        return field
     }()
     
     lazy var passwordField: FormFieldContent = {

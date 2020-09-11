@@ -34,7 +34,7 @@ extension FormDependencies {
 }
 
 public protocol FormStepFlowControllerDelegate {
-    func formStepFlowControllerDelegateDidFinish()
+    func formStepFlowControllerDelegateDidFinish(controller: UIViewController)
 }
 
 public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController, StepProtocolDelegate, FormLayoutDelegate {
@@ -62,6 +62,17 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
         let stepBottomSegmentController = StepBottomSegmentController(delegate: self)
         stepBottomSegmentController.isValid = dependencies.formLayoutDependence.shouldShowNextStepButton
         return stepBottomSegmentController
+    }()
+    
+    private lazy var formStatusFlow: FormStatusFLowController = {
+        let formStatusFLowControllerController = FormStatusFLowController()
+        formStatusFLowControllerController.modalPresentationStyle = .fullScreen
+        
+        formStatusFLowControllerController.actionButtonHandler = { [weak self] controller in
+            self?.delegate?.formStepFlowControllerDelegateDidFinish(controller: controller)
+        }
+        
+        return formStatusFLowControllerController
     }()
     
     private lazy var pageControl: StepPageControlViewController = {
@@ -194,8 +205,12 @@ extension FormStepFlowController: StepBottomSegmentControllerDelegate {
     }
     
     public func stepBottomSegmentControllerDelegate(didNext: StepBottomSegmentController) {
+        if dependencies.stepDependence.currentStep == dependencies.stepDependence.numberOfSteps {
+            self.navigationController?.present(formStatusFlow, animated: true, completion: nil)
+            return
+        }
         guard dependencies.stepDependence.currentStep < dependencies.stepDependence.numberOfSteps else {
-            delegate?.formStepFlowControllerDelegateDidFinish()
+            delegate?.formStepFlowControllerDelegateDidFinish(controller: self)
             return
         }
         

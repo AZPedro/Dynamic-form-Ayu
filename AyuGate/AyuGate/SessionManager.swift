@@ -125,6 +125,7 @@ class SessionManager: NSObject {
         deleteAuthToken()
         deleteProfileID()
         deleteRefreshToken()
+        deleteAccountInfo()
     }
 
     
@@ -152,17 +153,36 @@ extension SessionManager {
     func getAccount() -> AccountInfo? {
         guard let cpf = defaults.value(forKey: Defaultskeys.cpfKey) as? String,
             let name = defaults.value(forKey: Defaultskeys.profileNamekey) as? String else { return nil }
-        let accountInfo = AccountInfo(name: name, cpf: cpf)
+            
+        let avatarURL = defaults.value(forKey: Defaultskeys.avatarURLKey) as? String ?? ""
+        let pis = defaults.value(forKey: Defaultskeys.pisKey) as? String ?? ""
+        let role = defaults.value(forKey: Defaultskeys.roleKey) as? String ?? ""
+        
+        let accountInfo = AccountInfo(name: name, cpf: cpf, avatarURL: avatarURL, pis: pis, role: role)
         return accountInfo
+    }
+    
+    func deleteAccountInfo() {
+        defaults.removeObject(forKey: Defaultskeys.profileNamekey)
+        defaults.removeObject(forKey: Defaultskeys.cpfKey)
+        defaults.removeObject(forKey: Defaultskeys.roleKey)
+        defaults.removeObject(forKey: Defaultskeys.pisKey)
+        defaults.removeObject(forKey: Defaultskeys.avatarURLKey)
     }
     
     func saveAccount(profile: ProfileParsable) {
         defaults.setValue(profile.cpf, forKey: Defaultskeys.cpfKey)
         defaults.setValue(profile.name, forKey: Defaultskeys.profileNamekey)
+        defaults.setValue(profile.role, forKey: Defaultskeys.roleKey)
+        defaults.setValue(profile.pis, forKey: Defaultskeys.pisKey)
+        defaults.setValue(profile.avatarUrl, forKey: Defaultskeys.avatarURLKey)
     }
     
     struct Defaultskeys {
         static let cpfKey = "cpfKey"
         static let profileNamekey = "profileNameKey"
+        static let avatarURLKey = "avatarURLKey"
+        static let pisKey = "pisKey"
+        static let roleKey = "roleKey"
     }
 }

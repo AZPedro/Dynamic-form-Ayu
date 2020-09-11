@@ -10,22 +10,26 @@ import UIKit
 import AyuKit
 
 class InvoiceDetailViewController: AYUViewController {
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
     }
     
-    var invoiceModel: InvoicedetailsViewModel
-    
-    init(invoice: InvoicedetailsViewModel) {
-        self.invoiceModel = invoice
-        super.init()
+    var invoiceModel: [InvoicedetailsViewModel]? {
+        didSet {
+            updateWeekPickerView()
+        }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    var selectedInvoice: InvoicedetailsViewModel? {
+        didSet {
+            guard let selectedInvoice = selectedInvoice else { return }
+            updateInvoice(with: selectedInvoice)
+        }
     }
+    
+    let accountInfo = SessionManager.shared.getAccount()
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -34,6 +38,8 @@ class InvoiceDetailViewController: AYUViewController {
     struct Constants {
         static let headerHeight = UIScreen.main.bounds.height / 2.8
     }
+    
+    let loadingView = AyuActivityView()
 
     private lazy var descripitionLabel: UILabel = {
         let label = UILabel()
@@ -96,12 +102,14 @@ class InvoiceDetailViewController: AYUViewController {
     
     private lazy var monthsPickerView: AYUMonthsPickerView = {
         let view = AYUMonthsPickerView()
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private lazy var weekPickerView: AYUWeekPickerView = {
         let view = AYUWeekPickerView()
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -117,6 +125,7 @@ class InvoiceDetailViewController: AYUViewController {
     private func buildUI() {
         view.backgroundColor = .white
         view.addSubview(headerContentView)
+        
         headerContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         headerContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         headerContentView.topAnchor.constraint(equalTo: view.topAnchor, constant: -26).isActive = true
@@ -144,14 +153,12 @@ class InvoiceDetailViewController: AYUViewController {
         monthsPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         monthsPickerView.topAnchor.constraint(equalTo: profileCardView.bottomAnchor, constant: 22).isActive = true
         monthsPickerView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        monthsPickerView.currentSelectedMonth = 5
         
         view.addSubview(weekPickerView)
         weekPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         weekPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         weekPickerView.topAnchor.constraint(equalTo: monthsPickerView.bottomAnchor, constant: 10).isActive = true
         weekPickerView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        weekPickerView.currentSelectedMonth = 5
         
         installChild(invoiceListDetailsViewController)
         invoiceListDetailsViewController.view.topAnchor.constraint(equalTo: weekPickerView.bottomAnchor, constant: 5).isActive = true
@@ -159,12 +166,56 @@ class InvoiceDetailViewController: AYUViewController {
         invoiceListDetailsViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         invoiceListDetailsViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        valueLabel.text = invoiceModel.formattedCurrentAmount
-        profileCardView.cpfLabel.text = invoiceModel.cpfValue
-        profileCardView.profileNameLabel.text = invoiceModel.customerName
-        profileCardView.officeLabel.text = invoiceModel.customerRole
+        view.add(view: loadingView)
+        loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         
-        let details = invoiceModel.roll.compactMap({ AYUInvoiceDetailsViewModel(roll: $0) })
-        invoiceListDetailsViewController.model = InvoiceListDetailsViewModel(company: invoiceModel.companyName, details: details)
+        let currentMonth = Calendar.current.component(.month, from: Date())
+        
+        monthsPickerView.currentSelectedMonth = currentMonth
+        fetchPayRoll(month: currentMonth)
+    }
+    
+    private func fetchPayRoll(month: Int) {
+        loadingView.state = .start
+        let request = AYURequest(route: .init(path: .payRoll(month: "2020-01")), .get, body: nil)
+        
+        NetworkManager.shared.makeRequest(request: request) { (result: Invoices?, validation: Validation?) in
+            self.loadingView.state = .stop
+            self.invoiceModel = result?.response.compactMap({ invoice in
+                InvoicedetailsViewModel(currentAmount: invoice.liquidAmount, companyName: invoice.company.name, customerRole: invoice.employee.role, week: invoice.description, month: invoice.month, roll: invoice.events)
+            })
+            
+            DispatchQueue.main.async {
+                if let lastItem = self.invoiceModel?.last {
+                    self.updateInvoice(with: lastItem)
+                }
+            }
+        }
+    }
+    
+    private func updateWeekPickerView() {
+        guard let invoiceModel = self.invoiceModel else { return }
+        DispatchQueue.main.async {
+            self.weekPickerView.currentSelectedMonth = invoiceModel.count - 1
+            self.weekPickerView.weeks = invoiceModel.compactMap({ $0.week })
+        }
+    }
+    
+    private func updateInvoice(with invoiceModel: InvoicedetailsViewModel) {
+        valueLabel.text = invoiceModel.formattedCurrentAmount
+        profileCardView.cpfLabel.text = accountInfo?.cpf ?? ""
+        profileCardView.profileNameLabel.text = accountInfo?.name ?? ""
+        profileCardView.officeLabel.text = invoiceModel.customerRole
+        invoiceListDetailsViewController.model = InvoiceListDetailsViewModel(company: invoiceModel.companyName, details: invoiceModel.roll.map({ AYUInvoiceDetailsViewModel(roll: $0) }))
+    }
+}
+
+extension InvoiceDetailViewController: AYUMonthsPickerViewDelegate, AYUWeekPickerViewDelegate {
+    func didSelectMonth(pickedView: AYUPickView) {
+        fetchPayRoll(month: pickedView.selectedValue+1)
+    }
+    
+    func didSelectWeek(pickedView: AYUPickView) {
+        selectedInvoice = self.invoiceModel?[pickedView.selectedValue]
     }
 }

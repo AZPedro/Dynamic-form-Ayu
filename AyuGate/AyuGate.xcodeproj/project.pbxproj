@@ -25,6 +25,8 @@
 		FA1BEAC0246A046900D78940 /* PasswordValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BEABF246A046900D78940 /* PasswordValidationViewModel.swift */; };
 		FA2639332460CDEF00E282F6 /* AYUInvoiceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2639322460CDEF00E282F6 /* AYUInvoiceDetailsView.swift */; };
 		FA26393724617E4D00E282F6 /* AYUMonthsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26393624617E4D00E282F6 /* AYUMonthsPickerView.swift */; };
+		FA28E36E250B2CA800697D7E /* Strings+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5107D24493B5900B224AF /* Strings+extensions.swift */; };
+		FA28E36F250B2CA900697D7E /* Strings+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5107D24493B5900B224AF /* Strings+extensions.swift */; };
 		FA375B472469A68200D190E8 /* AYURequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA375B462469A68200D190E8 /* AYURequest.swift */; };
 		FA3C76AE25042BE400FDFC55 /* FormStatusFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C76AD25042BE400FDFC55 /* FormStatusFlowController.swift */; };
 		FA3C76B025042C9500FDFC55 /* StatusStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C76AF25042C9500FDFC55 /* StatusStep.swift */; };
@@ -853,6 +855,7 @@
 				FA07026524ECAA5600E0336F /* FormTextField.swift in Sources */,
 				FA9E98A424E8A4AA0027FF5F /* FormStepCollectionViewCell.swift in Sources */,
 				FA9E989E24E8A4620027FF5F /* FormStepFlowController.swift in Sources */,
+				FA28E36F250B2CA900697D7E /* Strings+extensions.swift in Sources */,
 				FA3C76AE25042BE400FDFC55 /* FormStatusFlowController.swift in Sources */,
 				FA9E991924EB4FD70027FF5F /* FormFieldContent.swift in Sources */,
 				FA9E98A024E8A49C0027FF5F /* FormStepCollectionController.swift in Sources */,
@@ -877,6 +880,7 @@
 				FADA8D6224FD8F3100ECB891 /* AYUViewController.swift in Sources */,
 				FA028ECC24F86D9700A7F962 /* Shakeable.swift in Sources */,
 				FA9E98C724E8AB520027FF5F /* Images.swift in Sources */,
+				FA28E36E250B2CA800697D7E /* Strings+extensions.swift in Sources */,
 				FA9E98C624E8A9DD0027FF5F /* UIView+extensions.swift in Sources */,
 				FA9E98C524E8A9DD0027FF5F /* UILabel+extensions.swift in Sources */,
 				FA028ECA24F864D600A7F962 /* AYUActionButton.swift in Sources */,
