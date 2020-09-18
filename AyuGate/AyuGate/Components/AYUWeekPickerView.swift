@@ -93,12 +93,5 @@ class AYUWeekPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         view.selectedValue = row
         delegate?.didSelectWeek(pickedView: view)
     }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        for i in [1, 2] {
-            picker.subviews[i].isHidden = true
-        }
-    }
     
 }

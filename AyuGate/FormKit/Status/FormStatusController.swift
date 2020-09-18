@@ -28,6 +28,7 @@ class StatusFormController: UIViewController {
     }()
     
     public var actionButtonHandler: (() -> ())?
+    var imageURL: String?
     
     private let actionButton: AYUActionButton = {
         let button = AYUActionButton()
@@ -36,13 +37,22 @@ class StatusFormController: UIViewController {
         return button.setTitle("Continuar")
     }()
     
-    private let statusHeader = FormStatusTitleMessageView(model: .init(size: .init(width: 58, height: 58), status: .header(""), title: "Status de solicitação", message: "Aqui você pode acompanhar o andamento da sua solicitação para ser MEI"))
+    private lazy var statusHeader = FormStatusTitleMessageView(model: .init(size: .init(width: 58, height: 58), status: .header(imageURL), title: "Status de solicitação", message: "Aqui você pode acompanhar o andamento da sua solicitação para ser MEI"))
     private let step1 = FormStatusTitleMessageView(model: .init(size: .init(width: 40, height: 40), status: .valid, title: "Envio de informações", message: "Todos os dados enviados foram recebidos corretamente"))
     private let step2 = FormStatusTitleMessageView(model: .init(size: .init(width: 40, height: 40), status: .validating, title: "Validação", message: "Seus dados estão sendo validados e em breve você será notificado."))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
+    }
+    
+    public init(imageURL: String?){
+        self.imageURL = imageURL
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func buildUI() {

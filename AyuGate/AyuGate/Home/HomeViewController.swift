@@ -13,7 +13,7 @@ class HomeViewController: AYUViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
-        fetch()
+        fetchProfile()
     }
     
     var invoiceModel: Invoice?
@@ -21,6 +21,7 @@ class HomeViewController: AYUViewController {
     
     private lazy var accountImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(named: "avatar")
         imageView.contentMode = .scaleAspectFill
         imageView.isUserInteractionEnabled = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -85,6 +86,10 @@ class HomeViewController: AYUViewController {
             self?.present(invoiceViewController, animated: true, completion: nil)
         }
         
+        updateUI()
+    }
+    
+    func updateUI() {
         self.profile?.avatarURL.parseImage(urlString: profile?.avatarURL , completion: { image in
             DispatchQueue.main.async {
                 self.accountImageView.image = image
@@ -103,6 +108,25 @@ class HomeViewController: AYUViewController {
         }
     }
     
+    private func fetchProfile() {
+        guard let profileID = SessionManager.shared.profileId else {
+            return
+        }
+
+        let request = AYURoute(path: .profile(id: profileID)).resquest
+        
+        NetworkManager.shared.makeRequest(request: request) { (result: Handler<ProfileParsable>?, validation) in
+            guard let profile = result?.response else {
+                return
+            }
+            
+            SessionManager.shared.saveAccount(profile: profile)
+            self.updateUI()
+            
+            self.fetch()
+        }
+    }
+
     @objc private func showAccountProfile() {
         let accountController = AccountViewController()
         self.present(accountController, animated: true, completion: nil)

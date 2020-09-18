@@ -46,7 +46,7 @@ class InvoiceDetailViewController: AYUViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
         label.textColor = .white
-        label.text = "Líquido"
+        label.text = "Bruto"
         return label
     }()
     
@@ -63,7 +63,6 @@ class InvoiceDetailViewController: AYUViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
         label.textColor = UIColor.whitePlaceholder
-        label.text = "Terça, 01/07, 2020"
         return label
     }()
     
@@ -169,25 +168,36 @@ class InvoiceDetailViewController: AYUViewController {
         view.add(view: loadingView)
         loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         
-        let currentMonth = Calendar.current.component(.month, from: Date())
+//        let currentMonth = Calendar.current.component(.month, from: Date())
+        var currentMonth: Int
         
-        monthsPickerView.currentSelectedMonth = currentMonth
-        fetchPayRoll(month: currentMonth)
+        if accountInfo?.cpf == "07988032151" {
+            currentMonth = 8
+        } else {
+           currentMonth = 9
+        }
+        
+        monthsPickerView.currentSelectedMonth = currentMonth-1
+        let monthFormatted = currentMonth <= 9 ? "0\(currentMonth)" : "\(currentMonth)"
+        fetchPayRoll(month: "2020-\(monthFormatted)")
     }
     
-    private func fetchPayRoll(month: Int) {
+    private func fetchPayRoll(month: String) {
         loadingView.state = .start
-        let request = AYURequest(route: .init(path: .payRoll(month: "2020-01")), .get, body: nil)
+        let request = AYURequest(route: .init(path: .payRoll(month: month)), .get, body: nil)
         
         NetworkManager.shared.makeRequest(request: request) { (result: Invoices?, validation: Validation?) in
             self.loadingView.state = .stop
             self.invoiceModel = result?.response.compactMap({ invoice in
-                InvoicedetailsViewModel(currentAmount: invoice.liquidAmount, companyName: invoice.company.name, customerRole: invoice.employee.role, week: invoice.description, month: invoice.month, roll: invoice.events)
+                InvoicedetailsViewModel(currentAmount: invoice.grossAmount, companyName: invoice.company.name, customerRole: invoice.employee.role, week: invoice.description, month: invoice.month, roll: invoice.events)
             })
-            
+
             DispatchQueue.main.async {
                 if let lastItem = self.invoiceModel?.last {
+                    self.invoiceListDetailsViewController.view.isHidden = false
                     self.updateInvoice(with: lastItem)
+                } else {
+                    self.invoiceListDetailsViewController.view.isHidden = true
                 }
             }
         }
@@ -204,7 +214,7 @@ class InvoiceDetailViewController: AYUViewController {
     private func updateInvoice(with invoiceModel: InvoicedetailsViewModel) {
         valueLabel.text = invoiceModel.formattedCurrentAmount
         profileCardView.cpfLabel.text = accountInfo?.cpf ?? ""
-        profileCardView.profileNameLabel.text = accountInfo?.name ?? ""
+        profileCardView.profileNameLabel.text = accountInfo?.name.components(separatedBy: " ").prefix(2).joined(separator: " ")
         profileCardView.officeLabel.text = invoiceModel.customerRole
         invoiceListDetailsViewController.model = InvoiceListDetailsViewModel(company: invoiceModel.companyName, details: invoiceModel.roll.map({ AYUInvoiceDetailsViewModel(roll: $0) }))
     }
@@ -212,7 +222,9 @@ class InvoiceDetailViewController: AYUViewController {
 
 extension InvoiceDetailViewController: AYUMonthsPickerViewDelegate, AYUWeekPickerViewDelegate {
     func didSelectMonth(pickedView: AYUPickView) {
-        fetchPayRoll(month: pickedView.selectedValue+1)
+        let currentMonth = pickedView.selectedValue
+        let monthFormatted = currentMonth <= 9 ? "0\(currentMonth)" : "\(currentMonth)"
+        fetchPayRoll(month: "2020-\(monthFormatted)")
     }
     
     func didSelectWeek(pickedView: AYUPickView) {

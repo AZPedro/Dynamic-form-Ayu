@@ -88,13 +88,6 @@ class AYUMonthsPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource 
         
         delegate?.didSelectMonth(pickedView: view)
     }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        for i in [1, 2] {
-            picker.subviews[i].isHidden = true
-        }
-    }
 }
 
 class AYUPickView: UIView {

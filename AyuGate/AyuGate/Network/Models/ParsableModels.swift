@@ -38,6 +38,7 @@ struct Invoice: ParsableProtocol {
     let company: Company
     let employee: Employee
     let description: String
+    let grossAmount: Double
     let events: [PayRoll]
     
     struct Percentage: Decodable {
@@ -79,6 +80,12 @@ struct ProfileParsable: ParsableProtocol {
     let name: String
     let role: String?
     let pis: String?
+    let company: Company?
+    
+    struct Company: Decodable {
+        let name: String
+        let cnpj: String
+    }
     
 //    enum CodingKeys: String, CodingKey {
 //        case id = "id"

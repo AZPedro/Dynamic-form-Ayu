@@ -10,10 +10,25 @@ import UIKit
 
 public class FormStatusFLowController: UIViewController {
     
+    public var imageURL: String?
+    
+    private lazy var statusController: StatusFormController = {
+        let statusFormController = StatusFormController(imageURL: imageURL)
+        return statusFormController
+    }()
+    
     var actionButtonHandler: ((UIViewController) -> ())?
     
-    private let statusController = StatusFormController()
     private let backgroundController = BackgroundStepController(stepDependence: BackgroundDefaultDependence())
+    
+    public init(imageURL: String?){
+        self.imageURL = imageURL
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()

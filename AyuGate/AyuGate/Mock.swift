@@ -12,7 +12,7 @@ import FormKit
 public class Mock {
     /// CPF Field
     struct CPFField: MaskField {
-        var keyboardType: UIKeyboardType = .numberPad
+        var keyboardType: FormFieldContent.Keyboard = .number
         var mask: String? = "000.000.000-00"
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Cpf", title: "Insira seu CPF")
         var fieldType: FormFieldContent.FieldType = .text

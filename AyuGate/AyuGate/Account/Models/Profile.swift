@@ -14,6 +14,8 @@ struct AccountInfo {
     let avatarURL: String
     let pis: String
     let role: String
+    let companyName: String
+    let companyCNPJ: String
     
     var formattedCPF: String {
         let ranges = [3,6]

@@ -157,8 +157,11 @@ extension SessionManager {
         let avatarURL = defaults.value(forKey: Defaultskeys.avatarURLKey) as? String ?? ""
         let pis = defaults.value(forKey: Defaultskeys.pisKey) as? String ?? ""
         let role = defaults.value(forKey: Defaultskeys.roleKey) as? String ?? ""
+        let companyName = defaults.value(forKey: Defaultskeys.companyName) as? String ?? ""
+        let companyCnpj = defaults.value(forKey: Defaultskeys.cnpj) as? String ?? ""
         
-        let accountInfo = AccountInfo(name: name, cpf: cpf, avatarURL: avatarURL, pis: pis, role: role)
+        let accountInfo = AccountInfo(name: name, cpf: cpf, avatarURL: avatarURL, pis: pis, role: role, companyName: companyName, companyCNPJ: companyCnpj)
+        
         return accountInfo
     }
     
@@ -168,6 +171,8 @@ extension SessionManager {
         defaults.removeObject(forKey: Defaultskeys.roleKey)
         defaults.removeObject(forKey: Defaultskeys.pisKey)
         defaults.removeObject(forKey: Defaultskeys.avatarURLKey)
+        defaults.removeObject(forKey: Defaultskeys.cnpj)
+        defaults.removeObject(forKey: Defaultskeys.companyName)
     }
     
     func saveAccount(profile: ProfileParsable) {
@@ -176,6 +181,8 @@ extension SessionManager {
         defaults.setValue(profile.role, forKey: Defaultskeys.roleKey)
         defaults.setValue(profile.pis, forKey: Defaultskeys.pisKey)
         defaults.setValue(profile.avatarUrl, forKey: Defaultskeys.avatarURLKey)
+        defaults.setValue(profile.company?.cnpj, forKey: Defaultskeys.cnpj)
+        defaults.setValue(profile.company?.name, forKey: Defaultskeys.companyName)
     }
     
     struct Defaultskeys {
@@ -184,5 +191,7 @@ extension SessionManager {
         static let avatarURLKey = "avatarURLKey"
         static let pisKey = "pisKey"
         static let roleKey = "roleKey"
+        static let companyName = "companyName"
+        static let cnpj = "cnpjKey"
     }
 }

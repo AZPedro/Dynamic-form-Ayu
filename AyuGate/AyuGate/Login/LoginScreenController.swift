@@ -135,6 +135,7 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         ])
         actionButton.delegate = self
+        actionButton.status = .enabled
         fieldContent.model = Mock.CPFField().formModel
         imageView.image = Images.womanWithComputer
 

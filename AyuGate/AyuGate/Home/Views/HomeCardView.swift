@@ -125,9 +125,10 @@ class HomeCardView: UIView {
         monthTitle.text = model.month
         animate()
         invoiceDiscountBar.model = InvoiceDiscountBarViewModel(model: model.barModel)
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            self.invoiceDiscountBar.animate()
-        }
+
+        //        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+//            self.invoiceDiscountBar.animate()
+//        }
     }
 }
 

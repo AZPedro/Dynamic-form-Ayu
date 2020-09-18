@@ -64,8 +64,11 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
         return stepBottomSegmentController
     }()
     
+    let defaults = UserDefaults.standard
+    
     private lazy var formStatusFlow: FormStatusFLowController = {
-        let formStatusFLowControllerController = FormStatusFLowController()
+        let avatarURL = defaults.value(forKey: "avatarURLKey") as? String ?? ""
+        let formStatusFLowControllerController = FormStatusFLowController(imageURL: avatarURL)
         formStatusFLowControllerController.modalPresentationStyle = .fullScreen
         
         formStatusFLowControllerController.actionButtonHandler = { [weak self] controller in

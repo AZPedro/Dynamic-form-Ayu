@@ -25,10 +25,11 @@ class ProfileInfoCardView: UIView {
         }
     }
     
+    private let accountInfo = SessionManager.shared.getAccount()
+    
     private lazy var imageview: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "MEIMockedIconProfile")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.heightAnchor.constraint(equalToConstant: Constants.imageViewHeight).isActive = true
@@ -111,6 +112,12 @@ class ProfileInfoCardView: UIView {
         
         cpfLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         cpfLabel.topAnchor.constraint(equalTo: officeLabel.bottomAnchor, constant: 9).isActive = true
+        
+        accountInfo?.avatarURL.parseImage(urlString: accountInfo?.avatarURL, completion: { image in
+            DispatchQueue.main.async {
+                self.imageview.image = image
+            }
+        })
     }
     
     private func updateUI() {

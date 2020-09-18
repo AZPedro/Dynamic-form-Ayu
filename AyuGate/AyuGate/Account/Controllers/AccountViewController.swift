@@ -70,7 +70,6 @@ class AccountViewController: UIViewController {
     private lazy var imageview: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "MEIMockedIconProfile")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.heightAnchor.constraint(equalToConstant: 88).isActive = true
@@ -130,7 +129,9 @@ class AccountViewController: UIViewController {
         
         self.accountDetailsListViewController.model = [
             .init(title: "Nome Completo", value: model.name),
-            .init(title: "PIS", value: "")
+            .init(title: "PIS", value: model.pis),
+            .init(title: "Nome da empresa", value: model.companyName),
+            .init(title: "CNPJ da empresa", value: model.companyCNPJ)
         ]
         
 //        model: [
@@ -188,6 +189,28 @@ class AccountViewController: UIViewController {
                 self.imageview.image = image
             }
         })
+        
+        fetchProfile()
+    }
+    
+    private func fetchProfile() {
+        guard let profileID = SessionManager.shared.profileId else {
+            return
+        }
+
+        let request = AYURoute(path: .profile(id: profileID)).resquest
+        
+        NetworkManager.shared.makeRequest(request: request) { (result: Handler<ProfileParsable>?, validation) in
+            guard let profile = result?.response else {
+                return
+            }
+            
+            SessionManager.shared.saveAccount(profile: profile)
+            
+            DispatchQueue.main.async {
+                self.updateUI()
+            }
+        }
     }
     
     @objc private func pop() {
