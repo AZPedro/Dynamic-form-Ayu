@@ -37,10 +37,10 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
 //        if SessionManager.shared.isUserLoged {
 //            nav.viewControllers = [HomeFlowController()]
 //        } else {
-//            nav.viewControllers = [onboardingFlow]
+            nav.viewControllers = [onboardingFlow]
 //        }
 //            nav.viewControllers = [loginFlow]
-        nav.viewControllers = [OnboardingMessageViewController(section: messageSection)]
+//        nav.viewControllers = [OnboardingMessageViewController(section: messageSection)]
 //        nav.viewControllers = [FormStatusFLowController()]
         
 //        }

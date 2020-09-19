@@ -54,7 +54,7 @@ public class OnboardingStepCollectionViewCellContentController: AYUActionButtonV
         view.addSubview(messageLabel)
         NSLayoutConstraint.activate([
             imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
-            messageLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 100),
+            messageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
             messageLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         ])
         

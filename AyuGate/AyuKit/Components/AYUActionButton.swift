@@ -71,6 +71,7 @@ public class AYUActionButton: UIButton {
         titleLabel?.isUserInteractionEnabled = false
 
         addSubview(spinnerView)
+        setTitleColor(titleLabel?.textColor.withAlphaComponent(0.7), for: .highlighted)
         
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: Constants.buttonHeight),

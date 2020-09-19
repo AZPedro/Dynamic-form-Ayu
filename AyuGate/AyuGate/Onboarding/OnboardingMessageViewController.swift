@@ -26,13 +26,29 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
         return button
     }()
     
+    let alertController = AyuAlertController()
+    
+    private lazy var dontWantBeMeiLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Não quero ser MEI"
+        label.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dontWantBeMeiLabelAction)))
+        label.textColor = UIColor.whiteDescription
+        return label
+    }()
+    
     private func setup() {
-        
         view.addSubview(alreadyMei)
+        view.addSubview(dontWantBeMeiLabel)
         
         alreadyMei.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         alreadyMei.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         alreadyMei.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -10).isActive = true
+        actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
+        dontWantBeMeiLabel.centerXAnchor.constraint(equalTo: actionButton.centerXAnchor).isActive = true
+        dontWantBeMeiLabel.topAnchor.constraint(equalTo: actionButton.bottomAnchor, constant: 15).isActive = true
         
         actionButton.isHidden = false
         actionButton.delegate = self
@@ -44,10 +60,25 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
         alreadyMei.actionHandler = {
             self.fetchAlreadyMeiForm()
         }
+        
+        alertController.noActionHandler = { [weak self] in
+            self?.alertController.dismiss()
+        }
+        
+        alertController.yesActionHandler = { [weak self] in
+            self?.alertController.dismiss()
+            let homeFlow = HomeFlowController()
+            homeFlow.modalPresentationStyle = .fullScreen
+            self?.present(homeFlow, animated: true, completion: nil)
+        }
     }
     
     func actionButtonDelegateDidTouch(_ sender: Any) {
         
+    }
+    
+    @objc private func dontWantBeMeiLabelAction() {
+        alertController.present(from: self)
     }
     
     func formStepFlowControllerDelegateDidFinish(controller: UIViewController) {
