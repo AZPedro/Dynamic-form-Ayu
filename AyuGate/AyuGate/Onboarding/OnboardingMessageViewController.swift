@@ -100,7 +100,7 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
                     Mask(field: field)
                 }
                 
-                let section = Section(sectionImageURL: section.imageSection?.url, layout: DefaultFormCollectionLayout(), masks: maskFields)
+                let section = Section(sectionTitle: section.title, sectionImageURL: section.imageSection?.url, layout: DefaultFormCollectionLayout(), masks: maskFields)
                 return section
             })
             

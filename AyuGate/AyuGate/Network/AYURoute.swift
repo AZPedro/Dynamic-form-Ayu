@@ -40,6 +40,8 @@ class AYURoute {
             return "payroll?month=\(month)"
         case .currentPayrol:
             return "payroll/current"
+        case .meiForm:
+            return "forms/quero-ser-mei"
         }
     }
     
@@ -66,6 +68,8 @@ class AYURoute {
             return .get
         case .currentPayrol:
             return .get
+        case .meiForm:
+            return .get
         default:
             return .post
         }
@@ -82,6 +86,7 @@ extension AYURoute {
         case refresh(refreshToken: String)
         case payRoll(month: String)
         case currentPayrol
+        case meiForm
     }
     
     public var resquest: AYURequest {

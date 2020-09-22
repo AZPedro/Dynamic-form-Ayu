@@ -87,6 +87,7 @@ struct Step: StepProtocol {
 }
 
 struct Mask: MaskField {
+    var identifier: String
     var mask: String?
     var keyboardType: FormFieldContent.Keyboard
     var validatorQuery: String?
@@ -101,6 +102,7 @@ struct Mask: MaskField {
         self.formModel = FormFieldContent.Model(placeholder: field.placeholder, title: field.title, value: field.value)
         self.fieldType = FormFieldContent.FieldType(rawValue: field.type) ?? .text
         self.isSecurity = field.isSecurity
+        self.identifier = field.formIdentifier
     }
 }
 

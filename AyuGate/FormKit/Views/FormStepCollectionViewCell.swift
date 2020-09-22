@@ -9,7 +9,8 @@
 import UIKit
 
 public protocol StepCollectionViewCell: UICollectionViewCell {
-    func setup(section: FormSection)
+    func setup(section: FormSection, navigation: UINavigationController?)
+    func dismissForm()
     static var identifier: String { get }
     var sectionValidationHandler: ((FormSection) -> Void)? { get set }
 }
@@ -30,10 +31,12 @@ public class FormStepCollectionViewCell: UICollectionViewCell, StepCollectionVie
     public static var identifier: String = "StepCollectionViewCellIdentifier"
     
     public var sectionValidationHandler: ((FormSection) -> Void)?
-    
+    var navigationController: UINavigationController?
     var stepCollectionViewCellContentController: SectionController?
 
-    public func setup(section: FormSection) {
+    public func setup(section: FormSection, navigation: UINavigationController?) {
+        navigationController = navigation
+        
         let isUpload = !section.masks.filter({ $0.fieldType == .upload }).isEmpty
         
         if isUpload {
@@ -50,5 +53,9 @@ public class FormStepCollectionViewCell: UICollectionViewCell, StepCollectionVie
     public override func prepareForReuse() {
         super.prepareForReuse()
         stepCollectionViewCellContentController?.view.removeFromSuperview()
+    }
+    
+    public func dismissForm() {
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
 }

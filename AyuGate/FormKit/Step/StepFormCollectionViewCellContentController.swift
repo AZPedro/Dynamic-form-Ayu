@@ -39,6 +39,18 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
         return imageView
     }()
     
+    private lazy var closeButton: UIImageView = {
+        let backArrow = UIImageView()
+        backArrow.isUserInteractionEnabled = true
+        backArrow.translatesAutoresizingMaskIntoConstraints = false
+        backArrow.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        backArrow.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        backArrow.contentMode = .scaleAspectFit
+        backArrow.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissForm)))
+        backArrow.image = UIImage(named: "CloseButtonIcon")
+        return backArrow
+    }()
+    
     private lazy var mainStackContent: UIStackView = {
         let stackView = UIStackView().vertical(50)
         switch section.imagePosition {
@@ -75,6 +87,7 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
     
     private func buildUI() {
         view.addSubview(scrollContentView)
+        view.addSubview(closeButton)
 
         scrollContentView.addSubview(mainStackContent)
         
@@ -92,7 +105,10 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
             mainStackContent.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 80),
             mainStackContent.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mainStackContent.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width-44),
-            mainStackContent.bottomAnchor.constraint(lessThanOrEqualTo: scrollContentView.bottomAnchor, constant: -30)
+            mainStackContent.bottomAnchor.constraint(lessThanOrEqualTo: scrollContentView.bottomAnchor, constant: -30),
+            
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            closeButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
         ])
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
@@ -129,8 +145,12 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //            self.section.layout?.shouldShowNextStepButton = true
-            self.section.layout?.delegate?.updateLayout(for: self.section.layout!)
+//            self.section.layout?.delegate?.updateLayout(for: self.section.layout!)
         }
+    }
+    
+    @objc private func dismissForm() {
+        self.delegate?.dismissForm()
     }
     
     private func checkAllFieldsValidation() {

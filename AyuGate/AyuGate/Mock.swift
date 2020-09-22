@@ -12,6 +12,8 @@ import FormKit
 public class Mock {
     /// CPF Field
     struct CPFField: MaskField {
+        var identifier: String = ""
+        
         var keyboardType: FormFieldContent.Keyboard = .number
         var mask: String? = "000.000.000-00"
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Cpf", title: "Insira seu CPF")
@@ -25,6 +27,7 @@ public class Mock {
     }
     
     struct PasswordField: MaskField {
+        var identifier: String = ""
         var keyboardType: UIKeyboardType = .default
         var mask: String? = nil
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Senha", title: "Insira sua senha!")
@@ -34,6 +37,7 @@ public class Mock {
     }
     
     struct ConfirmPasswordField: MaskField {
+        var identifier: String = ""
         var keyboardType: UIKeyboardType = .default
         var mask: String? = nil
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Confirmar senha", title: "Insira sua senha!")
@@ -43,6 +47,7 @@ public class Mock {
     }
     
     struct NameField: MaskField {
+        var identifier: String = ""
         var keyboardType: UIKeyboardType = .namePhonePad
         var mask: String? = nil
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Nome Completo", title: "Diga nos seu nome!")
@@ -51,6 +56,7 @@ public class Mock {
     }
     
     struct EmailField: MaskField {
+        var identifier: String = ""
         var keyboardType: UIKeyboardType = .namePhonePad
         var mask: String? = nil
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "E-mail", title: "E-mail")
@@ -59,6 +65,7 @@ public class Mock {
     }
     
     struct BirthDayDate: MaskField {
+        var identifier: String = ""
         var keyboardType: UIKeyboardType = .namePhonePad
         var mask: String? = "00 / 00 / 0000"
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "dd / mm / aaaa", title: "Nascimento")
@@ -67,6 +74,7 @@ public class Mock {
     }
     
     struct DocumentRG: MaskField {
+        var identifier: String = ""
         var keyboardType: UIKeyboardType = .numberPad
         var mask: String? = "00.000.000-0"
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "RG", title: "Numero de RG", spacingAfterTitle: 5)
@@ -75,6 +83,7 @@ public class Mock {
     }
     
     struct OrgaoEmissor: MaskField {
+        var identifier: String = ""
         var keyboardType: UIKeyboardType = .namePhonePad
         var mask: String?
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "Órgão", title: "Órgão Emissor", spacingAfterTitle: 5)
@@ -83,6 +92,7 @@ public class Mock {
     }
     
     struct UF: MaskField {
+        var identifier: String = ""
         var keyboardType: UIKeyboardType = .namePhonePad
         var mask: String?
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "UF", title: "UF", spacingAfterTitle: 5)
@@ -91,6 +101,7 @@ public class Mock {
     }
     
     struct DocumentRGDate: MaskField {
+        var identifier: String = ""
         var keyboardType: UIKeyboardType = .numberPad
         var mask: String? = "00 / 00 / 0000"
         var formModel: FormFieldContent.Model = FormFieldContent.Model(placeholder: "dd / mm / aaaa", title: "Data de emissão", spacingAfterTitle: 5)

@@ -83,11 +83,13 @@ extension OnboardingFormSection {
 
 public protocol MaskField {
     var mask: String? { get set }
+    var identifier: String { get set }
     var keyboardType: FormFieldContent.Keyboard { get }
     var validatorQuery: String? { get set }
     var formModel: FormFieldContent.Model { get set }
     var fieldType: FormFieldContent.FieldType { get set }
     var isSecurity: Bool { get set }
+    
 }
 
 extension MaskField {

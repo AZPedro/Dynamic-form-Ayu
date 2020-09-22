@@ -15,8 +15,11 @@ public class OnboardingStepCollectionViewCell: UICollectionViewCell, StepCollect
     
     var onboardingStepCollectionViewCellContentController: OnboardingStepCollectionViewCellContentController?
     var loginFlowController = LoginFlowController()
+    var navigationController: UINavigationController?
 
-    public func setup(section: FormSection) {
+    public func setup(section: FormSection, navigation: UINavigationController?) {
+        self.navigationController = navigation
+        
         if let onboardingSection = section as? OnboardingFormSection {
             onboardingStepCollectionViewCellContentController = OnboardingStepCollectionViewCellContentController(section: onboardingSection)
             guard let contentController = onboardingStepCollectionViewCellContentController else { return }
@@ -33,4 +36,7 @@ public class OnboardingStepCollectionViewCell: UICollectionViewCell, StepCollect
         loginFlowController.view.removeFromSuperview()
     }
     
+    public func dismissForm() {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
 }

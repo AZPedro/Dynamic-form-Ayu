@@ -36,7 +36,8 @@ public class StepFormCollectionViewCellUploadContentController: UIViewController
     }()
     
     public lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: section.sectionImage)
+        let image = section.sectionImage ?? UIImage(named: section.masks.first?.identifier ?? "")
+        let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false

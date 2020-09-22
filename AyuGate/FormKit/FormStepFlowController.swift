@@ -18,12 +18,14 @@ public protocol FormDependencies {
 public struct DefaultFormCollectionLayout: FormLayout {
     public var delegate: FormLayoutDelegate?
     public var shouldShowNextStepButton: Bool
+    public var shouldShowBackStepButton: Bool
     public var isScrollEnabled: Bool
     
-    public init(shouldShowNextStepButton: Bool = false, delegate: FormLayoutDelegate? = nil, isScrollEnabled: Bool = false){
+    public init(shouldShowNextStepButton: Bool = false, delegate: FormLayoutDelegate? = nil, isScrollEnabled: Bool = false, shouldShowBackStepButton: Bool = true){
         self.shouldShowNextStepButton = shouldShowNextStepButton
         self.isScrollEnabled = isScrollEnabled
         self.delegate = delegate
+        self.shouldShowBackStepButton = shouldShowBackStepButton
     }
 }
 
@@ -108,8 +110,10 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
         dependencies.formSectionDependence.enumerated().forEach({ index, element in
             parseImage(urlString: element.sectionImageURL) { image in
                 count += 1
-                self.dependencies.formSectionDependence[index].sectionImage = image
-        
+                if let image = image {
+                    self.dependencies.formSectionDependence[index].sectionImage = image
+                }
+    
                 if count == self.dependencies.formSectionDependence.count {
                     DispatchQueue.main.async {
                         self.acitivity.state = .stop
@@ -162,6 +166,7 @@ public class FormStepFlowController<T: StepCollectionViewCell>: UIViewController
     
     public func updateLayout(for sectionLayout: FormLayout) {
         pageControl.view.isHidden = !sectionLayout.shouldShowPageControl
+        stepBottomSegmentController.hasBackOption = sectionLayout.shouldShowBackStepButton
 //        stepBottomSegmentController.isValid = sectionLayout.shouldShowNextStepButton
         stepBottomSegmentController.isValid = true
         

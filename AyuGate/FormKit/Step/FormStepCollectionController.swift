@@ -134,7 +134,7 @@ class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as? T else { return UICollectionViewCell() }
-        cell.setup(section: formSectionDependence[indexPath.row])
+        cell.setup(section: formSectionDependence[indexPath.row], navigation: self.navigationController)
         
         cell.sectionValidationHandler = { section in
             guard let sectionLayout = section.layout else { return }
@@ -147,13 +147,14 @@ class FormStepCollectionController<T: StepCollectionViewCell>: UIViewController,
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
+        guard var sectionLayout = formSectionDependence[indexPath.row].layout else { return }
+        sectionLayout.shouldShowBackStepButton = indexPath.row != 0
+        sectionLayout.delegate?.updateLayout(for: sectionLayout)
+        
         guard formCollectionLayout.isScrollEnabled else { return }
+        
         if shouldMoveToStep {
             self.delegate?.moveToStep(at: indexPath.row)
-            
-            guard let sectionLayout = formSectionDependence[indexPath.row].layout else { return }
-            sectionLayout.delegate?.updateLayout(for: sectionLayout)
-
         } else {
             shouldMoveToStep = true
         }

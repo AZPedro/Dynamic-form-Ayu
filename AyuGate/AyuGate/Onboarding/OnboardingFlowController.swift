@@ -67,13 +67,13 @@ struct OnboardingStepProtocol: StepProtocol {
 }
 
 struct OnboardingFirstSection: OnboardingFormSection {
-    var sectionImageURL: String? = "https://firebasestorage.googleapis.com/v0/b/ios-project-1e1ca.appspot.com/o/womanReading.png?alt=media&token=248b86f0-c79f-4436-8a09-539151a519d6"
+    var sectionImageURL: String? = "https://firebasestorage.googleapis.com/v0/b/ios-project-1e1ca.appspot.com/o/manWalking.png?alt=media&token=bb369e72-18b4-4cca-8e69-8dc3d1673924"
     
     var layout: FormLayout? = DefaultFormCollectionLayout(isScrollEnabled: true)
 
     var imagePosition: NSTextAlignment = .left
     var messageText: String
-    var sectionImage: UIImage?
+    var sectionImage: UIImage? = Images.manWalkingWithCellPhone
 }
 
 struct OnboardingSecondFormSection: OnboardingFormSection {
@@ -82,7 +82,7 @@ struct OnboardingSecondFormSection: OnboardingFormSection {
     var layout: FormLayout? = DefaultFormCollectionLayout(isScrollEnabled: true)
     var imagePosition: NSTextAlignment = .right
     var messageText: String
-    var sectionImage: UIImage?
+    var sectionImage: UIImage? = Images.womanReading
 }
 
 struct OnboardingCollectionLayout: FormLayout {
