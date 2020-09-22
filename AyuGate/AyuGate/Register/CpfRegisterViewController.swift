@@ -88,7 +88,7 @@ class CpfRegisterViewController: AYUViewController {
             guard let result = result?.response else {
                 return
             }
-
+            
             let model = CPFVerifyViewModel(model: result, cpf: cpfValue)
             self.delegate?.cpfRegisterControllerDelegateVerify(didFinished: model, controller: self)
         }

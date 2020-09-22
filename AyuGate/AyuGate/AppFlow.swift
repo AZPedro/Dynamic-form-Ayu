@@ -34,11 +34,11 @@ final class AppFlow: NSObject, FormStepFlowControllerDelegate {
         nav.isNavigationBarHidden = true
         
 //        nav.viewControllers = [FormStepFlowController(dependencies: formDependencies)]
-//        if SessionManager.shared.isUserLoged {
-//            nav.viewControllers = [HomeFlowController()]
-//        } else {
+        if SessionManager.shared.isUserLoged {
+            nav.viewControllers = [HomeFlowController()]
+        } else {
             nav.viewControllers = [onboardingFlow]
-//        }
+        }
 //            nav.viewControllers = [loginFlow]
 //        nav.viewControllers = [OnboardingMessageViewController(section: messageSection)]
 //        nav.viewControllers = [FormStatusFLowController()]
@@ -67,6 +67,7 @@ struct CPFFormDepencies: FormDependencies {
 }
 
 struct Section: FormSection {
+    var sectionTitle: String?
     var sectionImageURL: String?
     var layout: FormLayout? = DefaultFormCollectionLayout()
     var sectionImage: UIImage? = nil

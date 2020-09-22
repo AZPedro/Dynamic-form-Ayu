@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FormKit
+import AyuKit
 
 class AccountViewController: UIViewController {
     
@@ -63,7 +65,16 @@ class AccountViewController: UIViewController {
         backArrow.contentMode = .scaleAspectFit
         backArrow.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(pop)))
         backArrow.image = UIImage(named: "CloseButtonIcon")
-
+        
+        let statusIconButton = UIButton()
+        v.addSubview(statusIconButton)
+        statusIconButton.translatesAutoresizingMaskIntoConstraints = false
+        statusIconButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        statusIconButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        statusIconButton.rightAnchor.constraint(equalTo: v.rightAnchor, constant: -17).isActive = true
+        statusIconButton.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -17).isActive = true
+        statusIconButton.setImage(Images.validatingIcon, for: .normal)
+        statusIconButton.addTarget(self, action: #selector(showMeiStatus), for: .touchUpInside)
         return v
     }()
     
@@ -144,6 +155,23 @@ class AccountViewController: UIViewController {
 //            .init(title: "Estado civil", value: "Solteiro"),
 //            .init(title: "Data contratação", value: "04/01/2016"),
 //        ]
+    }
+    
+    let defaults = UserDefaults.standard
+    
+    private lazy var formStatusFlow: FormStatusFLowController = {
+        let avatarURL = defaults.value(forKey: "avatarURLKey") as? String ?? ""
+        let formStatusFLowControllerController = FormStatusFLowController(imageURL: avatarURL)
+        
+        formStatusFLowControllerController.actionButtonHandler = { [weak self] controller in
+            controller.dismiss(animated: true, completion: nil)
+        }
+        
+        return formStatusFLowControllerController
+    }()
+    
+    @objc private func showMeiStatus() {
+        self.present(formStatusFlow, animated: true, completion: nil)
     }
     
     private lazy var accountDetailsListViewController: AccountDetailsListViewController = {

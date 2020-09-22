@@ -56,7 +56,7 @@ public class AyuAlertController: UIViewController {
         view.setNeedsLayout()
         alertContent.iconImage.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
-            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.89)
+            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         }) { finished in
             UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
                 self.alertBottomConstraint?.constant = 36
@@ -102,6 +102,7 @@ class AyuAlertContentView: UIView {
     private lazy var messageLabel: UILabel = {
        let messageLabel = UILabel()
         messageLabel.text = "Você sabia que quando você se torna um MEI, você está isento de recolhimento dos impostos aplicados no modelo RPA(INSS, ISS, e IRRF). Você está certo que não quer ser MEI ?"
+        messageLabel.textColor = .white
         messageLabel.textAlignment = .center
         messageLabel.font = UIFont.systemFont(ofSize: 13, weight: .medium)
         messageLabel.numberOfLines = 0

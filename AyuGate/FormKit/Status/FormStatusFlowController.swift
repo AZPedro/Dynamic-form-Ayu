@@ -17,7 +17,7 @@ public class FormStatusFLowController: UIViewController {
         return statusFormController
     }()
     
-    var actionButtonHandler: ((UIViewController) -> ())?
+    public var actionButtonHandler: ((UIViewController) -> ())?
     
     private let backgroundController = BackgroundStepController(stepDependence: BackgroundDefaultDependence())
     

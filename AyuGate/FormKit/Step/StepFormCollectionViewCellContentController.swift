@@ -34,6 +34,7 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
         let imageView = UIImageView(image: section.sectionImage)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.isHidden = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -88,7 +89,7 @@ public class StepFormCollectionViewCellContentController: AYUActionButtonViewCon
             scrollContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
        
-            mainStackContent.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 50),
+            mainStackContent.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 80),
             mainStackContent.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mainStackContent.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width-44),
             mainStackContent.bottomAnchor.constraint(lessThanOrEqualTo: scrollContentView.bottomAnchor, constant: -30)

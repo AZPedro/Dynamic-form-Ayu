@@ -131,7 +131,7 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
                     Mask(field: field)
                 }
                 
-                let section = Section(sectionImageURL: section.imageSection?.url, layout: DefaultFormCollectionLayout(), masks: maskFields)
+                let section = Section(sectionTitle: section.title, sectionImageURL: section.imageSection?.url, layout: DefaultFormCollectionLayout(), masks: maskFields)
                 return section
             })
             
@@ -152,10 +152,10 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
     }
 }
 
-struct RGSection: FormSection {
-    var sectionImageURL: String? = nil
-    var layout: FormLayout? = DefaultFormCollectionLayout()
-    var masks: [MaskField] = [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()]
-    var sectionImage: UIImage? = Images.womanWithDocument
-    var imageBorderSpace: CGFloat = 0
-}
+//struct RGSection: FormSection {
+//    var sectionImageURL: String? = nil
+//    var layout: FormLayout? = DefaultFormCollectionLayout()
+//    var masks: [MaskField] = [Mock.DocumentRG(), Mock.OrgaoEmissor(), Mock.UF(), Mock.DocumentRGDate()]
+//    var sectionImage: UIImage? = Images.womanWithDocument
+//    var imageBorderSpace: CGFloat = 0
+//}

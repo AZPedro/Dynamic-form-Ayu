@@ -12,6 +12,7 @@ public protocol FormSection {
     var masks: [MaskField] { get set }
     var sectionImage: UIImage? { get set }
     var sectionImageURL: String? { get set }
+    var sectionTitle: String? { get set }
     var layout: FormLayout? { get set }
     var imagePosition: UIStackView.Alignment { get set }
     var imageBorderSpace: CGFloat { get set }
@@ -35,6 +36,15 @@ extension FormSection {
             default:
                 return 10
             }
+        }
+        set {
+            
+        }
+    }
+    
+    public var sectionTitle: String? {
+        get {
+            return nil
         }
         set {
             

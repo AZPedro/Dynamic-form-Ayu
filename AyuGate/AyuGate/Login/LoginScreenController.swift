@@ -163,7 +163,6 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
         switch verifyModel.status {
         case .alreadyExists:
             actionButton.status = .loaded
-            fieldContent.endEditing(true)
             fieldContent.maskField = Mock.PasswordField()
             fieldContent.model = passwordFieldModel(with: verifyModel.formattedCPF)
             fieldContent.titleAccessoryView.image = Images.checkMarck
@@ -176,7 +175,6 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
             passwordField.isHidden = false
             fieldContent.isHidden = true
             actionButton.status = .loaded
-            fieldContent.endEditing(true)
             passwordField.model = passwordFieldModel(with: verifyModel.formattedCPF)
             passwordField.titleAccessoryView.image = Images.checkMarck
             passwordField.titleAccessoryView.isHidden = false
@@ -191,7 +189,6 @@ class LoginScreenController: AYUActionButtonViewController, AYUActionButtonViewC
 extension LoginScreenController: AYUActionButtonDelegate {
     func actionButtonDelegateDidTouch(_ sender: Any) {
         actionButton.status = .loading
-        self.view.endEditing(true)
         switch controllerState {
         case .cpf:
             delegate?.loginScreenControllerDelegateVerifyCPF(field: fieldContent)

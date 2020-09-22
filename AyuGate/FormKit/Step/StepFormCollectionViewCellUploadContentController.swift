@@ -26,6 +26,15 @@ public class StepFormCollectionViewCellUploadContentController: UIViewController
         return provider
     }()
     
+    private lazy var sectionTitleLabel: UILabel = {
+        let l = UILabel()
+        l.font(.systemFont(ofSize: 22, weight: .bold))
+        l.textColour(UIColor.white)
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.text = provider.section.sectionTitle
+        return l
+    }()
+    
     public lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: section.sectionImage)
         imageView.contentMode = .scaleAspectFill
@@ -58,18 +67,21 @@ public class StepFormCollectionViewCellUploadContentController: UIViewController
     }
     
     private func buildUI() {
+        view.addSubview(sectionTitleLabel)
         view.addSubview(imageView)
         view.addSubview(uploadImageView)
         
         NSLayoutConstraint.activate([
-          imageView.heightAnchor.constraint(equalToConstant: 134),
-          imageView.widthAnchor.constraint(equalToConstant: 218),
-          imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-          imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-          uploadImageView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 15),
-          uploadImageView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-          uploadImageView.heightAnchor.constraint(equalToConstant: 16),
-          uploadImageView.widthAnchor.constraint(equalToConstant: 26)
+            sectionTitleLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            sectionTitleLabel.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: -50),
+            imageView.heightAnchor.constraint(equalToConstant: 134),
+            imageView.widthAnchor.constraint(equalToConstant: 218),
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            uploadImageView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 15),
+            uploadImageView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            uploadImageView.heightAnchor.constraint(equalToConstant: 16),
+            uploadImageView.widthAnchor.constraint(equalToConstant: 26)
         ])
 
         imageView.isUserInteractionEnabled = true
