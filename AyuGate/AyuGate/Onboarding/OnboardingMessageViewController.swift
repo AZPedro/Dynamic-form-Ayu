@@ -90,8 +90,8 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
     private func fetchForm() {
         actionButton.status = .loading
 //        https://run.mocky.io/v3/44091ba3-fb27-486b-834c-80b5b794e677
-        
-        NetworkManager.shared.makeRequest(request: .init(stringURL: "https://run.mocky.io/v3/f4b9e0e7-86f9-4c26-8e68-a424edfd4c1f")) { (result: Handler<Form>?, valid) in
+        let request = AYURequest(route: .init(path: .meiForm), .get, body: nil)
+        NetworkManager.shared.makeRequest(request: request) { (result: Handler<Form>?, valid) in
             self.actionButton.status = .loaded
             guard let form = result?.response else { return }
             
@@ -122,7 +122,8 @@ class OnboardingMessageViewController: OnboardingStepCollectionViewCellContentCo
     
     private func fetchAlreadyMeiForm() {
         alreadyMei.status = .loading
-        NetworkManager.shared.makeRequest(request: .init(stringURL: "https://run.mocky.io/v3/ba9bd343-5059-42ba-8b82-599a79007e3f")) { (result: Handler<Form>?, valid) in
+        let request = AYURequest(route: .init(path: .meiForm), .get, body: nil)
+        NetworkManager.shared.makeRequest(request: request) { (result: Handler<Form>?, valid) in
             self.alreadyMei.status = .loaded
             guard let form = result?.response else { return }
             
