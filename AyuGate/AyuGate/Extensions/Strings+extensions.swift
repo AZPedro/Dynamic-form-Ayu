@@ -68,3 +68,21 @@ extension String {
     }
 
 }
+
+public extension String {
+    init(pushToken: Data) {
+        if #available(iOS 13.0, *) {
+            self = (pushToken as NSData).hexString
+        } else {
+            let trim = CharacterSet(charactersIn: "<>")
+            self = (pushToken as NSData).description.trimmingCharacters(in: trim).replacingOccurrences(of: " ", with: "")
+        }
+    }
+}
+
+@objc public extension NSData {
+    var hexString: String {
+        let hexString = map { String(format: "%02x", $0) }.joined()
+        return hexString
+    }
+}

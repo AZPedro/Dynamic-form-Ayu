@@ -42,6 +42,8 @@ class AYURoute {
             return "payroll/current"
         case .meiForm:
             return "forms/quero-ser-mei"
+        case .pushToken:
+            return "pushToken"
         }
     }
     
@@ -55,6 +57,8 @@ class AYURoute {
             return ["cpf": cpf, "password": password, "confirmPassword": password]
         case .refresh(let refreshToken):
             return ["refreshToken": refreshToken]
+        case .pushToken(let token):
+            return ["pushToken": token]
         default:
             return nil
         }
@@ -87,6 +91,7 @@ extension AYURoute {
         case payRoll(month: String)
         case currentPayrol
         case meiForm
+        case pushToken(token: String)
     }
     
     public var resquest: AYURequest {

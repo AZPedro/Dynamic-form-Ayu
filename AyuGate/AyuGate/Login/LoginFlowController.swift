@@ -9,6 +9,7 @@
 import UIKit
 import FormKit
 import AyuKit
+import UserNotifications
 
 class LoginFlowController: UIViewController {
     
@@ -32,6 +33,7 @@ class LoginFlowController: UIViewController {
     private func setup() {
         installChild(loginController)
         self.view.backgroundColor = .clear
+        PermissionsManager.shared.requestNotification()
     }
     
     private func verifyCPF(text: String?) {
@@ -90,6 +92,7 @@ class LoginFlowController: UIViewController {
             }
 
             SessionManager.shared.saveAccount(profile: profile)
+            self.sendPushToken()
             
             if profile.cpf == "07988032151" {
                 self.showHome()
@@ -97,6 +100,13 @@ class LoginFlowController: UIViewController {
                 self.showPreForm()
             }
         }
+    }
+    
+    private func sendPushToken() {
+        guard let token = SessionManager.shared.pushToken else { return }
+        let request = AYURoute(path: .pushToken(token: token)).resquest
+        
+        NetworkManager.shared.makeRequest(request: request) { (result: Handler<Push>?, validation) in}
     }
     
     private func showPreForm() {
@@ -117,6 +127,21 @@ class LoginFlowController: UIViewController {
             self.present(navigationController, animated: true, completion: nil)
         }
     }
+    
+//    private func askNotificationIfNeeded() {
+//
+//        let center = UNUserNotificationCenter.current()
+//
+//        center.requestAuthorization(options: [.alert, .sound, .badge, .provisional]) { granted, error in
+//
+//            if let error = error {
+//                // Handle the error here.
+//            }
+//            DispatchQueue.main.async {
+//                UIApplication.shared.registerForRemoteNotifications()
+//            }
+//        }
+//    }
 }
 
 extension LoginFlowController: LoginScreenControllerDelegate {

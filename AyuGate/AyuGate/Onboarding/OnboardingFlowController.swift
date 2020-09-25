@@ -21,6 +21,7 @@ class OnboardingFlowController: UIViewController {
     private lazy var onboardingFormSections: [FormSection] = {
         return [OnboardingFirstSection(messageText: "Tudo que você precisa para a gestão do seu RH em um único lugar", sectionImage: Images.manWalkingWithCellPhone),
                 OnboardingSecondFormSection(messageText: "Gestão completa e descomplicada da sua folha de pagamento.", sectionImage: Images.womanReading),
+                OnboardingPushFormSection(messageText: "Receba notificações e fique por dentro de tudo que acontece."),
                 LoginFormSection()
         ]
     }()
@@ -77,6 +78,15 @@ struct OnboardingFirstSection: OnboardingFormSection {
 }
 
 struct OnboardingSecondFormSection: OnboardingFormSection {
+    var sectionImageURL: String? = "https://firebasestorage.googleapis.com/v0/b/ios-project-1e1ca.appspot.com/o/womanReading.png?alt=media&token=248b86f0-c79f-4436-8a09-539151a519d6"
+    
+    var layout: FormLayout? = DefaultFormCollectionLayout(isScrollEnabled: true)
+    var imagePosition: NSTextAlignment = .right
+    var messageText: String
+    var sectionImage: UIImage? = Images.womanReading
+}
+
+struct OnboardingPushFormSection: OnboardingFormSection {
     var sectionImageURL: String? = "https://firebasestorage.googleapis.com/v0/b/ios-project-1e1ca.appspot.com/o/womanReading.png?alt=media&token=248b86f0-c79f-4436-8a09-539151a519d6"
     
     var layout: FormLayout? = DefaultFormCollectionLayout(isScrollEnabled: true)

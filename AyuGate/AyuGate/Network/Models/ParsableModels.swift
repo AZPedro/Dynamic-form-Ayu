@@ -93,3 +93,5 @@ struct ProfileParsable: ParsableProtocol {
 //        case name = "name"
 //    }
 }
+
+struct Push: ParsableProtocol { }

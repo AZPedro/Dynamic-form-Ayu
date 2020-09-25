@@ -25,5 +25,11 @@ class AyuGateAppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = AppFlow.shared.flow()
         window?.makeKeyAndVisible()
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = String(pushToken: deviceToken)
+        NSLog("Push token: \(token)")
+        SessionManager.shared.pushToken = token
+    }
 }
 

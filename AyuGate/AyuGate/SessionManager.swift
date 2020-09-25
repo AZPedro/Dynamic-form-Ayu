@@ -74,6 +74,31 @@ class SessionManager: NSObject {
         }
     }
     
+    public var pushToken: String? {
+        get {
+            do {
+                guard let data = try keychainItem.get(Keys.pushTokenKey) else { return nil }
+
+                return String(data: data, encoding: .utf8)
+            } catch {
+                os_log("Error retrieving access token: %{public}@", log: self.log, type: .error, String(describing: error))
+
+                return nil
+            }
+        }
+        set {
+            if let token = newValue {
+                do {
+                    try keychainItem.set(value: Data(token.utf8), identifier: Keys.pushTokenKey)
+                } catch {
+                    os_log("Error saving access token: %{public}@", log: self.log, type: .error, String(describing: error))
+                }
+            } else {
+                deletePushToken()
+            }
+        }
+    }
+    
     public var profileId: String? {
         get {
             do {
@@ -113,6 +138,14 @@ class SessionManager: NSObject {
         }
     }
     
+    public func deletePushToken() {
+        do {
+            try keychainItem.delete(Keys.pushTokenKey)
+        } catch {
+            os_log("Failed to delete access token from keychain: %{public}@", log: self.log, type: .error, String(describing: error))
+        }
+    }
+    
     public func deleteProfileID() {
         do {
             try keychainItem.delete(Keys.profileIDKey)
@@ -139,6 +172,7 @@ extension SessionManager {
     struct Keys {
         static let authTokenKey = "UserAuthTokenKey"
         static let refreshTokenKey = "UserRefreshTokenKey"
+        static let pushTokenKey = "UserPushTokenKey"
         static let profileIDKey = "ProfileId"
     }
 }
